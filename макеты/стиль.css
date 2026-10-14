@@ -233,13 +233,13 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   position: absolute;
   left: 0; right: 0; bottom: 290px;
   display: grid;
-  grid-template-columns: 800px 560px;
+  grid-template-columns: 50% 35%;   /* от середины контейнера; 35% = 560/1600 — пропорционально на любом экране */
   grid-template-rows: auto auto;
 }
 .hero__title {
   grid-column: 1; grid-row: 1;
   align-self: last baseline;
-  font-size: 100px;
+  font-size: clamp(72px, 5.21vw, 100px);   /* 100 px на 1920, пропорционально меньше на 1440 */
   line-height: 100px;
   font-weight: 400;
   text-transform: uppercase;
@@ -506,13 +506,13 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   height: 100vh;
   display: flex; align-items: center;
 }
-.idea .container { height: 727px; }
+.idea .container { height: calc(min(1600px, 100vw - 160px) * .4544); }   /* 727/1600 — блок масштабируется с контейнером */
 .idea__kicker { position: absolute; left: 0; top: -50px; }   /* подпись блока над заголовком */
 .idea__title {
   position: absolute;
   left: 1px; top: 0;
-  width: 774px;
-  font-size: 31px;
+  width: 48.4%;
+  font-size: clamp(24px, 1.62vw, 31px);
   line-height: 35px;
   font-weight: 400;
   text-transform: uppercase;
@@ -520,7 +520,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 }
 .idea__points {
   position: absolute;
-  left: 0; top: 316px;
+  left: 0; top: 43.5%;
   width: 679px;
   display: grid;
   color: var(--body);
@@ -557,8 +557,8 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 
 .idea__photos {
   position: absolute;
-  left: 800px; top: 0;
-  width: 801px; height: 727px;
+  left: 50%; top: 0;
+  width: 50%; height: 100%;
   overflow: hidden;
   background: #8fa3bd;
 }
@@ -578,7 +578,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .slogan .container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  font-size: 80px;
+  font-size: clamp(56px, 4.17vw, 80px);
   line-height: 80px;
   text-transform: uppercase;
   color: var(--slogan);
@@ -684,3 +684,19 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 }
 .specs__cells dt { width: 610px; }
 .specs__cells dd { white-space: nowrap; }
+
+/* ---------- адаптация 1280–1799 (ноутбуки, 1440) ---------- */
+@media (max-width: 1799px) {
+  .nav { gap: 20px; }
+  .nav--side { left: auto; right: calc(300px + 132px + 32px); }   /* справа налево: кнопки, телефон, меню */
+  .header__phone { left: auto; right: 300px; }
+  .hero__slide-title { font-size: clamp(24px, 1.67vw, 32px); line-height: 1.2; }
+  .hero__slider { width: calc(min(1600px, 100vw - 160px) * .35); }   /* 560/1600 — пропорционально */
+  .hero__slide-text { width: 75%; font-size: clamp(15px, .94vw, 18px); line-height: 1.4; }
+  .slogan .container { column-gap: 32px; }
+  .accents__title { font-size: clamp(24px, 1.67vw, 32px); line-height: 1.2; }
+}
+@media (max-width: 1399px) {
+  .header__phone { display: none; }                 /* на узких ноутбуках телефон уходит в меню-бургер */
+  .nav--side { right: calc(300px + 32px); }
+}
