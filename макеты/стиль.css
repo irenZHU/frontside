@@ -491,13 +491,14 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   height: calc(100vh + (var(--n) - 1) * 80vh + 100vh);
   margin-top: 60px;             /* отрицательный отступ наезжал на таблицу на невысоких экранах */
 }
-.idea__dim {                   /* затемнение под налистывающим блоком */
+.idea__dim {                   /* фон блока при прокрутке плавно становится светло-серым, как фон заставки */
   position: absolute; inset: 0;
-  background: #e9edf2;         /* светлый холодный серый: блок «уходит в туман», а не в грязь */
+  background: #f3f3f3;
   opacity: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;                  /* под текстом и фото — их не затеняет */
 }
+.idea__sticky > .container { z-index: 1; }
 .cover {
   position: relative;
   z-index: 2;
