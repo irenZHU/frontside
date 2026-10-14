@@ -128,7 +128,7 @@ body {
 .hero .container {
   height: 100%; z-index: 1;
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 180px 0 max(184px, 27vh);   /* сверху — шапка, крошки и воздух; снизу — место под липкую кнопку (80 + 64 + 40) */
+  padding: 180px 0 max(152px, 27vh);   /* сверху — шапка, крошки и воздух; снизу — место под липкую кнопку (48 + 64 + 40) */
 }
 
 /* ---------- заставка первого экрана ----------
@@ -319,7 +319,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 /* кнопка «Примерить рисунок на фасад»: красная плашка, подпись сверху слева, стрелка снизу справа */
 .hero__cta {
   position: fixed;              /* липкая: всегда по центру внизу экрана */
-  left: calc(50% - 165px); bottom: 80px;
+  left: calc(50% - 165px); bottom: 48px;
   z-index: 90;
   width: 330px; height: 64px;
   padding: 12px 14px 10px 16px;
@@ -336,7 +336,8 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .hero__cta-text { transition: opacity .25s ease; }
 .hero__cta-text.is-swap { opacity: 0; }
 .hero__cta svg { width: 20px; height: 20px; align-self: flex-end; transition: transform .3s ease; }
-.hero__cta.is-low { translate: 0 48px; }     /* после первого экрана — ниже, 32 px от края, чтобы не закрывать контент */
+.hero__cta.is-low { translate: 0 16px; }
+.hero__cta.is-aligned { translate: none; transition: background .25s ease; }   /* выровнена со счётчиком — без сдвигов */     /* после первого экрана — ниже, 32 px от края, чтобы не закрывать контент */
 .hero__cta:hover { background: #c9321f; }
 .hero__cta:hover svg { transform: translate(3px, 3px); }
 
@@ -448,7 +449,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .fact__circles {
   position: absolute;
   left: 0; bottom: 0;
-  width: 456px; height: 152px;
+  width: min(456px, 88%); height: auto; aspect-ratio: 3 / 1;   /* не шире колонки — на 1440 рисунок не залезает за разделитель */
 }
 .fact__circles g { stroke-opacity: .28; }
 .fact__circles g.is-light { stroke-opacity: .1; }
@@ -654,7 +655,8 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   letter-spacing: .04em;
 }
 .accents__kicker::before { content: ''; width: 8px; height: 8px; background: var(--red); }
-.accents__counter { bottom: 7%; left: 64px; }
+.accents__counter { bottom: 7%; left: 64px; display: flex; }
+.accents__counter span { height: 64px; }   /* высота как у кнопки — одна линия сверху и снизу */
 .accents__counter .idea__counter-all { background: rgba(255,255,255,.18); color: #fff; }
 
 /* ---------- 07. Технологические особенности ---------- */
