@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARTVISION — авторская версия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="v2.css">
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header header--light">
+    <div class="container">
+      <a class="header__logo" href="#"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="header__nav">
+        <a href="#" class="is-active">Каталог</a>
+        <a href="#">Решения</a>
+        <a href="#">Проекты</a>
+        <a href="#">Документы</a>
+        <a href="#">О компании</a>
+      </nav>
+      <div class="header__right">
+        <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <a class="btn btn--red" href="#cta">Обсудить проект</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 01. Первый экран: фото фасада + белая плашка с названием -->
+  <section class="hero">
+    <div class="hero__photo" role="img" aria-label="Фасад из панелей Frontside"></div>
+    <div class="container">
+      <div class="hero__claim">
+        <p class="h3">Рельеф,<br>который рисует свет</p>
+        <p class="text">Тиснение глубиной 2,5 мм на фасадных панелях Frontside. Утром, днём и вечером один и тот же фасад выглядит по-разному.</p>
+      </div>
+
+      <div class="hero__plate">
+        <p class="kicker">Технология архитектурного тиснения Frontside</p>
+        <h1 class="hero__title">Artvision</h1>
+      </div>
+      <div class="hero__step">
+        <a class="daylight" href="#light">
+          <span>Смотрите, как свет меняет рельеф</span>
+          <span class="daylight__track"></span>
+          <span>↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. Манифест + три факта -->
+  <section class="manifest">
+    <div class="container">
+      <p class="kicker reveal">01 — Идея</p>
+      <p class="manifest__text reveal">Панель перестаёт быть облицовкой. <em>Рельеф превращает фасад в&nbsp;холст, а&nbsp;солнце — в&nbsp;кисть:</em> здание меняется в&nbsp;течение дня и&nbsp;с&nbsp;каждым шагом прохожего.</p>
+
+      <div class="facts reveal">
+        <div class="fact">
+          <div class="fact__num">Любой</div>
+          <p class="text">рисунок, узор или логотип — от сквозного сюжета на весь фасад до повторяющегося паттерна</p>
+        </div>
+        <div class="fact">
+          <div class="fact__num">4</div>
+          <p class="text">фасадные системы Frontside совместимы с тиснением: UNIQUE, FRONTTOP, FRONTBASE и AESTHETIC</p>
+        </div>
+        <div class="fact">
+          <div class="fact__num">15<small>млн м²</small></div>
+          <p class="text">фасадов выпущено на собственном заводе во Владимирской области с 2001 года</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. Свет: интерактивное время суток -->
+  <section class="light" id="light">
+    <div class="container">
+      <div class="light__grid">
+        <div class="light__side">
+          <p class="kicker reveal">02 — Свет</p>
+          <h2 class="display reveal">Один фасад.<br>Четыре образа<br>за день</h2>
+          <p class="text reveal">Рельеф отвечает на угол солнца: утром тени длинные и тёплые, в полдень рисунок почти растворяется, вечером проступает снова. С интегрированной LED-подсветкой Frontside он остаётся видимым и ночью.</p>
+
+          <div class="daytime reveal">
+            <div class="daytime__now">
+              <span class="daytime__clock" id="clock">08:00</span>
+              <span class="daytime__name" id="clockName">Утро</span>
+            </div>
+            <div class="daytime__presets" id="presets">
+              <button data-h="8" class="is-active">Утро</button>
+              <button data-h="13">Полдень</button>
+              <button data-h="19.3">Вечер</button>
+              <button data-h="23">Ночь</button>
+            </div>
+            <input type="range" id="hourRange" min="6" max="24" step="0.05" value="8" aria-label="Время суток">
+            <div class="daytime__scale"><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+          </div>
+        </div>
+
+        <div class="light__stage reveal">
+          <canvas class="light__relief" id="lightRelief" aria-label="Симуляция рельефа ARTVISION при разном освещении"></canvas>
+          <div class="light__label caps-sm">FRONTTOP · паттерн «ромб» · симуляция света</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. Рисунок: сквозной сюжет и паттерн -->
+  <section class="drawing">
+    <div class="container">
+      <div class="drawing__head">
+        <p class="kicker reveal">03 — Рисунок</p>
+        <h2 class="display reveal">Два способа<br>рассказать историю</h2>
+      </div>
+      <div class="drawing__grid">
+        <article class="tile reveal">
+          <div class="tile__img" style="background-image:url('https://frontside.ru/upload/iblock/651/mfap7jrt9gegdmiyvop8m3gte1257h5n.webp'); background-position: 40% 60%;"></div>
+          <div class="tile__plate">
+            <p class="kicker">Сквозной сюжет</p>
+            <h3 class="h3">Один рисунок на десятки панелей</h3>
+            <p class="text">Изображение масштабируется на любую площадь без привязки к числу и размеру панелей. Предел — только размер фасада.</p>
+          </div>
+        </article>
+        <article class="tile reveal">
+          <div class="tile__img" style="background-image:url('https://frontside.ru/upload/iblock/248/rls03j84zzs8zx95gqjabupld8bj4te7.webp'); background-size: 330% auto; background-position: 50% 42%;"></div>
+          <div class="tile__plate">
+            <p class="kicker">Паттерн</p>
+            <h3 class="h3">Модуль, который держит ритм</h3>
+            <p class="text">Повторяющийся мотив превращает фасад в фактуру и выделяет вход, портал или целый объём.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. Точность: технология как чертёж -->
+  <section class="precision">
+    <div class="container">
+      <div class="precision__head">
+        <p class="kicker reveal">04 — Точность</p>
+        <h2 class="display reveal">Миллиметры,<br>которые делают искусство<br>возможным</h2>
+      </div>
+
+      <svg class="blueprint reveal" viewBox="0 0 1600 480" fill="none" aria-label="Чертёж: ограничения технологии тиснения">
+        <defs>
+          <linearGradient id="fadeX" x1="70" x2="810" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+            <stop offset=".12" stop-color="#fff"/>
+            <stop offset=".88" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="fadeMask"><rect x="0" y="0" width="900" height="480" fill="url(#fadeX)"/></mask>
+        </defs>
+
+        <!-- фасад панели -->
+        <text x="0" y="20" font-size="12" letter-spacing=".8" fill="#8d8d8d">ПАНЕЛЬ · ВИД СПЕРЕДИ</text>
+        <rect x="0" y="40" width="880" height="380" fill="#fff" stroke="#111"/>
+        <rect x="70" y="80" width="740" height="300" stroke="#b5b5b0" stroke-dasharray="4 6"/>
+        <text x="78" y="100" font-size="11" letter-spacing=".8" fill="#8d8d8d">ЗОНА РИСУНКА</text>
+        <g mask="url(#fadeMask)" stroke="#111" stroke-width="3" stroke-linecap="round">
+          <path d="M70 130 C200 100 300 160 440 139 S690 110 810 140"/>
+          <path d="M70 184 C200 154 300 214 440 193 S690 164 810 194"/>
+          <path d="M70 238 C200 208 300 268 440 247 S690 218 810 248"/>
+          <path d="M70 292 C200 262 300 322 440 301 S690 272 810 302"/>
+          <path d="M70 346 C200 316 300 376 440 355 S690 326 810 356"/>
+        </g>
+        <!-- 70 мм от края -->
+        <g stroke="#e53e30">
+          <path d="M0 450 H70"/><path d="M0 442 V458 M70 442 V458"/>
+        </g>
+        <text x="84" y="455" font-size="14" fill="#111">70 ММ ОТ КРАЯ</text>
+        <!-- 30 мм между линиями -->
+        <g stroke="#e53e30">
+          <path d="M470 141 V195"/><path d="M462 141 H478 M462 195 H478"/>
+        </g>
+        <text x="488" y="173" font-size="14" fill="#111">≥ 30 ММ</text>
+
+        <!-- поперечный разрез -->
+        <text x="1000" y="20" font-size="12" letter-spacing=".8" fill="#8d8d8d">ПОПЕРЕЧНЫЙ РАЗРЕЗ · МАСШТАБ УСЛОВНЫЙ</text>
+        <path d="M1000 90 H1260 C1274 90 1280 140 1300 140 C1320 140 1326 90 1340 90 H1600 V170 H1000 Z" fill="#e7e7e3"/>
+        <path d="M1000 90 H1260 C1274 90 1280 140 1300 140 C1320 140 1326 90 1340 90 H1600" stroke="#111"/>
+        <g stroke="#e53e30"><path d="M1380 90 V140"/><path d="M1372 90 H1388 M1372 140 H1388"/></g>
+        <text x="1398" y="121" font-size="14" fill="#111">ДО 2,5 ММ</text>
+
+        <!-- продольный профиль -->
+        <text x="1000" y="250" font-size="12" letter-spacing=".8" fill="#8d8d8d">ПРОДОЛЬНЫЙ ПРОФИЛЬ ЛИНИИ</text>
+        <path d="M1000 290 H1600 V390 H1000 Z" fill="#e7e7e3"/>
+        <path d="M1000 290 V340 H1360 C1450 340 1490 290 1580 290 Z" fill="#fff"/>
+        <path d="M1000 340 H1360 C1450 340 1490 290 1580 290 H1600" stroke="#111"/>
+        <path d="M1000 290 H1600" stroke="#111" stroke-dasharray="2 4"/>
+        <text x="1020" y="370" font-size="14" fill="#111">ГЛУБИНА ОДИНАКОВАЯ ПО ВСЕЙ ДЛИНЕ</text>
+        <g stroke="#e53e30"><path d="M1580 270 V300"/><circle cx="1580" cy="290" r="4" fill="#e53e30"/></g>
+        <text x="1452" y="262" font-size="14" fill="#111">ВЫХОД В НОЛЬ</text>
+      </svg>
+
+      <div class="specs reveal">
+        <div class="spec"><div class="spec__num">30<small>мм</small></div><p class="text">минимальное расстояние между линиями рисунка</p></div>
+        <div class="spec"><div class="spec__num">2,5<small>мм</small></div><p class="text">глубина линии — одинаковая по всей длине</p></div>
+        <div class="spec"><div class="spec__num">0<small>мм</small></div><p class="text">линия может завершаться плавным выходом в ноль</p></div>
+        <div class="spec"><div class="spec__num">70<small>мм</small></div><p class="text">отступ рисунка от края панели</p></div>
+      </div>
+      <p class="precision__note caps-sm reveal">Не наносится на радиусные панели · линии не могут быть прямыми и однонаправленными по всей ширине панели</p>
+    </div>
+  </section>
+
+  <!-- 06. Системы и доказательства -->
+  <section class="systems">
+    <div class="systems__bg" aria-hidden="true"></div>
+    <div class="container">
+      <p class="kicker reveal">05 — Совместимость</p>
+      <div class="systems__grid">
+        <div>
+          <h2 class="display reveal">Работает на четырёх<br>системах Frontside</h2>
+          <div class="systems__list reveal">
+            <div class="system"><span class="system__num">01</span><span class="system__name">UNIQUE</span><span class="system__type">Эстетичная</span></div>
+            <div class="system"><span class="system__num">02</span><span class="system__name">FRONTTOP</span><span class="system__type">Модульная</span></div>
+            <div class="system"><span class="system__num">03</span><span class="system__name">FRONTBASE</span><span class="system__type">Базовая</span></div>
+            <div class="system"><span class="system__num">04</span><span class="system__name">AESTHETIC</span><span class="system__type">Вертикальная</span></div>
+          </div>
+        </div>
+        <div class="proof reveal">
+          <div class="proof__item"><div class="proof__num">3000+</div><p class="text">объектов — от коммерческих до крупных промышленных</p></div>
+          <div class="proof__item"><div class="proof__num">10 лет</div><p class="text">гарантии на продукцию собственного производства</p></div>
+          <div class="proof__item"><div class="proof__num">АГО</div><p class="text">фасады для объектов с повышенными требованиями к эстетике и согласованию архитектурного облика</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07. Призыв -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <h2 class="cta__title reveal">Примерьте свой<br>рисунок на фасад</h2>
+      <div class="cta__row reveal">
+        <p class="text">Пришлите эскиз, идею или фасад объекта. Специалисты Frontside помогут адаптировать рисунок под технологию, подберут систему и подготовят коммерческое предложение с расчётом сроков.</p>
+        <div class="cta__actions">
+          <a class="btn btn--red" href="#">Обсудить проект
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+          </a>
+          <a class="btn btn--line" href="#">Примерить на фасад</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container caps-sm">
+      <span>© 2001–2026 Frontside</span>
+      <span>Концепт страницы ARTVISION</span>
+    </div>
+  </footer>
+
+  <script src="relief.js"></script>
+  <script>
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fmt = Relief.format;
+
+    /* --- блок «Свет»: выбор времени суток --- */
+    const light = Relief(document.getElementById('lightRelief'), {
+      pattern: 'diamonds', panelW: 760, panelH: 320, seam: 3, margin: 44, fade: 70, groove: 0.6,
+      depth: 4.4, scale: 0.8, base: [240, 241, 243], hour: 8,
+    });
+    const clock = document.getElementById('clock'), clockName = document.getElementById('clockName');
+    const range = document.getElementById('hourRange'), presets = [...document.querySelectorAll('#presets button')];
+    const nameOf = h => h < 11 ? 'Утро' : h < 16.5 ? 'День' : h < 21 ? 'Вечер' : 'Ночь · LED-подсветка';
+    function setHour(h) {
+      light.setHour(h);
+      clock.textContent = fmt(h);
+      clockName.textContent = nameOf(h);
+      range.value = h;
+      presets.forEach(b => b.classList.toggle('is-active', Math.abs(+b.dataset.h - h) < 0.3));
+    }
+    range.addEventListener('input', () => setHour(+range.value));
+    let anim;
+    presets.forEach(b => b.addEventListener('click', () => {
+      const from = +range.value, to = +b.dataset.h, t0 = performance.now(), dur = reduce ? 1 : 900;
+      cancelAnimationFrame(anim);
+      const step = now => {
+        const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        setHour(from + (to - from) * e);
+        if (k < 1) anim = requestAnimationFrame(step);
+      };
+      anim = requestAnimationFrame(step);
+    }));
+    setHour(8);
+
+    /* --- появление блоков при прокрутке --- */
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }), { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

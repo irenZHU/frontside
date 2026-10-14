@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARTVISION — студия тиснения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="artvision-studio.css">
+</head>
+<body>
+  <main class="studio" id="studio">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="ARTVISION">ARTVISION<span>™</span></a>
+      <p class="project">Конфигуратор архитектурного тиснения <span>01 / 01</span></p>
+      <div class="topbar__actions">
+        <button class="text-button" id="resetButton" type="button">Сбросить</button>
+        <button class="export-button" id="exportButton" type="button">Сохранить эскиз <span>↗</span></button>
+      </div>
+    </header>
+
+    <section class="workspace" aria-label="Конфигуратор фасадной панели">
+      <div class="stage-wrap">
+        <div class="stage-meta"><span>Предпросмотр тиснения</span><span id="surfaceName">Алюминий · RAL 9006</span></div>
+        <div class="panel-scene" id="panelScene" data-finish="silver">
+          <div class="panel-light"></div>
+          <div class="panel-reflection"></div>
+          <div class="panel-frame">
+            <div class="panel-grid" id="panelGrid"></div>
+            <svg class="relief relief--runner" id="reliefArtwork" viewBox="0 0 720 360" role="img" aria-label="Контур бегущего человека в виде тиснения">
+              <g class="runner-art" id="runnerArt" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M48 98H230M20 148H178M45 250H170M86 316H335"/>
+                <path d="M250 80c18-25 70-36 91-10 17 21 11 53-8 68-21 17-51 8-64-13"/>
+                <circle cx="410" cy="86" r="27"/>
+                <path d="M354 112c-29 11-48 31-66 62l-64 53-56 74M349 119l60 48 45 63 61-9 38-57M310 179l77 13 37 73-50 7-48-52M230 227l63 24 58 9M454 230l-23 54 21 42"/>
+                <path d="M265 229l-47 42-67 13-35 42H64M356 115l43 57 38 4M287 174l-26 54-43 43"/>
+                <path d="M456 144c12 21 27 25 41 4"/>
+                <path d="M506 193h105M490 243h140M465 293h113"/>
+              </g>
+              <g class="wave-art" id="waveArt" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" hidden>
+                <path d="M-25 88C88 22 169 150 282 84S475 19 586 89 746 146 775 96"/>
+                <path d="M-30 151C80 86 170 211 286 145S474 82 588 152 741 213 778 159"/>
+                <path d="M-30 214C83 150 173 275 289 208S475 146 591 216 742 272 780 221"/>
+                <path d="M-30 279C86 214 177 339 292 273S476 210 594 281 742 336 782 286"/>
+              </g>
+              <g class="orbit-art" id="orbitArt" fill="none" stroke="currentColor" stroke-linecap="round" hidden>
+                <ellipse cx="359" cy="184" rx="225" ry="67" transform="rotate(-22 359 184)"/>
+                <ellipse cx="359" cy="184" rx="184" ry="52" transform="rotate(23 359 184)"/>
+                <circle cx="359" cy="184" r="93"/>
+              </g>
+              <g class="monogram-art" id="monogramArt" fill="none" stroke="currentColor" stroke-linecap="round" hidden>
+                <path d="M176 105 314 266 444 105M274 105 364 216 541 104M247 292h265"/>
+                <path d="M188 67h344M138 326h438"/>
+              </g>
+            </svg>
+            <div class="measure measure--x"><span id="widthValue">1 200 мм</span></div>
+            <div class="measure measure--y"><span id="heightValue">600 мм</span></div>
+          </div>
+        </div>
+        <div class="stage-footer">
+          <span>Глубина рельефа: <strong id="depthReadout">1,8 мм</strong></span>
+          <span>Минимальный отступ от края: 70 мм</span>
+        </div>
+      </div>
+
+      <aside class="control-panel" aria-label="Настройки панели">
+        <div class="control-panel__heading">
+          <span class="eyebrow">Параметры</span>
+          <span class="state-dot">в реальном времени</span>
+        </div>
+
+        <section class="control-group">
+          <div class="group-label"><span>Цвет покрытия</span><output id="colourName">RAL 9006</output></div>
+          <div class="swatches" role="radiogroup" aria-label="Цвет покрытия">
+            <button class="swatch is-selected" type="button" data-finish="silver" data-label="RAL 9006" style="--chip:#a3a5a3" aria-label="RAL 9006, серебристый"></button>
+            <button class="swatch" type="button" data-finish="champagne" data-label="RAL 1015" style="--chip:#e4d5b5" aria-label="RAL 1015, кремовый"></button>
+            <button class="swatch" type="button" data-finish="graphite" data-label="RAL 7024" style="--chip:#49525a" aria-label="RAL 7024, графитовый"></button>
+            <button class="swatch" type="button" data-finish="navy" data-label="RAL 5011" style="--chip:#183655" aria-label="RAL 5011, тёмно-синий"></button>
+            <button class="swatch" type="button" data-finish="bronze" data-label="RAL 8017" style="--chip:#4d342b" aria-label="RAL 8017, коричневый"></button>
+          </div>
+        </section>
+
+        <section class="control-group">
+          <div class="group-label"><span>Рисунок</span><button class="upload" type="button" id="uploadButton">Загрузить SVG</button><input id="svgInput" type="file" accept=".svg,image/svg+xml" hidden></div>
+          <div class="drawing-list" role="radiogroup" aria-label="Рисунок тиснения">
+            <button class="drawing-choice is-selected" type="button" data-art="runner"><span class="drawing-icon runner-mini">⌁</span><span>Бегущий человек</span><span>01</span></button>
+            <button class="drawing-choice" type="button" data-art="waves"><span class="drawing-icon">≈</span><span>Топографические линии</span><span>02</span></button>
+            <button class="drawing-choice" type="button" data-art="orbit"><span class="drawing-icon">⊹</span><span>Орбита</span><span>03</span></button>
+            <button class="drawing-choice" type="button" data-art="monogram"><span class="drawing-icon">⌁</span><span>Монограмма</span><span>04</span></button>
+          </div>
+          <p class="assist" id="uploadHint">SVG из контурных линий, без заливки.</p>
+        </section>
+
+        <section class="control-group control-group--sliders">
+          <label class="range-field"><span>Глубина тиснения <output id="depthOutput">1,8 мм</output></span><input id="depthRange" type="range" min="0.5" max="2.5" step="0.1" value="1.8"></label>
+          <label class="range-field"><span>Масштаб рисунка <output id="scaleOutput">100%</output></span><input id="scaleRange" type="range" min="65" max="135" step="1" value="100"></label>
+        </section>
+
+        <section class="control-group compact-controls">
+          <div class="group-label"><span>Положение</span></div>
+          <div class="button-row">
+            <button class="square-button" id="rotateButton" type="button" aria-label="Повернуть рисунок">↻ <span id="rotationLabel">0°</span></button>
+            <button class="square-button" id="mirrorButton" type="button" aria-label="Отразить рисунок">⇋</button>
+            <button class="toggle" id="throughToggle" type="button" aria-pressed="false"><i></i>Сквозной рисунок</button>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="assembly">
+      <div class="assembly__top">
+        <div><span class="eyebrow">Фасад в сборке</span><h2>Рисунок<br>как часть архитектуры.</h2></div>
+        <p>Проверьте, как сюжет проходит через панельную сетку. Линии автоматически уходят в ноль у технологических отступов.</p>
+      </div>
+      <div class="facade" id="facade">
+        <div class="facade__sun"></div>
+        <div class="facade__art" id="facadeArt"></div>
+        <div class="facade__grid" id="facadeGrid"></div>
+        <span class="facade__label">ARTVISION / PREVIEW</span>
+      </div>
+      <div class="assembly__bottom"><span id="gridLabel">Сетка: 5 × 3 панели</span><span>01 / Концепт-предпросмотр</span><button type="button" id="gridButton">Изменить сетку <b>+</b></button></div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite">Эскиз подготовлен для сохранения</div>
+  <script src="artvision-studio.js"></script>
+</body>
+</html>
