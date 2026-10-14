@@ -18,9 +18,8 @@
     const run = sec.offsetHeight - 2 * innerHeight;          // смена картинок (последний экран — налистывание)
     // налистывание следующего блока: под ним закреплённый блок слегка темнеет
     const over = Math.min(Math.max((-r.top - run) / innerHeight, 0), 1);
-    // фон серый с начала прокрутки блока: от въезда (−экран) до закрепления, дальше держится
-    const enter = Math.min(Math.max((innerHeight - r.top) / innerHeight, 0), 1);
-    dim.style.opacity = enter.toFixed(3);
+    // фон становится светло-серым только когда на блок налистывается следующий
+    dim.style.opacity = over.toFixed(3);
     const p = Math.min(Math.max(-r.top / run, 0), 1) * (n - 1); // 0 … n-1
 
     imgs.forEach((img, i) => {
