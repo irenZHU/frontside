@@ -121,11 +121,15 @@ body {
   top: 0;
   z-index: 0;
   height: 100vh;               /* фото на весь экран */
-  min-height: 720px;
+  min-height: 700px;
   background: #4a8fdc;
   overflow: hidden;
 }
-.hero .container { height: 100%; z-index: 1; }
+.hero .container {
+  height: 100%; z-index: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 180px 0 max(184px, 27vh);   /* сверху — шапка, крошки и воздух; снизу — место под липкую кнопку (80 + 64 + 40) */
+}
 
 /* ---------- заставка первого экрана ----------
    0.0 бегущая надпись → 0.4 красная плашка снизу вверх → 1.2 поверх неё снизу вверх картинка
@@ -230,8 +234,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .hero__sun { position: absolute; left: 0; top: 0; width: 1800px; height: 1800px; inset: auto; }   /* вдвое больше исходного (900), яркость та же */
 
 .hero__content {
-  position: absolute;
-  left: 0; right: 0; bottom: 290px;
+  position: relative;            /* в потоке: снизу прижат к кнопке, сверху не заезжает на крошки */
   display: grid;
   grid-template-columns: 50% 35%;   /* от середины контейнера; 35% = 560/1600 — пропорционально на любом экране */
   grid-template-rows: auto auto;
@@ -340,7 +343,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 /* хлебные крошки под шапкой */
 .crumbs {
   position: absolute;
-  left: 0; top: 106px;
+  left: 0; top: 96px;   /* ближе к шапке */
   display: flex;
   align-items: center;
   font: 400 14px/20px var(--font-ui);
