@@ -707,3 +707,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   .header__phone { display: none; }                 /* на узких ноутбуках телефон уходит в меню-бургер */
   .nav--side { right: calc(300px + 32px); }
 }
+@media (max-width: 1799px) {
+  /* «Сфера применения»: подпись и заголовок — на одной вертикали со счётчиком (64 px от края кадра) */
+  .accents__title, .accents__kicker { left: 64px; }
+}
