@@ -611,11 +611,11 @@
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && el.classList.contains('is-open')) close(); });
 
-  // кнопка «Примерь на фасад» открывает конфигуратор (когда на ней «Обсудить проект» — нет)
+  // кнопка «Примерить рисунок на фасад» открывает конфигуратор (когда на ней «Обсудить проект» — нет)
   const cta = document.querySelector('.hero__cta');
   if (cta) cta.addEventListener('click', e => {
     const txt = cta.querySelector('.hero__cta-text');
-    if (!txt || /примерь/i.test(txt.textContent)) { e.preventDefault(); open(); }
+    if (!txt || /примерить/i.test(txt.textContent)) { e.preventDefault(); open(); }
   });
   window.kfOpen = open;                                               // для проверки
 
