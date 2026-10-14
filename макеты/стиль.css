@@ -461,7 +461,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   --d: 0s;                       /* задержка круга: группа + номер круга */
 }
 /* цикл: круги прорисовываются по очереди слева направо, стоят, затем «стираются» дальше по ходу линии */
-.facts.is-in .fact__circles circle { animation: circleLoop 7s cubic-bezier(.65,0,.35,1) var(--d) infinite; }
+.facts.is-in .fact__circles circle { animation: circleLoop 4.6s cubic-bezier(.65,0,.35,1) var(--d) infinite; }
 .fact__circles circle:nth-child(2) { --d: .12s; }
 .fact__circles circle:nth-child(3) { --d: .24s; }
 .fact__circles circle:nth-child(4) { --d: .36s; }
@@ -475,9 +475,9 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .fact__circles .g3 circle:nth-child(4) { --d: 1.06s; }
 @keyframes circleLoop {
   0%   { stroke-dashoffset: 1; }
-  22%  { stroke-dashoffset: 0; }
-  72%  { stroke-dashoffset: 0; }
-  94%  { stroke-dashoffset: -1; }
+  33%  { stroke-dashoffset: 0; }    /* прорисовка ≈1,5 с */
+  55%  { stroke-dashoffset: 0; }    /* пауза ≈1 с (было 3,5 с) */
+  88%  { stroke-dashoffset: -1; }   /* стирание ≈1,5 с */
   100% { stroke-dashoffset: -1; }
 }
 .fact__num span { font-variant-numeric: tabular-nums; }
