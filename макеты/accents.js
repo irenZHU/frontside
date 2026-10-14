@@ -18,7 +18,7 @@
   let ctaMode = '', active = -1, ticking = false;
   function swapCta(r) {
     const over = r.top < innerHeight - 120 && r.bottom > innerHeight - 40;
-    const mode = over ? 'Обсудить проект' : 'Примерь на фасад';
+    const mode = over ? 'Обсудить проект' : 'Примерить рисунок на фасад';
     if (mode === ctaMode || !ctaText) return;
     ctaMode = mode;
     ctaText.classList.add('is-swap');

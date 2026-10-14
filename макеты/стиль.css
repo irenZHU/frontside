@@ -3,7 +3,7 @@
    Контейнер 1600 (поля по 160 на 1920). */
 
 :root {
-  --font: 'Segoe UI', 'Open Sans', sans-serif;   /* в макете Segoe UI */
+  --font: 'Onest', sans-serif;   /* веб-шрифт: у всех одинаково (Segoe UI нельзя встраивать) */
   --font-ui: 'Inter', sans-serif;                 /* навигация, кнопка, «Свобода реализации» */
 
   --red: #e53e30;
@@ -313,7 +313,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .hero__dot.is-active::before { background: var(--red); }
 
 
-/* кнопка «Примерь на фасад»: красная плашка, подпись сверху слева, стрелка снизу справа */
+/* кнопка «Примерить рисунок на фасад»: красная плашка, подпись сверху слева, стрелка снизу справа */
 .hero__cta {
   position: fixed;              /* липкая: всегда по центру внизу экрана */
   left: calc(50% - 165px); bottom: 80px;
