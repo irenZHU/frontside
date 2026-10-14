@@ -498,7 +498,8 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   pointer-events: none;
   z-index: 0;                  /* под текстом и фото — их не затеняет */
 }
-.idea__sticky > .container { z-index: 1; }
+.idea__sticky > .container { z-index: 1; transform: translateY(var(--cy, 0px)); will-change: transform; }
+.idea__title { transform: translateY(var(--ty, 0px)); }
 .cover {
   position: relative;
   z-index: 2;
@@ -572,7 +573,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   background-size: cover;
   background-position: center;
   clip-path: inset(var(--clip, 100%) 0 0 0);     /* открывается снизу вверх */
-  transform: scale(var(--z, 1.08));
+  transform: translateY(var(--py, 0%)) scale(calc(var(--z, 1.08) * 1.12));   /* запас 12% под параллакс */
   will-change: clip-path, transform;
 }
 .idea__img:first-child { --clip: 0%; --z: 1; }
