@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARTVISION — конфигуратор фасада</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="artvision-light.css">
+  <link rel="stylesheet" href="artvision-light-overrides.css">
+</head>
+<body>
+  <main class="artvision-app">
+    <header class="app-header">
+      <a class="wordmark" href="#">ARTVISION<sup>™</sup></a>
+      <p>Архитектурное тиснение <span>·</span> Предпросмотр фасада</p>
+      <button class="close" type="button" aria-label="Закрыть конфигуратор">×</button>
+    </header>
+
+    <div class="app-grid">
+      <section class="preview" aria-label="Визуализация фасада">
+        <div class="image-stage" id="imageStage" data-pattern="circles" data-time="evening">
+          <img src="img/artvision-light-facade.png" alt="Фасад с архитектурным тиснением">
+          <div class="stage-wash"></div>
+          <svg class="pattern-overlay" viewBox="0 0 1000 640" aria-hidden="true">
+            <g class="shape shape--circles">
+              <path d="M75 700C124 515 244 411 388 410c142 0 214-116 218-238M396 650c20-169 112-267 242-268 111 0 174-86 173-194M153 274c72-83 161-120 269-120 117 0 187-54 218-140"/>
+              <path d="M718 665c6-104 65-159 156-172M802 281c53 0 98-33 126-94"/>
+            </g>
+            <g class="shape shape--diamonds" hidden>
+              <path d="M136 170 270 282 136 394 2 282ZM270 170l134 112-134 112-134-112ZM404 170l134 112-134 112-134-112ZM538 170l134 112-134 112-134-112ZM672 170l134 112-134 112-134-112ZM806 170l134 112-134 112-134-112ZM136 394l134 112-134 112L2 506ZM270 394l134 112-134 112-134-112ZM404 394l134 112-134 112-134-112ZM538 394l134 112-134 112-134-112ZM672 394l134 112-134 112-134-112Z"/>
+            </g>
+            <g class="shape shape--mosaic" hidden>
+              <path d="M24 612 146 98l118 254 94-278 156 220 153-180 145 391M24 402l269-48 137 156 181-160 253 116M149 98l-2 514M358 74l72 436M667 114l-56 396M812 120l52 385"/>
+            </g>
+            <g class="shape shape--waves" hidden>
+              <path d="M-10 151c122-107 218 108 341 0s221 107 344 0 220 107 347 0M-10 282c122-107 218 108 341 0s221 107 344 0 220 107 347 0M-10 413c122-107 218 108 341 0s221 107 344 0 220 107 347 0M-10 544c122-107 218 108 341 0s221 107 344 0 220 107 347 0"/>
+            </g>
+          </svg>
+          <div class="view-tabs" role="tablist" aria-label="Время суток">
+            <button type="button" data-time="morning">Утро</button>
+            <button type="button" data-time="day">День</button>
+            <button type="button" data-time="evening" class="is-active">Вечер</button>
+          </div>
+          <div class="view-mode" role="tablist" aria-label="Масштаб просмотра">
+            <button type="button" class="is-active">Угол здания</button>
+            <button type="button">Фасад вблизи</button>
+          </div>
+          <span class="stage-mark">ARTVISION / 01</span>
+        </div>
+        <div class="preview-caption"><span>Световой сценарий <b id="timeReadout">Вечер</b></span><span>Концептуальная визуализация</span></div>
+      </section>
+
+      <aside class="settings" aria-label="Параметры фасадной панели">
+        <div class="settings-head"><span>Настройки</span><span>01—04</span></div>
+        <section class="setting-block">
+          <h1>Цвет панелей</h1>
+          <p id="ralReadout">RAL 7024 · Графитовый серый</p>
+          <div class="palette" role="radiogroup" aria-label="Цвет покрытия">
+            <button class="colour" type="button" data-colour="white" data-ral="RAL 9016 · Белый" style="--colour:#f1f1ee" aria-label="RAL 9016"></button>
+            <button class="colour" type="button" data-colour="cream" data-ral="RAL 1015 · Слоновая кость" style="--colour:#eadfc9" aria-label="RAL 1015"></button>
+            <button class="colour" type="button" data-colour="silver" data-ral="RAL 9006 · Серебристый" style="--colour:#a8abad" aria-label="RAL 9006"></button>
+            <button class="colour is-selected" type="button" data-colour="graphite" data-ral="RAL 7024 · Графитовый серый" style="--colour:#4b5459" aria-label="RAL 7024"></button>
+            <button class="colour" type="button" data-colour="blue" data-ral="RAL 5008 · Серо-синий" style="--colour:#294052" aria-label="RAL 5008"></button>
+            <button class="colour" type="button" data-colour="burgundy" data-ral="RAL 3004 · Бордовый" style="--colour:#702936" aria-label="RAL 3004"></button>
+          </div>
+        </section>
+        <section class="setting-block">
+          <h2>Рисунок</h2>
+          <div class="pattern-list" role="radiogroup" aria-label="Рисунок тиснения">
+            <button class="pattern-card is-selected" type="button" data-pattern="circles"><i class="card-art card-art--circles"></i><span>Круги</span></button>
+            <button class="pattern-card" type="button" data-pattern="diamonds"><i class="card-art card-art--diamonds"></i><span>Ромбы</span></button>
+            <button class="pattern-card" type="button" data-pattern="mosaic"><i class="card-art card-art--mosaic"></i><span>Мозаика</span></button>
+            <button class="pattern-card" type="button" data-pattern="custom"><i class="card-art card-art--waves"></i><span>Ваш SVG</span></button>
+            <input id="svgUpload" type="file" accept=".svg,image/svg+xml" hidden>
+          </div>
+        </section>
+        <section class="setting-block setting-block--row">
+          <button class="switch is-active" id="throughSwitch" type="button" aria-pressed="true"><i></i><span>Сквозной рисунок</span></button>
+          <label class="stepper"><span>Шаг линий</span><input id="stepRange" type="range" min="140" max="300" value="220"><output id="stepReadout">220 мм</output></label>
+        </section>
+        <button class="project-button" id="projectButton" type="button">Добавить в проект <span>↗</span></button>
+        <p class="note">Параметры предварительные. Итоговый рисунок проходит техническую проверку перед производством.</p>
+      </aside>
+    </div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite">Конфигурация добавлена в проект</div>
+  <script src="artvision-light.js"></script>
+</body>
+</html>

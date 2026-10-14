@@ -1,0 +1,4 @@
+.image-stage.is-close > img {
+  transform: scale(1.35);
+  object-position: 55% 56%;
+}

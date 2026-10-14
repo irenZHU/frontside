@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ru" class="is-intro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARTVISION — концепт</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Inter — как в макете; Open Sans — запасной шрифт, если на компьютере нет Segoe UI -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="konfigurator.css">
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container">
+      <a class="logo" href="#"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main">
+        <a href="#">Каталог</a>
+        <a href="#">Решения</a>
+        <a href="#">Услуги</a>
+        <a href="#">Проекты</a>
+        <a href="#">Документы</a>
+      </nav>
+      <nav class="nav nav--side">
+        <a href="#">О компании</a>
+        <a href="#">Новости</a>
+        <a href="#">Контакты</a>
+      </nav>
+      <span class="header__phone">+7 (495) 642-80-91</span>
+      <div class="header__actions">
+        <button class="icon-btn" aria-label="Поиск">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="29" cy="28" r="8"/>
+            <path d="M35.2 34.2 41.7 40.7"/>
+          </svg>
+        </button>
+        <a class="btn-accent" href="#">Отправить заявку</a>
+        <button class="burger" aria-label="Меню">
+          <svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2">
+            <path d="M0 1h25M0 8h25M0 15h25"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- кнопка конфигуратора, как «Примерь на фасад» на сайте клиента; липкая — всегда внизу экрана -->
+  <a class="hero__cta" href="#">
+    <span class="hero__cta-text">Примерь на фасад</span>
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l10 10M15 7v8H7"/></svg>
+  </a>
+
+  <!-- 01. Первый экран: живой свет — солнце идёт от утра к вечеру -->
+  <section class="hero">
+    <!-- заставка: бегущая надпись и красная полоска (отсылка к логотипу) -->
+    <div class="intro" aria-hidden="true">
+      <div class="intro__marquee"><span>ARTVISION ARTVISION ARTVISION ARTVISION </span><span>ARTVISION ARTVISION ARTVISION ARTVISION </span></div>
+      <div class="intro__bar"></div>
+    </div>
+
+    <div class="hero__mask">
+    <div class="hero__stage" id="heroStage" aria-hidden="true">
+      <video class="hero__img" src="img/hero-video.mp4" poster="img/poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+
+
+
+      <!-- солнечный свет на фасаде: утром — левая стеклянная грань, вечером — светлые панели.
+           Одна мягкая маска по контуру здания (без навеса), свет только добавляется. -->
+      <svg class="hero__light" viewBox="0 0 1920 823">
+        <defs>
+          <filter id="soft" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="3"/></filter>
+          <mask id="buildingMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="823">
+            <g filter="url(#soft)">
+              <polygon points="893,18 950,45 1525,470 1912,148 1920,148 1920,823 478,823" fill="#fff"/>
+              <polygon points="952,62 1520,474 1238,740 1100,530" fill="#000"/>
+            </g>
+          </mask>
+          <linearGradient id="morningGrad" gradientUnits="userSpaceOnUse" x1="470" y1="0" x2="1120" y2="0">
+            <stop id="mg0" offset="0" stop-color="#ffb46e" stop-opacity="0"/>
+            <stop id="mg1" offset=".7" stop-color="#ffb46e" stop-opacity="0"/>
+            <stop id="mg2" offset="1" stop-color="#ffb46e" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="eveningGrad" gradientUnits="userSpaceOnUse" x1="1920" y1="0" x2="1150" y2="0">
+            <stop id="eg0" offset="0" stop-color="#ffb46e" stop-opacity="0"/>
+            <stop id="eg1" offset=".6" stop-color="#ffb46e" stop-opacity="0"/>
+            <stop id="eg2" offset="1" stop-color="#ffb46e" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g mask="url(#buildingMask)">
+          <rect width="1920" height="823" fill="url(#morningGrad)"/>
+          <rect width="1920" height="823" fill="url(#eveningGrad)"/>
+        </g>
+      </svg>
+
+      <!-- мягкое тёплое сияние со стороны солнца: только добавляет свет -->
+      <div class="hero__wash" id="heroWash"></div>
+      <div class="hero__sun-clip"><div class="hero__sun" id="heroSun"></div></div>
+    </div>
+
+    <!-- заставка: название по центру панели, исчезает перед раскрытием -->
+    <p class="intro__title" aria-hidden="true">Технология архитектурного тиснения</p>
+    </div>
+
+    <div class="container">
+      <nav class="crumbs" aria-label="Хлебные крошки">
+        <a href="#">Главная</a>
+        <a href="#">Каталог</a>
+        <span aria-current="page">Технология архитектурного тиснения ARTVISION</span>
+      </nav>
+
+      <!-- ARTVISION и «Технология архитектурного тиснения» — в одну строку по нижней линии букв -->
+      <div class="hero__content">
+        <h1 class="hero__title">ARTVISION</h1>
+        <h2 class="hero__slide-title">Технология архитектурного тиснения</h2>
+      <!-- под заголовком справа: слайдер текстов и переключатели-чёрточки -->
+      <div class="hero__slider" id="heroSlider">
+        <div class="hero__slides">
+          <article class="hero__slide is-active">
+            <h3 class="hero__slide-sub">Эстетика с эффектом 3D</h3>
+            <p class="hero__slide-text">Создает уникальный объемный рельеф на фасаде, добавляет глубину и выразительность. Здание оживает, меняя свой вид в течение дня и взаимодействуя с освещением и в зависимости от угла обзора.</p>
+          </article>
+          <article class="hero__slide">
+            <h3 class="hero__slide-sub">Свобода реализации</h3>
+            <p class="hero__slide-text">Технология ARTVISION позволяет наносить на фасадные панели любые рисунки и узоры, открывая простор для создания уникальных форм и воплощений архитектурных концепций.</p>
+          </article>
+          <article class="hero__slide">
+            <h3 class="hero__slide-sub">Вариативность</h3>
+            <p class="hero__slide-text">Изображение масштабируется на поверхность любой площади без привязки к количеству панелей и их размерам, а также размещается в виде повторяющегося паттерна.</p>
+          </article>
+        </div>
+        <div class="hero__dots" role="tablist" aria-label="Слайды">
+          <button class="hero__dot is-active" aria-label="Слайд 1"></button>
+          <button class="hero__dot" aria-label="Слайд 2"></button>
+          <button class="hero__dot" aria-label="Слайд 3"></button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- всё ниже первого экрана наезжает на него при прокрутке -->
+  <div class="over">
+
+  <!-- 02б. Факты: три колонки с линиями, крупные цифры внизу справа -->
+  <section class="facts" id="facts">
+    <p class="kicker kicker--center">Характеристики</p>
+    <div class="container">
+      <div class="fact">
+        <p class="fact__text">Рисунок, узор или логотип — от сквозного сюжета на весь фасад до повторяющегося паттерна</p>
+        <!-- три рисунка: средний акцентный, боковые светлее; прорисовываются по очереди -->
+        <svg class="fact__circles" viewBox="0 0 456 152" fill="none" stroke="#000" stroke-width="2" aria-hidden="true">
+          <g class="g1 is-light">
+            <circle cx="76" cy="76" r="74" pathLength="1" transform="rotate(-90 76 76)"/>
+            <circle cx="76" cy="76" r="62" pathLength="1" transform="rotate(-90 76 76)"/>
+            <circle cx="76" cy="76" r="51" pathLength="1" transform="rotate(-90 76 76)"/>
+            <circle cx="76" cy="76" r="40" pathLength="1" transform="rotate(-90 76 76)"/>
+          </g>
+          <g class="g2">
+            <circle cx="228" cy="76" r="74" pathLength="1" transform="rotate(-90 228 76)"/>
+            <circle cx="228" cy="76" r="62" pathLength="1" transform="rotate(-90 228 76)"/>
+            <circle cx="228" cy="76" r="51" pathLength="1" transform="rotate(-90 228 76)"/>
+            <circle cx="228" cy="76" r="40" pathLength="1" transform="rotate(-90 228 76)"/>
+          </g>
+          <g class="g3 is-light">
+            <circle cx="380" cy="76" r="74" pathLength="1" transform="rotate(-90 380 76)"/>
+            <circle cx="380" cy="76" r="62" pathLength="1" transform="rotate(-90 380 76)"/>
+            <circle cx="380" cy="76" r="51" pathLength="1" transform="rotate(-90 380 76)"/>
+            <circle cx="380" cy="76" r="40" pathLength="1" transform="rotate(-90 380 76)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="fact">
+        <p class="fact__text">Фасадные системы FRONTSIDE совместимы с тиснением: UNIQUE, FRONTTOP, FRONTBASE и AESTHETIC</p>
+        <div class="fact__num"><span data-count="4">4</span></div>
+      </div>
+      <div class="fact">
+        <p class="fact__text">Фасадов выпущено на собственном заводе во Владимирской области с 2001 года</p>
+        <div class="fact__num"><span data-count="15">15</span><small>млн м²</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02в. Технологические особенности — под фактами, от середины контейнера -->
+  <section class="specs">
+    <div class="container">
+      <div class="specs__inner">
+        <h2 class="specs__title">Технологические особенности</h2>
+        <div class="specs__line"></div>
+        <dl class="specs__list">
+          <div class="specs__row">
+            <div class="specs__cells"><dt>Минимальное расстояние между линиями</dt><dd>30 мм.</dd></div>
+            <div class="specs__line"></div>
+          </div>
+          <div class="specs__row">
+            <div class="specs__cells"><dt>Глубина линии одинаковая по всей длине</dt><dd>до 2,5 мм</dd></div>
+            <div class="specs__line"></div>
+          </div>
+          <div class="specs__row">
+            <div class="specs__cells"><dt>Линия может завершаться плавным, нисходящим в ноль выходом</dt><dd>0 мм</dd></div>
+            <div class="specs__line"></div>
+          </div>
+          <div class="specs__row">
+            <div class="specs__cells"><dt>Линия заканчивается в 70 мм от края панели</dt><dd>70 мм</dd></div>
+            <div class="specs__line"></div>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. Идея + фото: блок закрепляется, при прокрутке картинки сменяются снизу вверх, текст — вместе с ними -->
+  <section class="idea" id="idea" style="--n: 3">
+    <div class="idea__sticky">
+      <div class="idea__dim" id="ideaDim" aria-hidden="true"></div>
+      <div class="container">
+        <p class="kicker idea__kicker">Преимущества</p>
+        <h2 class="idea__title">инновационный способ воплощения творческих замыслов архитекторов и креативная реализация ожиданий заказчиков</h2>
+
+        <div class="idea__points">
+          <!-- три ключевых преимущества со страницы клиента (вкладка «Преимущества») -->
+          <div class="idea__point is-active">
+            <h3>Индивидуальность без визуальной перегрузки</h3>
+            <p>ARTVISION придаёт зданию уникальность и расставляет акценты в его облике, не прибегая к стандартным вывескам или баннерам, — фасад сохраняет элегантность.</p>
+          </div>
+          <div class="idea__point">
+            <h3>Эксклюзивность без лишних вложений</h3>
+            <p>Технология позволяет реализовать сложные кастомизированные фасадные решения и достичь премиального вида здания в рамках бюджета — без компромиссов в качестве и уникальности.</p>
+          </div>
+          <div class="idea__point">
+            <h3>Функциональность</h3>
+            <p>Тиснёный рисунок — не только декор, но и инструмент для зонирования фасада, навигации и визуальных акцентов. Фасад становится активным элементом архитектурного повествования.</p>
+          </div>
+        </div>
+
+        <div class="idea__counter"><span class="idea__counter-now" id="ideaNum">01</span><span class="idea__counter-all">03</span></div>
+
+        <div class="idea__photos" role="img" aria-label="Фасады из панелей Frontside">
+          <div class="idea__img" style="background-image:url('img/idea-2.webp')"></div>
+          <div class="idea__img" style="background-image:url('img/idea-3.webp')"></div>
+          <div class="idea__img" style="background-image:url('img/idea-4.webp')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- следующий блок налистывается на закреплённый блок «Идея», с лёгкой тенью -->
+  <div class="cover">
+
+  <!-- 04. Слоган -->
+  <section class="slogan">
+    <div class="container">
+      <span>Создает</span>
+      <span>изысканный</span>
+      <span>вид</span>
+    </div>
+  </section>
+
+  <!-- 05. Лид (повтор, как в макете) -->
+  <section class="lead lead--repeat">
+    <p>Технология архитектурного тиснения FRONTSIDE ARTVISION позволяет создавать выразительные визуальные эффекты на фасадных панелях</p>
+  </section>
+
+  <!-- 06. Синий блок -->
+  <!-- Сфера применения: вертикальный слайдер. Блок закреплён, каждая сфера — отдельный кадр,
+       следующий кадр (фото + название + описание) подъезжает снизу при прокрутке -->
+  <section class="accents" id="accents" style="--n: 7">
+    <div class="accents__sticky">
+      <div class="accents__stage">
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/accents-bg-2.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">Торговые павильоны и ТРЦ</h2>
+            <p class="accents__note">Фасад торгового центра работает как вывеска: рельеф ARTVISION делает здание узнаваемым издалека и выделяет входные группы без дополнительных конструкций.</p>
+          </div>
+        </article>
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/sphere-sport.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">Спортивные объекты</h2>
+            <p class="accents__note">Динамичный рисунок на фасаде передаёт характер спортивного объекта и меняется вместе со светом в течение дня.</p>
+          </div>
+        </article>
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/sphere-industry.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">Промышленные предприятия</h2>
+            <p class="accents__note">Даже протяжённый производственный корпус получает выразительный облик: тиснение разбивает монотонную плоскость фасада.</p>
+          </div>
+        </article>
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/sphere-light.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">Объекты Light Industrial</h2>
+            <p class="accents__note">Рельеф помогает выделить складской или производственно-складской комплекс среди типовой застройки и подчеркнуть бренд арендатора.</p>
+          </div>
+        </article>
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/idea-2.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">ЦОДы</h2>
+            <p class="accents__note">Глухие фасады дата-центров становятся архитектурой: рисунок или паттерн на панелях оживляет закрытые стены.</p>
+          </div>
+        </article>
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/sphere-culture.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">Социально-культурные объекты</h2>
+            <p class="accents__note">Сюжетный рисунок на фасаде школы, музея или культурного центра рассказывает историю места и становится частью городской среды.</p>
+          </div>
+        </article>
+        <article class="accents__slide">
+          <div class="accents__img" style="background-image:url('img/sphere-transport.webp')"></div>
+          <div class="container">
+            <h2 class="accents__title">Объекты транспортной инфраструктуры</h2>
+            <p class="accents__note">Вокзалы и транспортные узлы видят тысячи людей в день: рельеф создаёт запоминающийся образ и помогает ориентироваться.</p>
+          </div>
+        </article>
+      </div>
+      <div class="container accents__ui">
+        <p class="accents__kicker">Сфера применения</p>
+        <div class="idea__counter accents__counter"><span class="idea__counter-now" id="accNum">01</span><span class="idea__counter-all">07</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  </div>
+  </div>
+
+  <script src="hero-light.js"></script>
+  <script>
+    // заставка идёт ~4 с: потом снимаем режим заставки (шапка снова белая, прокрутка разрешена)
+    (() => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // прокрутку держим без overflow: hidden — полоса прокрутки не пропадает, и ширина страницы не меняется
+      const stop = e => e.preventDefault();
+      const keys = e => { if ([' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) e.preventDefault(); };
+      if (!reduce) {
+        addEventListener('wheel', stop, { passive: false });
+        addEventListener('touchmove', stop, { passive: false });
+        addEventListener('keydown', keys);
+      }
+      const vid = document.querySelector('video.hero__img');      // видео стартует сразу, ещё в узкой панели заставки
+      if (vid) vid.play().catch(() => {});
+      setTimeout(() => {
+        document.documentElement.classList.remove('is-intro');
+        removeEventListener('wheel', stop); removeEventListener('touchmove', stop); removeEventListener('keydown', keys);
+      }, reduce ? 0 : 3900);
+    })();
+  </script>
+  <script>
+    // шапка: после начала прокрутки — белая полупрозрачная подложка с размытием
+    (() => {
+      const h = document.querySelector('.header');
+      const cta = document.querySelector('.hero__cta');
+      const on = () => {
+        h.classList.toggle('is-scrolled', scrollY > 40);
+        cta.classList.toggle('is-low', scrollY > innerHeight * 0.6);
+      };
+      addEventListener('scroll', on, { passive: true }); on();
+    })();
+  </script>
+  <script src="hero-slider.js"></script>
+  <script src="reveal.js"></script>
+  <script src="idea-scroll.js"></script>
+  <script src="facts.js"></script>
+  <script src="accents.js"></script>
+  <script src="konfigurator.js"></script>
+</body>
+</html>

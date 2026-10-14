@@ -1,0 +1,444 @@
+/* ARTVISION — авторская версия.
+   Идея: «Рельеф, который рисует свет».
+   Стиль по референсам: air.pro (Onest, всё заглавными, поджатая разрядка,
+   белый, монохром) и likova.space (белая плашка врезается в изображение,
+   огромное название, глубокий синий). Красный Frontside — только в действии. */
+
+:root {
+  --ink: #111214;
+  --ink-2: #3a3b3e;
+  --muted: #8d8d8d;
+  --line: #e2e2e2;
+  --paper: #ffffff;
+  --stone: #f2f2f0;
+  --navy: #0d1420;
+  --red: #e53e30;
+
+  --container: 1600px;
+
+  /* закон близости: внутри группы / между группами / между блоками */
+  --s-in: 12px;
+  --s-group: 24px;
+  --s-block: 200px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  min-width: 1280px;               /* концепт — только десктоп */
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 160px));
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---------- типографика ---------- */
+
+.kicker {                          /* подсказка над заголовком */
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.display {                         /* крупный заголовок, как у Air */
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+.h3 {
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.caps-sm {
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+/* ---------- кнопки ---------- */
+
+.btn {
+  height: 56px;
+  padding: 0 28px;
+  display: inline-flex; align-items: center; gap: 12px;
+  font: 500 13px/1 'Onest', sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  white-space: nowrap;
+}
+.btn--red { background: var(--red); color: #fff; }
+.btn--red:hover { background: #c9321f; }
+.btn--line { border-color: currentColor; color: inherit; background: transparent; }
+.btn--line:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn svg { width: 14px; height: 14px; }
+
+/* ---------- шапка ---------- */
+
+.header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  height: 96px;
+}
+.header .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.header__logo img { display: block; width: 36px; height: 48px; object-fit: contain; }
+.header__nav {
+  display: flex;
+  gap: 32px;
+  margin-left: 64px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.header__nav a { color: var(--ink); text-decoration: none; opacity: .75; transition: opacity .2s; }
+.header__nav a:hover, .header__nav a.is-active { opacity: 1; }
+.header__right { margin-left: auto; display: flex; align-items: center; gap: 32px; }
+.header__phone { font-size: 13px; font-weight: 500; letter-spacing: .03em; color: var(--ink); text-decoration: none; }
+.header .btn { height: 48px; }
+.header--light .header__nav a,
+.header--light .header__phone { color: #fff; }
+
+/* ---------- 01. Первый экран ---------- */
+
+.hero {
+  position: relative;
+  height: max(880px, 100vh);
+  background: var(--stone);
+  overflow: hidden;
+}
+.hero__photo {
+  position: absolute; inset: 0;
+  background: #3f86d6 url('img/hero-v2.webp') center 20% / cover no-repeat;
+}
+.hero .container { height: 100%; }
+
+.hero__claim {                     /* справа сверху: обещание */
+  position: absolute;
+  top: 200px; right: 0;
+  width: 440px;
+}
+.hero__claim .h3 { font-size: 36px; margin-bottom: var(--s-group); }
+.hero__claim { color: #fff; }
+.hero__claim .text { color: rgba(255,255,255,.85); max-width: 360px; }
+
+/* белая плашка с названием — приём Likova + ступенька из макета */
+.hero__plate {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 1060px;
+  padding: 48px 64px 0 0;
+  background: var(--paper);
+}
+.hero__plate::before {             /* плашка уходит до левого края экрана */
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; right: 100%;
+  width: 50vw;
+  background: var(--paper);
+}
+.hero__plate .kicker { margin-bottom: 20px; }
+.hero__title {
+  font-size: 216px;
+  line-height: .78;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+  margin-left: -10px;
+  padding-bottom: 8px;
+}
+.hero__step {
+  position: absolute;
+  left: 1060px; bottom: 0;
+  width: 400px; height: 96px;
+  background: var(--paper);
+  padding: 28px 0 0 0;
+}
+
+/* индикатор света: тонкая линия + время */
+.daylight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.daylight__track {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: #cfcfcf;
+}
+.daylight__sun {
+  position: absolute;
+  top: -4px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+  transform: translateX(-50%);
+}
+.daylight__time { min-width: 44px; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- 02. Манифест ---------- */
+
+.manifest { padding-top: 168px; }
+.manifest .kicker { margin-bottom: 40px; }
+.manifest__text {
+  max-width: 1380px;
+  font-size: 56px;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+.manifest__text em { font-style: normal; color: var(--muted); }
+
+.facts {
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+.fact { padding: 32px 40px 0 0; }
+.fact + .fact { padding-left: 40px; border-left: 1px solid var(--line); }
+.fact__num {
+  font-size: 96px;
+  line-height: .9;
+  letter-spacing: -.05em;
+  margin-bottom: 20px;
+}
+.fact__num small { font-size: 32px; letter-spacing: -.02em; margin-left: 6px; }
+.fact .text { max-width: 340px; }
+
+/* ---------- 03. Свет ---------- */
+
+.light { padding-top: var(--s-block); }
+.light__grid {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 120px;
+  align-items: stretch;
+}
+.light__side { display: flex; flex-direction: column; }
+.light__side .kicker { margin-bottom: 40px; }
+.light__side .display { margin-bottom: 32px; }
+.light__side .text { max-width: 400px; }
+
+.daytime { margin-top: auto; }
+.daytime__now {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.daytime__clock { font-size: 72px; line-height: 1; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.daytime__name { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.daytime__presets { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 24px; }
+.daytime__presets button {
+  height: 44px;
+  border: 1px solid var(--line);
+  background: none;
+  font: 500 12px/1 'Onest', sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all .2s;
+}
+.daytime__presets button:hover { border-color: var(--ink); color: var(--ink); }
+.daytime__presets button.is-active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.daytime input[type=range] {
+  width: 100%;
+  -webkit-appearance: none; appearance: none;
+  height: 24px; background: none; cursor: pointer;
+}
+.daytime input[type=range]::-webkit-slider-runnable-track { height: 1px; background: #cfcfcf; }
+.daytime input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px; margin-top: -7px;
+  border-radius: 50%; background: var(--red); border: 0;
+}
+.daytime__scale { display: flex; justify-content: space-between; margin-top: 4px; }
+.daytime__scale span { font-size: 11px; letter-spacing: .06em; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.light__stage { position: relative; height: 760px; background: var(--stone); }
+.light__relief { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.light__label {                    /* белая плашка-подпись на изображении */
+  position: absolute;
+  left: 0; bottom: 0;
+  padding: 20px 28px 0 0;
+  background: var(--paper);
+}
+
+/* ---------- 04. Рисунок ---------- */
+
+.drawing { padding-top: var(--s-block); }
+.drawing__head {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 120px;
+  margin-bottom: 64px;
+}
+.drawing__head .kicker { padding-top: 14px; }
+.drawing__grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 24px;
+}
+.tile { position: relative; height: 820px; overflow: hidden; background: var(--stone); }
+.tile__img {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+.tile:hover .tile__img { transform: scale(1.03); }
+.tile__plate {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: min(520px, 86%);
+  padding: 28px 32px 0 0;
+  background: var(--paper);
+}
+.tile__plate .kicker { margin-bottom: var(--s-in); }
+.tile__plate .h3 { margin-bottom: var(--s-in); }
+
+/* ---------- 05. Точность ---------- */
+
+.precision { margin-top: var(--s-block); padding: 160px 0; background: var(--stone); }
+.precision__head {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 120px;
+  margin-bottom: 80px;
+}
+.precision__head .kicker { padding-top: 14px; }
+.blueprint { display: block; width: 100%; height: auto; }
+.blueprint text { font-family: 'Onest', sans-serif; }
+
+.specs {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #d6d6d2;
+}
+.spec { padding: 32px 32px 0 0; }
+.spec + .spec { padding-left: 32px; border-left: 1px solid #d6d6d2; }
+.spec__num { font-size: 80px; line-height: .9; letter-spacing: -.05em; margin-bottom: 20px; }
+.spec__num small { font-size: 28px; letter-spacing: -.02em; margin-left: 4px; }
+.spec .text { max-width: 280px; }
+.precision__note { margin-top: 48px; color: var(--muted); }
+
+/* ---------- 06. Системы ---------- */
+
+.systems {
+  position: relative;
+  padding: 180px 0 160px;
+  color: #fff;
+  background: var(--navy);
+  overflow: hidden;
+}
+.systems__bg {
+  position: absolute; inset: 0;
+  background: url('img/accents-bg.jpg') center 30% / cover no-repeat;
+  opacity: .32;
+  filter: grayscale(.4);
+}
+.systems__bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(13,20,32,.96) 0%, rgba(13,20,32,.7) 55%, rgba(13,20,32,.35) 100%);
+}
+.systems .container { z-index: 1; }
+.systems .kicker { color: rgba(255,255,255,.55); margin-bottom: 40px; }
+.systems__grid {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 120px;
+  align-items: end;
+}
+.systems__list { margin-top: 64px; border-top: 1px solid rgba(255,255,255,.18); }
+.system {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: baseline;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+.system__num { font-size: 13px; font-weight: 500; letter-spacing: .06em; color: rgba(255,255,255,.45); }
+.system__name { font-size: 64px; line-height: 1; letter-spacing: -.04em; transition: transform .4s; }
+.system:hover .system__name { transform: translateX(16px); }
+.system__type { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+
+.proof { display: flex; flex-direction: column; gap: 40px; }
+.proof__item { padding-top: 20px; border-top: 1px solid rgba(255,255,255,.18); }
+.proof__num { font-size: 56px; line-height: 1; letter-spacing: -.04em; margin-bottom: var(--s-in); }
+.proof__item .text { color: rgba(255,255,255,.65); }
+
+/* ---------- 07. Призыв ---------- */
+
+.cta { padding: 200px 0 160px; }
+.cta__title {
+  font-size: 120px;
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+  max-width: 1400px;
+}
+.cta__row {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 120px;
+  align-items: end;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.cta__row .text { max-width: 560px; }
+.cta__actions { display: flex; gap: 12px; }
+
+.footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+.footer .container { display: flex; justify-content: space-between; color: var(--muted); }
+
+/* ---------- появление при прокрутке ---------- */
+
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "artvision",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["/Users/irinazukova/Documents/проекты/Фронт сайд/сервер.mjs"],
+      "port": 4740
+    }
+  ]
+}
