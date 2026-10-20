@@ -14,35 +14,20 @@
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   const clamp = v => Math.min(Math.max(v, 0), 1);
 
-  const ctaText = document.querySelector('.hero__cta-text');
-  let ctaMode = '', active = -1, ticking = false;
-  // в закреплённом слайдере кнопка встаёт в одну строку со счётчиком (по нижнему краю) и не прыгает
-  const cta = document.querySelector('.hero__cta'), counter = sec.querySelector('.accents__counter');
-  function alignCta(r) {
-    if (!cta || !counter) return;
-    const top = parseFloat(getComputedStyle(sec).getPropertyValue('--top')) || 0;
-    const pinned = r.top <= top + 1 && r.bottom >= innerHeight - 1;
-    if (pinned) {
-      const cb = counter.getBoundingClientRect().bottom;
-      cta.style.bottom = Math.round(innerHeight - cb) + 'px';
-      cta.classList.add('is-aligned');
-    } else if (cta.classList.contains('is-aligned')) {
-      cta.style.bottom = ''; cta.classList.remove('is-aligned');
-    }
-  }
-  function swapCta(r) {
-    const over = r.top < innerHeight - 120 && r.bottom > innerHeight - 40;
-    const mode = over ? 'Обсудить проект' : 'Примерить рисунок на фасад';
-    if (mode === ctaMode || !ctaText) return;
-    ctaMode = mode;
-    ctaText.classList.add('is-swap');
-    setTimeout(() => { ctaText.textContent = mode; ctaText.classList.remove('is-swap'); }, 250);
+  let active = -1, ticking = false;
+  // пока на экране этот блок, липкая кнопка прячется — у слайдера своя кнопка внутри кадра
+  // (на одной линии со счётчиком), поэтому ничего не прыгает и не меняет текст
+  const cta = document.querySelector('.hero__cta');
+  function hideCta(r) {
+    if (!cta) return;
+    const on = r.top < innerHeight * .55 && r.bottom > innerHeight * .45;
+    cta.classList.toggle('is-hidden', on);
   }
 
   function update() {
     ticking = false;
     const r = sec.getBoundingClientRect();
-    swapCta(r); alignCta(r);
+    hideCta(r);
 
     const top = parseFloat(getComputedStyle(sec).getPropertyValue('--top')) || 0;
     const W = stage.clientWidth, H = stage.clientHeight;

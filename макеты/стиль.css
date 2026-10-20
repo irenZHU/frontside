@@ -711,3 +711,13 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   /* «Сфера применения»: подпись и заголовок — на одной вертикали со счётчиком (64 px от края кадра) */
   .accents__title, .accents__kicker { left: 64px; }
 }
+
+/* липкая кнопка прячется, пока на экране «Сфера применения» */
+.hero__cta { transition: background .25s ease, translate .5s cubic-bezier(.22,.61,.24,1), opacity .35s ease; }
+.hero__cta.is-hidden { animation: none; opacity: 0; pointer-events: none; }   /* animation: none — иначе анимация появления держит opacity 1 */
+/* своя кнопка слайдера: внутри кадра, на одной линии со счётчиком, по центру кадра */
+.hero__cta.accents__cta {
+  position: absolute; left: calc(50% - 165px); bottom: 7%; top: auto;
+  z-index: 3; animation: none; translate: none; opacity: 1; pointer-events: auto;
+}
+.accents__ui .accents__cta { pointer-events: auto; }
