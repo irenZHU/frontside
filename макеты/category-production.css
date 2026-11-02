@@ -119,6 +119,10 @@
 .category-page .product-filter-bar { position: static; }
 .category-page .projects .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .category-page .project-item[hidden] { display: none; }
+/* Перелинковка: из категории — на общую страницу «Проекты» */
+.category-all-link { display: flex; align-items: center; justify-content: space-between; width: 300px; height: 60px; margin: 48px auto 0; padding: 0 24px; background: #fff; color: var(--title); font: 400 14px/20px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; transition: background .2s, color .2s; }
+.category-all-link svg { width: 18px; height: 18px; }
+.category-all-link:hover, .category-all-link:focus-visible { background: var(--red); color: #fff; outline: none; }
 
 /* ---------- Общий ритм разделов ---------- */
 .category-section { padding: 120px 0 0; }
