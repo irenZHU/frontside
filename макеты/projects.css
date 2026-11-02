@@ -1,0 +1,174 @@
+:root{--red:#e53e30;--title:#1d1d1d;--body:#282828;--muted:#939393;--line:#e3e3e3;--soft:#f3f3f3;--dark:#222;--container:1328px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:1280px;background:#fff;color:var(--title);font-family:Onest,Arial,sans-serif}.container{width:var(--container);margin:0 auto}.header{height:82px;border-bottom:1px solid var(--line);background:#fff}.header__inner{height:82px;display:flex;align-items:center;position:relative}.logo{width:72px;height:50px;display:block}.logo img{width:38px;height:50px;object-fit:cover}.nav{display:flex;gap:25px;margin-left:117px;font:14px/20px Inter,Arial,sans-serif}.nav a{color:var(--title);text-decoration:none}.nav .is-active{color:var(--red)}.header__phone{margin-left:auto;font:14px Inter,Arial,sans-serif}.header__actions{display:flex;height:50px;margin-left:22px}.btn-accent{display:flex;align-items:center;padding:0 20px;color:#fff;background:var(--red);font:14px Inter;text-decoration:none}.burger{width:50px;border:0;background:var(--soft);display:grid;align-content:center;gap:6px;padding:0 16px}.burger span{height:2px;background:var(--title);display:block}.breadcrumbs{padding-top:30px;display:flex;gap:8px;color:var(--muted);font:12px Inter}.breadcrumbs a{color:inherit;text-decoration:none}.solutions{padding-top:28px}.solutions__head{display:flex;justify-content:space-between;align-items:flex-start}.eyebrow{display:block;color:var(--red);font:600 12px Inter;text-transform:uppercase;margin-bottom:15px}.solutions h1{margin:0;font-size:56px;line-height:1.03;font-weight:400;letter-spacing:-2px}.solutions__head p{width:360px;margin:14px 70px 0 0;font-size:17px;line-height:1.38}.solutions__grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:52px}.solution-card{height:336px;position:relative;display:block;background:linear-gradient(#0004,#0008),var(--image) center/cover;text-decoration:none;color:#fff;overflow:hidden}.solution-card__arrow{position:absolute;right:30px;top:20px;font-size:30px}.solution-card__copy{position:absolute;left:20px;right:68px;bottom:20px;background:#222e;padding:20px}.solution-card small{display:block;color:var(--red);font:600 11px Inter;text-transform:uppercase;margin-bottom:12px}.solution-card strong{display:block;font-size:25px;line-height:1.16;font-weight:500}.solution-card em{display:block;color:#ddd;font:11px/1.3 Inter;margin-top:13px;font-style:normal}.marquee{height:44px;margin-top:26px;padding:14px 20px;overflow:hidden;white-space:nowrap;background:#111;color:#fff;font:600 12px Inter;letter-spacing:.2px}.marquee i{display:inline-block;width:7px;height:7px;background:var(--red);transform:rotate(45deg);margin:0 18px}.projects{padding-top:54px}.projects__head{display:flex;justify-content:space-between;align-items:flex-end}.projects h2{margin:0;font-size:42px;line-height:1;font-weight:400;letter-spacing:-1.5px}.geo{width:356px;height:80px;background:var(--dark);display:flex;align-items:center;color:#fff;text-decoration:none;padding:12px 16px}.geo__globe{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;margin-right:17px;background:#4a4a4a;color:var(--red);font-size:24px}.geo small,.geo strong,.geo em{display:block}.geo small{color:var(--red);font:600 10px Inter;text-transform:uppercase}.geo strong{font-size:18px;font-weight:500;margin:4px 0}.geo em{color:#c7c7c7;font:11px Inter;font-style:normal}.geo b{margin-left:auto;font-size:23px;font-weight:400}.filter-mode{border-bottom:1px solid var(--line);padding:31px 0 14px;color:var(--muted);font:600 10px Inter;letter-spacing:.2px}.filter-mode b{color:var(--title);margin-left:26px}.filter-mode span{margin-left:22px}.projects__layout{display:grid;grid-template-columns:240px 1fr;gap:32px;position:relative;padding-top:32px}.sidebar{background:var(--soft);min-height:1350px;padding:14px 18px}.sidebar__title{border-left:4px solid var(--red);color:var(--red);padding:10px 0 10px 14px;margin:-14px -18px 12px;font:600 12px Inter}.sidebar__hint{font:11px Inter;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:17px}.sidebar__hint button{border:0;background:transparent;color:var(--muted);font:600 10px Inter;padding:0}.filter-group{border-top:1px solid var(--line);padding:15px 0}.filter-group summary{position:relative;list-style:none;padding-left:26px;font-size:13px;line-height:1.16;font-weight:500;cursor:pointer}.filter-group summary::-webkit-details-marker{display:none}.filter-group summary b{position:absolute;right:0;font-size:16px;font-weight:400}.box{position:absolute;left:0;top:1px;width:16px;height:16px;border:1px solid #888}.filter-group[open]{margin:0 -10px;padding:15px 10px 14px;background:var(--dark);border:0;color:#fff}.filter-group[open] summary .box{background:var(--red);border-color:var(--red)}.filter-group[open] summary .box:after{content:'✓';position:absolute;left:2px;top:-2px;color:#fff;font:600 13px Inter}.filter-group label{display:block;margin:14px 0 0 26px;font-size:12px;line-height:1.15}.filter-group input{appearance:none;width:14px;height:14px;border:1px solid #bdbdbd;margin:0 10px 0 0;vertical-align:-2px}.filter-group input:checked{background:var(--red);border-color:var(--red)}.catalog{min-width:0}.catalog__tools{height:60px;display:flex;justify-content:space-between;align-items:flex-start}.catalog__tools p{margin:0;color:var(--muted);font:14px Inter}.products{width:286px;position:relative;z-index:3}.products__trigger{width:100%;border:0;border-bottom:1px solid var(--line);padding:0 0 12px;color:var(--red);background:#fff;text-align:left;font:600 12px Inter;cursor:pointer}.products__trigger b{float:right;font-size:17px;font-weight:400}.products__panel{border-top:1px solid var(--title);padding:14px 16px;background:#fff;box-shadow:0 7px 20px #0002;font:600 12px/32px Inter}.products__panel:before{content:'';position:absolute;left:16px;top:14px;width:16px;height:16px;background:var(--red);box-shadow:0 32px var(--red),0 64px var(--red),0 96px var(--red)}.products__panel{padding-left:44px}.products__panel span{font-weight:400}.project-group{margin-bottom:37px}.project-group header{display:flex;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:17px}.project-group header a{width:258px;min-height:48px;padding:15px 16px;background:var(--red);color:#fff;text-decoration:none;font:600 12px/18px Inter}.project-group header a b{float:right;font-size:18px;font-weight:400}.project-group header p{max-width:470px;margin:7px 0 0 20px;font-size:14px;line-height:1.32}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.project-card{height:252px;position:relative;display:block;overflow:hidden;background:linear-gradient(#0001,#0003),var(--image) center/cover;color:#fff;text-decoration:none}.project-card>span{position:absolute;top:15px;left:16px;font:600 9px Inter}.project-card>div{position:absolute;left:12px;right:12px;bottom:14px;min-height:64px;padding:11px 10px;background:#222e}.project-card small{display:block;color:#ddd;font:8px/1.15 Inter;text-transform:uppercase}.project-card strong{display:block;margin-top:7px;font-size:15px;line-height:1.1;font-weight:500}.footer{margin-top:70px;background:#303030;color:#fff;padding:74px 0 18px}.footer__grid{display:grid;grid-template-columns:2fr 1.25fr 1.1fr 1fr;gap:40px;min-height:470px}.footer__brand{font-size:42px;line-height:1.08;letter-spacing:-1px}.footer h3{margin:7px 0 26px;font-size:18px;font-weight:500}.footer p{color:#cdcdcd;font-size:14px;line-height:1.35}.footer__bottom{border-top:1px solid #6d6d6d;padding-top:23px;color:#b0b0b0;font:13px Inter;position:relative}.footer__bottom a{position:absolute;right:0;bottom:-9px;display:grid;place-items:center;width:56px;height:56px;background:var(--red);color:#fff;text-decoration:none;font-size:25px}
+@media(max-width:1300px){body{min-width:1100px}.container{width:calc(100% - 64px)}.header__phone{display:none}.cards{gap:12px}.project-card strong{font-size:13px}}
+
+/* Карточки направлений: текст без плашки, деликатный zoom изображения. */
+.solution-card{background:none;isolation:isolate}
+.solution-card::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#0002 0%,#0001 48%,#0008 100%),var(--image) center/cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.solution-card:hover::before,.solution-card:focus-visible::before{transform:scale(1.045)}
+.solution-card__copy{inset:0;z-index:1;padding:20px;background:none;display:flex;flex-direction:column;align-items:flex-start}
+.solution-card small{margin:0}
+.solution-card small{color:#fff}
+.solution-card strong{max-width:590px;margin-top:auto}
+.solution-card em{margin-top:13px}
+
+/* Заголовок портфолио в типографике ARTVISION. */
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:28px;color:var(--title);font:400 16px/20px var(--font-ui,Inter,Arial,sans-serif);text-transform:uppercase}
+.section-label::before{content:"";width:8px;height:8px;flex:0 0 8px;background:var(--red)}
+.projects h2{font:400 32px/1 var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-1.1px;text-transform:uppercase}
+
+/* Фасетный фильтр портфолио: спокойная иерархия, без тяжёлых плашек. */
+.projects__layout{gap:40px;padding-top:38px}
+.sidebar{min-height:0;padding:0;background:#fff;border-top:1px solid var(--title)}
+.filter-header{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 0 20px;border-bottom:1px solid var(--line)}
+.filter-header__label{display:flex;align-items:center;gap:8px;margin-bottom:9px;color:var(--red);font:600 11px/14px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.05em;text-transform:uppercase}
+.filter-header__label::before{content:"";width:6px;height:6px;background:var(--red)}
+.filter-header strong{display:block;font:400 19px/23px var(--font-ui,Onest,Arial,sans-serif)}
+.filter-header button{border:0;padding:4px 0;background:transparent;color:#777;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.filter-group{margin:0!important;padding:0!important;background:#fff!important;border:0!important;border-bottom:1px solid var(--line)!important;color:var(--title)!important}
+.filter-group summary{display:grid;grid-template-columns:minmax(0,1fr) auto 16px;gap:8px;align-items:center;padding:16px 0;list-style:none;font:400 14px/18px var(--font-ui,Inter,Arial,sans-serif)}
+.filter-group summary b{position:static;grid-column:3;font:400 16px/16px Inter,Arial,sans-serif;transition:transform .2s ease}
+.filter-group[open] summary b{transform:rotate(180deg)}
+.filter-group summary em{grid-column:2;color:#999;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif);font-style:normal}
+.filter-group label{margin:0 0 12px;padding-left:0;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif);color:#666}
+.filter-group input{width:16px;height:16px;margin-right:8px;border-color:#a3a3a3;vertical-align:-3px}
+.filter-group input:checked{background:var(--red);border-color:var(--red)}
+.catalog__tools{height:auto;min-height:106px;align-items:flex-start;border-top:1px solid var(--title);padding-top:18px}
+.products{width:100%;position:static}
+.products__meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:#1d1d1d;font:600 11px/14px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.05em;text-transform:uppercase}
+.products__meta output{color:#777;font-weight:400;letter-spacing:0;text-transform:none}
+.product-chips{display:flex;flex-wrap:wrap;gap:8px}
+.product-chip{min-height:38px;border:1px solid #c8c8c8;padding:0 15px;background:#fff;color:#282828;font:500 12px/16px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.02em;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease}
+.product-chip:hover,.product-chip:focus-visible{border-color:var(--title);outline:none}
+.product-chip.is-active{border-color:var(--title);background:var(--title);color:#fff}
+@media (prefers-reduced-motion:reduce){.product-chip,.filter-group summary b{transition:none}}
+
+/* Лёгкая композиция фильтров: один ориентир-разделитель, остальное — воздух. */
+.projects__head{padding-bottom:24px}
+.product-filter-bar{border-top:1px solid var(--line);padding-top:22px;padding-bottom:42px}
+.projects__layout{gap:56px;padding-top:0;border-top:0}
+.sidebar{border-top:0}
+.filter-header{padding:0 0 28px;border-bottom:0}
+.filter-header__label{margin-bottom:8px}
+.filter-group{border-bottom:0!important}
+.filter-group summary{padding:8px 0;font-size:14px;line-height:20px}
+.filter-group summary em{color:#aaa}
+.filter-group label{margin:0 0 9px;color:#777}
+.filter-group[open]{padding-bottom:13px!important}
+.catalog__tools{min-height:0;padding:0;border-top:0}
+.products__meta{margin:0 0 18px;font-size:11px}
+.product-chips{gap:12px}
+.product-chip{min-height:40px;border:0;border-radius:4px;padding:0 16px;background:#f1f1f1;color:var(--title);font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:0}
+.product-chip:hover{background:#e8e8e8;color:var(--title)}
+.product-chip:focus-visible{outline:1px solid var(--red);outline-offset:3px}
+.product-chip.is-active{border:0;background:var(--red);color:#fff}
+
+/* Спокойный фильтр: структура держится на ритме и одной тонкой линии. */
+.sidebar{width:248px}
+.filter-header{align-items:center;padding:0 0 17px}
+.filter-header strong{color:#666;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.01em;text-transform:none}
+.products__meta{color:#666;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.01em;text-transform:none}
+.filter-header button{font-size:12px;color:#777}
+.filter-header button[hidden]{display:none}
+.filter-group{border-top:1px solid #d7d7d7!important}
+.filter-group:first-of-type{border-top:0!important}
+.filter-group:last-child{border-bottom:1px solid #d7d7d7!important}
+.filter-group summary{grid-template-columns:minmax(0,1fr) 16px;padding:16px 0;color:#303030;font:400 13px/18px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:0;text-transform:none}
+.filter-group summary b{grid-column:2;font-size:15px}
+.filter-group summary b{position:relative;display:block;width:16px;height:16px;font-size:0;transform:none!important}
+.filter-group summary b::after{content:"";position:absolute;left:4px;top:3px;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
+.filter-group[open] summary b::after{top:6px;transform:rotate(225deg)}
+
+/* Галерея проектов: фотография отдельно, содержание — ниже. */
+.project-item{min-width:0}
+.project-card{height:auto;aspect-ratio:4/3;background:var(--image) center/cover;color:inherit;transition:transform .3s ease}
+.project-card:hover,.project-card:focus-visible{transform:scale(.985);outline:none}
+.project-card>span,.project-card>div{display:none}
+.project-card__details{display:block;padding-top:13px;color:var(--title);text-decoration:none}
+.project-card__badges{display:flex;flex-wrap:wrap;gap:6px}
+.project-card__badges>span{display:inline-flex;align-items:center;min-height:23px;padding:0 8px;border:1px solid #d7d7d7;border-radius:12px;background:#fff;color:#666;font:400 10px/14px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.02em;text-transform:uppercase}
+.project-card__details strong{display:block;margin-top:6px;font:500 16px/20px var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-.2px}
+.project-group header{display:block;border-bottom:0;padding-bottom:0;margin-bottom:20px}
+.project-group header h3{width:auto;margin:0;white-space:nowrap;font:500 24px/29px var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-.5px}
+.project-group header p{max-width:720px;margin:9px 0 0;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif)}
+
+/* Строка активных фильтров: выбранные параметры всегда видны и снимаются одним кликом. */
+.filter-status-bar{display:flex;align-items:center;gap:10px;min-height:54px;padding-bottom:26px}
+.filter-status-bar>strong{flex:0 0 auto;color:#666;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif)}
+.selected-filters{display:flex;flex:0 1 auto;flex-wrap:wrap;gap:7px;min-width:0}
+.selected-filter{display:inline-flex;align-items:center;gap:7px;min-height:28px;border:1px solid #cfcfcf;border-radius:16px;padding:0 10px;background:#fff;color:#3a3a3a;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif);cursor:pointer}
+.selected-filter:hover{border-color:#888}
+.selected-filter span{font-size:17px;font-weight:300;line-height:1}
+.filter-status-bar>button{flex:0 0 auto;border:0;padding:4px 0;background:transparent;color:#777;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.filter-status-bar>button[hidden]{display:none}
+.filter-group label{padding-left:0;margin:0 0 11px;color:#555;font:400 13px/18px var(--font-ui,Inter,Arial,sans-serif)}
+.filter-group input{width:14px;height:14px;margin-right:9px;border-color:#cfcfcf;vertical-align:-2px}
+.filter-group[open]{padding-bottom:10px!important}
+
+/* Базовая desktop-сетка ARTVISION: 1600 px на ширине 1920 px, поля 160 px. */
+:root{--container:1600px}
+
+/* Чекбоксы фильтра: компактный контур и спокойное тёмное выбранное состояние. */
+.filter-group input{
+  appearance:none;
+  width:16px;
+  height:16px;
+  margin-right:9px;
+  border:1px solid #d3d3d3;
+  border-radius:0;
+  background:#fff;
+  vertical-align:-3px;
+  cursor:pointer;
+}
+.filter-group input:checked{
+  border-color:#252525;
+  background:#252525;
+  box-shadow:inset 0 0 0 3px #fff;
+}
+.filter-group input:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.container{width:min(var(--container),calc(100% - 160px))}
+@media(max-width:1300px){.container{width:calc(100% - 64px)}}
+
+/* Базовый слой страницы — макет ARTVISION: стиль.css.
+   Ниже остаются только совместимые правила для уникальной структуры проектов. */
+.projects-page main{padding-top:82px}
+.projects-page .header__inner{height:100%}
+.projects-page .nav{margin-left:0}
+.projects-page .header__phone{margin-left:0}
+.projects-page .header__actions{margin-left:0}
+.projects-page .btn-accent{font:400 16px/22px var(--font-ui)}
+.projects-page .container{width:min(var(--container),calc(100% - 160px))}
+.projects-page .burger{display:block;padding:0;background:#fff}
+.projects-page .header.is-scrolled .burger{background:#f1f1f1}
+
+/* Верхний блок проектов: заголовок и описание стоят на общей нижней линии. */
+.solutions__head{align-items:flex-end}
+.solutions__head p{margin:0 70px 0 0}
+
+/* География использует тот же CTA и SVG-стрелку, что и ARTVISION. */
+.projects .geo.hero__cta{position:static;left:auto;bottom:auto;z-index:auto;width:300px;height:64px;padding:12px 14px 10px 16px;animation:none;translate:none}
+.geo__content{display:flex;align-items:flex-start;gap:9px;min-width:0}
+.hero__cta .geo__icon{flex:0 0 20px;width:20px;height:20px;align-self:flex-start;transition:none}
+.hero__cta .geo__arrow{width:20px;height:20px;align-self:flex-end}
+.hero__cta:hover .geo__icon,.hero__cta:focus-visible .geo__icon{transform:none}
+
+/* Футер: воздушная навигация и контакты по композиции референса Neo. */
+.footer{margin-top:120px;padding:54px 0 20px;background:#192225;color:#fff}
+.footer__grid{display:grid;grid-template-columns:2.1fr .78fr .85fr 1.12fr;gap:52px;min-height:310px;padding-bottom:68px}
+.footer__brand{font:400 42px/1.03 var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-1.7px}
+.footer__nav{display:flex;flex-direction:column;align-items:flex-start;gap:15px;padding-top:5px}
+.footer__nav a{color:#fff;font:400 15px/20px var(--font-ui,Inter,Arial,sans-serif);text-decoration:none;transition:color .18s ease}
+.footer__nav a:hover,.footer__nav a:focus-visible{color:var(--red);outline:none}
+.footer__contacts{display:grid;grid-template-columns:1fr;align-content:start;gap:5px}
+.footer__contacts span{margin-top:1px;color:#8d9899;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif)}
+.footer__contacts span:nth-of-type(3){margin-top:18px}
+.footer__contacts address{margin:0 0 12px;color:#d7dddd;font:400 13px/18px var(--font-ui,Inter,Arial,sans-serif);font-style:normal}
+.footer__contacts>a{color:#fff;font:400 16px/22px var(--font-ui,Inter,Arial,sans-serif);text-decoration:none}
+.footer__contacts>a:hover,.footer__contacts>a:focus-visible{color:var(--red);outline:none}
+.footer__social{display:flex;gap:10px;margin-top:25px}
+.footer__social a{display:grid;place-items:center;width:40px;height:40px;border:1px solid #667174;border-radius:50%;color:#fff;font:500 10px/1 var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.02em;text-decoration:none;transition:border-color .18s ease,background .18s ease}
+.footer__social a:hover,.footer__social a:focus-visible{border-color:var(--red);background:var(--red);outline:none}
+.footer__bottom{display:flex;align-items:center;gap:30px;min-height:52px;border-top:1px solid #506064;padding-top:20px;color:#9aa4a5;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif)}
+.footer__bottom>a{position:static;color:#9aa4a5;text-decoration:none}
+.footer__bottom>a:not(:last-child){display:block;width:auto;height:auto;background:transparent;font:400 12px/16px var(--font-ui,Inter,Arial,sans-serif)}
+.footer__bottom>a:hover,.footer__bottom>a:focus-visible{color:#fff;outline:none}
+.footer__bottom>a:last-child{margin-left:auto;display:grid;place-items:center;width:40px;height:40px;background:var(--red);color:#fff;font-size:20px}

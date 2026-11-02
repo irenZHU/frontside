@@ -2,9 +2,10 @@
 // Отдаёт папку «макеты» на http://localhost:4740
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
-import { join, extname, normalize } from 'node:path';
+import { join, extname, normalize, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = '/Users/irinazukova/Documents/проекты/Фронт сайд/макеты';
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), 'макеты');
 const PORT = 4740;
 
 const TYPES = {
