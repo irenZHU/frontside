@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Проекты — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body class="projects-page">
+  <header class="header is-scrolled">
+    <div class="container header__inner">
+      <a class="logo" href="artvision.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main" aria-label="Основная навигация">
+        <a href="#catalog">Каталог</a><a href="#solutions">Решения</a><a href="#services">Услуги</a><a class="is-active" href="#projects">Проекты</a><a href="#documents">Документы</a>
+      </nav>
+      <nav class="nav nav--side" aria-label="Дополнительная навигация">
+        <a href="#about">О компании</a><a href="#news">Новости</a><a href="#contacts">Контакты</a>
+      </nav>
+      <span class="header__phone">+7 (495) 642-80-91</span>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Поиск"><svg width="50" height="50" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="28" r="8"/><path d="M35.2 34.2 41.7 40.7"/></svg></button>
+        <a class="btn-accent" href="#feedback">Отправить заявку</a>
+        <button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container breadcrumbs"><a href="artvision.html">Главная</a><span>/</span><span>Проекты</span></div>
+
+    <section class="solutions container" id="solutions">
+      <div class="solutions__head"><div><h1>Архитектура<br>становится фасадом</h1></div><p>Два направления для объектов, где важны выразительный облик, точный инжиниринг и уверенность в результате</p></div>
+      <div class="solutions__grid">
+        <a class="solution-card" href="#projects" style="--image:url('img/idea-2.webp')"><span class="solution-card__copy"><small>Архитектура и эстетика</small><strong>Фасады для архитектурно выразительных объектов</strong><em>Сложная геометрия · Индивидуальный цвет · Знаковые объекты</em></span></a>
+        <a class="solution-card" href="#projects" style="--image:url('img/idea-4.webp')"><span class="solution-card__copy"><small>Инжиниринг</small><strong>Фасады для технологически сложных объектов</strong><em>Суровый климат · Сложная логистика · Точная сборка</em></span></a>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="container projects__head"><div><span class="section-label">Портфолио</span><h2>Реализованные проекты</h2></div><a class="hero__cta geo" href="https://frontside.ru/projects/map/" aria-label="Открыть географию проектов"><span class="geo__content"><svg class="geo__icon" aria-hidden="true" viewBox="0 0 32 32" fill="none"><path d="M4.5 7.5 11.5 4l9 4 7-3.5v20L20.5 28l-9-4-7 3.5v-20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M11.5 4v20M20.5 8v20" stroke="currentColor" stroke-width="1.5"/><path d="M20.5 12.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" stroke="currentColor" stroke-width="1.5"/><path d="M20.5 18.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="hero__cta-text">География проектов</span></span><svg class="geo__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l10 10M15 7v8H7"/></svg></a></div>
+      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр продуктов"><div class="products__meta"><span>Продукты</span><output data-result-count>28 проектов</output></div><div class="product-chips" role="group" aria-label="Выбор продукта"><button type="button" class="product-chip is-active" data-product-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-product-filter="fronttop" aria-pressed="false">FRONTTOP</button><button type="button" class="product-chip" data-product-filter="frontbase" aria-pressed="false">FRONTBASE</button><button type="button" class="product-chip" data-product-filter="unique" aria-pressed="false">UNIQUE</button><button type="button" class="product-chip" data-product-filter="aesthetic" aria-pressed="false">AESTHETIC</button></div></div></div>
+      <div class="container projects__layout">
+        <aside class="sidebar" aria-label="Фильтр проектов">
+          <div class="filter-header"><strong>Фильтры</strong></div>
+          <details class="filter-group" data-category="Производственные объекты" open><summary><span>Производственные объекты</span><b>⌄</b></summary><label><input type="checkbox" value="Промышленные предприятия">Промышленные предприятия</label><label><input type="checkbox" value="Технопарки">Технопарки</label><label><input type="checkbox" value="Light Industrial">Light Industrial</label></details>
+          <details class="filter-group" data-category="Логистические центры и склады"><summary><span>Логистические центры и склады</span><b>⌄</b></summary><label><input type="checkbox" value="Распределительные центры">Распределительные центры</label><label><input type="checkbox" value="Складские комплексы">Складские комплексы</label></details>
+          <details class="filter-group" data-category="Спортивные сооружения"><summary><span>Спортивные сооружения</span><b>⌄</b></summary><label><input type="checkbox" value="ФОК">ФОК</label><label><input type="checkbox" value="Стадионы">Стадионы</label></details>
+          <details class="filter-group" data-category="Транспортная инфраструктура"><summary><span>Транспортная инфраструктура</span><b>⌄</b></summary><label><input type="checkbox" value="Аэропорты">Аэропорты</label><label><input type="checkbox" value="Вокзалы">Вокзалы</label></details>
+          <details class="filter-group" data-category="Торгово-развлекательные центры"><summary><span>Торгово-развлекательные центры</span><b>⌄</b></summary><label><input type="checkbox" value="Торговые центры">Торговые центры</label></details>
+          <details class="filter-group" data-category="Административные и общественные здания"><summary><span>Административные и общественные здания</span><b>⌄</b></summary><label><input type="checkbox" value="Офисные здания">Офисные здания</label></details>
+          <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><label><input type="checkbox" value="ЦОД">ЦОД</label></details>
+        </aside>
+        <div class="catalog"><div class="filter-status-bar"><div class="selected-filters" data-selected-filters aria-live="polite"></div><button type="button" data-reset hidden>Сбросить</button></div><div id="category-groups"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="feedback">
+    <div class="container footer__grid">
+      <div class="footer__brand">Меняем облик<br>современных городов</div>
+      <nav class="footer__nav" aria-label="Разделы сайта">
+        <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
+      </nav>
+      <nav class="footer__nav" aria-label="О компании">
+        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <div class="footer__contacts">
+        <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+        <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+        <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх">⌃</a></div>
+  </footer>
+
+  <script>
+    const groups = [
+      ['Производственные объекты','Заводы, технопарки и объекты Light Industrial: фасады для производственных корпусов с высокими эксплуатационными нагрузками и выразительной индустриальной архитектурой.',['Завод смазочных материалов TOTAL','Кабельный завод «Вектор»','Свердловский экспериментальный механический завод','Технопарк «Орбита»']],
+      ['Логистические центры и склады','Распределительные центры, складские комплексы и терминалы: решения для протяжённых фасадов большой площади, быстрого монтажа и интенсивной эксплуатации.',['Логистический комплекс «Быково»','Распределительный центр «Магистраль»','Складской комплекс нового поколения','Мультитемпературный склад «Фреш-Лайн»']],
+      ['Спортивные сооружения','ФОК, стадионы и арены: фасады, которые формируют узнаваемый облик объекта и рассчитаны на большие потоки посетителей.',['Физкультурно-оздоровительный комплекс','Ледовый ФОК «Арктика»','Городской стадион','Многофункциональная арена']],
+      ['Транспортная инфраструктура','Аэропорты, вокзалы и паркинги: долговечные фасады для объектов с круглосуточной эксплуатацией.',['Аэровокзальный комплекс','Терминал внутренних линий','Городской вокзал','Многоуровневый паркинг']],
+      ['Торгово-развлекательные центры','Торговые центры, гипермаркеты и автосалоны: акцентные фасады, которые выделяют здание в городской среде и поддерживают бренд.',['ТРК «Рига Молл»','ТРЦ «Северный Пассаж»','Гипермаркет «Касторама»','Автосалон нового формата']],
+      ['Административные и общественные здания','Офисные, административные и медицинские здания: точная деталировка, спокойная архитектура и долговечность.',['Бизнес-центр «НЕБО 2»','Офисный центр «Сфера»','Административное здание','Современная клиника']],
+      ['Разное','ЦОД, объекты энергетики и экспоцентры: решения под нестандартные функции и особые технические требования.',['Центр обработки данных','Дата-центр «Норд»','Объект энергетической инфраструктуры','Выставочный павильон']]
+    ];
+    // Фотографии реальных объектов из портфолио Frontside. Каждая подборка
+    // соотнесена с категорией, чтобы изображение поддерживало смысл карточки.
+    const categoryImages = {
+      'Производственные объекты':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp',
+        'https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp'
+      ],
+      'Логистические центры и склады':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/f0e/d6afh1n5c0elnzok5rne5usdy8ew95k0.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/eb8/1g22qt86vzx2d95366rds31zxde50rll.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/253/90p1ciioe9ta8wipqb0pbmo5qnb9ark2.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/95e/y8uwxlbderbzim2jnymnx32skfzyncza.webp'
+      ],
+      'Спортивные сооружения':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/4b5/bplzv5pk4k7iabrs5q8r3n8eflbx7236.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/323/t0csdlu9kgysjdy17rmndo76ziv6bi34.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/1e8/kynbeegi21mync7qfhdo3afevv7g4zeb.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/0a1/xcewmyctqmdvfweatzhljoc2m0mxu36u.webp'
+      ],
+      'Транспортная инфраструктура':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/50e/lbne6yk6qa5d8vqq3xzxysxognz8trdv.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/e6e/aoeymvayf7fx71yuyvllifbrsgjjm115.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/5b7/e252r285559a2exr9n04ai8o1cqy2ik3.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/253/90p1ciioe9ta8wipqb0pbmo5qnb9ark2.webp'
+      ],
+      'Торгово-развлекательные центры':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/180/gv00jjdyoqzkjlhjrovqyr101986jby3.webp',
+        'https://frontside.ru/upload/iblock/3a8/itub9vhb8caduvqu6buskjg0drerp26a.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/6a1/1i36k5hsrhjnovsn3pp1bk57plb85a97.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/a50/fhv2ogsdm9821r9copr6nexgc0jgjmmk.webp'
+      ],
+      'Административные и общественные здания':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/d9f/hfujq95vpdfcp37e2c5eveaokvht3hgd.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/08f/xq14c570t6c4ikrc3nm5tdbvi0oo76ye.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/b44/bngx5030jhlascdpcxo4smsdksx62ymw.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/04a/on552m002ast61rh2t0vlszinluh12pp.webp'
+      ],
+      'Разное':[
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/691/0axy5mo31sa20bv1evju0oni9zmgv7tj.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/8fe/c1utvracf8oy60lnks5o3g52v7fe43pi.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/15f/alcw9ye83olt059fxr9tnq7m1bl89iwi.webp',
+        'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/71d/7nmsc7w10e7g5m9d98ub826u9uwmsux3.webp'
+      ]
+    };
+    const productKeys = ['fronttop','frontbase','unique','aesthetic'];
+    const productLabels = {fronttop:'FRONTTOP',frontbase:'FRONTBASE',unique:'UNIQUE',aesthetic:'AESTHETIC'};
+    const subcategoryLabels = {
+      'Производственные объекты':['Промышленные предприятия','Промышленные предприятия','Технопарки','Light Industrial'],
+      'Логистические центры и склады':['Распределительные центры','Распределительные центры','Складские комплексы','Складские комплексы'],
+      'Спортивные сооружения':['ФОК','ФОК','Стадионы','Стадионы'],
+      'Транспортная инфраструктура':['Аэропорты','Аэропорты','Вокзалы','Вокзалы'],
+      'Торгово-развлекательные центры':['Торговые центры','Торговые центры','Торговые центры','Торговые центры'],
+      'Административные и общественные здания':['Офисные здания','Офисные здания','Офисные здания','Офисные здания'],
+      'Разное':['ЦОД','ЦОД','ЦОД','ЦОД']
+    };
+    let count = 1;
+    document.querySelector('#category-groups').innerHTML = groups.map(([name,description,items]) => `<section class="project-group" data-category="${name}"><header><h3>${name}</h3></header><div class="cards">${items.map((title,i)=>{const product=productKeys[i],subcategory=subcategoryLabels[name][i],image=categoryImages[name][i];return `<article class="project-item" data-product="${product}" data-subcategory="${subcategory}"><a class="project-card" href="#feedback" aria-label="${title}" style="--image:url('${image}')"></a><a class="project-card__details" href="#feedback"><span class="project-card__badges"><span>${subcategory}</span><span>${productLabels[product]}</span></span><strong>${title}</strong></a></article>`}).join('')}</div></section>`).join('');
+    const productButtons = [...document.querySelectorAll('[data-product-filter]')];
+    const resultCount = document.querySelector('[data-result-count]');
+    const selectedFilters = document.querySelector('[data-selected-filters]');
+    const resetButton = document.querySelector('[data-reset]');
+    let selectedProducts = new Set();
+    function applyFilters(){
+      const isAll = selectedProducts.size === 0;
+      const cards = [...document.querySelectorAll('.project-item')];
+      const selectedSubcategories = new Set([...document.querySelectorAll('.filter-group input:checked')].map(input => input.value));
+      cards.forEach(card => card.hidden = (!isAll && !selectedProducts.has(card.dataset.product)) || (selectedSubcategories.size > 0 && !selectedSubcategories.has(card.dataset.subcategory)));
+      document.querySelectorAll('.project-group').forEach(group => group.hidden = ![...group.querySelectorAll('.project-item')].some(card => !card.hidden));
+      productButtons.forEach(button => {const active=button.dataset.productFilter==='all'?isAll:selectedProducts.has(button.dataset.productFilter);button.classList.toggle('is-active',active);button.setAttribute('aria-pressed',String(active));});
+      const checkedInputs = [...document.querySelectorAll('.filter-group input:checked')];
+      selectedFilters.innerHTML = [...selectedProducts].map(key => `<button type="button" class="selected-filter" data-remove-filter="product:${key}">${productLabels[key]} <span aria-hidden="true">×</span></button>`).join('') + checkedInputs.map((input,index) => `<button type="button" class="selected-filter" data-remove-filter="subcategory:${index}">${input.value} <span aria-hidden="true">×</span></button>`).join('');
+      resetButton.hidden = isAll && selectedSubcategories.size === 0;
+      resultCount.value = `${cards.filter(card=>!card.hidden).length} проектов`;
+    }
+    productButtons.forEach(button => button.addEventListener('click', () => {const key=button.dataset.productFilter;if(key==='all') selectedProducts.clear();else {selectedProducts.has(key)?selectedProducts.delete(key):selectedProducts.add(key);}applyFilters();}));
+    document.querySelectorAll('.filter-group input').forEach(input => input.addEventListener('change', applyFilters));
+    selectedFilters.addEventListener('click', event => {const button=event.target.closest('[data-remove-filter]');if(!button)return;const [kind,value]=button.dataset.removeFilter.split(':');if(kind==='product')selectedProducts.delete(value);else [...document.querySelectorAll('.filter-group input:checked')][Number(value)].checked=false;applyFilters();});
+    resetButton.addEventListener('click', () => {document.querySelectorAll('.sidebar input').forEach(i=>i.checked=false);selectedProducts.clear();applyFilters();});
+  </script>
+</body>
+</html>
