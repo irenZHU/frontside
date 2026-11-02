@@ -64,7 +64,7 @@
 
 /* Спокойный фильтр: структура держится на ритме и одной тонкой линии. */
 .sidebar{width:248px}
-.filter-header{align-items:center;padding:0 0 17px}
+.filter-header{align-items:center;padding:0 0 9px}
 .filter-header strong{color:#666;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.01em;text-transform:none}
 .products__meta{color:#666;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.01em;text-transform:none}
 .filter-header button{font-size:12px;color:#777}
@@ -120,8 +120,8 @@
   cursor:pointer;
 }
 .filter-group input:checked{
-  border-color:#252525;
-  background:#252525;
+  border-color:var(--red);
+  background:var(--red);
   box-shadow:inset 0 0 0 3px #fff;
 }
 .filter-group input:focus-visible{outline:2px solid var(--red);outline-offset:2px}
@@ -150,6 +150,14 @@
 .hero__cta .geo__icon{flex:0 0 20px;width:20px;height:20px;align-self:flex-start;transition:none}
 .hero__cta .geo__arrow{width:20px;height:20px;align-self:flex-end}
 .hero__cta:hover .geo__icon,.hero__cta:focus-visible .geo__icon{transform:none}
+
+/* Фильтры остаются в зоне действия при просмотре длинного каталога. */
+.projects{--sticky-header-height:82px;--sticky-products-height:143px}
+.product-filter-bar{position:sticky;top:var(--sticky-header-height);z-index:20;background:#fff}
+.sidebar{position:sticky;top:calc(var(--sticky-header-height) + var(--sticky-products-height) + 20px);align-self:start;max-height:calc(100vh - var(--sticky-header-height) - var(--sticky-products-height) - 40px);overflow-y:auto;scrollbar-gutter:stable}
+.projects.has-active-filters{--sticky-selection-height:72px}
+.projects.has-active-filters .filter-status-bar{position:sticky;top:calc(var(--sticky-header-height) + var(--sticky-products-height));z-index:19;min-height:var(--sticky-selection-height);padding-top:12px;padding-bottom:16px;background:#fff}
+.projects.has-active-filters .sidebar{top:calc(var(--sticky-header-height) + var(--sticky-products-height) + var(--sticky-selection-height) + 20px);max-height:calc(100vh - var(--sticky-header-height) - var(--sticky-products-height) - var(--sticky-selection-height) - 40px)}
 
 /* Футер: воздушная навигация и контакты по композиции референса Neo. */
 .footer{margin-top:120px;padding:54px 0 20px;background:#192225;color:#fff}

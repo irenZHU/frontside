@@ -151,7 +151,15 @@
     const resultCount = document.querySelector('[data-result-count]');
     const selectedFilters = document.querySelector('[data-selected-filters]');
     const resetButton = document.querySelector('[data-reset]');
+    const projectsSection = document.querySelector('.projects');
+    const productsBar = document.querySelector('.product-filter-bar');
+    const filtersStatusBar = document.querySelector('.filter-status-bar');
     let selectedProducts = new Set();
+    function syncStickyFilters(){
+      const isActive = projectsSection.classList.contains('has-active-filters');
+      projectsSection.style.setProperty('--sticky-products-height', `${productsBar.offsetHeight}px`);
+      projectsSection.style.setProperty('--sticky-selection-height', isActive ? `${filtersStatusBar.offsetHeight}px` : '0px');
+    }
     function applyFilters(){
       const isAll = selectedProducts.size === 0;
       const cards = [...document.querySelectorAll('.project-item')];
@@ -162,12 +170,17 @@
       const checkedInputs = [...document.querySelectorAll('.filter-group input:checked')];
       selectedFilters.innerHTML = [...selectedProducts].map(key => `<button type="button" class="selected-filter" data-remove-filter="product:${key}">${productLabels[key]} <span aria-hidden="true">×</span></button>`).join('') + checkedInputs.map((input,index) => `<button type="button" class="selected-filter" data-remove-filter="subcategory:${index}">${input.value} <span aria-hidden="true">×</span></button>`).join('');
       resetButton.hidden = isAll && selectedSubcategories.size === 0;
+      projectsSection.classList.toggle('has-active-filters', !resetButton.hidden);
       resultCount.value = `${cards.filter(card=>!card.hidden).length} проектов`;
+      requestAnimationFrame(syncStickyFilters);
     }
     productButtons.forEach(button => button.addEventListener('click', () => {const key=button.dataset.productFilter;if(key==='all') selectedProducts.clear();else {selectedProducts.has(key)?selectedProducts.delete(key):selectedProducts.add(key);}applyFilters();}));
     document.querySelectorAll('.filter-group input').forEach(input => input.addEventListener('change', applyFilters));
     selectedFilters.addEventListener('click', event => {const button=event.target.closest('[data-remove-filter]');if(!button)return;const [kind,value]=button.dataset.removeFilter.split(':');if(kind==='product')selectedProducts.delete(value);else [...document.querySelectorAll('.filter-group input:checked')][Number(value)].checked=false;applyFilters();});
     resetButton.addEventListener('click', () => {document.querySelectorAll('.sidebar input').forEach(i=>i.checked=false);selectedProducts.clear();applyFilters();});
+    addEventListener('scroll', syncStickyFilters, {passive:true});
+    addEventListener('resize', syncStickyFilters);
+    syncStickyFilters();
   </script>
 </body>
 </html>
