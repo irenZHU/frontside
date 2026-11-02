@@ -1,0 +1,72 @@
+/* Страница проекта (карточка объекта).
+   Структура как у карточки товара: в контейнере слева фото, справа закреплённая колонка
+   с крошками, названием, фактами, кнопкой и вкладками. Шапка, карточки, форма и подвал —
+   из projects.css и category-production.css. */
+
+/* ---------- Первый экран: галерея + информация ---------- */
+.project-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 57fr) minmax(0, 43fr);
+  gap: 56px;
+  align-items: start;
+  padding-top: 40px;
+}
+
+/* Галерея: два вертикальных кадра рядом, затем один во всю ширину — и так далее */
+.project-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.project-gallery__item { margin: 0; aspect-ratio: 3 / 4; overflow: hidden; background: var(--soft); }
+.project-gallery__item--wide { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.project-gallery__item img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Информация закреплена под шапкой, пока листаются фото */
+.project-info { position: sticky; top: 82px; }
+/* Колонка прижата к правому краю контейнера */
+.project-info__inner { max-width: 520px; margin-left: auto; padding: 8px 0 64px; }
+
+
+/* Метки над заголовком — ссылки на категорию, подкатегорию и систему (вид как у меток карточек) */
+.project-info__badges { margin-top: 0; }
+.project-info__badges > a { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border: 1px solid #d7d7d7; border-radius: 12px; background: #fff; color: #666; font: 400 10px/14px var(--font-ui); letter-spacing: .02em; text-transform: uppercase; text-decoration: none; transition: color .2s, border-color .2s; }
+.project-info__badges > a:hover, .project-info__badges > a:focus-visible { border-color: var(--red); color: var(--red); outline: none; }
+.project-info h1 { margin: 14px 0 0; color: var(--title); font: 400 32px/1.1 var(--font); letter-spacing: -1.1px; text-transform: uppercase; }
+.project-info__lead { margin: 16px 0 0; color: var(--body); font: 400 16px/1.5 var(--font); }
+
+/* Факты — подпись слева, значение справа */
+.project-info__facts { display: grid; gap: 10px; margin: 32px 0 0; }
+.project-info__facts > div { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+.project-info__facts dt { flex: 0 0 auto; color: var(--muted); font: 400 14px/20px var(--font-ui); }
+.project-info__facts dd { flex: 0 1 auto; max-width: 62%; margin: 0; color: var(--title); font: 400 14px/20px var(--font-ui); text-align: right; }
+
+/* Кнопка — красная CTA концепта во всю ширину колонки */
+.project-info__cta.hero__cta { position: static; width: 100%; margin-top: 32px; animation: none; translate: none; }
+
+.project-tabs a { color: var(--title); text-decoration: underline; text-decoration-color: rgba(29, 29, 29, .35); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
+.project-tabs a:hover { color: var(--red); text-decoration-color: var(--red); }
+
+/* Вкладки «О проекте / Решения» — как «О товаре / Характеристики» */
+.project-tabs { margin-top: 40px; }
+.project-tabs__list { display: flex; gap: 24px; }
+.project-tabs__list button { padding: 0 0 8px; border: 0; border-bottom: 1px solid transparent; background: none; color: var(--muted); font: 400 14px/20px var(--font-ui); letter-spacing: .04em; text-transform: uppercase; cursor: pointer; transition: color .2s, border-color .2s; }
+.project-tabs__list button[aria-selected="true"] { border-bottom-color: var(--title); color: var(--title); }
+.project-tabs__list button:hover { color: var(--title); }
+.project-tabs__panel { padding-top: 20px; }
+.project-tabs__panel p { margin: 0 0 14px; color: var(--body); font: 400 15px/1.6 var(--font); }
+.project-tabs__panel p:last-child { margin-bottom: 0; }
+.project-tabs__panel .project-info__facts { margin: 0 0 20px; }
+
+/* ---------- Другие объекты ---------- */
+.project-page .project-related { padding: 96px 0; background: var(--soft); }
+.project-page .project-related .projects__head { padding-bottom: 40px; }
+/* Карточки — как на странице категории: 4 в ряд */
+.project-page .project-related .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+
+/* ---------- Узкие экраны ---------- */
+@media (max-width: 1180px) {
+  .project-hero { grid-template-columns: 1fr; }
+  .project-info { position: static; }
+  .project-info__inner { max-width: none; padding: 0 0 40px; }
+  .project-page .project-related .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Форма идёт сразу за серым блоком «Другие объекты» — без белой полосы между ними */
+.project-page .category-form { margin-top: 0; }

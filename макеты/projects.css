@@ -192,3 +192,7 @@
 .breadcrumbs a:hover,.breadcrumbs a:focus-visible{color:var(--red);outline:none}
 .breadcrumbs>*+*::before{content:"";display:inline-block;width:1px;height:14px;margin:0 14px;vertical-align:-2px;background:rgba(0,0,0,.2)}
 .breadcrumbs [aria-current]{color:var(--muted)}
+
+/* Заголовок категории со своей страницей — ссылка, но выглядит как обычный заголовок (общий стиль header a тут не нужен) */
+.project-group header .project-group__link{display:inline;width:auto;min-height:0;padding:0;border-radius:0;background:none;color:inherit;font:inherit;text-decoration:none}
+.project-group header .project-group__link:focus-visible{outline:none}
