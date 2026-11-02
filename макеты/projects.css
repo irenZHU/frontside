@@ -40,7 +40,7 @@
 .product-chip{min-height:38px;border:1px solid #c8c8c8;padding:0 15px;background:#fff;color:#282828;font:500 12px/16px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.02em;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease}
 .product-chip:hover,.product-chip:focus-visible{border-color:var(--title);outline:none}
 .product-chip.is-active{border-color:var(--title);background:var(--title);color:#fff}
-@media (prefers-reduced-motion:reduce){.product-chip,.filter-group summary b{transition:none}}
+@media (prefers-reduced-motion:reduce){.product-chip,.filter-group summary b,.project-group header h3{transition:none}}
 
 /* Лёгкая композиция фильтров: один ориентир-разделитель, остальное — воздух. */
 .projects__head{padding-bottom:24px}
@@ -87,9 +87,13 @@
 .project-card__badges{display:flex;flex-wrap:wrap;gap:6px}
 .project-card__badges>span{display:inline-flex;align-items:center;min-height:23px;padding:0 8px;border:1px solid #d7d7d7;border-radius:12px;background:#fff;color:#666;font:400 10px/14px var(--font-ui,Inter,Arial,sans-serif);letter-spacing:.02em;text-transform:uppercase}
 .project-card__details strong{display:block;margin-top:6px;font:500 16px/20px var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-.2px}
-.project-group header{display:block;border-bottom:0;padding-bottom:0;margin-bottom:20px}
-.project-group header h3{width:auto;margin:0;white-space:nowrap;font:500 24px/29px var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-.5px}
+.project-group header{display:flex;align-items:center;justify-content:flex-start;gap:12px;border-bottom:0;padding-bottom:0;margin-bottom:20px}
+.project-group header h3{width:auto;margin:0;white-space:nowrap;font:500 24px/29px var(--font-ui,Onest,Arial,sans-serif);letter-spacing:-.5px;transition:color .18s ease}
 .project-group header p{max-width:720px;margin:9px 0 0;font:400 14px/20px var(--font-ui,Inter,Arial,sans-serif)}
+.project-group header .project-group__arrow{display:grid;place-items:center;flex:0 0 38px;width:38px;min-height:38px;height:38px;padding:0;border-radius:4px;background:var(--soft);color:var(--title);font:inherit;transition:background .18s ease,color .18s ease}
+.project-group__arrow svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter}
+.project-group header:hover h3,.project-group header:focus-within h3{color:var(--red)}
+.project-group header:hover .project-group__arrow,.project-group header .project-group__arrow:focus-visible{background:var(--red);color:#fff;outline:none}
 
 /* Строка активных фильтров: выбранные параметры всегда видны и снимаются одним кликом. */
 .filter-status-bar{display:flex;align-items:center;gap:10px;min-height:54px;padding-bottom:26px}
