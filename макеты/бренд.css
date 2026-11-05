@@ -11,6 +11,7 @@
   --brand-grey: #bbbdc0;
   --brand-light: #f1f1f1;
   --brand-black: #231f20;
+  --brand-graphite: color-mix(in srgb, var(--brand-black) 78%, var(--brand-grey) 22%);   /* графит: фирменный чёрный, разбавленный серым — заливка при наведении */
 
   /* рабочие переменные страниц — на фирменных цветах */
   --red: var(--brand-red);
@@ -43,6 +44,8 @@ body *:not(svg, svg *) { font-family: var(--font-text) !important; }
 :is(h1, h2, h3, h4, h5, h6,
     .idea__title, .slogan, .footer__brand, .fact__num,
     .project-card__details strong, .category-intro__directions strong) { font-family: var(--font-head) !important; }
+/* премиальная страница: тезисы и крупные цифры — тоже заголовочным шрифтом */
+:is(.premium-object__cta-text, .premium-hero__caption strong, .premium-hero__name, .premium-process__num) { font-family: var(--font-head) !important; }
 
 /* ---------- Углы: везде острые, скругление только у бейджей ---------- */
 body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !important; }
@@ -226,3 +229,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
   outline: none;
 }
 .projects-page .category-systems__lead { top: 99px; }                                    /* 24 px под заголовком (40 сдвиг + 35 строка + 24), как на втором экране */
+
+/* Премиальная страница: заголовок первого экрана 48/50 — на ступень крупнее Display */
+.projects-page .premium-hero h1 { font-size: 48px; line-height: 50px; }
+.projects-page .premium-hero__nav button { width: 38px; height: 38px; }   /* как стрелки категорий на странице «Проекты» */
+.projects-page .premium-hero__nav button svg { width: 18px; height: 18px; stroke-width: 1.6px; }
