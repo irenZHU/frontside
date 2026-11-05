@@ -42,7 +42,7 @@ body *:not(svg, svg *) { font-family: var(--font-text) !important; }
 /* заголовки и подзаголовки: разделы, карточки, крупные цифры, слоганы */
 :is(h1, h2, h3, h4, h5, h6,
     .idea__title, .slogan, .footer__brand, .fact__num,
-    .project-card__details strong, .category-intro__directions strong, .category-intro__slide strong) { font-family: var(--font-head) !important; }
+    .project-card__details strong, .category-intro__directions strong) { font-family: var(--font-head) !important; }
 
 /* ---------- Углы: везде острые, скругление только у бейджей ---------- */
 body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !important; }
@@ -98,7 +98,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Заголовки разделов */
 .projects-page :is(.projects h2, .category-section h2, .category-tasks__title, .category-form__intro h2, .category-systems .idea__title) { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; }
 /* Подзаголовки */
-.projects-page :is(.project-group header h3, .solution-card strong, .category-intro__slide strong) { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: -.5px; }
+.projects-page :is(.project-group header h3, .solution-card strong) { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: -.5px; }
 .projects-page :is(.idea__point h3, .category-intro__directions strong, .category-form__contacts dd) { font-size: var(--fs-h4); line-height: var(--lh-h4); }
 /* Основной текст */
 .projects-page :is(.solutions__head p, .category-intro__lead, .category-section__head p, .category-systems__lead, .idea__point p, .category-about p, .category-form__intro p, .project-info__lead, .project-tabs__panel p, .footer__contacts > a) { font-size: var(--fs-body); line-height: var(--lh-body); }
@@ -110,7 +110,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page :is(.project-card__badges > span, .project-info__badges > a) { font-size: var(--fs-badge); line-height: var(--lh-badge); }
 .projects-page .footer__social a { font-size: var(--fs-badge); }
 /* Подзаголовки — капсом, как заголовки */
-.projects-page :is(.project-group header h3, .solution-card strong, .category-intro__slide strong, .idea__point h3, .category-intro__directions strong) { text-transform: uppercase; letter-spacing: -.3px; }
+.projects-page :is(.project-group header h3, .solution-card strong, .idea__point h3, .category-intro__directions strong) { text-transform: uppercase; letter-spacing: -.3px; }
 /* Кнопки — капсом (чипсы фильтра и ссылка «Подробнее» — строчные) */
 .projects-page .btn-accent { text-transform: uppercase; letter-spacing: .04em; }
 .projects-page .btn-accent { font-size: var(--fs-ui); }
@@ -143,3 +143,86 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .project-group header h3 { color: var(--red); }
 .projects-page .project-group header .project-group__arrow { background: var(--red); color: #fff; }
 .projects-page .project-group header:hover .project-group__arrow { background: #c9301f; }
+/* Первый экран категории: заголовок — ступень «первый экран», описание — крупный текст */
+.projects-page .category-hero h1 { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: -1.3px; }
+.projects-page .category-hero__lead { font-size: var(--fs-h4); line-height: var(--lh-h4); }
+.projects-page .category-intro__title { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; text-transform: uppercase; }
+/* Кнопки слайдера на втором экране категории — как остальные кнопки-стрелки проекта:
+   «вперёд» — главное действие, красная с белой стрелкой; «назад» — светлая; стрелка 20 px, как в CTA */
+.projects-page .category-intro__slider-nav button svg { width: 20px; height: 20px; stroke-width: 1.7px; }
+.projects-page .category-intro__slider-nav [data-slide-next] { background: var(--red); color: #fff; }
+.projects-page .category-intro__slider-nav [data-slide-next]:hover,
+.projects-page .category-intro__slider-nav [data-slide-next]:focus-visible { background: #c9301f; }
+/* Второй экран категории: над подкатегориями одна надпись — как «Категории» и «Продукты» на странице «Проекты» */
+.projects-page .category-intro__directions { gap: 16px; }
+.projects-page .category-intro__directions-label { margin: 0 0 8px; color: #666; font-size: var(--fs-ui); line-height: var(--lh-ui); text-transform: uppercase; letter-spacing: .04em; }
+/* Подкатегории — компактнее; надпись «Реализованные проекты» над подписью к фото */
+.projects-page .category-intro__directions { gap: 8px; }
+.projects-page .category-intro__directions-label { margin-bottom: 4px; }
+.projects-page .category-intro__slide > .category-intro__directions-label { margin: 0 0 12px; }
+/* Название проекта в «Реализованных проектах» — обычный текст, не подзаголовок: Wix, без капса */
+.projects-page .category-intro__slide strong { font-family: var(--font-text) !important; font-size: 22px; line-height: var(--lh-h3); font-weight: 500; letter-spacing: 0; text-transform: none; }
+/* Второй экран категории — на фирменном светло-сером; кнопка «назад» на нём белая, чтобы не сливалась */
+.projects-page .category-intro { background: var(--brand-light); }
+.projects-page .category-intro__slider-nav [data-slide-prev] { background: #fff; }
+.projects-page .category-intro__slider-nav [data-slide-prev]:hover,
+.projects-page .category-intro__slider-nav [data-slide-prev]:focus-visible { background: var(--red); color: #fff; }
+/* Первый экран категории — на том же светло-сером, что второй: при перелёте фото фон не меняется */
+.projects-page .category-hero { background: var(--brand-light); }
+/* Второй экран категории — на всю высоту экрана: шапка 82 + по 40 сверху и снизу, фото забирает остальное */
+.projects-page .category-intro { --intro-photo-h: max(560px, calc(100svh - 282px)); padding-bottom: 100px; }
+/* Второй экран категории: описание сразу под заголовком, кнопка внизу колонки */
+.projects-page .category-intro__title + .category-intro__lead { margin-top: 24px; }
+/* Первый экран категории: надпись «Категория проектов» без красного квадрата */
+.projects-page .category-hero .section-label::before { content: none; }
+/* Ритм разделов на странице категории: от второго экрана до «Задач» — 96, как между остальными блоками */
+.projects-page .category-tasks { padding-top: 96px; }   /* + 4 px воздуха в строке заголовка = 100 видимых */
+/* Аудит категории: заголовки одной жирности, подзаголовки 20 px — 500, текст задач по шкале */
+.projects-page :is(.category-hero h1, .category-intro__title) { font-weight: 400; }
+.projects-page :is(.idea__point h3, .category-intro__directions strong) { font-weight: 500; }
+.projects-page .category-tasks__text { line-height: var(--lh-ui); }
+/* Блок систем: содержимое прижато к верху под шапкой (82 + 40), а не по центру экрана — без пустой полосы после «Проектов» */
+.projects-page .category-systems .idea__sticky { top: 82px; height: calc(100vh - 82px); align-items: flex-start; padding-top: 100px; box-sizing: border-box; }  /* закрепляется под шапкой: 96 и при прокрутке, и в закреплённом виде */
+/* Плашка подкатегорий: название — подзаголовок карточки (20, капс, Onest 500) */
+.projects-page .hero-subs__title { font-family: var(--font-head) !important; font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; text-transform: uppercase; letter-spacing: -.3px; }
+/* Задачи категории: номера по шкале (display 44/46), карточки ниже под спокойные цифры */
+.projects-page .category-tasks .fact { height: 220px; }
+.projects-page .category-tasks .fact__num { font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 400; letter-spacing: 0; color: var(--brand-grey); }
+/* Бейджи-чипсы на карточках и странице проекта — без капса */
+.projects-page :is(.project-card__badges > span, .project-info__badges > a) { text-transform: none; letter-spacing: 0; }
+
+/* Порядок в шрифтах страницы категории (2026-11-05): всё по шкале */
+.projects-page .category-page .project-card__details strong,
+.category-page.projects-page .project-card__details strong { font-size: var(--fs-body); line-height: var(--lh-body); }
+.projects-page :is(.category-intro__counter, .category-intro__counter *, .idea__counter span, .category-systems__more) { font-size: var(--fs-body); line-height: var(--lh-body); }
+.projects-page .hero__cta-text { font-size: var(--fs-ui); line-height: var(--lh-ui); letter-spacing: .04em; }
+.projects-page .category-form__submit { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+.projects-page .header .btn-accent { line-height: var(--lh-ui); }
+/* мелкий капс 12–14: одна разрядка .04em */
+.projects-page :is(.section-label, .category-intro__slide-meta, .category-form dt, .hero-subs__label, .category-intro__directions-label) { letter-spacing: .04em; }
+
+/* Единый видимый отступ между блоками страницы категории — 100 px (от букв и краёв фото, не от рамок):
+   от шапки до контента закреплённых экранов, от контента до края фона, между блоками на одном фоне.
+   Где блок начинается/кончается текстом, рамка меньше на воздух строки (4–6 px). */
+.projects-page .category-intro .category-intro__grid { margin-top: 132px; }               /* 82 шапка − 50 padding + 100 */
+.projects-page .category-systems .container { height: max(560px, calc(100svh - 282px)); transform: none !important; }  /* низ фото в 100 px от низа экрана; без сдвига при подъезде */
+.projects-page .projects { padding-bottom: 100px; }
+.projects-page .category-section.category-about { padding-bottom: 94px; }                /* + 6 px под строкой = 100 */
+.projects-page .category-form { margin-top: 0; padding: 100px 0; }
+.projects-page .category-systems .idea__title { margin-top: 40px; }                        /* заголовок ниже верхнего края фото на 40 px */
+
+/* ---------- Текстовые ссылки (правило бренда) ----------
+   Линия всегда красная, 1 px. При наведении текст краснеет, линия сжимается к центру и исчезает.
+   Новые ссылки в тексте — класс .fs-link. */
+:is(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button) {
+  text-decoration: none !important;
+  background: linear-gradient(var(--brand-red), var(--brand-red)) 50% 100% / 100% 1px no-repeat;
+  padding-bottom: 2px;
+  transition: color .25s ease, background-size .3s ease;
+}
+:is(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button):is(:hover, :focus-visible) {
+  color: var(--brand-red) !important;
+  background-size: 0% 1px;
+  outline: none;
+}
+.projects-page .category-systems__lead { top: 99px; }                                    /* 24 px под заголовком (40 сдвиг + 35 строка + 24), как на втором экране */
