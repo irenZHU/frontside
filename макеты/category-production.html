@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="бренд.css">
 </head>
 <body class="projects-page category-page" id="top">
-  <header class="header is-scrolled">
+  <header class="header">
     <div class="container header__inner">
       <a class="logo" href="artvision.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
       <nav class="nav nav--main" aria-label="Основная навигация">
@@ -32,39 +32,55 @@
   </header>
 
   <main>
-    <!-- Первый экран: слева заголовок и цифры, в центре фото, справа лид, кнопка и направления -->
-    <section class="category-intro" aria-labelledby="category-title">
+    <!-- Первый и второй экран: первый стоит на месте (sticky), второй наезжает на него снизу — как в концепте -->
+    <div class="category-stage">
+    <!-- Первый экран: фото на весь экран, по центру заголовок и короткое описание.
+         Экран закреплён: при прокрутке на него наезжает второй экран -->
+    <section class="category-hero" aria-labelledby="category-title">
+      <div class="category-hero__bg" aria-hidden="true"><img src="img/category-production-cover.jpg" alt=""></div>
+      <div class="container category-hero__top"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="artvision.html">Главная</a><a href="projects.html#projects">Проекты</a><span aria-current="page">Производственные объекты</span></nav></div>
+      <div class="category-hero__content">
+        <p class="section-label">Категория проектов</p>
+        <h1 id="category-title">Производственные объекты</h1>
+        <p class="category-hero__lead">Фасадные решения для заводов, технопарков и объектов Light Industrial — с учётом нагрузок, логистики и условий эксплуатации.</p>
+      </div>
+      <!-- Плашка подкатегорий в правом нижнем углу: фото + название, листается сама, полоски — прогресс.
+           Данные (фото первого объекта подкатегории) скрипт берёт из карточек портфолио -->
+      <div class="container category-hero__bottom">
+        <a class="hero__cta category-intro__cta category-hero__cta" href="#feedback"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        <div class="hero-subs" aria-label="Подкатегории">
+          <button class="hero-subs__card" type="button" data-hero-sub>
+            <span class="hero-subs__photo"><img alt="" data-hero-sub-img></span>
+            <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория</span><span class="hero-subs__title" data-hero-sub-title></span></span>
+            <svg class="fs-arrow fs-arrow--right hero-subs__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          </button>
+          <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Второй экран: слева задача и кнопка, в центре фото (сюда встаёт фото первого экрана), справа направления -->
+    <section class="category-intro" aria-label="О категории">
       <div class="container">
-        <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="artvision.html">Главная</a><a href="projects.html#projects">Проекты</a><span aria-current="page">Производственные объекты</span></nav>
         <div class="category-intro__grid">
           <div class="category-intro__col">
+            <p class="category-intro__directions-label reveal-lines" style="--d:.1s">Производственные объекты</p>
             <div>
-              <p class="section-label">Категория проектов</p>
-              <h1 id="category-title">Производственные <span>объекты</span></h1>
-            </div>
-            <div>
-              <p class="category-intro__lead">Фасадные решения для заводов, технопарков и объектов Light Industrial — с учётом нагрузок, логистики и условий эксплуатации.</p>
-              <p class="category-intro__lead">Подбираем систему под режим работы здания: агрессивную среду, перепады температур, требования к пожарной безопасности. Проектируем узлы и раскладку панелей, производим системы на собственном заводе и сопровождаем монтаж на площадке — чтобы протяжённый корпус получил аккуратный и узнаваемый облик.</p>
-              <a class="hero__cta category-intro__cta" href="#feedback"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+              <h2 class="category-intro__title reveal-lines">Подбираем систему под режим работы здания</h2>
+              <p class="category-intro__lead reveal-lines" style="--d:.25s">Здесь собраны реализованные объекты Frontside по трём направлениям: промышленные предприятия, технопарки и Light Industrial. По каждому — применённая система, решения по фасаду и фотографии. Листайте проекты справа или выберите подкатегорию.</p>
             </div>
           </div>
           <figure class="category-intro__media">
-            <img data-slide-image src="https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp" alt="Завод смазочных материалов TOTAL">
           </figure>
           <div class="category-intro__col">
-            <div class="category-intro__directions" aria-label="Направления">
-              <button type="button" data-direction="Промышленные предприятия"><small>2 объекта</small><strong>Промышленные предприятия</strong></button>
-              <button type="button" data-direction="Технопарки"><small>1 объект</small><strong>Технопарки</strong></button>
-              <button type="button" data-direction="Light Industrial"><small>1 объект</small><strong>Light Industrial</strong></button>
-            </div>
             <!-- Подпись к фото в центре и перелистывание объектов категории -->
             <div class="category-intro__slide">
+              <p class="category-intro__directions-label reveal-lines" style="--d:.35s">Реализованные проекты</p>
               <div class="category-intro__slide-text" aria-live="polite">
-                <span class="category-intro__slide-label">Реализованный проект</span>
-                <strong data-slide-title>Завод смазочных материалов TOTAL</strong>
-                <span class="category-intro__slide-meta" data-slide-meta>FRONTTOP · Промышленные предприятия</span>
+                <strong class="reveal-lines" style="--d:.45s" data-slide-title>Завод смазочных материалов TOTAL</strong>
+                <span class="category-intro__slide-meta" data-reveal style="--d:.55s" data-slide-meta>FRONTTOP · Промышленные предприятия</span>
               </div>
-              <div class="category-intro__slider-nav">
+              <div class="category-intro__slider-nav" data-reveal style="--d:.6s">
                 <span class="category-intro__counter" aria-label="Номер объекта"><b data-slide-index>01</b><span data-slide-total>04</span></span>
                 <button type="button" data-slide-prev aria-label="Предыдущий объект"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
                 <button type="button" data-slide-next aria-label="Следующий объект"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
@@ -74,12 +90,13 @@
         </div>
       </div>
     </section>
+    </div>
 
     <!-- Задача и решение -->
     <section class="facts category-tasks" aria-labelledby="tasks-title">
       <h2 class="category-tasks__title" id="tasks-title">Задачи, которые решает фасад</h2>
       <div class="container">
-        <article class="fact"><h3 class="fact__text">Инженерная точность</h3><p class="category-tasks__text">Подбираем систему под режим работы цеха: влажность, перепады температур, агрессивную среду и требования к пожарной безопасности.</p><div class="fact__num" aria-hidden="true">01</div></article>
+        <article class="fact"><h3 class="fact__text">Инженерная точность</h3><p class="category-tasks__text">Учитываем режим работы цеха: влажность, перепады температур, агрессивную среду и требования к пожарной безопасности.</p><div class="fact__num" aria-hidden="true">01</div></article>
         <article class="fact"><h3 class="fact__text">Технологичный монтаж</h3><p class="category-tasks__text">Раскладка панелей и узлы готовы до выхода на площадку, поэтому монтаж идёт без остановки соседних производственных участков.</p><div class="fact__num" aria-hidden="true">02</div></article>
         <article class="fact"><h3 class="fact__text">Выразительная индустриальная архитектура</h3><p class="category-tasks__text">Цвет, ритм и фактура панелей превращают протяжённый корпус в узнаваемый объект, а не в типовой ангар.</p><div class="fact__num" aria-hidden="true">03</div></article>
       </div>
@@ -115,7 +132,7 @@
           </div>
           <div class="idea__point">
             <h3>FRONTBASE</h3>
-            <p>Базовая система из стеновых и кровельных сэндвич-панелей длиной до 12,5 м. Готовая стена и кровля сразу закрывают тепловой контур, все узлы — в комплекте поставки.</p>
+            <p>Базовая система из стеновых и кровельных сэндвич-панелей длиной до 12,5&nbsp;м. Готовая стена и кровля сразу закрывают тепловой контур, все узлы — в комплекте поставки.</p>
             <a class="category-systems__more" href="https://frontside.ru/catalog/frontbase/" target="_blank" rel="noopener">Подробнее</a>
           </div>
           <div class="idea__point">
@@ -125,7 +142,7 @@
           </div>
           <div class="idea__point">
             <h3>AESTHETIC</h3>
-            <p>Вертикальная система без видимого крепления и теневого шва: крепёж скрыт в замке панели, фасад получается гладким. Панели длиной до 12,5 м, закруглённые углы.</p>
+            <p>Вертикальная система без видимого крепления и теневого шва: крепёж скрыт в замке панели, фасад получается гладким. Панели длиной до 12,5&nbsp;м, закруглённые углы.</p>
             <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
           </div>
           </div>
@@ -199,6 +216,7 @@
   </footer>
 
   <script src="idea-scroll.js?v=10201059"></script>
+  <script src="reveal.js?v=10201059"></script>
   <script>
     // Фильтр по направлениям: те же чипы, что фильтр продуктов на странице «Проекты»
     const chips=[...document.querySelectorAll("[data-direction-filter]")];
@@ -215,6 +233,7 @@
     // Фото первого экрана листает объекты категории — данные берутся из карточек портфолио
     const media=document.querySelector(".category-intro__media");
     const slideText=document.querySelector(".category-intro__slide-text");
+    // Слайды — реализованные проекты из карточек
     const slides=items.map(item=>({
       image:item.querySelector(".project-card").style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,""),
       title:item.querySelector(".project-card__details strong").textContent,
@@ -223,9 +242,10 @@
     // Как в концепте: новое фото открывается снизу вверх поверх старого,
     // текст старого уходит вверх, новый поднимается снизу
     const photos=slides.map((slide,i)=>{
-      const img=i===0?media.querySelector("[data-slide-image]"):new Image();
+      const img=new Image();
       img.src=slide.image;img.alt=slide.title;
-      if(i===0) img.classList.add("is-active"); else media.append(img);
+      if(i===0) img.classList.add("is-active");
+      media.append(img);
       return img;
     });
     let slideIndex=0,busy=false;
@@ -233,13 +253,13 @@
     function showSlide(index){
       if(busy) return;
       busy=true;
-      const prev=photos[slideIndex];
+      const prev=photos[slideIndex].classList.contains("is-active")?photos[slideIndex]:null;
       slideIndex=(index+slides.length)%slides.length;
       const slide=slides[slideIndex], next=photos[slideIndex];
       photos.forEach(img=>img.classList.remove("is-prev"));
-      prev.classList.replace("is-active","is-prev");
+      if(prev) prev.classList.replace("is-active","is-prev");
       next.classList.add("is-active");
-      setTimeout(()=>{prev.classList.remove("is-prev");busy=false;},1000);
+      setTimeout(()=>{if(prev) prev.classList.remove("is-prev");busy=false;},1000);
       slideText.classList.add("is-leaving");
       setTimeout(()=>{
         document.querySelector("[data-slide-title]").textContent=slide.title;
@@ -254,6 +274,40 @@
     document.querySelector("[data-slide-next]").addEventListener("click",()=>showSlide(slideIndex+1));
     // Направления на первом экране: включают фильтр и ведут к проектам
     document.querySelectorAll("[data-direction]").forEach(button=>button.addEventListener("click",()=>{setDirection(button.dataset.direction);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});}));
+    // шапка: над фото первого экрана прозрачная, после начала прокрутки — белая
+    const siteHeader=document.querySelector(".header");
+    function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
+    // Плашка подкатегорий на первом экране: листается каждые 5 с, полоска показывает прогресс;
+    // клик по плашке включает фильтр подкатегории и ведёт к проектам
+    const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
+    const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
+    const subs=[...document.querySelectorAll("[data-direction-filter]:not([data-direction-filter='all'])")].map(b=>{
+      const name=b.dataset.directionFilter, item=items.find(it=>it.dataset.subcategory===name);
+      return {name, image:item?item.querySelector(".project-card").style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,""):""};
+    });
+    subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
+    const bars=[...subBars.children];
+    let subIndex=0, subTimer;
+    function showSub(i){
+      subIndex=(i+subs.length)%subs.length;
+      subCard.classList.add("is-changing");
+      setTimeout(()=>{
+        subImg.src=subs[subIndex].image; subTitle.textContent=subs[subIndex].name;
+        subCard.classList.remove("is-changing");
+      },subCard.dataset.ready?250:0);
+      subCard.dataset.ready=1;
+      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<subIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===subIndex));});
+      bars[subIndex].offsetWidth; bars[subIndex].classList.add("is-active");
+      clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
+    }
+    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
+    subCard.addEventListener("click",()=>{setDirection(subs[subIndex].name);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});});
+    showSub(0);
+    // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
+    const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
+    document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
+    addEventListener("scroll",heroFrame,{passive:true});
+    heroFrame();
   </script>
 </body>
 </html>

@@ -8,9 +8,8 @@
 .category-intro { padding-bottom: 40px; }
 .category-intro__grid {
   display: grid;
-  /* Слева 440 px — заголовок «ПРОИЗВОДСТВЕННЫЕ» капсом 40 px в одну строку.
-     Справа 280 px — направления. Фото забирает остальное, но не шире своей высоты */
-  grid-template-columns: minmax(440px, 1fr) minmax(0, var(--intro-photo-h)) minmax(280px, 1fr);
+  /* Три части: боковые равные, фото по центру шире них */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
   gap: 40px;
   margin-top: 72px;   /* воздух между крошками и первым экраном */
 }
@@ -204,7 +203,7 @@
 .category-form__agree a:hover { color: var(--red); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 /* Подвал — того же графита, что фон формы; между ними тонкая линия */
-.category-page .footer { margin-top: 0; background: #2b2d2f; border-top: 1px solid rgba(255, 255, 255, .1); }
+.category-page .footer { position: relative; z-index: 2; margin-top: 0; background: #2b2d2f; border-top: 1px solid rgba(255, 255, 255, .1); }
 
 /* ---------- Узкие экраны ---------- */
 @media (max-width: 1180px) {
@@ -223,3 +222,78 @@
   .category-intro__directions button { transition: none; }
 }
 
+
+/* ---------- Первый экран: фото на весь экран ---------- */
+/* Первый экран закреплён (sticky) внутри .category-stage, второй экран наезжает на него снизу — как в концепте */
+.category-stage { position: relative; }
+.category-hero { position: sticky; top: 0; z-index: 0; height: 100vh; margin-top: -82px; overflow: hidden; color: #fff; }
+.category-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.category-hero__bg img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* затемнение для читаемости текста */
+.category-hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 20, 22, .45) 0, rgba(20, 20, 22, .15) 22%, rgba(20, 20, 22, .35) 60%, rgba(20, 20, 22, .55) 100%); }
+.category-intro { position: relative; z-index: 1; box-shadow: 0 -10px 40px rgba(16, 32, 56, .12); clip-path: inset(-80px 0 0 0); }  /* тень только сверху, над фото первого экрана; снизу обрезана */
+.category-hero__top { position: relative; z-index: 6; padding-top: 82px; }   /* крошки на той же высоте, что на остальных страницах */
+.category-hero .breadcrumbs { color: #fff; }
+.category-hero .breadcrumbs > * + *::before { background: rgba(255, 255, 255, .4); }
+.category-hero .breadcrumbs [aria-current] { color: rgba(255, 255, 255, .7); }
+.category-hero__content { position: absolute; z-index: 6; left: 50%; top: 50%; width: min(900px, 100% - 160px); translate: -50% -50%; text-align: center; will-change: opacity, transform; }
+.category-hero .section-label { justify-content: center; color: #fff; }
+.category-hero h1 { margin: 0; color: #fff; text-transform: uppercase; }
+.category-hero__lead { max-width: 720px; margin: 24px auto 0; color: rgba(255, 255, 255, .92); }
+
+/* Второй экран: крошки ушли на первый экран — отступ сверху под шапку */
+.category-intro { padding-top: 50px; }
+.category-intro__title { margin: 0; color: var(--title); }
+
+/* Шапка над фото первого экрана — прозрачная, белый текст; после прокрутки — как на остальных страницах */
+.category-page .header:not(.is-scrolled) { background: transparent; border-bottom-color: transparent; box-shadow: none; color: #fff; }
+.category-page .header:not(.is-scrolled) .nav a:not(.is-active) { color: #fff; }
+/* Кнопка «Обсудить проект» — на первом экране, внизу по центру; гаснет вместе с текстом при прокрутке */
+.category-hero .category-hero__cta { position: absolute; z-index: 6; left: 50%; bottom: 40px; translate: -50% 0; }
+
+/* ---------- Плашка подкатегорий на первом экране (правый нижний угол) ---------- */
+.category-hero__bottom { position: absolute; z-index: 6; left: 0; right: 0; bottom: 40px; display: flex; justify-content: flex-end; pointer-events: none; }
+.hero-subs { position: relative; width: 480px; padding: 8px; background: #fff; color: var(--title); pointer-events: auto; }
+.hero-subs__card { display: grid; grid-template-columns: 200px 1fr 20px; gap: 16px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
+.hero-subs__photo { display: block; height: 150px; overflow: hidden; background: var(--brand-light); }
+.hero-subs__photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.hero-subs__card:hover .hero-subs__photo img { transform: scale(1.04); }
+.hero-subs__title { align-self: start; padding-top: 8px; transition: color .2s; }
+.hero-subs__arrow { width: 16px; height: 16px; margin-top: 12px; transition: color .2s, translate .2s; }
+.hero-subs__card:hover .hero-subs__title,
+.hero-subs__card:hover .hero-subs__arrow { color: var(--red); }
+.hero-subs__card:hover .hero-subs__arrow { translate: 3px 0; }
+/* смена подкатегории — мягкое затухание фото и текста */
+.hero-subs__photo img, .hero-subs__title { transition: opacity .25s ease, transform .6s ease, color .2s; }
+.hero-subs__card.is-changing .hero-subs__photo img,
+.hero-subs__card.is-changing .hero-subs__title { opacity: 0; }
+/* полоски-прогресс внизу справа, под названием */
+.hero-subs__bars { position: absolute; left: 232px; right: 16px; bottom: 16px; display: flex; gap: 8px; }
+.hero-subs__bars button { position: relative; flex: 1; height: 16px; padding: 0; border: 0; background: none; cursor: pointer; }
+.hero-subs__bars button::before,
+.hero-subs__bars i { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: var(--brand-grey); }
+.hero-subs__bars i { right: auto; width: 0; background: var(--brand-black); }
+.hero-subs__bars button.is-done i { width: 100%; }
+.hero-subs__bars button.is-active i { animation: hero-sub-progress 5s linear forwards; }
+@keyframes hero-sub-progress { from { width: 0; } to { width: 100%; } }
+/* надпись «Подкатегория» над названием — как подписи на втором экране */
+.hero-subs__text { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+.hero-subs__text .hero-subs__title { padding-top: 0; }
+.hero-subs__label { color: #666; font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: .04em; }
+/* Кнопка — в левом нижнем углу сетки, плашка подкатегорий — в правом, обе по одной линии низа */
+.category-hero__bottom { justify-content: space-between; align-items: flex-end; }
+.category-hero .category-hero__cta { position: static; translate: none; pointer-events: auto; }
+
+/* ---------- Появление второго экрана — как в концепте ----------
+   строки поднимаются из-под маски (reveal.js), колонки — с небольшим сдвигом по времени (--d);
+   кнопки и подписи проявляются снизу */
+.category-intro .reveal-lines .line > span { transition-delay: calc(var(--d, 0s) + var(--i) * .12s); }
+.category-intro [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .8s ease var(--d, 0s), transform 1s cubic-bezier(.22,.61,.24,1) var(--d, 0s); }
+.category-intro [data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .category-intro [data-reveal] { opacity: 1; transform: none; transition: none; } }
+
+/* Правая колонка второго экрана: только «Реализованные проекты», прижаты к низу */
+.category-intro__col:last-child { justify-content: flex-end; }
+
+/* Шапка без нижней линии — и над фото, и на прокрутке */
+.category-page .header, .category-page .header.is-scrolled { border-bottom: 0; box-shadow: none; }
