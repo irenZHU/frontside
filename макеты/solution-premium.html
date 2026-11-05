@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фасады для объектов с особыми требованиями к архитектуре и эстетике — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="category-production.css">
+  <link rel="stylesheet" href="solution-premium.css">
+  <link rel="stylesheet" href="бренд.css">
+</head>
+<body class="projects-page category-page premium-page" id="top">
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="artvision.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main" aria-label="Основная навигация">
+        <a href="projects.html#catalog">Каталог</a><a class="is-active" href="projects.html#solutions">Решения</a><a href="projects.html#services">Услуги</a><a href="projects.html#projects">Проекты</a><a href="projects.html#documents">Документы</a>
+      </nav>
+      <nav class="nav nav--side" aria-label="Дополнительная навигация">
+        <a href="projects.html#about">О компании</a><a href="projects.html#news">Новости</a><a href="projects.html#contacts">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Поиск"><svg width="50" height="50" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="28" r="8"/><path d="M35.2 34.2 41.7 40.7"/></svg></button>
+        <a class="btn-accent" href="#feedback">Отправить заявку</a>
+        <button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый экран закреплён, блок объектов наезжает на него — как на странице категории -->
+    <div class="category-stage">
+    <!-- 1. Первый экран: фото знакового объекта на весь экран, фон листает объекты -->
+    <section class="category-hero premium-hero" aria-labelledby="premium-title">
+      <div class="category-hero__bg premium-hero__bg" aria-hidden="true" data-hero-bg>
+        <img class="is-active" src="img/premium/chayka.webp" alt="">
+        <img src="img/premium/platov.webp" alt="">
+        <img src="img/premium/dinamo.webp" alt="">
+        <img src="img/premium/viner.webp" alt="">
+      </div>
+      <div class="container category-hero__top"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="artvision.html">Главная</a><a href="projects.html#solutions">Решения</a><span aria-current="page">Фасады для объектов с особыми требованиями к архитектуре и эстетике</span></nav></div>
+      <!-- Стартовый кадр — заголовок страницы; на следующих кадрах на его месте название объекта -->
+      <div class="category-hero__content premium-hero__content">
+        <div class="premium-hero__intro is-active">
+          <p class="section-label">Решения Frontside</p>
+          <h1 id="premium-title">Фасады для объектов с&nbsp;особыми требованиями к&nbsp;архитектуре и&nbsp;эстетике</h1>
+          <p class="category-hero__lead">Поможем инвестору и&nbsp;архитектору реализовать идеи, которые пройдут архитектурно-градостроительные согласования, будут экономически выгодны и&nbsp;эстетичны.</p>
+        </div>
+        <div class="premium-hero__slide" aria-live="polite">
+          <p class="section-label">Объект с&nbsp;нашими фасадами</p>
+          <p class="premium-hero__name" data-hero-name></p>
+        </div>
+      </div>
+      <div class="container category-hero__bottom premium-hero__bottom">
+        <!-- «Далее» — следующий объект, стрелки и полоса автопрокрутки под ними -->
+        <div class="premium-hero__object">
+          <div class="premium-hero__row">
+            <div class="premium-hero__caption" aria-live="polite">
+              <span class="premium-hero__label">Далее</span>
+              <strong data-hero-next-name>Аэропорт Платов</strong>
+            </div>
+            <div class="category-intro__slider-nav premium-hero__nav">
+              <button type="button" data-slide-prev data-hero-prev aria-label="Предыдущий объект"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+              <button type="button" data-slide-next data-hero-next aria-label="Следующий объект"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+            </div>
+          </div>
+          <div class="premium-hero__progress" aria-hidden="true" data-hero-progress></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Знаковые объекты: сетка в две колонки, карточки и бейджи — элементы страницы «Проекты» -->
+    <section class="premium-objects" id="objects" aria-labelledby="objects-title">
+      <div class="container">
+        <div class="premium-head">
+          <div>
+            <h2 class="premium-title reveal-lines" id="objects-title">Объекты с&nbsp;нашими фасадами</h2>
+          </div>
+          <a class="fs-link premium-head__link" href="projects.html#projects">Все проекты Frontside</a>
+        </div>
+      </div>
+      <!-- Сетка на всю ширину с тонкими линиями: название сверху по центру, фото, теги, город и ссылка -->
+      <!-- Сетка на всю ширину с тонкими линиями: название по центру, фото, ссылка на проект. Порядок и названия — как у заказчика -->
+      <div class="premium-objects__grid">
+          <article class="premium-object">
+            <h3>Физкультурно-оздоровительный комплекс «Чайка»</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/chayka.webp" alt="Физкультурно-оздоровительный комплекс «Чайка»" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <article class="premium-object">
+            <h3>Аэропорт в&nbsp;Стригино</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/strigino.webp" alt="Аэропорт в Стригино" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <article class="premium-object">
+            <h3>Аэропорт Платов</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/platov.webp" alt="Аэропорт Платов" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <article class="premium-object">
+            <h3>Центр художественной гимнастики Ирины Винер-Усмановой</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/viner.webp" alt="Центр художественной гимнастики Ирины Винер-Усмановой" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <article class="premium-object">
+            <h3>Выставочный центр «Казань Экспо»</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/kazan-expo.webp" alt="Выставочный центр «Казань Экспо»" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <article class="premium-object">
+            <h3>ТПУ «Рассказовка»</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/rasskazovka.webp" alt="ТПУ «Рассказовка»" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <article class="premium-object">
+            <h3>Стадион «Динамо»</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="img/premium/dinamo.webp" alt="Стадион «Динамо»" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="fs-link" href="projects.html#projects">Прочитать о&nbsp;проекте</a></div>
+          </article>
+          <!-- последняя клетка сетки — приглашение к заявке; текст — лид заказчика, кнопка — как «Отправить заявку» в шапке -->
+          <div class="premium-object premium-object--cta">
+            <p class="premium-object__cta-text">Поможем инвестору и&nbsp;архитектору<br>реализовать идеи</p>
+            <a class="hero__cta premium-cta" href="#feedback"><span class="hero__cta-text">Отправить заявку</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+          </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- 3. Особые требования к архитектуре — механика «Сферы применения» из концепта:
+         заголовок по центру, ниже кадр 16:9 вырастает из половины и закрепляется,
+         следующее требование подъезжает снизу, прежние уходят вглубь колоды и выглядывают сверху -->
+    <section class="premium-req" aria-labelledby="req-title">
+      <div class="container premium-head premium-grow__head">
+        <h2 class="premium-title reveal-lines" id="req-title">Особые требования к&nbsp;архитектуре</h2>
+      </div>
+      <div class="premium-req__track" data-req style="--n: 3">
+        <div class="premium-req__sticky">
+          <div class="premium-req__stage">
+          <article class="premium-req__slide" data-req-slide>
+            <div class="premium-req__panel"><h3 class="premium-req__title">На&nbsp;здание будут смотреть люди</h3><p class="premium-req__note">Объекты строятся в&nbsp;городской застройке и&nbsp;знаковых местах, поэтому облик здания крайне важен. Приёмку ведут первые лица.</p></div>
+            <div class="premium-req__img" style="background-image:url('img/premium/platov.webp')"></div>
+          </article>
+          <article class="premium-req__slide" data-req-slide>
+            <div class="premium-req__panel"><h3 class="premium-req__title">Нужны нестандартные архитектурные решения</h3><p class="premium-req__note">Проекты разрабатывают известные бюро, предлагающие необычные решения для зданий. Мы&nbsp;поможем воплотить каждую их идею.</p></div>
+            <div class="premium-req__img" style="background-image:url('img/premium/viner.webp')"></div>
+          </article>
+          <article class="premium-req__slide" data-req-slide>
+            <div class="premium-req__panel"><h3 class="premium-req__title">Проектирование повышенной сложности</h3><p class="premium-req__note">На&nbsp;конструктив влияют расположение, перепады высот, изгибы и&nbsp;необычные поверхности здания. Работа с&nbsp;такой спецификой для нас привычна.</p></div>
+            <div class="premium-req__img" style="background-image:url('img/premium/dinamo.webp')"></div>
+          </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Особые требования к процессу и результату: фото «Чайки» раскрывается от кадра по центру до ширины сетки,
+         когда фото раскрылось, слева на нём проявляется заголовок, затем по прокрутке выезжают три карточки-требования — колодой, следующая наезжает на предыдущую -->
+    <section class="premium-grow" aria-labelledby="grow-title">
+      <div class="premium-grow__track" data-grow-track>
+        <div class="premium-grow__sticky">
+          <div class="premium-grow__frame" data-grow-frame><img src="img/premium/chayka.webp" alt="Физкультурно-оздоровительный комплекс «Чайка» с фасадами Frontside"></div>
+          <div class="container premium-grow__cards">
+            <h2 class="premium-grow__title" id="grow-title" data-grow-title>Особые требования к&nbsp;процессу и&nbsp;результату</h2>
+            <div class="premium-grow__deck">
+            <article class="premium-card" data-card>
+              <div class="premium-card__top"><h3>Построенный объект должен выглядеть идеально</h3><span class="category-intro__counter premium-card__num"><b>01</b><span>03</span></span></div>
+              <p>Готовое здание должно смотреться лучше, чем 3D-визуализация: без ошибок в&nbsp;цвете, повреждений фасадных систем и&nbsp;брака при монтаже.</p>
+            </article>
+            <article class="premium-card" data-card>
+              <div class="premium-card__top"><h3>На&nbsp;объекте регулярно присутствуют VIP-руководители</h3><span class="category-intro__counter premium-card__num"><b>02</b><span>03</span></span></div>
+              <p>Производство и&nbsp;поставки работают как часы: изготавливаем и&nbsp;отгружаем вовремя, продукция собирается, словно «Лего».</p>
+            </article>
+            <article class="premium-card" data-card>
+              <div class="premium-card__top"><h3>Все вопросы решаются оперативно и&nbsp;грамотно</h3><span class="category-intro__counter premium-card__num"><b>03</b><span>03</span></span></div>
+              <p>Руководитель проекта реагирует на&nbsp;инженерные задачи и&nbsp;сдвиги графика, при необходимости подключает проектирование, производство и&nbsp;логистику.</p>
+            </article>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Обеспечим спокойное строительство: три услуги заказчика со ссылками на их страницы -->
+    <section class="premium-process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="premium-head premium-head--center">
+          <div>
+            <p class="section-label">Услуги</p>
+            <h2 class="premium-title reveal-lines" id="process-title">Обеспечим спокойное строительство объекта</h2>
+          </div>
+        </div>
+        <ol class="premium-process__steps">
+          <li><span class="premium-process__num">01</span><h3>Техническое проектирование и&nbsp;подготовка документации</h3><p>Полная техническая поддержка и&nbsp;документация для архитекторов и&nbsp;проектировщиков по&nbsp;всем фасадным узлам и&nbsp;компонентам.</p><a class="fs-link" href="https://frontside.ru/services/tekhnicheskoe-proektirovanie-i-podgotovka-dokumentatsii/" target="_blank" rel="noopener">Подробнее</a></li>
+          <li><span class="premium-process__num">02</span><h3>Производство фасадных систем для объекта</h3><p>Рассчитаем всю необходимую комплектацию и&nbsp;изготовим продукцию строго в&nbsp;срок.</p><a class="fs-link" href="https://frontside.ru/services/proizvodstvo-fasadnykh-sistem-dlya-obekta/" target="_blank" rel="noopener">Подробнее</a></li>
+          <li><span class="premium-process__num">03</span><h3>Логистика и&nbsp;сопровождение монтажа на&nbsp;объекте</h3><p>Продумываем упаковку, доставляем фасад в&nbsp;последовательности монтажа, обучаем монтажные организации и&nbsp;проводим шеф-монтаж.</p><a class="fs-link" href="https://frontside.ru/services/logistika-i-soprovozhdenie-montazha-na-obekte/" target="_blank" rel="noopener">Подробнее</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Форма обратной связи — блок страницы категории; заголовок и поля — как у заказчика -->
+    <section class="category-form" id="feedback" aria-labelledby="form-title">
+      <div class="container category-form__card">
+        <div class="category-form__intro">
+          <div>
+            <h2 id="form-title">Frontside на&nbsp;связи</h2>
+            <p>Специалисты свяжутся с&nbsp;вами в&nbsp;течение рабочего дня</p>
+          </div>
+          <dl class="category-form__contacts">
+            <div><dt>Телефон</dt><dd><a href="tel:+74956428091">+7 (495) 642-80-91</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:info@frontside.ru">info@frontside.ru</a></dd></div>
+          </dl>
+        </div>
+        <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Почта</span><input type="email" name="email" placeholder="Почта" autocomplete="email"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Я соглашаюсь на обработку персональных данных в соответствии с <a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">Меняем облик<br>современных городов</div>
+      <nav class="footer__nav" aria-label="Разделы сайта">
+        <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
+      </nav>
+      <nav class="footer__nav" aria-label="О компании">
+        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <div class="footer__contacts">
+        <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+        <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+        <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+  </footer>
+
+  <script src="reveal.js?v=11052250"></script>
+  <script>
+    // шапка: над фото первого экрана прозрачная, после начала прокрутки — белая
+    const siteHeader=document.querySelector(".header");
+    function headerFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
+    addEventListener("scroll",headerFrame,{passive:true}); headerFrame();
+
+    // Первый экран: фон листает знаковые объекты каждые 6 с, стрелки — вручную
+    const heroObjects=[
+      {name:"Физкультурно-оздоровительный комплекс «Чайка»"},
+      {name:"Аэропорт Платов"},
+      {name:"Стадион «Динамо»"},
+      {name:"Центр художественной гимнастики Ирины Винер-Усмановой"}
+    ];
+    const heroImgs=[...document.querySelectorAll("[data-hero-bg] img")];
+    const heroCaption=document.querySelector(".premium-hero__caption");
+    const heroIntro=document.querySelector(".premium-hero__intro"), heroSlide=document.querySelector(".premium-hero__slide");
+    let heroIndex=0, heroTimer;
+    // полоса прогресса делится на столько отрезков, сколько объектов в слайдере
+    const heroProgress=document.querySelector("[data-hero-progress]"), HERO_DELAY=6000;
+    heroProgress.innerHTML=heroImgs.map(()=>"<span><i></i></span>").join("");
+    const heroSegments=[...heroProgress.children];
+    function showHero(i){
+      heroIndex=(i+heroImgs.length)%heroImgs.length;
+      heroImgs.forEach((img,j)=>img.classList.toggle("is-active",j===heroIndex));
+      heroCaption.classList.add("is-leaving");
+      // в центре: на первом кадре заголовок страницы, дальше — название объекта, как в «Далее»
+      heroIntro.classList.toggle("is-active",heroIndex===0);
+      heroSlide.classList.remove("is-active");
+      setTimeout(()=>{
+        if(heroIndex>0){
+          document.querySelector("[data-hero-name]").textContent=heroObjects[heroIndex].name;
+          heroSlide.classList.add("is-active");
+        }
+        document.querySelector("[data-hero-next-name]").textContent=heroObjects[(heroIndex+1)%heroObjects.length].name;
+        heroCaption.classList.remove("is-leaving");
+      },300);
+      // пройденные отрезки залиты, текущий заполняется за время показа кадра
+      heroSegments.forEach((seg,j)=>{seg.classList.toggle("is-done",j<heroIndex);seg.classList.remove("is-active")});
+      heroSegments[heroIndex].offsetWidth; heroSegments[heroIndex].classList.add("is-active");
+      clearTimeout(heroTimer); heroTimer=setTimeout(()=>showHero(heroIndex+1),HERO_DELAY);
+    }
+    document.querySelector("[data-hero-prev]").addEventListener("click",()=>showHero(heroIndex-1));
+    document.querySelector("[data-hero-next]").addEventListener("click",()=>showHero(heroIndex+1));
+    heroSegments[0].classList.add("is-active");
+    heroTimer=setTimeout(()=>showHero(1),HERO_DELAY);
+
+    // Особые требования к архитектуре: механика «Сферы применения» из концепта + колода.
+    // 1) кадр вырастает из половины до ширины сетки; 2) закрепляется, следующий слайд подъезжает снизу,
+    // прежние уменьшаются и сдвигаются вверх — их край выглядывает над текущим
+    const req=document.querySelector("[data-req]"), reqStage=req.querySelector(".premium-req__sticky");
+    const reqSlides=[...req.querySelectorAll("[data-req-slide]")];
+    const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+    const easeIO=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+    function reqFrame(){
+      const r=req.getBoundingClientRect(), top=parseFloat(getComputedStyle(reqStage).top);
+      const W=reqStage.clientWidth, H=reqStage.clientHeight, n=reqSlides.length;
+      req.style.setProperty("--h",H+"px");
+      const g=easeIO(clamp((innerHeight-r.top)/(innerHeight-top),0,1));
+      reqStage.style.setProperty("--cx",(W/4*(1-g)).toFixed(1)+"px");
+      reqStage.style.setProperty("--cy",(H/4*(1-g)).toFixed(1)+"px");
+      const run=Math.max(1,req.offsetHeight-H), q=clamp((top-r.top)/run,0,1)*(n-1);
+      reqSlides.forEach((s,i)=>{
+        const k=i===0?1:easeIO(clamp(q-(i-1),0,1));     // насколько слайд въехал
+        const d=clamp(q-i,0,n);                            // сколько слайдов легло сверху
+        s.style.transform=`translateY(${((1-k)*100).toFixed(2)}%) translateY(${(-28*d).toFixed(1)}px) scale(${(1-.08*d).toFixed(4)})`;
+        s.style.setProperty("--dim",(.12*Math.min(d,1)).toFixed(3));
+        s.style.setProperty("--fade",(1-Math.min(d*1.5,1)).toFixed(3));   // текст ушедшей карточки гаснет — из-под новой не торчат обрывки
+      });
+    }
+    addEventListener("scroll",reqFrame,{passive:true}); addEventListener("resize",reqFrame); reqFrame();
+
+    // Раскрытие фото: кадр растёт от 760×570 по центру до ширины сетки, затем карточки выезжают снизу по одной
+    const track=document.querySelector("[data-grow-track]"), frame=document.querySelector("[data-grow-frame]");
+    const cards=[...document.querySelectorAll("[data-card]")], gridBox=document.querySelector(".premium-grow__cards");
+    const ease=t=>1-Math.pow(1-t,3);
+    function growFrame(){
+      const r=track.getBoundingClientRect(), run=r.height-innerHeight;
+      const p=clamp((82-r.top)/run,0,1);                    // 0 — фото закрепилось под шапкой, 1 — конец прокрутки блока
+      const e=ease(clamp(p/.3,0,1));                         // рост кадра — первые 30 % пути
+      const H=frame.offsetHeight, side=gridBox.getBoundingClientRect().left;
+      const startW=Math.min(760,innerWidth*.4), startH=Math.min(startW*.75,H);
+      const x=side+((innerWidth-startW)/2-side)*(1-e);
+      frame.style.clipPath=`inset(0px ${x}px ${(H-startH)*(1-e)}px)`;
+      frame.querySelector("img").style.transform=`scale(${1.15-.15*e})`;
+      frame.classList.toggle("is-open",e>.98);
+      document.querySelector("[data-grow-title]").classList.toggle("is-in",e>.98);   // заголовок появляется, когда кадр раскрылся
+      // карточки: каждой — своя треть оставшегося пути; выезжает снизу, прежние уходят вглубь колоды
+      const q=clamp((p-.32)/.6,0,1)*cards.length;
+      cards.forEach((card,i)=>{
+        const inT=ease(clamp(q-i,0,1)), depth=clamp(q-i-1,0,cards.length);   // сколько карточек легло сверху
+        card.style.transform=`translateY(${(1-inT)*110}%) translateY(${-24*depth}px) scale(${1-.05*depth})`;
+        card.style.opacity=inT>0?1:0;
+        const g=Math.min(depth,1);   // ушедшие карточки — матовое стекло: прозрачнее и с блюром
+        card.style.setProperty("--glass",(1-.45*g).toFixed(3));
+        card.style.setProperty("--blur",(14*g).toFixed(1)+"px");
+        card.style.setProperty("--fade",(1-Math.min(depth*1.5,1)).toFixed(3));   // текст ушедшей карточки гаснет, как в колоде выше
+      });
+    }
+    addEventListener("scroll",growFrame,{passive:true}); addEventListener("resize",growFrame); growFrame();
+
+  </script>
+</body>
+</html>
