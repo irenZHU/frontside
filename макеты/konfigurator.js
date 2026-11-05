@@ -42,7 +42,7 @@
   };
 
   /* ---------- разметка ---------- */
-  const arrow = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 15 15 5M7 5h8v8"/></svg>';
+  const arrow = '<svg class="fs-arrow fs-arrow--up-right" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.6 2.6 17 17M4.2 17.5h14.1M17.5 5.2v10.2"/></svg>';
   const el = document.createElement('div');
   el.className = 'kf';
   el.setAttribute('role', 'dialog');
