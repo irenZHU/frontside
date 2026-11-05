@@ -1,0 +1,59 @@
+/* Правила бренда Frontside — общие для всех страниц макета.
+   Подключается последним, после стилей страницы. */
+
+/* ---------- Фирменные цвета (брендбук) ----------
+   Акцентный  PANTONE 179 C       CMYK 0/87/85/0   RGB 240/73/55    #EF4836
+   Серый      PANTONE Black 30%   CMYK 0/0/0/30    RGB 188/190/192  #BBBDC0
+   Светлый    PANTONE 663 C       CMYK 7/5/5/0     RGB 241/241/241  #F1F1F1
+   Чёрный     PANTONE Black C     CMYK 0/0/0/100   RGB 35/31/32     #231F20 */
+:root {
+  --brand-red: #ef4836;
+  --brand-grey: #bbbdc0;
+  --brand-light: #f1f1f1;
+  --brand-black: #231f20;
+
+  /* рабочие переменные страниц — на фирменных цветах */
+  --red: var(--brand-red);
+  --title: var(--brand-black);
+  --soft: var(--brand-light);
+  --dark: var(--brand-black);
+
+  /* срезанный уголок плашек: маленькие элементы и крупные блоки */
+  --cut: 6px;
+  --cut-lg: 10px;
+}
+
+/* ---------- Углы: везде острые, скругление только у бейджей ---------- */
+body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !important; }
+
+/* ---------- Срезанные уголки плашек (как в брендбуке) ---------- */
+:is(
+  .btn-accent, .burger, .icon-btn,
+  .hero__cta, .product-chip, .project-group__arrow,
+  .category-intro__slider-nav button, .idea__counter span,
+  .category-all-link, .category-form__submit,
+  .footer__social a, .footer__bottom a[href="#top"],
+  .project-card, .solution-card,
+  .kf-cta, .kf-sq, .kf-color, .kf-pat
+) {
+  clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+}
+/* крупные плашки и фото — срез побольше */
+:is(
+  .category-intro__media, .idea__photos, .project-gallery,
+  .category-form__card, .kf-win
+) {
+  clip-path: polygon(var(--cut-lg) 0, calc(100% - var(--cut-lg)) 0, 100% var(--cut-lg), 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, var(--cut-lg) 100%, 0 calc(100% - var(--cut-lg)), 0 var(--cut-lg));
+}
+
+/* ---------- Фирменная стрелка ----------
+   Одна иконка на весь проект: диагональ ↘ и уголок, у которого вертикальная
+   палочка не доходит до угла. Остальные направления — поворотом. */
+.fs-arrow { overflow: visible; }
+.fs-arrow path { stroke-linecap: butt; stroke-linejoin: miter; }
+.fs-arrow--right { transform: rotate(-45deg); }
+.fs-arrow--left { transform: rotate(135deg); }
+.fs-arrow--up { transform: rotate(-135deg); }
+.fs-arrow--up-right { transform: rotate(-90deg); }
+
+.footer__bottom a[href="#top"] svg { width: 16px; height: 16px; }
