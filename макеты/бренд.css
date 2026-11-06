@@ -322,3 +322,5 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - 82px - 560px) / 2), 100px); }
 .projects-page .category-systems .idea__sticky { padding-top: var(--sys-pad); }
 .projects-page .category-systems .container { height: max(560px, calc(100svh - 82px - 2 * var(--sys-pad))); }
+/* каталог: от чипсов «Системы» до первой категории — 48 px вместо 74 (пустая строка выбранных фильтров ниже) */
+.catalog-page .projects:not(.has-active-filters) .filter-status-bar { min-height: 20px; }
