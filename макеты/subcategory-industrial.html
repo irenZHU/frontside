@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Промышленные предприятия — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="category-production.css">
+  <link rel="stylesheet" href="solution-premium.css">
+  <link rel="stylesheet" href="subcategory.css">
+  <link rel="stylesheet" href="бренд.css">
+</head>
+<body class="projects-page category-page subcategory-page" id="top">
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="artvision.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main" aria-label="Основная навигация">
+        <a href="projects.html#catalog">Каталог</a><a href="projects.html#solutions">Решения</a><a href="projects.html#services">Услуги</a><a class="is-active" href="projects.html#projects">Проекты</a><a href="projects.html#documents">Документы</a>
+      </nav>
+      <nav class="nav nav--side" aria-label="Дополнительная навигация">
+        <a href="projects.html#about">О компании</a><a href="projects.html#news">Новости</a><a href="projects.html#contacts">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Поиск"><svg width="50" height="50" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="28" r="8"/><path d="M35.2 34.2 41.7 40.7"/></svg></button>
+        <a class="btn-accent" href="#feedback">Отправить заявку</a>
+        <button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Подкатегория собрана из элементов страницы категории: первый экран, второй экран со слайдером объектов,
+         карточки «Проектов», блок систем, «О разделе», форма. Тексты — из структуры подкатегории заказчика -->
+    <!-- Первый экран подкатегории — трёхчастная раскладка второго экрана категории (без фото на весь экран, чтобы
+         категория, подкатегория и карточка проекта различались): слева заголовок, описание и кнопка, в центре фото,
+         справа применяемые системы и плашка других подкатегорий раздела -->
+    <section class="category-intro subcat-intro" aria-labelledby="category-title">
+      <div class="container"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="artvision.html">Главная</a><a href="projects.html#projects">Проекты</a><a href="category-production.html">Производственные объекты</a><span aria-current="page">Промышленные предприятия</span></nav></div>
+      <div class="container">
+        <div class="category-intro__grid">
+          <div class="category-intro__col">
+            <div>
+              <p class="category-intro__directions-label">Подкатегория</p>
+              <h1 id="category-title" class="reveal-lines">Промышленные предприятия</h1>
+              <p class="category-intro__lead subcat-intro__lead reveal-lines" style="--d:.25s">Заводы и&nbsp;производственные комплексы, где фасад должен выдерживать агрессивную среду, перепады температур и&nbsp;сохранять внешний вид десятилетиями.</p>
+            </div>
+            <a class="hero__cta category-intro__cta" href="#feedback" data-form-modal data-reveal style="--d:.4s"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+          </div>
+          <figure class="category-intro__media">
+            <img class="is-active" src="https://frontside.ru/upload/iblock/d9c/5945ku7plffivzh5t2flav8iv84u0s4g.webp" alt="Завод смазочных материалов TOTAL">
+          </figure>
+          <div class="category-intro__col">
+            <div class="subcat-intro__systems" data-reveal style="--d:.35s">
+              <p class="category-intro__directions-label">Применяемые системы</p>
+              <div class="product-chips"><a class="product-chip" href="#idea">FRONTBASE</a><a class="product-chip" href="#idea">FRONTTOP</a><a class="product-chip" href="#idea">UNIQUE</a><a class="product-chip" href="#idea">AESTHETIC</a></div>
+            </div>
+            <!-- Плашка подкатегорий со страницы категории: другие подкатегории раздела, листается сама, полоски — прогресс -->
+            <div class="hero-subs" aria-label="Подкатегории раздела" data-reveal style="--d:.5s">
+              <a class="hero-subs__card" href="category-production.html#projects-list" data-hero-sub>
+                <span class="hero-subs__photo"><img alt="" data-hero-sub-img></span>
+                <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория раздела</span><span class="hero-subs__title" data-hero-sub-title></span></span>
+                <svg class="fs-arrow fs-arrow--right hero-subs__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+              </a>
+              <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Реализованные объекты: сетка объектов со страницы решения «Фасады для объектов…» — название слева, фото, стрелка ↘;
+         при наведении ячейка графитовая, стрелка — красная кнопка -->
+    <section class="subcat-projects" id="projects-list" aria-labelledby="objects-title">
+      <div class="container">
+        <div class="premium-head">
+          <div><h2 class="premium-title reveal-lines" id="objects-title">Реализованные объекты</h2></div>
+          <a class="fs-link premium-head__link" href="category-production.html#projects-list">Все объекты раздела</a>
+        </div>
+      </div>
+      <div class="container premium-objects__grid">
+          <article class="premium-object">
+            <h3>Завод смазочных материалов TOTAL</h3>
+            <a class="premium-object__photo" href="project-total.html"><img src="https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp" alt="Завод смазочных материалов TOTAL" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="premium-object__arrow" href="project-total.html" aria-label="Прочитать о&nbsp;проекте"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+          </article>
+          <article class="premium-object">
+            <h3>Кабельный завод «Вектор»</h3>
+            <a class="premium-object__photo" href="projects.html#projects"><img src="https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp" alt="Кабельный завод «Вектор»" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="premium-object__arrow" href="projects.html#projects" aria-label="Прочитать о&nbsp;проекте"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+          </article>
+      </div>
+    </section>
+
+    <!-- Применяемые системы — блок «Идея» концепта: закрепляется, фото сменяются снизу вверх при прокрутке (idea-scroll.js) -->
+    <section class="idea category-systems" id="idea" style="--n: 4" aria-labelledby="systems-title">
+      <div class="idea__sticky">
+        <div class="idea__dim" id="ideaDim" aria-hidden="true"></div>
+        <div class="container">
+          <h2 class="idea__title" id="systems-title">Применяемые системы</h2>
+          <p class="category-systems__lead">В проектах подкатегории применялись системы FRONTBASE, FRONTTOP, UNIQUE, AESTHETIC. Выбор системы зависит от требуемой геометрии, цвета и фактуры, а также от бюджета и графика строительства.</p>
+          <div class="idea__points">
+          <div class="idea__point is-active">
+            <h3>FRONTTOP</h3>
+            <p>Модульная система с теневым швом и невидимым креплением. Панели из стали и базальтовой ваты не требуют отделки, класс пожарной опасности — К0. Подходит для производств и ЦОДов.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/fronttop/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>FRONTBASE</h3>
+            <p>Базовая система из стеновых и кровельных сэндвич-панелей длиной до 12,5&nbsp;м. Готовая стена и кровля сразу закрывают тепловой контур, все узлы — в комплекте поставки.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/frontbase/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>UNIQUE</h3>
+            <p>Теневой шов и алюминиевый профиль на стыках панелей — меньше выступающих элементов на фасаде. Есть радиусные и двухцветные угловые модули, LED-подсветка в шве.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/unique/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>AESTHETIC</h3>
+            <p>Вертикальная система без видимого крепления и теневого шва: крепёж скрыт в замке панели, фасад получается гладким. Панели длиной до 12,5&nbsp;м, закруглённые углы.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          </div>
+          <!-- вместо счётчика — стрелки и полоса прогресса, как на первом экране страницы решения; счётчик остаётся скрытым для idea-scroll.js -->
+          <div class="idea__counter" hidden><span class="idea__counter-now" id="ideaNum">01</span><span class="idea__counter-all">04</span></div>
+          <div class="subcat-systems__nav">
+            <div class="category-intro__slider-nav premium-hero__nav"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
+            <div class="premium-hero__progress subcat-systems__progress" data-sys-progress aria-hidden="true"></div>
+          </div>
+          <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></div>
+          </div>
+          <a class="hero__cta category-systems__cta" href="#feedback"><span class="hero__cta-text">Подобрать систему</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- следующие блоки налистываются на закреплённый блок систем, как в концепте -->
+    <div class="cover">
+
+    <!-- О подкатегории: текст для поисковиков, блок «О разделе» категории -->
+    <section class="category-section category-about" aria-labelledby="about-title">
+      <div class="container category-about__inner">
+        <div><span class="section-label">О подкатегории</span>
+        <h2 id="about-title">Фасады для объектов: Промышленные предприятия</h2></div>
+        <div class="subcat-about__text">
+          <p>Подкатегория «Промышленные предприятия» входит в&nbsp;раздел «Производственные объекты». Заводы и&nbsp;производственные комплексы, где фасад должен выдерживать агрессивную среду, перепады температур и&nbsp;сохранять внешний вид десятилетиями.</p>
+          <p>На&nbsp;этапе проектирования прорабатываются раскладка панелей, примыкания, узлы вокруг проёмов и&nbsp;угловые решения, чтобы внешний вид фасада был согласован заранее.</p>
+          <p>Frontside ведёт объект от&nbsp;технического задания до&nbsp;шеф-монтажа: проектирование, производство, логистика и&nbsp;сопровождение на&nbsp;площадке. Это сокращает сроки реализации и&nbsp;снижает количество корректировок во&nbsp;время строительства.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Другие подкатегории раздела: карточки страницы «Проекты» (фото, название, бейдж) -->
+    <section class="projects subcat-siblings" aria-labelledby="siblings-title">
+      <div class="container projects__head"><h2 id="siblings-title">Другие подкатегории раздела</h2></div>
+      <div class="container">
+        <div class="cards">
+          <article class="project-item"><a class="project-card" href="category-production.html#projects-list" data-sub-name="Технопарки" data-sub-image="https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp" aria-label="Технопарки" style="--image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></a><a class="project-card__details" href="category-production.html#projects-list"><span class="project-card__badges"><span>Производственные объекты</span></span><strong>Технопарки</strong></a></article>
+          <article class="project-item"><a class="project-card" href="category-production.html#projects-list" data-sub-name="Light Industrial" data-sub-image="https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp" aria-label="Light Industrial" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></a><a class="project-card__details" href="category-production.html#projects-list"><span class="project-card__badges"><span>Производственные объекты</span></span><strong>Light Industrial</strong></a></article>
+          <article class="project-item"><a class="project-card" href="category-production.html" aria-label="Все объекты раздела" style="--image:url('img/category-production-cover.jpg')"></a><a class="project-card__details" href="category-production.html"><span class="project-card__badges"><span>Категория</span></span><strong>Все объекты раздела</strong></a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма обратной связи: слева заголовок и контакты, справа поля -->
+    <section class="category-form" id="feedback" aria-labelledby="form-title">
+      <div class="container category-form__card">
+        <div class="category-form__intro">
+          <div>
+            <h2 id="form-title">Расскажите о&nbsp;вашем объекте</h2>
+            <p>Поможем подобрать решение под архитектуру, сроки и эксплуатацию</p>
+          </div>
+          <dl class="category-form__contacts">
+            <div><dt>Телефон</dt><dd><a href="tel:+74956428091">+7 (495) 642-80-91</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:info@frontside.ru">info@frontside.ru</a></dd></div>
+          </dl>
+        </div>
+        <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Регион</span><input type="text" name="region" placeholder="Регион" autocomplete="address-level1"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Я соглашаюсь на обработку персональных данных в соответствии с <a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+        </form>
+      </div>
+    </section>
+    </div>
+  </main>
+
+
+  <!-- Модалка «Обсудить проект»: те же поля, что в форме внизу страницы -->
+  <dialog class="form-modal" id="form-modal" aria-labelledby="form-modal-title">
+    <button class="form-modal__close" type="button" aria-label="Закрыть" data-form-modal-close><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l14 14M15 1 1 15"/></svg></button>
+    <div class="form-modal__inner">
+      <div class="category-form__intro">
+        <div>
+          <h2 id="form-modal-title">Расскажите о&nbsp;вашем объекте</h2>
+          <p>Поможем подобрать решение под архитектуру, сроки и&nbsp;эксплуатацию</p>
+        </div>
+      </div>
+      <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Регион</span><input type="text" name="region" placeholder="Регион" autocomplete="address-level1"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Я соглашаюсь на обработку персональных данных в соответствии с <a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+        </form>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">Меняем облик<br>современных городов</div>
+      <nav class="footer__nav" aria-label="Разделы сайта">
+        <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
+      </nav>
+      <nav class="footer__nav" aria-label="О компании">
+        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <div class="footer__contacts">
+        <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+        <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+        <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+  </footer>
+
+  <script src="idea-scroll.js?v=10201059"></script>
+  <script src="reveal.js?v=10201059"></script>
+  <script>
+    // «Обсудить проект» открывает модалку с формой; закрывается крестиком, Esc и кликом по затемнению
+    const formModal=document.getElementById("form-modal");
+    document.querySelectorAll("[data-form-modal]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();formModal.showModal();}));
+    formModal.querySelector("[data-form-modal-close]").addEventListener("click",()=>formModal.close());
+    formModal.addEventListener("click",e=>{if(e.target===formModal)formModal.close();});
+    // Применяемые системы: полоса прогресса заполняется прокруткой, стрелки листают к соседней системе
+    (()=>{
+      const sec=document.getElementById("idea"), n=sec.querySelectorAll(".idea__point").length;
+      const bar=sec.querySelector("[data-sys-progress]");
+      bar.innerHTML=Array.from({length:n},()=>"<span><i></i></span>").join("");
+      const fills=[...bar.querySelectorAll("i")];
+      const run=()=>sec.offsetHeight-2*innerHeight;
+      const pos=()=>Math.min(Math.max(-sec.getBoundingClientRect().top/run(),0),1);   // 0…1, как в idea-scroll.js
+      function frame(){ const q=pos()*(n-1)+1; fills.forEach((f,i)=>f.style.transform=`scaleX(${Math.min(Math.max(q-i,0),1)})`); }
+      const go=d=>{ const idx=Math.min(n-1,Math.max(0,Math.round(pos()*(n-1))+d)); scrollTo({top:sec.getBoundingClientRect().top+scrollY+run()*idx/(n-1)+1,behavior:"smooth"}); };
+      sec.querySelector("[data-sys-prev]").addEventListener("click",()=>go(-1));
+      sec.querySelector("[data-sys-next]").addEventListener("click",()=>go(1));
+      addEventListener("scroll",frame,{passive:true}); addEventListener("resize",frame); frame();
+    })();
+    // шапка: после начала прокрутки — полупрозрачная с размытием
+    const siteHeader=document.querySelector(".header");
+    function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
+    // Плашка на первом экране: другие подкатегории раздела (данные — из блока «Другие подкатегории»), листается каждые 5 с
+    const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
+    const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
+    const subs=[...document.querySelectorAll("[data-sub-name]")].map(a=>({name:a.dataset.subName, image:a.dataset.subImage, href:a.getAttribute("href")}));
+    subBars.innerHTML=subs.map(sub=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
+    const bars=[...subBars.children];
+    let subIndex=0, subTimer;
+    function showSub(i){
+      subIndex=(i+subs.length)%subs.length;
+      subCard.classList.add("is-changing");
+      setTimeout(()=>{
+        subImg.src=subs[subIndex].image; subTitle.textContent=subs[subIndex].name; subCard.href=subs[subIndex].href;
+        subCard.classList.remove("is-changing");
+      },subCard.dataset.ready?250:0);
+      subCard.dataset.ready=1;
+      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<subIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===subIndex));});
+      bars[subIndex].offsetWidth; bars[subIndex].classList.add("is-active");
+      clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
+    }
+    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
+    showSub(0);
+    // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
+    const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
+    document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
+    addEventListener("scroll",heroFrame,{passive:true});
+    heroFrame();
+  </script>
+  <script src="phone-mask.js"></script>
+</body>
+</html>

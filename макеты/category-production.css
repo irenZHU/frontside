@@ -188,12 +188,20 @@
 .category-form__contacts a:hover { color: var(--red); }
 
 .category-form__form { display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; padding: 40px; background: #fff; }
-.category-form__field input { width: 100%; padding: 10px 0; border: 0; border-bottom: 1px solid var(--title); border-radius: 0; background: none; color: var(--title); font: 400 16px/22px var(--font); outline: none; transition: border-color .2s; }
+.category-form__field input { width: 100%; padding: 10px 0; border: 0; border-bottom: 1px solid var(--brand-grey); border-radius: 0; background: none; color: var(--title); font: 400 16px/22px var(--font); outline: none; transition: border-color .2s; }
 .category-form__field input::placeholder { color: var(--muted); }
+/* В заполненном поле над значением — подпись 12/16 (скрытая подпись поля становится видимой); в пустом — плейсхолдер */
+.category-form__field { position: relative; display: block; }
+.category-form__field > .visually-hidden { position: absolute; top: -10px; left: 0; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; clip-path: none; white-space: nowrap; color: #666; font: 400 var(--fs-caption, 12px)/var(--lh-caption, 16px) var(--font-text, var(--font)); opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+.category-form__field:has(input:not(:placeholder-shown)) > .visually-hidden { opacity: 1; transform: none; }
+/* автозаполнение браузера — без голубой заливки */
+.category-form__field input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px #fff inset; -webkit-text-fill-color: var(--title); caret-color: var(--title); }
+.category-form__field input:hover { border-bottom-color: var(--title); }   /* линия поля — светло-серая фирменная; при наведении темнеет, в фокусе красная */
 .category-form__field input:focus { border-bottom-color: var(--red); }
 .category-form__agree { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
-.category-form input[type="checkbox"] { flex: 0 0 auto; width: 20px; height: 20px; margin: 0; border: 1px solid var(--title); border-radius: 0; background: #fff; appearance: none; cursor: pointer; }
-.category-form input[type="checkbox"]:checked { border-color: var(--red); background: var(--red) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27 fill=%27none%27 stroke=%27white%27 stroke-width=%271.8%27%3E%3Cpath d=%27M5 10.5l3.2 3L15 7%27/%3E%3C/svg%3E") center / 18px no-repeat; }
+:is(.category-form, .form-modal) input[type="checkbox"] { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; border: 1px solid #d3d3d3; border-radius: 0; background: #fff; appearance: none; cursor: pointer; outline: none; }   /* как чекбоксы фильтра «Проектов» */
+:is(.category-form, .form-modal) input[type="checkbox"]:checked { border-color: var(--red); background: var(--red); box-shadow: inset 0 0 0 3px #fff; }
+:is(.category-form, .form-modal) input[type="checkbox"]:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 /* Кнопка — красная, как CTA концепта: текст слева, стрелка справа */
 .category-form__submit { display: flex; align-items: center; justify-content: space-between; height: 56px; margin-top: 8px; padding: 0 24px; border: 0; background: var(--red); color: #fff; font: 400 16px/20px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; cursor: pointer; transition: background .2s; }
 .category-form__submit svg { width: 20px; height: 20px; }
@@ -297,3 +305,20 @@
 
 /* Шапка без нижней линии — и над фото, и на прокрутке */
 .category-page .header, .category-page .header.is-scrolled { border-bottom: 0; box-shadow: none; }
+
+/* ---------- Модалка «Обсудить проект»: поля и кнопка формы обратной связи, одна колонка ---------- */
+.form-modal { width: min(560px, calc(100% - 48px)); max-height: calc(100vh - 48px); margin: auto; padding: 0; border: 0; border-radius: 0; background: #fff; color: var(--title); box-shadow: 0 24px 60px rgba(16, 24, 32, .18); overflow: auto; }
+.form-modal::backdrop { background: rgba(35, 31, 32, .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.form-modal[open] { animation: form-modal-in .35s cubic-bezier(.22, .61, .24, 1); }
+.form-modal[open]::backdrop { animation: form-modal-fade .35s ease; }
+@keyframes form-modal-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes form-modal-fade { from { opacity: 0; } }
+.form-modal__inner { padding: 48px; }
+.form-modal .category-form__intro { padding: 0; border: 0; }
+.form-modal .category-form__intro h2 { max-width: 400px; }
+.form-modal .category-form__form { margin-top: 32px; padding: 0; }
+/* крестик: квадрат 40 px на светло-сером, как кнопки слайдера; при наведении — красный */
+.form-modal__close { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 0; background: var(--brand-light); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
+.form-modal__close svg { width: 16px; height: 16px; }
+.form-modal__close:hover, .form-modal__close:focus-visible { background: var(--red); color: #fff; outline: none; }
+@media (prefers-reduced-motion: reduce) { .form-modal[open], .form-modal[open]::backdrop { animation: none; } }

@@ -234,3 +234,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .premium-hero h1 { font-size: 48px; line-height: 50px; }
 .projects-page .premium-hero__nav button { width: 38px; height: 38px; }   /* как стрелки категорий на странице «Проекты» */
 .projects-page .premium-hero__nav button svg { width: 18px; height: 18px; stroke-width: 1.6px; }
+
+/* Единый отступ от хлебных крошек до начала первого экрана — на всех страницах, где крошки стоят над контентом
+   (каталог проектов, подкатегория, карточка проекта). На категории и решении крошки лежат на фото первого экрана */
+:root { --crumbs-gap: 64px; }
+.projects-page .solutions,
+.projects-page .project-hero { padding-top: var(--crumbs-gap); }
