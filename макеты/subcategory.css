@@ -39,3 +39,10 @@
 .subcategory-page .subcat-siblings .projects__head { margin-bottom: 40px; padding-top: 96px; border-top: 1px solid var(--line); }   /* разделитель после «О подкатегории»: по 100 px воздуха с обеих сторон */
 .projects-page.subcategory-page .subcat-siblings .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .projects-page.subcategory-page .subcat-siblings .project-card { aspect-ratio: 16 / 9; }
+
+/* ---------- Первый экран на ноутбуке (до 1600 px): заголовок мельче, фото уже и ниже — всё помещается в экран ---------- */
+@media (max-width: 1600px) {
+  .projects-page.subcategory-page .subcat-intro .category-intro__grid { grid-template-columns: 340px minmax(0, 1fr) 340px; }
+  .projects-page.subcategory-page .subcat-intro :is(h1, h1 *) { font-size: var(--fs-h2); line-height: var(--lh-h2); }   /* 32/35 вместо 40/42 */
+  .projects-page.subcategory-page .subcat-intro { --intro-photo-h: max(420px, calc(100svh - 232px - var(--crumbs-gap))); }
+}
