@@ -327,3 +327,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* каталог: от последнего ряда проектов до футера — 100 px, как между блоками (было 40 низ группы + 100 + 120 верх футера) */
 .catalog-page #category-groups { margin-bottom: -40px; }
 .catalog-page .footer { margin-top: 0; }
+/* шапка на больших экранах (1920): разделы меню и телефон 16/24 вместо 14/20; на ноутбуке (1440) остаются 14 — иначе не помещаются */
+@media (min-width: 1601px) {
+  .projects-page .header :is(.nav a, .header__phone) { font-size: 16px; line-height: 24px; }
+}
