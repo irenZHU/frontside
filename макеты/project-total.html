@@ -158,6 +158,7 @@
       tabs.forEach(t=>{const on=t===tab;t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute("aria-controls")).hidden=!on;});
     }));
   </script>
+  <script src="form-modal.js"></script>
   <script src="phone-mask.js"></script>
 </body>
 </html>

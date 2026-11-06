@@ -314,3 +314,6 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .catalog-page .projects.has-active-filters .filter-status-bar { top: var(--sticky-header-height); }
 /* Колонка фильтров прилипает в 40 px под шапкой: системы больше не липкие, плашка выбранных фильтров — только над проектами */
 .catalog-page .sidebar, .catalog-page .projects.has-active-filters .sidebar { top: calc(var(--sticky-header-height) + 40px); max-height: calc(100vh - var(--sticky-header-height) - 80px); }
+/* Второй экран категории: кнопки слайдера 40 px, стрелка 14 — как остальные кнопки-стрелки */
+.projects-page .category-intro .category-intro__slider-nav button { width: 40px; height: 40px; }
+.projects-page .category-intro .category-intro__slider-nav button svg { width: 14px; height: 14px; stroke-width: 1.6px; }
