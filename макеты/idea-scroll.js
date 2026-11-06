@@ -14,6 +14,19 @@
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   let active = -1, ticking = false;
 
+  // стрелки и полоса прогресса вместо счётчика — если они есть в разметке
+  const bar = sec.querySelector('[data-sys-progress]');
+  if (bar) bar.innerHTML = Array.from({ length: n }, () => '<span><i></i></span>').join('');
+  const fills = bar ? [...bar.querySelectorAll('i')] : [];
+  const go = d => {
+    const run = sec.offsetHeight - 2 * innerHeight;
+    const now = Math.min(Math.max(-sec.getBoundingClientRect().top / run, 0), 1) * (n - 1);
+    const idx = Math.min(n - 1, Math.max(0, Math.round(now) + d));
+    scrollTo({ top: sec.getBoundingClientRect().top + scrollY + run * idx / (n - 1) + 1, behavior: 'smooth' });
+  };
+  sec.querySelector('[data-sys-prev]')?.addEventListener('click', () => go(-1));
+  sec.querySelector('[data-sys-next]')?.addEventListener('click', () => go(1));
+
   function update() {
     ticking = false;
     const r = sec.getBoundingClientRect();
@@ -41,6 +54,12 @@
       img.style.setProperty('--z', (1.08 - 0.08 * k).toFixed(4));
     });
 
+    // полоса прогресса (страницы категории и подкатегории): отрезок на каждую систему, заполняется прокруткой
+    if (fills.length) {
+      const q = p + 1;
+      fills.forEach((f, i) => f.style.transform = `scaleX(${Math.min(Math.max(q - i, 0), 1)})`);
+    }
+
     const idx = Math.min(n - 1, Math.round(p));
     if (idx !== active) {
       active = idx;
@@ -48,7 +67,7 @@
         el.classList.toggle('is-active', i === idx);
         el.classList.toggle('is-past', i < idx);
       });
-      num.textContent = String(idx + 1).padStart(2, '0');
+      if (num) num.textContent = String(idx + 1).padStart(2, '0');
     }
   }
 

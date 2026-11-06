@@ -20,7 +20,7 @@
 .subcat-intro__systems .product-chip:hover { background: var(--brand-red); color: #fff; }
 /* плашка подкатегорий — на ширину колонки: фото уже, полоски прогресса под текстом */
 .subcategory-page .subcat-intro .hero-subs { width: 100%; }
-.subcategory-page .subcat-intro .hero-subs__card { grid-template-columns: 140px 1fr 16px; text-decoration: none; }
+.subcategory-page .subcat-intro .hero-subs__card { grid-template-columns: 140px 1fr; text-decoration: none; }
 .subcategory-page .subcat-intro .hero-subs__photo { height: 140px; }
 .subcategory-page .subcat-intro .hero-subs__bars { left: 172px; }
 
@@ -39,17 +39,3 @@
 .subcategory-page .subcat-siblings .projects__head { margin-bottom: 40px; padding-top: 96px; border-top: 1px solid var(--line); }   /* разделитель после «О подкатегории»: по 100 px воздуха с обеих сторон */
 .projects-page.subcategory-page .subcat-siblings .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .projects-page.subcategory-page .subcat-siblings .project-card { aspect-ratio: 16 / 9; }
-
-/* ---------- Применяемые системы: светло-серый фон, вместо счётчика — стрелки и прогресс ---------- */
-.subcategory-page .category-systems .idea__sticky { background: var(--brand-light); }
-.subcategory-page .category-systems .idea__dim { background: var(--brand-light); }
-.subcat-systems__nav { position: absolute; left: 0; bottom: 0; display: grid; gap: 24px; width: 440px; }
-.subcat-systems__nav .premium-hero__nav { justify-content: flex-start; }   /* стрелки прибиты к левому краю */
-.subcategory-page .subcat-systems__nav .premium-hero__nav [data-sys-prev] { background: #fff; }
-.subcategory-page .subcat-systems__nav .premium-hero__nav [data-sys-next] { background: var(--red); color: #fff; }
-.subcategory-page .subcat-systems__nav .premium-hero__nav button:hover { background: #c9301f; color: #fff; }
-/* полоса на светлом: дорожка — фирменный серый, заполнение — чёрный; заполняется прокруткой, без анимации по времени */
-.subcat-systems__progress span { background: var(--brand-grey); }
-.subcat-systems__progress i { background: var(--brand-black); transition: transform .15s linear; }
-.subcategory-page .category-systems .idea__counter[hidden] { display: none; }
-.subcategory-page .subcat-systems__nav .category-intro__slider-nav { margin: 0; }

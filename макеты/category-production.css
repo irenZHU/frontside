@@ -112,8 +112,6 @@
 .category-page .product-filter-bar { border-top: 0; padding: 40px 0; background: transparent; }
 .category-page .products { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .category-page .products__meta { order: 2; margin: 0; }
-.category-page .product-chip:not(.is-active) { background: #fff; }
-.category-page .product-chip:not(.is-active):hover { background: #e8e8e8; }
 /* Карточек мало — фильтру не нужно прилипать под шапкой, как в длинном каталоге */
 .category-page .product-filter-bar { position: static; }
 .category-page .projects .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
@@ -262,15 +260,12 @@
 /* ---------- Плашка подкатегорий на первом экране (правый нижний угол) ---------- */
 .category-hero__bottom { position: absolute; z-index: 6; left: 0; right: 0; bottom: 40px; display: flex; justify-content: flex-end; pointer-events: none; }
 .hero-subs { position: relative; width: 480px; padding: 8px; background: #fff; color: var(--title); pointer-events: auto; }
-.hero-subs__card { display: grid; grid-template-columns: 200px 1fr 20px; gap: 16px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
+.hero-subs__card { display: grid; grid-template-columns: 200px 1fr; gap: 16px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
 .hero-subs__photo { display: block; height: 150px; overflow: hidden; background: var(--brand-light); }
 .hero-subs__photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .hero-subs__card:hover .hero-subs__photo img { transform: scale(1.04); }
 .hero-subs__title { align-self: start; padding-top: 8px; transition: color .2s; }
-.hero-subs__arrow { width: 16px; height: 16px; margin-top: 12px; transition: color .2s, translate .2s; }
-.hero-subs__card:hover .hero-subs__title,
-.hero-subs__card:hover .hero-subs__arrow { color: var(--red); }
-.hero-subs__card:hover .hero-subs__arrow { translate: 3px 0; }
+.hero-subs__card:hover .hero-subs__title { color: var(--red); }   /* без стрелки: на плашку указывает смена цвета названия */
 /* смена подкатегории — мягкое затухание фото и текста */
 .hero-subs__photo img, .hero-subs__title { transition: opacity .25s ease, transform .6s ease, color .2s; }
 .hero-subs__card.is-changing .hero-subs__photo img,
@@ -322,3 +317,41 @@
 .form-modal__close svg { width: 16px; height: 16px; }
 .form-modal__close:hover, .form-modal__close:focus-visible { background: var(--red); color: #fff; outline: none; }
 @media (prefers-reduced-motion: reduce) { .form-modal[open], .form-modal[open]::backdrop { animation: none; } }
+
+/* ---------- Применяемые системы (категория и подкатегория): светло-серый фон, вместо счётчика — стрелки и полоса прогресса ---------- */
+.category-systems .idea__sticky, .category-systems .idea__dim { background: var(--brand-light); }
+.systems-nav { position: absolute; left: 0; bottom: 0; display: grid; gap: 24px; width: 440px; }
+.systems-nav__arrows { display: flex; gap: 8px; }   /* стрелки прибиты к левому краю; 38 px — как на первом экране страницы решения */
+.systems-nav__arrows button { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 0; background: #fff; color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
+.systems-nav__arrows [data-sys-next] { background: var(--red); color: #fff; }
+.systems-nav__arrows button:hover, .systems-nav__arrows button:focus-visible { background: #c9301f; color: #fff; outline: none; }
+.systems-nav__arrows svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.6px; }   /* стрелка 14 px в кнопке 38 px */
+/* дорожка — фирменный серый, заполнение — чёрный */
+.systems-nav__progress { display: flex; gap: 8px; }
+.systems-nav__progress span { flex: 1; height: 2px; overflow: hidden; background: var(--brand-grey); }
+.systems-nav__progress i { display: block; height: 100%; background: var(--brand-black); transform: scaleX(0); transform-origin: 0 50%; transition: transform .15s linear; }
+/* блок «Проекты» на категории — на белом фоне, как каталог проектов (без перехода в серый) */
+.category-page .projects { background: #fff; }
+.category-page .projects .project-card { aspect-ratio: 16 / 9; }   /* фото карточек проектов — 16:9 */
+/* Другие категории перед формой: карточки «Проектов», три на всю ширину контейнера, как другие подкатегории */
+.projects-page.category-page .category-others { padding-top: 0; }   /* сверху отступ даёт «О разделе» */
+.category-page .category-others .projects__head { margin-bottom: 40px; padding-top: 96px; border-top: 1px solid var(--line); }
+/* три карточки на экране, остальные листаются стрелками справа от заголовка (стрелки — как в «Применяемых системах») */
+.category-page .category-others .projects__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.category-page .category-others .cards { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 2 * var(--others-gap, 24px)) / 3); column-gap: var(--others-gap, 24px); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.category-page .category-others .cards::-webkit-scrollbar { display: none; }
+.category-page .category-others .project-item { scroll-snap-align: start; }
+.others-nav [data-others-prev] { background: var(--brand-light); }
+.others-nav [data-others-next] { background: var(--red); color: #fff; }
+.others-nav button:disabled { background: var(--brand-light); color: var(--brand-grey); cursor: default; }
+/* Проекты категории: под табами — описание выбранной подкатегории, карточки по три в ряд */
+.category-page .product-filter-bar { padding-bottom: 24px; }
+.category-projects__desc { max-width: 720px; margin: 0 0 40px; color: #666; font: 400 var(--fs-body)/var(--lh-body) var(--font-text); }
+.projects-page.category-page #projects-list .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* описание подкатегории слева, ссылка на её страницу — справа, по первой строке описания */
+.category-projects__about { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+.category-projects__more { flex: 0 0 auto; margin-top: 2px; color: var(--title); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+.category-projects__more[hidden] { display: none; }
+/* «Все проекты Frontside»: блок теперь на белом — кнопка светло-серая; при наведении заливается красным снизу вверх, как кнопки-стрелки */
+.category-all-link { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .25s ease; }
+.category-all-link:hover, .category-all-link:focus-visible { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 100%; color: #fff; }
