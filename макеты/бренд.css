@@ -317,3 +317,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Второй экран категории: кнопки слайдера 40 px, стрелка 14 — как остальные кнопки-стрелки */
 .projects-page .category-intro .category-intro__slider-nav button { width: 40px; height: 40px; }
 .projects-page .category-intro .category-intro__slider-nav button svg { width: 14px; height: 14px; stroke-width: 1.6px; }
+/* «Применяемые системы» на невысоких экранах (ноутбук 1440 × ~730): воздух сверху и снизу резиновый — 100 px на высоких экранах,
+   до 40 px на низких, чтобы блок (не меньше 560 px) целиком помещался под шапкой */
+.projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - 82px - 560px) / 2), 100px); }
+.projects-page .category-systems .idea__sticky { padding-top: var(--sys-pad); }
+.projects-page .category-systems .container { height: max(560px, calc(100svh - 82px - 2 * var(--sys-pad))); }
