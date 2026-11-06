@@ -324,3 +324,6 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-systems .container { height: max(560px, calc(100svh - 82px - 2 * var(--sys-pad))); }
 /* каталог: от чипсов «Системы» до первой категории — 48 px вместо 74 (пустая строка выбранных фильтров ниже) */
 .catalog-page .projects:not(.has-active-filters) .filter-status-bar { min-height: 20px; }
+/* каталог: от последнего ряда проектов до футера — 100 px, как между блоками (было 40 низ группы + 100 + 120 верх футера) */
+.catalog-page #category-groups { margin-bottom: -40px; }
+.catalog-page .footer { margin-top: 0; }
