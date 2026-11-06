@@ -281,9 +281,11 @@
     // клик по плашке включает фильтр подкатегории и ведёт к проектам
     const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
     const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
+    // у подкатегорий со своей страницей плашка ведёт на неё, у остальных — включает фильтр
+    const subPages={"Промышленные предприятия":"subcategory-industrial.html"};
     const subs=[...document.querySelectorAll("[data-direction-filter]:not([data-direction-filter='all'])")].map(b=>{
       const name=b.dataset.directionFilter, item=items.find(it=>it.dataset.subcategory===name);
-      return {name, image:item?item.querySelector(".project-card").style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,""):""};
+      return {name, page:subPages[name], image:item?item.querySelector(".project-card").style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,""):""};
     });
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];
@@ -301,7 +303,11 @@
       clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
     }
     bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
-    subCard.addEventListener("click",()=>{setDirection(subs[subIndex].name);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});});
+    subCard.addEventListener("click",()=>{
+      const sub=subs[subIndex];
+      if(sub.page){ location.href=sub.page; return; }
+      setDirection(sub.name);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});
+    });
     showSub(0);
     // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
     const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
@@ -309,5 +315,6 @@
     addEventListener("scroll",heroFrame,{passive:true});
     heroFrame();
   </script>
+  <script src="phone-mask.js"></script>
 </body>
 </html>
