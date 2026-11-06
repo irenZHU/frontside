@@ -52,7 +52,6 @@
           <button class="hero-subs__card" type="button" data-hero-sub>
             <span class="hero-subs__photo"><img alt="" data-hero-sub-img></span>
             <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория</span><span class="hero-subs__title" data-hero-sub-title></span></span>
-            <svg class="fs-arrow fs-arrow--right hero-subs__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
           </button>
           <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
         </div>
@@ -102,16 +101,36 @@
       </div>
     </section>
 
-    <!-- Портфолио: шапка, фильтр и карточки — элементы страницы «Проекты» -->
+    <!-- Портфолио: все проекты раздела «Промышленные объекты» с сайта заказчика (frontside.ru/projects/promyshlennye-obekty/);
+         фильтр — по применяемой системе из сводки проекта -->
     <section class="projects" id="projects-list">
-      <div class="container projects__head"><h2>Проекты</h2></div>
-      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по направлениям"><div class="products__meta"><output data-result-count>4 объекта</output></div><div class="product-chips" role="group" aria-label="Выбор направления"><button type="button" class="product-chip is-active" data-direction-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-direction-filter="Промышленные предприятия" aria-pressed="false">Промышленные предприятия</button><button type="button" class="product-chip" data-direction-filter="Технопарки" aria-pressed="false">Технопарки</button><button type="button" class="product-chip" data-direction-filter="Light Industrial" aria-pressed="false">Light Industrial</button></div></div></div>
+      <div class="container projects__head"><h2>Проекты производственных объектов</h2></div>
+      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="products__meta"><output data-result-count>22 объекта</output></div><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Промышленные предприятия" aria-pressed="false">Промышленные предприятия</button><button type="button" class="product-chip" data-direction-filter="Технопарки" aria-pressed="false">Технопарки</button><button type="button" class="product-chip" data-direction-filter="Light Industrial" aria-pressed="false">Light Industrial</button></div></div></div>
+      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="subcategory-industrial.html" data-sub-link>Перейти в подкатегорию</a></div>
       <div class="container">
         <div class="cards">
-          <article class="project-item" data-subcategory="Промышленные предприятия"><a class="project-card" href="project-total.html" aria-label="Завод смазочных материалов TOTAL" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></a><a class="project-card__details" href="project-total.html"><span class="project-card__badges"><span>Промышленные предприятия</span><span>FRONTTOP</span></span><strong>Завод смазочных материалов TOTAL</strong></a></article>
-          <article class="project-item" data-subcategory="Промышленные предприятия"><a class="project-card" href="projects.html#projects" aria-label="Кабельный завод «Вектор»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></a><a class="project-card__details" href="projects.html#projects"><span class="project-card__badges"><span>Промышленные предприятия</span><span>FRONTBASE</span></span><strong>Кабельный завод «Вектор»</strong></a></article>
-          <article class="project-item" data-subcategory="Технопарки"><a class="project-card" href="projects.html#projects" aria-label="Свердловский экспериментальный механический завод" style="--image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></a><a class="project-card__details" href="projects.html#projects"><span class="project-card__badges"><span>Технопарки</span><span>UNIQUE</span></span><strong>Свердловский экспериментальный механический завод</strong></a></article>
-          <article class="project-item" data-subcategory="Light Industrial"><a class="project-card" href="projects.html#projects" aria-label="Технопарк «Орбита»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></a><a class="project-card__details" href="projects.html#projects"><span class="project-card__badges"><span>Light Industrial</span><span>AESTHETIC</span></span><strong>Технопарк «Орбита»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/proizvodstvennoe-predpriyatie-egida/" target="_blank" rel="noopener" aria-label="Производственное предприятие «ЭГИДА»" style="--image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/proizvodstvennoe-predpriyatie-egida/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>Производственное предприятие «ЭГИДА»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/sverdlovskiy-eksperimentalnyy-mekhanicheskiy-zavod/" target="_blank" rel="noopener" aria-label="Свердловский Экспериментальный Механический Завод" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/sverdlovskiy-eksperimentalnyy-mekhanicheskiy-zavod/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>Свердловский Экспериментальный Механический Завод</strong></a></article>
+          <article class="project-item" data-sub="Технопарки" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/tekhtsentr-istra/" target="_blank" rel="noopener" aria-label="Техцентр Истра" style="--image:url('img/production/tekhtsentr-istra.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/tekhtsentr-istra/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>Техцентр Истра</strong></a></article>
+          <article class="project-item" data-sub="Light Industrial" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/predpriyatie-vmpavto/" target="_blank" rel="noopener" aria-label="Производственное предприятие ВМПАВТО" style="--image:url('img/production/predpriyatie-vmpavto.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/predpriyatie-vmpavto/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Производственное предприятие ВМПАВТО</strong></a></article>
+          <article class="project-item" data-sub="Технопарки" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/tekhnopark-ryabinovaya/" target="_blank" rel="noopener" aria-label="Технопарк Рябиновая" style="--image:url('img/production/tekhnopark-ryabinovaya.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/tekhnopark-ryabinovaya/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Технопарк Рябиновая</strong></a></article>
+          <article class="project-item" data-sub="Технопарки" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/orbita/" target="_blank" rel="noopener" aria-label="Многофункциональный комплекс Орбита" style="--image:url('img/production/orbita.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/orbita/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Многофункциональный комплекс Орбита</strong></a></article>
+          <article class="project-item" data-sub="Light Industrial" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/industrial-hub-aykhab/" target="_blank" rel="noopener" aria-label="Industrial HUB АйХаб" style="--image:url('img/production/industrial-hub-aykhab.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/industrial-hub-aykhab/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Industrial HUB АйХаб</strong></a></article>
+          <article class="project-item" data-sub="Light Industrial" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/predpriyatie-prostor-l/" target="_blank" rel="noopener" aria-label="Производственное предприятие Простор-Л" style="--image:url('img/production/predpriyatie-prostor-l.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/predpriyatie-prostor-l/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Производственное предприятие Простор-Л</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/argumentum-farma/" target="_blank" rel="noopener" aria-label="Производственное предприятие Аргументум Фарма" style="--image:url('img/production/argumentum-farma.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/argumentum-farma/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>Производственное предприятие Аргументум Фарма</strong></a></article>
+          <article class="project-item" data-sub="Light Industrial" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/terminus/" target="_blank" rel="noopener" aria-label="Производственное предприятие Терминус" style="--image:url('img/production/terminus.jpg')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/terminus/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>Производственное предприятие Терминус</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/podstantsiya-sputnik-voronezh/" target="_blank" rel="noopener" aria-label="Подстанция «Спутник» в Воронеже" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/691/0axy5mo31sa20bv1evju0oni9zmgv7tj.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/podstantsiya-sputnik-voronezh/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>Подстанция «Спутник» в Воронеже</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="project-total.html" aria-label="Завод смазочных материалов TOTAL" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></a><a class="project-card__details" href="project-total.html"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод смазочных материалов TOTAL</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/fabrika-farfora/" target="_blank" rel="noopener" aria-label="Фабрика фарфора" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/fabrika-farfora/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Фабрика фарфора</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/zavod-severnoe-moloko/" target="_blank" rel="noopener" aria-label="Молочный завод «Северное молоко»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/15f/alcw9ye83olt059fxr9tnq7m1bl89iwi.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/zavod-severnoe-moloko/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Молочный завод «Северное молоко»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/zavod-liebherr/" target="_blank" rel="noopener" aria-label="Завод «Либхер»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/52b/v1fqozyyrxtxwjkuf7w3ajfoq3o7crcb.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/zavod-liebherr/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод «Либхер»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/italon/" target="_blank" rel="noopener" aria-label="Завод керамической плитки «Italon»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/4b9/vla539n9z967k6ybowkwu6l06kk1hg8t.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/italon/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод керамической плитки «Italon»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/cikl-kovrov/" target="_blank" rel="noopener" aria-label="Завод «Цикл»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/fdc/fhwjx2jkfo6puagdyssa2hayzstsuzaz.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/cikl-kovrov/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод «Цикл»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/amstar-efes/" target="_blank" rel="noopener" aria-label="Завод «Амстар Эфес»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/95e/y8uwxlbderbzim2jnymnx32skfzyncza.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/amstar-efes/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод «Амстар Эфес»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/lasselsberger-ceramics-ufa/" target="_blank" rel="noopener" aria-label="Фабрика по производству керамической плитки «Ласселсбергер керамикс»" style="--image:url('https://frontside.ru/upload/iblock/2d7/or56kl6tdoervtwin4j2nx0499snrdgc.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/lasselsberger-ceramics-ufa/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Фабрика по производству керамической плитки «Ласселсбергер керамикс»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/nlmk/" target="_blank" rel="noopener" aria-label="Завод «НЛМК»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/8c6/mtfalscznawnv5p1amxqt9dbwcgqtffu.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/nlmk/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод «НЛМК»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/arhbum/" target="_blank" rel="noopener" aria-label="Завод «АРХБУМ»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/e1f/g5tuy0t81fxpe7jlrds1h9lftbihtsrj.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/arhbum/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Завод «АРХБУМ»</strong></a></article>
+          <article class="project-item" data-sub="Промышленные предприятия" data-system="AESTHETIC FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/khlebobulochnyy-kombinat-sapsan/" target="_blank" rel="noopener" aria-label="Хлебобулочный комбинат ГК «Сапсан»" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/71d/7nmsc7w10e7g5m9d98ub826u9uwmsux3.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/khlebobulochnyy-kombinat-sapsan/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span><span>FRONTBASE</span></span><strong>Хлебобулочный комбинат ГК «Сапсан»</strong></a></article>
         </div>
         <a class="category-all-link" href="projects.html#projects"><span>Все проекты Frontside</span><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
       </div>
@@ -146,7 +165,11 @@
             <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
           </div>
           </div>
-          <div class="idea__counter"><span class="idea__counter-now" id="ideaNum">01</span><span class="idea__counter-all">04</span></div>
+          <!-- стрелки и полоса прогресса: отрезок на каждую систему, заполняется прокруткой (idea-scroll.js) -->
+          <div class="systems-nav">
+            <div class="systems-nav__arrows"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
+            <div class="systems-nav__progress" data-sys-progress aria-hidden="true"></div>
+          </div>
           <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></div>
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></div>
@@ -167,6 +190,21 @@
         <div><span class="section-label">О разделе</span>
         <h2 id="about-title">Фасадные решения для раздела «Производственные объекты»</h2></div>
         <p>В разделе «Производственные объекты» собраны реализованные проекты Frontside по направлениям: промышленные предприятия, технопарки, Light Industrial. Для каждого направления — типовые задачи, применяемые системы и примеры объектов.</p>
+      </div>
+    </section>
+
+    <!-- Другие категории: карточки «Проектов», три на экране, остальные — в слайдере -->
+    <section class="projects category-others" aria-labelledby="others-title">
+      <div class="container projects__head"><h2 id="others-title">Другие категории</h2><div class="systems-nav__arrows others-nav"><button type="button" data-others-prev aria-label="Предыдущие категории"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-others-next aria-label="Следующие категории"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div></div>
+      <div class="container">
+        <div class="cards">
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Логистические центры и склады" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/f0e/d6afh1n5c0elnzok5rne5usdy8ew95k0.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Распределительные центры</span><span>Складские комплексы</span></span><strong>Логистические центры и склады</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Спортивные сооружения" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/4b5/bplzv5pk4k7iabrs5q8r3n8eflbx7236.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>ФОК</span><span>Стадионы</span></span><strong>Спортивные сооружения</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Транспортная инфраструктура" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/e6e/aoeymvayf7fx71yuyvllifbrsgjjm115.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Аэропорты</span><span>Вокзалы</span></span><strong>Транспортная инфраструктура</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Торгово-развлекательные центры" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/180/gv00jjdyoqzkjlhjrovqyr101986jby3.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Торговые центры</span></span><strong>Торгово-развлекательные центры</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Административные и общественные здания" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/d9f/hfujq95vpdfcp37e2c5eveaokvht3hgd.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Офисные здания</span></span><strong>Административные и общественные здания</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Разное" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/8fe/c1utvracf8oy60lnks5o3g52v7fe43pi.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>ЦОД</span></span><strong>Разное</strong></a></article>
+        </div>
       </div>
     </section>
 
@@ -215,21 +253,33 @@
     <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
   </footer>
 
-  <script src="idea-scroll.js?v=10201059"></script>
+  <script src="idea-scroll.js?v=11061100"></script>
   <script src="reveal.js?v=10201059"></script>
   <script>
-    // Фильтр по направлениям: те же чипы, что фильтр продуктов на странице «Проекты»
+    // Фильтр по подкатегориям: те же чипы, что фильтр продуктов на странице «Проекты»
     const chips=[...document.querySelectorAll("[data-direction-filter]")];
-    const items=[...document.querySelectorAll(".project-item")];
+    const items=[...document.querySelectorAll(".project-item[data-sub]")];
     const count=document.querySelector("[data-result-count]");
+    // Описание под табами — из файла структуры заказчика
+    const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
+    const subPages={"Промышленные предприятия":"subcategory-industrial.html"};
+    const subDescriptions={
+      "Промышленные предприятия":"Заводы и производственные комплексы, где фасад должен выдерживать агрессивную среду, перепады температур и сохранять внешний вид десятилетиями.",
+      "Технопарки":"Корпуса технопарков и инновационных центров: сочетание производственной функции и современной архитектуры, привлекательной для резидентов.",
+      "Light Industrial":"Компактные производственно-складские объекты для малого и среднего бизнеса: быстрые сроки, понятная стоимость и аккуратный внешний вид."
+    };
     const plural=(n,f)=>f[(n%10===1&&n%100!==11)?0:(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?1:2];
     function setDirection(value){
-      items.forEach(item=>item.hidden=value!=="all"&&item.dataset.subcategory!==value);
+      items.forEach(item=>item.hidden=value!=="all"&&item.dataset.sub!==value);
       chips.forEach(chip=>{const on=chip.dataset.directionFilter===value;chip.classList.toggle("is-active",on);chip.setAttribute("aria-pressed",String(on));});
       const n=items.filter(item=>!item.hidden).length;
       count.value=`${n} ${plural(n,["объект","объекта","объектов"])}`;
+      subDesc.textContent=subDescriptions[value];
+      // ссылка на страницу подкатегории — только у подкатегорий, у которых она есть
+      subLink.hidden=!subPages[value]; if(subPages[value]) subLink.href=subPages[value];
     }
     chips.forEach(chip=>chip.addEventListener("click",()=>setDirection(chip.dataset.directionFilter)));
+    setDirection("Промышленные предприятия");   // по умолчанию открыта первая подкатегория
     // Фото первого экрана листает объекты категории — данные берутся из карточек портфолио
     const media=document.querySelector(".category-intro__media");
     const slideText=document.querySelector(".category-intro__slide-text");
@@ -278,15 +328,16 @@
     const siteHeader=document.querySelector(".header");
     function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
     // Плашка подкатегорий на первом экране: листается каждые 5 с, полоска показывает прогресс;
-    // клик по плашке включает фильтр подкатегории и ведёт к проектам
+    // клик по плашке ведёт на страницу подкатегории или к проектам раздела
     const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
     const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
-    // у подкатегорий со своей страницей плашка ведёт на неё, у остальных — включает фильтр
-    const subPages={"Промышленные предприятия":"subcategory-industrial.html"};
-    const subs=[...document.querySelectorAll("[data-direction-filter]:not([data-direction-filter='all'])")].map(b=>{
-      const name=b.dataset.directionFilter, item=items.find(it=>it.dataset.subcategory===name);
-      return {name, page:subPages[name], image:item?item.querySelector(".project-card").style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,""):""};
-    });
+    // подкатегории раздела (из структуры заказчика); у подкатегории со своей страницей плашка ведёт на неё,
+    // у остальных — к проектам раздела с фильтром подкатегории. Фото: TOTAL, «Технопарк Рябиновая», «Industrial HUB АйХаб»
+    const subs=[
+      {name:"Промышленные предприятия", page:"subcategory-industrial.html", image:"https://frontside.ru/upload/iblock/d9c/5945ku7plffivzh5t2flav8iv84u0s4g.webp"},
+      {name:"Технопарки", image:document.querySelector('[aria-label="Технопарк Рябиновая"]')?.style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,"")},
+      {name:"Light Industrial", image:"img/production/industrial-hub-aykhab.jpg"}
+    ];
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];
     let subIndex=0, subTimer;
@@ -306,12 +357,24 @@
     subCard.addEventListener("click",()=>{
       const sub=subs[subIndex];
       if(sub.page){ location.href=sub.page; return; }
-      setDirection(sub.name);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});
+      setDirection(sub.name);
+      document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});
     });
     showSub(0);
     // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
     const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
     document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
+    // Другие категории: слайдер по одной карточке, стрелки гаснут на краях
+    const othersTrack=document.querySelector(".category-others .cards"), othersPrev=document.querySelector("[data-others-prev]"), othersNext=document.querySelector("[data-others-next]");
+    const othersStep=()=>othersTrack.children[1].offsetLeft-othersTrack.children[0].offsetLeft;
+    const othersEdges=()=>{othersPrev.disabled=othersTrack.scrollLeft<=1;othersNext.disabled=othersTrack.scrollLeft>=othersTrack.scrollWidth-othersTrack.clientWidth-1;};
+    othersPrev.addEventListener("click",()=>othersTrack.scrollBy({left:-othersStep(),behavior:"smooth"}));
+    othersNext.addEventListener("click",()=>othersTrack.scrollBy({left:othersStep(),behavior:"smooth"}));
+    othersTrack.addEventListener("scroll",othersEdges,{passive:true});
+    othersEdges();
+    // пришли из каталога по чипсине подкатегории (#sub=Технопарки) — сразу включаем её фильтр
+    const hashSub=decodeURIComponent(location.hash).match(/^#sub=(.+)$/);
+    if(hashSub&&chips.some(chip=>chip.dataset.directionFilter===hashSub[1])){setDirection(hashSub[1]);requestAnimationFrame(()=>document.getElementById("projects-list").scrollIntoView());}
     addEventListener("scroll",heroFrame,{passive:true});
     heroFrame();
   </script>

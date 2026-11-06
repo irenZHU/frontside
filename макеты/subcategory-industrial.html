@@ -64,7 +64,6 @@
               <a class="hero-subs__card" href="category-production.html#projects-list" data-hero-sub>
                 <span class="hero-subs__photo"><img alt="" data-hero-sub-img></span>
                 <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория раздела</span><span class="hero-subs__title" data-hero-sub-title></span></span>
-                <svg class="fs-arrow fs-arrow--right hero-subs__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
               </a>
               <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
             </div>
@@ -125,11 +124,10 @@
             <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
           </div>
           </div>
-          <!-- вместо счётчика — стрелки и полоса прогресса, как на первом экране страницы решения; счётчик остаётся скрытым для idea-scroll.js -->
-          <div class="idea__counter" hidden><span class="idea__counter-now" id="ideaNum">01</span><span class="idea__counter-all">04</span></div>
-          <div class="subcat-systems__nav">
-            <div class="category-intro__slider-nav premium-hero__nav"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
-            <div class="premium-hero__progress subcat-systems__progress" data-sys-progress aria-hidden="true"></div>
+          <!-- стрелки и полоса прогресса: отрезок на каждую систему, заполняется прокруткой (idea-scroll.js) -->
+          <div class="systems-nav">
+            <div class="systems-nav__arrows"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
+            <div class="systems-nav__progress" data-sys-progress aria-hidden="true"></div>
           </div>
           <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></div>
@@ -237,7 +235,7 @@
     <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
   </footer>
 
-  <script src="idea-scroll.js?v=10201059"></script>
+  <script src="idea-scroll.js?v=11061100"></script>
   <script src="reveal.js?v=10201059"></script>
   <script>
     // «Обсудить проект» открывает модалку с формой; закрывается крестиком, Esc и кликом по затемнению
@@ -245,20 +243,6 @@
     document.querySelectorAll("[data-form-modal]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();formModal.showModal();}));
     formModal.querySelector("[data-form-modal-close]").addEventListener("click",()=>formModal.close());
     formModal.addEventListener("click",e=>{if(e.target===formModal)formModal.close();});
-    // Применяемые системы: полоса прогресса заполняется прокруткой, стрелки листают к соседней системе
-    (()=>{
-      const sec=document.getElementById("idea"), n=sec.querySelectorAll(".idea__point").length;
-      const bar=sec.querySelector("[data-sys-progress]");
-      bar.innerHTML=Array.from({length:n},()=>"<span><i></i></span>").join("");
-      const fills=[...bar.querySelectorAll("i")];
-      const run=()=>sec.offsetHeight-2*innerHeight;
-      const pos=()=>Math.min(Math.max(-sec.getBoundingClientRect().top/run(),0),1);   // 0…1, как в idea-scroll.js
-      function frame(){ const q=pos()*(n-1)+1; fills.forEach((f,i)=>f.style.transform=`scaleX(${Math.min(Math.max(q-i,0),1)})`); }
-      const go=d=>{ const idx=Math.min(n-1,Math.max(0,Math.round(pos()*(n-1))+d)); scrollTo({top:sec.getBoundingClientRect().top+scrollY+run()*idx/(n-1)+1,behavior:"smooth"}); };
-      sec.querySelector("[data-sys-prev]").addEventListener("click",()=>go(-1));
-      sec.querySelector("[data-sys-next]").addEventListener("click",()=>go(1));
-      addEventListener("scroll",frame,{passive:true}); addEventListener("resize",frame); frame();
-    })();
     // шапка: после начала прокрутки — полупрозрачная с размытием
     const siteHeader=document.querySelector(".header");
     function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }

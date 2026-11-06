@@ -128,3 +128,21 @@
   .premium-hero__bg img { transition: none; }
 }
 .premium-page .logo { color: inherit; }
+/* Услуги — плашки-ссылки: вместо «Подробнее» стрелка ↘ в правом нижнем углу, вся плашка кликабельна;
+   при наведении плашка заливается фирменным красным снизу вверх (как кнопки-стрелки), текст и стрелка — белые */
+.premium-process__steps { margin: -40px; }   /* поля плашек уходят за контейнер: текст по краю контейнера, воздух блока прежний */
+.premium-process__steps li, .premium-process__steps li + li { padding: 40px 40px 40px; background: linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1); }
+.premium-process__steps p { margin-bottom: 40px; }
+.premium-process__link { position: absolute; right: 40px; bottom: 40px; display: grid; place-items: center; width: 38px; height: 38px; color: var(--title); }
+.premium-process__link::after { content: ""; position: absolute; inset: -2000px; }   /* ссылка на всю плашку (li обрезает) */
+.premium-process__steps li { overflow: hidden; }
+.premium-process__link svg { width: 14px; height: 14px; }
+.premium-process__steps :is(.premium-process__num, h3, p), .premium-process__link { transition: color .25s ease; }
+.premium-process__steps li:hover, .premium-process__steps li:focus-within { background-size: 100% 100%; }
+.premium-process__steps li:is(:hover, :focus-within) :is(.premium-process__num, h3, p), .premium-process__steps li:is(:hover, :focus-within) .premium-process__link { color: #fff; }
+.premium-process__steps li:is(:hover, :focus-within) + li { border-left-color: transparent; }
+.premium-process__steps li:has(+ li:is(:hover, :focus-within)) + li { border-left-color: transparent; }
+.premium-process__link:focus-visible { outline: none; }
+/* на красной плашке стрелка — белая кнопка 38 px с красной стрелкой, проявляется снизу вверх, как заливка плашки */
+.premium-process__link { background: linear-gradient(#fff, #fff) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .25s ease; }
+.premium-process__steps li:is(:hover, :focus-within) .premium-process__link { background-size: 100% 100%; color: var(--brand-red); }
