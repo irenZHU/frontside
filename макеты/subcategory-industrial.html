@@ -241,27 +241,43 @@
     // шапка: после начала прокрутки — полупрозрачная с размытием
     const siteHeader=document.querySelector(".header");
     function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
-    // Плашка на первом экране: другие подкатегории раздела (данные — из блока «Другие подкатегории»), листается каждые 5 с
+    // Первый экран листается, как на «Фасадах»: большое фото по кругу — эта подкатегория и другие подкатегории раздела
+    // (данные — из блока «Другие подкатегории»), фото открывается снизу вверх; плашка справа — анонс следующего кадра,
+    // полоски под ней — прогресс всех кадров, клик по полоске — к этому кадру, клик по плашке — на подкатегорию
     const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
     const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
-    const subs=[...document.querySelectorAll("[data-sub-name]")].map(a=>({name:a.dataset.subName, image:a.dataset.subImage, href:a.getAttribute("href")}));
-    subBars.innerHTML=subs.map(sub=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
-    const bars=[...subBars.children];
-    let subIndex=0, subTimer;
-    function showSub(i){
-      subIndex=(i+subs.length)%subs.length;
+    const media=document.querySelector(".subcat-intro .category-intro__media"), firstPhoto=media.querySelector("img");
+    const frames=[{name:document.querySelector('.breadcrumbs [aria-current="page"]').textContent.trim(), image:firstPhoto.src, href:location.pathname.split("/").pop()},
+      ...[...document.querySelectorAll("[data-sub-name]")].map(a=>({name:a.dataset.subName, image:a.dataset.subImage, href:a.getAttribute("href")}))];
+    const photos=frames.map((frame,i)=>{
+      if(i===0) return firstPhoto;
+      const img=new Image(); img.src=frame.image; img.alt=frame.name; media.append(img); return img;
+    });
+    subBars.innerHTML=frames.map(frame=>`<button type="button" role="tab" aria-label="${frame.name}"><i></i></button>`).join("");
+    const bars=[...subBars.children], FRAME_DELAY=5000;
+    let frameIndex=0, frameTimer;
+    function showFrame(i){
+      const prev=photos[frameIndex];
+      frameIndex=(i+frames.length)%frames.length;
+      if(photos[frameIndex]!==prev){
+        photos.forEach(img=>img.classList.remove("is-prev"));
+        prev.classList.replace("is-active","is-prev");
+        photos[frameIndex].classList.add("is-active");
+        clearTimeout(showFrame.prevTimer); showFrame.prevTimer=setTimeout(()=>prev.classList.remove("is-prev"),1300);
+      }
+      const next=frames[(frameIndex+1)%frames.length];
       subCard.classList.add("is-changing");
       setTimeout(()=>{
-        subImg.src=subs[subIndex].image; subTitle.textContent=subs[subIndex].name; subCard.href=subs[subIndex].href;
+        subImg.src=next.image; subTitle.textContent=next.name; subCard.href=next.href;
         subCard.classList.remove("is-changing");
       },subCard.dataset.ready?250:0);
       subCard.dataset.ready=1;
-      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<subIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===subIndex));});
-      bars[subIndex].offsetWidth; bars[subIndex].classList.add("is-active");
-      clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
+      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<frameIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===frameIndex));});
+      bars[frameIndex].offsetWidth; bars[frameIndex].classList.add("is-active");
+      clearTimeout(frameTimer); frameTimer=setTimeout(()=>showFrame(frameIndex+1),FRAME_DELAY);
     }
-    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
-    showSub(0);
+    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showFrame(j)));
+    showFrame(0);
     // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
     const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
     document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
