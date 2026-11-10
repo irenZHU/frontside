@@ -70,3 +70,7 @@
 
 /* Форма идёт сразу за серым блоком «Другие объекты» — без белой полосы между ними */
 .project-page .category-form { margin-top: 0; }
+
+/* Заголовок первого экрана по системе категории и подкатегории: серая подпись «Объект» → h1 → описание → чипсины категории и систем */
+.projects-page .project-info h1 { margin-top: 12px; }
+.projects-page .project-info__lead + .project-info__badges { margin-top: 24px; }

@@ -1,0 +1,11 @@
+/* Вариант страницы с заголовками Solomon Sans. Подключается после бренд.css и меняет только шрифт заголовков (--font-head).
+   Файлы шрифта — fonts/SolomonSans-Regular / -Medium / -SemiBold.otf (400 / 500 / 600, от дизайнера; лицензия коммерческая). */
+@font-face { font-family: "Solomon Sans"; font-weight: 400; font-display: swap;
+  src: local("Solomon Sans"), local("SolomonSans-Regular"), url("fonts/SolomonSans-Regular.otf") format("opentype"); }
+@font-face { font-family: "Solomon Sans"; font-weight: 500; font-display: swap;
+  src: local("Solomon Sans Medium"), local("SolomonSans-Medium"), url("fonts/SolomonSans-Medium.otf") format("opentype"); }
+@font-face { font-family: "Solomon Sans"; font-weight: 600; font-display: swap;
+  src: local("Solomon Sans SemiBold"), local("SolomonSans-SemiBold"), url("fonts/SolomonSans-SemiBold.otf") format("opentype"); }
+:root { --font-head: "Solomon Sans", "Onest", Arial, sans-serif; }
+/* Заголовки — начертание 500 (Medium): всё, что набрано шрифтом заголовков */
+:is(h1, h2, h3, h4, h5, h6, .premium-object__cta-text, .premium-hero__caption strong, .premium-hero__name, .premium-process__num, .footer__brand) { font-weight: 500 !important; }

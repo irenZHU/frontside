@@ -67,8 +67,8 @@
 /* Наведение: ячейка заливается графитом (чёрный + серый из фирстиля), текст белый, красная линия ссылки остаётся */
 .premium-object:not(.premium-object--cta) { transition: background .35s ease; }
 .premium-object :is(h3, .fs-link) { transition: color .35s ease; }
-.premium-object:not(.premium-object--cta):hover { background: var(--brand-graphite); }
-.premium-object:not(.premium-object--cta):hover :is(h3, .premium-object__meta .fs-link) { color: #fff; }
+/* ховер плитки: фон и текст не меняются — стрелка красная кнопка, фото слегка приближается */
+.premium-object:not(.premium-object--cta):hover .premium-object__photo img { transform: scale(1.04); }
 .premium-object--cta { align-items: center; justify-content: center; text-align: center; background: var(--brand-light); }   /* контент по центру, фон — фирменный светло-серый, как у ячеек */
 .premium-object--cta .section-label { margin: 0 0 16px; }
 .premium-object__cta-text { max-width: 640px; margin: 0 0 40px; color: var(--title); font: 400 var(--fs-h2)/var(--lh-h2) var(--font-head); letter-spacing: -1.1px; text-transform: uppercase; }

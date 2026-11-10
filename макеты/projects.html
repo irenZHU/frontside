@@ -15,7 +15,7 @@
 <body class="projects-page catalog-page">
   <header class="header is-scrolled">
     <div class="container header__inner">
-      <a class="logo" href="artvision.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
       <nav class="nav nav--main" aria-label="Основная навигация">
         <a href="#catalog">Каталог</a><a href="#solutions">Решения</a><a href="#services">Услуги</a><a class="is-active" href="#projects">Проекты</a><a href="#documents">Документы</a>
       </nav>
@@ -200,7 +200,7 @@
     };
     const subcategoryPages = {'Промышленные предприятия':'subcategory-industrial.html','Технопарки':'category-production.html#sub=Технопарки','Light Industrial':'category-production.html#sub=Light Industrial'};
     const categoryPages = {'Производственные объекты':'category-production.html'};
-    document.querySelector('#category-groups').innerHTML = groups.map(([name,description,items],g) => `<section class="project-group" data-category="${name}"><header>${categoryPages[name] ? `<h3><a class="project-group__link" href="${categoryPages[name]}" data-group-title>${name}</a></h3><a class="project-group__arrow" href="${categoryPages[name]}" aria-label="Все объекты категории «${name}»" data-group-arrow>` : `<h3 data-group-title>${name}</h3><a class="project-group__arrow" href="#feedback" aria-label="Обсудить проект категории «${name}»" data-group-arrow>`}<svg class="fs-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></header><p class="project-group__desc" data-group-desc>${description}</p><p class="project-group__count" data-group-count hidden></p><div class="cards">${(groupItems[name]||items.slice(0,3).map((title,i)=>[title,subcategoryLabels[name][i],productKeys[(i+g)%4],categoryImages[name][i]])).map(([title,subcategory,product,image,href],i)=>{const link=projectPages[title]||href||'#feedback';return `<article class="project-item" data-product="${product}" data-subcategory="${subcategory}"${i<3?'':' data-extra'}><a class="project-card" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''} aria-label="${title}" style="--image:url('${image}')"></a><div class="project-card__details"><span class="project-card__badges"><span class="project-card__sub">${subcategory}</span>${product.split(' ').map(key=>`<span>${productLabels[key]}</span>`).join('')}</span><a class="project-card__name" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''}><strong>${title}</strong></a></div></article>`}).join('')}</div></section>`).join('');
+    document.querySelector('#category-groups').innerHTML = groups.map(([name,description,items],g) => `<section class="project-group" data-category="${name}"><header>${categoryPages[name] ? `<h3><a class="project-group__link" href="${categoryPages[name]}" data-group-title>${name}</a></h3><a class="project-group__arrow" href="${categoryPages[name]}" aria-label="Все объекты категории «${name}»" data-group-arrow>` : `<h3 data-group-title>${name}</h3><a class="project-group__arrow" href="#feedback" aria-label="Обсудить проект категории «${name}»" data-group-arrow>`}<svg class="fs-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></header><p class="project-group__desc" data-group-desc>${description}</p><div class="cards">${(groupItems[name]||items.slice(0,3).map((title,i)=>[title,subcategoryLabels[name][i],productKeys[(i+g)%4],categoryImages[name][i]])).map(([title,subcategory,product,image,href],i)=>{const link=projectPages[title]||href||'#feedback';return `<article class="project-item" data-product="${product}" data-subcategory="${subcategory}"${i<3?'':' data-extra'}><a class="project-card" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''} aria-label="${title}" style="--image:url('${image}')"></a><div class="project-card__details"><span class="project-card__badges"><span class="project-card__sub">${subcategory}</span>${product.split(' ').map(key=>`<span>${productLabels[key]}</span>`).join('')}</span><a class="project-card__name" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''}><strong>${title}</strong></a></div></article>`}).join('')}</div></section>`).join('');
     const productButtons = [...document.querySelectorAll('[data-product-filter]')];
     const selectedFilters = document.querySelector('[data-selected-filters]');
     const resetButton = document.querySelector('[data-reset]');
@@ -213,7 +213,6 @@
       projectsSection.style.setProperty('--sticky-products-height', `${productsBar.offsetHeight}px`);
       projectsSection.style.setProperty('--sticky-selection-height', isActive ? `${filtersStatusBar.offsetHeight}px` : '0px');
     }
-    const plural = n => ['проект','проекта','проектов'][(n%10===1&&n%100!==11)?0:(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?1:2];
     function applyFilters(){
       const isAll = selectedProducts.size === 0;
       const cards = [...document.querySelectorAll('.project-item')];
@@ -222,7 +221,7 @@
       cards.forEach(card => card.hidden = (!filtering && card.hasAttribute('data-extra')) || (!isAll && !card.dataset.product.split(' ').some(key => selectedProducts.has(key))) || (selectedSubcategories.size > 0 && !selectedSubcategories.has(card.dataset.subcategory)));
       document.querySelectorAll('.project-group').forEach(group => group.hidden = ![...group.querySelectorAll('.project-item')].some(card => !card.hidden));
       // Выбрана подкатегория — шапка категории становится шапкой подкатегории:
-      // заголовок и описание подкатегории, число проектов; бейдж подкатегории на карточках скрыт
+      // заголовок и описание подкатегории; бейдж подкатегории на карточках скрыт
       document.querySelectorAll('.project-group').forEach(group => {
         const name = group.dataset.category, group_ = groups.find(item => item[0] === name);
         const subs = [...document.querySelectorAll(`.filter-group[data-category="${name}"] input:checked`)].map(input => input.value);
@@ -231,9 +230,6 @@
         group.classList.toggle('is-subcategory', isSub);
         title.textContent = isSub ? subs.join(' · ') : name;
         group.querySelector('[data-group-desc]').textContent = single ? subcategoryDescriptions[single] : group_[1];
-        const shown = [...group.querySelectorAll('.project-item')].filter(card => !card.hidden).length, countEl = group.querySelector('[data-group-count]');
-        countEl.hidden = !isSub;
-        countEl.textContent = `${shown} ${plural(shown)}`;
         const href = single && subcategoryPages[single] ? subcategoryPages[single] : (categoryPages[name] || '#feedback');
         if (title.tagName === 'A') title.href = href;
         arrow.href = href;

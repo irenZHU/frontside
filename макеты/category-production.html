@@ -15,7 +15,7 @@
 <body class="projects-page category-page" id="top">
   <header class="header">
     <div class="container header__inner">
-      <a class="logo" href="artvision.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
       <nav class="nav nav--main" aria-label="Основная навигация">
         <a href="projects.html#catalog">Каталог</a><a href="projects.html#solutions">Решения</a><a href="projects.html#services">Услуги</a><a class="is-active" href="projects.html#projects">Проекты</a><a href="projects.html#documents">Документы</a>
       </nav>
@@ -69,15 +69,14 @@
               <p class="category-intro__lead reveal-lines" style="--d:.25s">Здесь собраны реализованные объекты Frontside по трём направлениям: промышленные предприятия, технопарки и Light Industrial. По каждому — применённая система, решения по фасаду и фотографии. Листайте проекты справа или выберите подкатегорию.</p>
             </div>
           </div>
-          <figure class="category-intro__media">
-          </figure>
+          <div class="category-intro__media category-intro__spot" data-grow-spot aria-hidden="true"></div>   <!-- место фото: само фото — кадр блока «Задачи» ниже, стоит ровно здесь -->
           <div class="category-intro__col">
             <!-- Подпись к фото в центре и перелистывание объектов категории -->
             <div class="category-intro__slide">
               <p class="category-intro__directions-label reveal-lines" style="--d:.35s">Реализованные проекты</p>
               <div class="category-intro__slide-text" aria-live="polite">
-                <strong class="reveal-lines" style="--d:.45s" data-slide-title>Производственное предприятие «ЭГИДА»</strong>
-                <span class="category-intro__slide-meta" data-reveal style="--d:.55s" data-slide-meta>FRONTTOP</span>
+                <strong class="reveal-lines" style="--d:.45s" data-slide-title>Завод смазочных материалов TOTAL</strong>
+                <span class="category-intro__slide-meta" data-reveal style="--d:.55s" data-slide-meta>FRONTBASE</span>
               </div>
               <div class="category-intro__slider-nav" data-reveal style="--d:.6s">
                 <span class="category-intro__counter" aria-label="Номер объекта"><b data-slide-index>01</b><span data-slide-total>04</span></span>
@@ -91,13 +90,33 @@
     </section>
     </div>
 
-    <!-- Задача и решение -->
-    <section class="facts category-tasks" aria-labelledby="tasks-title">
-      <h2 class="category-tasks__title" id="tasks-title">Задачи, которые решает фасад</h2>
-      <div class="container">
-        <article class="fact"><h3 class="fact__text">Инженерная точность</h3><p class="category-tasks__text">Учитываем режим работы цеха: влажность, перепады температур, агрессивную среду и требования к пожарной безопасности.</p><div class="fact__num" aria-hidden="true">01</div></article>
-        <article class="fact"><h3 class="fact__text">Технологичный монтаж</h3><p class="category-tasks__text">Раскладка панелей и узлы готовы до выхода на площадку, поэтому монтаж идёт без остановки соседних производственных участков.</p><div class="fact__num" aria-hidden="true">02</div></article>
-        <article class="fact"><h3 class="fact__text">Выразительная индустриальная архитектура</h3><p class="category-tasks__text">Цвет, ритм и фактура панелей превращают протяжённый корпус в узнаваемый объект, а не в типовой ангар.</p><div class="fact__num" aria-hidden="true">03</div></article>
+    <!-- Задачи, которые решает фасад — механика блока «Особые требования к процессу» со страницы «Фасады»:
+         фото из центра второго экрана при прокрутке закрепляется под шапкой и раскрывается до ширины контейнера,
+         затем слева проявляется заголовок, и задачи выезжают колодой — следующая наезжает на предыдущую -->
+    <section class="category-grow" aria-labelledby="tasks-title">
+      <div class="category-grow__track" data-grow-track>
+        <div class="category-grow__sticky">
+          <div class="category-grow__frame" data-grow-frame>
+            <figure class="category-intro__media category-grow__media" data-slide-media></figure>
+          </div>
+          <div class="container category-grow__cards">
+            <h2 class="category-grow__title" id="tasks-title" data-grow-title>Задачи, которые решает фасад</h2>
+            <div class="category-grow__deck">
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Инженерная точность</h3><span class="category-intro__counter grow-card__num"><b>01</b><span>03</span></span></div>
+              <p>Учитываем режим работы цеха: влажность, перепады температур, агрессивную среду и требования к пожарной безопасности.</p>
+            </article>
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Технологичный монтаж</h3><span class="category-intro__counter grow-card__num"><b>02</b><span>03</span></span></div>
+              <p>Раскладка панелей и узлы готовы до выхода на площадку, поэтому монтаж идёт без остановки соседних производственных участков.</p>
+            </article>
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Выразительная индустриальная архитектура</h3><span class="category-intro__counter grow-card__num"><b>03</b><span>03</span></span></div>
+              <p>Цвет, ритм и фактура панелей превращают протяжённый корпус в узнаваемый объект, а не в типовой ангар.</p>
+            </article>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -105,7 +124,7 @@
          фильтр — по применяемой системе из сводки проекта -->
     <section class="projects" id="projects-list">
       <div class="container projects__head"><h2>Проекты производственных объектов</h2></div>
-      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="products__meta"><output data-result-count>22 объекта</output></div><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Промышленные предприятия" aria-pressed="false">Промышленные предприятия</button><button type="button" class="product-chip" data-direction-filter="Технопарки" aria-pressed="false">Технопарки</button><button type="button" class="product-chip" data-direction-filter="Light Industrial" aria-pressed="false">Light Industrial</button></div></div></div>
+      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Промышленные предприятия" aria-pressed="false">Промышленные предприятия</button><button type="button" class="product-chip" data-direction-filter="Технопарки" aria-pressed="false">Технопарки</button><button type="button" class="product-chip" data-direction-filter="Light Industrial" aria-pressed="false">Light Industrial</button></div></div></div>
       <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="subcategory-industrial.html" data-sub-link>Перейти в подкатегорию</a></div>
       <div class="container">
         <div class="cards">
@@ -259,7 +278,6 @@
     // Фильтр по подкатегориям: те же чипы, что фильтр продуктов на странице «Проекты»
     const chips=[...document.querySelectorAll("[data-direction-filter]")];
     const items=[...document.querySelectorAll(".project-item[data-sub]")];
-    const count=document.querySelector("[data-result-count]");
     // Описание под табами — из файла структуры заказчика
     const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
     const subPages={"Промышленные предприятия":"subcategory-industrial.html"};
@@ -268,12 +286,9 @@
       "Технопарки":"Корпуса технопарков и инновационных центров: сочетание производственной функции и современной архитектуры, привлекательной для резидентов.",
       "Light Industrial":"Компактные производственно-складские объекты для малого и среднего бизнеса: быстрые сроки, понятная стоимость и аккуратный внешний вид."
     };
-    const plural=(n,f)=>f[(n%10===1&&n%100!==11)?0:(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?1:2];
     function setDirection(value){
       items.forEach(item=>item.hidden=value!=="all"&&item.dataset.sub!==value);
       chips.forEach(chip=>{const on=chip.dataset.directionFilter===value;chip.classList.toggle("is-active",on);chip.setAttribute("aria-pressed",String(on));});
-      const n=items.filter(item=>!item.hidden).length;
-      count.value=`${n} ${plural(n,["объект","объекта","объектов"])}`;
       subDesc.textContent=subDescriptions[value];
       // ссылка на страницу подкатегории — только у подкатегорий, у которых она есть
       subLink.hidden=!subPages[value]; if(subPages[value]) subLink.href=subPages[value];
@@ -281,10 +296,13 @@
     chips.forEach(chip=>chip.addEventListener("click",()=>setDirection(chip.dataset.directionFilter)));
     setDirection("Промышленные предприятия");   // по умолчанию открыта первая подкатегория
     // Фото первого экрана листает объекты категории — данные берутся из карточек портфолио
-    const media=document.querySelector(".category-intro__media");
+    const media=document.querySelector("[data-slide-media]");
     const slideText=document.querySelector(".category-intro__slide-text");
-    // Слайды — реализованные проекты из карточек
-    const slides=items.map(item=>({
+    // Слайды — реализованные проекты из карточек; первым — TOTAL (сильный кадр для второго экрана и блока «Задачи»),
+    // фото «ЭГИДЫ» в слайдере не показываем
+    const slideItems=items.filter(item=>!item.textContent.includes("ЭГИДА"));
+    const firstSlide=Math.max(0,slideItems.findIndex(item=>item.textContent.includes("TOTAL")));
+    const slides=[...slideItems.slice(firstSlide),...slideItems.slice(0,firstSlide)].map(item=>({
       image:item.querySelector(".project-card").style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,""),
       title:item.querySelector(".project-card__details strong").textContent,
       meta:[...item.querySelectorAll(".project-card__badges span")].map(tag=>tag.textContent).reverse().join(" · ")
@@ -375,6 +393,46 @@
     // пришли из каталога по чипсине подкатегории (#sub=Технопарки) — сразу включаем её фильтр
     const hashSub=decodeURIComponent(location.hash).match(/^#sub=(.+)$/);
     if(hashSub&&chips.some(chip=>chip.dataset.directionFilter===hashSub[1])){setDirection(hashSub[1]);requestAnimationFrame(()=>document.getElementById("projects-list").scrollIntoView());}
+    // Фото второго экрана → блок «Задачи» (как «Особые требования к процессу» на «Фасадах»): кадр стоит ровно на месте фото
+    // второго экрана. Когда верх фото доходит до шапки, кадр закрепляется в прежнем размере, и второй экран уезжает вверх —
+    // фото «переезжает» в третий блок; только потом оно раскрывается до ширины контейнера и высоты экрана,
+    // затем задачи выезжают снизу по одной, прежние уходят вглубь колоды матовым стеклом
+    const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), ease=t=>1-Math.pow(1-t,3);
+    const growSpot=document.querySelector("[data-grow-spot]"), growTrack=document.querySelector("[data-grow-track]");
+    const growFrameBox=document.querySelector("[data-grow-frame]"), growMedia=growFrameBox.querySelector("[data-slide-media]");
+    const growCards=[...document.querySelectorAll("[data-card]")], growGrid=document.querySelector(".category-grow__cards");
+    const growTitle=document.querySelector("[data-grow-title]"), HEADER_H=82;
+    let growGap=0;   // путь переезда: от верха фото до низа второго экрана
+    function placeGrow(){   // дорожка начинается на уровне верха фото второго экрана и длиннее на путь переезда
+      growTrack.style.marginTop="0px";
+      growGap=growTrack.getBoundingClientRect().top-growSpot.getBoundingClientRect().top;
+      growTrack.style.marginTop=`${-growGap}px`;
+      growTrack.parentElement.style.setProperty("--grow-gap",`${growGap}px`);
+      growTrack.style.height=`calc(400vh + ${growGap}px)`;
+      growFrame();
+    }
+    function growFrame(){
+      const r=growTrack.getBoundingClientRect(), run=r.height-(innerHeight-HEADER_H);
+      const s=clamp(HEADER_H-r.top,0,run), rest=Math.max(run-growGap,1);   // s — пройдено с момента, как фото дошло до шапки
+      const e=ease(clamp((s-growGap)/(rest*.3),0,1));      // раскрытие — после переезда, первые 30 % оставшегося пути
+      const f=growFrameBox.getBoundingClientRect(), spot=growSpot.getBoundingClientRect(), grid=growGrid.getBoundingClientRect();
+      const x0=spot.left-f.left, w0=spot.width, h0=spot.height, x1=grid.left-f.left, w1=grid.width, h1=f.height;
+      growMedia.style.left=`${x0+(x1-x0)*e}px`; growMedia.style.width=`${w0+(w1-w0)*e}px`; growMedia.style.height=`${h0+(h1-h0)*e}px`;
+      growFrameBox.classList.toggle("is-open",e>.98);
+      growTitle.classList.toggle("is-in",e>.98);         // заголовок появляется, когда кадр раскрылся
+      const q=clamp((s-growGap-rest*.32)/(rest*.6),0,1)*growCards.length;
+      growCards.forEach((card,i)=>{
+        const inT=ease(clamp(q-i,0,1)), depth=clamp(q-i-1,0,growCards.length);
+        card.style.transform=`translateY(${(1-inT)*110}%) translateY(${-24*depth}px) scale(${1-.05*depth})`;
+        card.style.opacity=inT>0?1:0;
+        const g=Math.min(depth,1);
+        card.style.setProperty("--glass",(1-.45*g).toFixed(3));
+        card.style.setProperty("--blur",(14*g).toFixed(1)+"px");
+        card.style.setProperty("--fade",(1-Math.min(depth*1.5,1)).toFixed(3));
+      });
+    }
+    addEventListener("scroll",growFrame,{passive:true}); addEventListener("resize",placeGrow);
+    document.fonts.ready.then(placeGrow); addEventListener("load",placeGrow); placeGrow();
     addEventListener("scroll",heroFrame,{passive:true});
     heroFrame();
   </script>
