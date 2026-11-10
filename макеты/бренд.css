@@ -122,9 +122,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .footer__social a { font-size: var(--fs-badge); }
 /* Подзаголовки — капсом, как заголовки */
 .projects-page :is(.project-group header h3, .solution-card strong, .idea__point h3, .category-intro__directions strong) { text-transform: uppercase; letter-spacing: -.3px; }
-/* Кнопки — капсом (чипсы фильтра и ссылка «Подробнее» — строчные) */
-.projects-page .btn-accent { text-transform: uppercase; letter-spacing: .04em; }
-.projects-page .btn-accent { font-size: var(--fs-ui); }
+/* Кнопка «Отправить заявку» — капсом 14/20 (в шапке и в меню, одинаково на всех страницах) */
+.btn-accent { text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-ui); line-height: var(--lh-ui); }
 /* Подписи фильтров «Продукты» и «Категории» — капсом */
 .projects-page :is(.products__meta > span:first-child, .filter-header strong) { text-transform: uppercase; letter-spacing: .04em; }
 /* Надпись раздела («Портфолио») ближе к заголовку */
@@ -135,7 +134,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Первый экран «Проектов»: заголовок ближе к карточкам направлений */
 .projects-page .solutions__grid { margin-top: 40px; }
 /* Шапка: основная группа разделов ближе к логотипу — между группами явный разрыв */
-.projects-page .nav--main { left: 72px; }
+.header .nav--main { left: 72px; }
 /* Фильтр категорий: названия категорий — капсом 12 */
 .projects-page .filter-group summary { font-size: var(--fs-caption); line-height: var(--lh-caption); font-weight: 500; text-transform: uppercase; letter-spacing: 0; }
 /* Без выбранных фильтров первая категория в каталоге стоит на одной линии с первой категорией фильтра */
@@ -208,7 +207,6 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page :is(.category-intro__counter, .category-intro__counter *, .idea__counter span, .category-systems__more) { font-size: var(--fs-body); line-height: var(--lh-body); }
 .projects-page .hero__cta-text { font-size: var(--fs-ui); line-height: var(--lh-ui); letter-spacing: .04em; }
 .projects-page .category-form__submit { font-size: var(--fs-ui); line-height: var(--lh-ui); }
-.projects-page .header .btn-accent { line-height: var(--lh-ui); }
 /* мелкий капс 12–14: одна разрядка .04em */
 .projects-page :is(.section-label, .category-intro__slide-meta, .category-form dt, .hero-subs__label, .category-intro__directions-label) { letter-spacing: .04em; }
 
@@ -335,7 +333,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .catalog-page .footer { margin-top: 0; }
 /* шапка на больших экранах (1920): разделы меню и телефон 16/24 вместо 14/20; на ноутбуке (1440) остаются 14 — иначе не помещаются */
 @media (min-width: 1601px) {
-  .projects-page .header :is(.nav a, .header__phone) { font-size: 16px; line-height: 24px; }
+  .header :is(.nav a, .header__phone) { font-size: 16px; line-height: 24px; }
 }
 /* Карточки проектов: при наведении на фото или название фото плавно приближается (1.05), сама карточка не сжимается */
 .projects-page .project-card { position: relative; isolation: isolate; background: var(--soft); }
@@ -368,10 +366,12 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* ---------- Хедер: кнопки 50 px и равные поля по 12 px ---------- */
 .header, .projects-page .header__inner { height: var(--header-height); }
 .header, .header.is-scrolled { background: rgb(255 255 255 / .92); color: var(--title); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: blur(32px) saturate(1.4); backdrop-filter: blur(32px) saturate(1.4); box-shadow: 0 1px 0 rgb(16 32 56 / .06); transition-property: background-color, color, box-shadow, backdrop-filter, border-color; }
-.catalog-page .header { border-bottom-color: transparent; box-shadow: none; }
 .header .burger { background: var(--brand-light); }
 .header .header__actions, .header .logo { top: 12px; }
 .header .nav, .header .header__phone { top: 27px; }
+/* шапка одинаковая на всех страницах: шаг меню 25 px, телефон и пункты — без цвета ссылок */
+.header .nav { gap: 25px; }
+.header :is(.nav a, .header__phone) { color: inherit; text-decoration: none; }
 .projects-page main { padding-top: var(--header-height); }
 .projects-page .projects { --sticky-header-height: var(--header-height); }
 .project-info { top: var(--header-height); }
@@ -383,4 +383,36 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-systems .container { height: max(560px, calc(100svh - var(--header-height) - 2 * var(--sys-pad))); }
 @media (min-width: 1601px) {
   .projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - var(--header-height) - 560px) / 2), 120px); }
+}
+
+/* ---------- Развёрнутое бургер-меню: карта сайта клиента, одна на все страницы ---------- */
+.site-menu { position: fixed; inset: var(--header-height) 0 0 0; z-index: 90; overflow: auto; background: #fff; color: var(--title); }
+.site-menu[hidden] { display: none; }
+.site-menu__inner { padding: 48px 0 56px; }
+.site-menu__grid { display: grid; grid-template-columns: 1.1fr 1.3fr 1.2fr 1fr; gap: 40px; align-items: start; }
+.site-menu__group + .site-menu__group { margin-top: 36px; }
+.site-menu__title { margin: 0 0 14px; font-size: var(--fs-body); line-height: var(--lh-body); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.site-menu__title a { color: inherit; text-decoration: none; transition: color .2s ease; }
+.site-menu__title a:hover, .site-menu__title a:focus-visible { color: var(--brand-red); }
+.site-menu__sub + .site-menu__sub { margin-top: 20px; }
+.site-menu__subtitle { margin: 0 0 10px; color: var(--brand-graphite); font-size: var(--fs-caption); line-height: var(--lh-caption); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-body); line-height: var(--lh-body); text-decoration: none; transition: color .2s ease; }
+.site-menu__link:hover, .site-menu__link:focus-visible { color: var(--brand-red); }
+.site-menu__link .fs-arrow { width: 13px; height: 13px; opacity: 0; translate: -4px 0; transition: opacity .2s ease, translate .2s ease; }
+.site-menu__link:hover .fs-arrow, .site-menu__link:focus-visible .fs-arrow { opacity: 1; translate: 0 0; }
+
+/* бургер открыт — крестик */
+.header .burger.is-open svg { display: none; }
+.header .burger.is-open::before, .header .burger.is-open::after { content: ""; position: absolute; left: 14px; top: 24px; width: 22px; height: 2px; background: var(--title); }
+.header .burger.is-open::before { transform: rotate(45deg); }
+.header .burger.is-open::after { transform: rotate(-45deg); }
+
+/* Невысокие экраны (ноутбук 1440 × ~730): воздух меню плотнее, чтобы карта сайта помещалась без прокрутки */
+@media (max-height: 820px) {
+  .site-menu__inner { padding: 24px 0 32px; }
+  .site-menu__title { margin-bottom: 14px; }
+  .site-menu__group + .site-menu__group { margin-top: 24px; }
+  .site-menu__sub + .site-menu__sub { margin-top: 14px; }
+  .site-menu__subtitle { margin-bottom: 8px; }
+  .site-menu__link { padding: 2px 0; }
 }

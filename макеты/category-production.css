@@ -251,9 +251,7 @@
 .category-intro { padding-top: 50px; }
 .category-intro__title { margin: 0; color: var(--title); }
 
-/* Шапка над фото первого экрана — прозрачная, белый текст; после прокрутки — как на остальных страницах */
-.category-page .header:not(.is-scrolled) { background: transparent; border-bottom-color: transparent; box-shadow: none; color: #fff; }
-.category-page .header:not(.is-scrolled) .nav a:not(.is-active) { color: #fff; }
+/* Шапка на всех страницах одинаковая — белая полоса и над фото первого экрана тоже */
 /* Кнопка «Обсудить проект» — на первом экране, внизу по центру; гаснет вместе с текстом при прокрутке */
 .category-hero .category-hero__cta { position: absolute; z-index: 6; left: 50%; bottom: 40px; translate: -50% 0; }
 
@@ -297,9 +295,6 @@
 
 /* Правая колонка второго экрана: только «Реализованные проекты», прижаты к низу */
 .category-intro__col:last-child { justify-content: flex-end; }
-
-/* Шапка без нижней линии — и над фото, и на прокрутке */
-.category-page .header, .category-page .header.is-scrolled { border-bottom: 0; box-shadow: none; }
 
 /* ---------- Модалка «Обсудить проект»: поля и кнопка формы обратной связи, одна колонка ---------- */
 .form-modal { width: min(560px, calc(100% - 48px)); max-height: calc(100vh - 48px); margin: auto; padding: 0; border: 0; border-radius: 0; background: #fff; color: var(--title); box-shadow: 0 24px 60px rgba(16, 24, 32, .18); overflow: auto; }
