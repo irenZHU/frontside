@@ -32,18 +32,95 @@
   </header>
 
   <main>
-    <section class="client-hero" aria-labelledby="client-hero-title">
-      <img class="client-hero__image" src="https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/5ad/s7r8178j8b28omtdb0gvn1xzag8ndxdg.webp" alt="Система ARTLINE">
-      <div class="client-hero__content">
-        <h1 class="client-hero__title" id="client-hero-title">Система ARTLINE</h1>
-        <p class="client-hero__desc">архитектурная облицовка</p>
-        <a class="client-hero__cta" href="https://frontside.ru/catalog/">Подробнее</a>
+    <!-- Первый экран клиента (frontside.ru) — повторён один в один, хедер наш -->
+    <section class="client-hero" aria-roledescription="карусель" aria-label="Направления Frontside">
+      <article class="client-hero__slide is-active" data-slide="0">
+        <picture class="client-hero__media"><img src="img/client-hero-1.webp" alt="Фасадные системы"></picture>
+        <div class="client-hero__text">
+          <h1 class="client-hero__title">Фасадные системы</h1>
+          <p class="client-hero__desc">проектирование и производство</p>
+          <a class="client-hero__btn" href="https://frontside.ru/catalog/">Подробнее<svg class="client-hero__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 10h14M12 5l5 5-5 5"/></svg></a>
+        </div>
+      </article>
+
+      <article class="client-hero__slide" data-slide="1">
+        <picture class="client-hero__media"><img src="img/client-hero-2.webp" alt="ARTVISION"></picture>
+        <div class="client-hero__text">
+          <h2 class="client-hero__title">ARTVISION</h2>
+          <p class="client-hero__desc">Технология архитектурного тиснения</p>
+          <a class="client-hero__btn" href="https://frontside.ru/catalog/">Подробнее<svg class="client-hero__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 10h14M12 5l5 5-5 5"/></svg></a>
+        </div>
+      </article>
+
+      <article class="client-hero__slide" data-slide="2">
+        <picture class="client-hero__media"><img src="img/client-hero-3.webp" alt="Система ARTLINE"></picture>
+        <div class="client-hero__text">
+          <h2 class="client-hero__title">Система ARTLINE</h2>
+          <p class="client-hero__desc">архитектурная облицовка</p>
+          <a class="client-hero__btn" href="https://frontside.ru/catalog/">Подробнее<svg class="client-hero__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 10h14M12 5l5 5-5 5"/></svg></a>
+        </div>
+      </article>
+
+      <article class="client-hero__slide" data-slide="3">
+        <picture class="client-hero__media"><img src="img/client-hero-4.webp" alt="Архитектурная подсветка"></picture>
+        <div class="client-hero__text">
+          <h2 class="client-hero__title">Архитектурная подсветка</h2>
+          <p class="client-hero__desc">FRONTSIDE LED</p>
+          <a class="client-hero__btn" href="https://frontside.ru/catalog/">Подробнее<svg class="client-hero__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 10h14M12 5l5 5-5 5"/></svg></a>
+        </div>
+      </article>
+
+      <div class="client-hero__pagination" role="tablist" aria-label="Слайды первого экрана">
+        <button class="client-hero__bullet is-active" type="button" role="tab" aria-selected="true" aria-label="Слайд 1: Фасадные системы"></button>
+        <button class="client-hero__bullet" type="button" role="tab" aria-selected="false" aria-label="Слайд 2: ARTVISION"></button>
+        <button class="client-hero__bullet" type="button" role="tab" aria-selected="false" aria-label="Слайд 3: Система ARTLINE"></button>
+        <button class="client-hero__bullet" type="button" role="tab" aria-selected="false" aria-label="Слайд 4: Архитектурная подсветка"></button>
       </div>
-      <div class="client-hero__pager" aria-hidden="true"><i></i><i></i><i class="is-active"></i><i></i></div>
-      <div class="client-hero__counter" aria-label="Слайд 3 из 4">
-        <span class="client-hero__numbers"><span>02</span><b>03</b><span>04</span></span><span class="client-hero__time" aria-hidden="true"></span><span class="client-hero__total">04</span>
+
+      <div class="client-hero__counter" aria-hidden="true">
+        <div class="client-hero__numbers"><span class="client-hero__num client-hero__num--prev">04</span><span class="client-hero__num client-hero__num--current">01</span><span class="client-hero__num client-hero__num--next">02</span></div>
+        <div class="client-hero__bar"><i></i></div>
+        <span class="client-hero__total">04</span>
       </div>
     </section>
   </main>
+
+  <script>
+    const hero = document.querySelector('.client-hero');
+    const slides = [...hero.querySelectorAll('.client-hero__slide')];
+    const bullets = [...hero.querySelectorAll('.client-hero__bullet')];
+    const numbers = hero.querySelector('.client-hero__numbers');
+    const [prevNum, curNum, nextNum] = [...hero.querySelectorAll('.client-hero__num')];
+    const bar = hero.querySelector('.client-hero__bar i');
+    const two = n => String(n + 1).padStart(2, '0');
+    let current = 0, timer;
+
+    const restartBar = () => { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; };
+
+    function show(index) {
+      index = (index + slides.length) % slides.length;
+      slides[current].classList.remove('is-active');
+      bullets[current].classList.remove('is-active');
+      bullets[current].setAttribute('aria-selected', 'false');
+      current = index;
+      slides[current].classList.add('is-active');
+      bullets[current].classList.add('is-active');
+      bullets[current].setAttribute('aria-selected', 'true');
+      // числа счётчика прокручиваются так же, как у клиента
+      numbers.classList.add('is-rolling');
+      setTimeout(() => {
+        prevNum.textContent = two(current - 1);
+        curNum.textContent = two(current);
+        nextNum.textContent = two(current + 1);
+        numbers.classList.remove('is-rolling');
+      }, 500);
+      restartBar();
+      clearTimeout(timer);
+      timer = setTimeout(() => show(current + 1), 5000);
+    }
+
+    bullets.forEach((bullet, i) => bullet.addEventListener('click', () => show(i)));
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setTimeout(() => show(current + 1), 5000);
+  </script>
 </body>
 </html>

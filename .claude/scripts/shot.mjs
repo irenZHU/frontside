@@ -36,6 +36,9 @@ try {
   if (href.startsWith('chrome-error')) { console.error('Страница не открылась — запущен ли сервер макетов (node сервер.mjs)?'); done(1); }
   else {
     await ev('document.fonts.ready.then(()=>1)');
+    // ждём картинки: иначе снимок попадает в середину загрузки
+    await ev('Promise.all([...document.images].map(i => i.decode ? i.decode().catch(() => {}) : Promise.resolve())).then(() => 1)');
+    await sleep(400);
     const total = await ev('document.documentElement.scrollHeight');
     const max = count === 'all' ? Infinity : +count;
     let n = 0;
