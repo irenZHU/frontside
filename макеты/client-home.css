@@ -1,8 +1,6 @@
-/* Первый экран клиента (frontside.ru) — повторён один в один: фото, заголовок, кнопка,
+/* Первый экран клиента (frontside.ru): фото, заголовок, кнопка,
    точки слайдера и счётчик 01 | 04 с бегущей шкалой. Хедер — наш, сквозной.
-   Здесь намеренно клиентские шрифты, размеры и скругления точек (не брендовые). */
-.client-hero,
-.client-hero *:not(svg, svg *) { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important; }
+   Шрифт остаётся системным для проекта: Wix Madefor Display и Onest. */
 
 .client-home-page main { padding-top: 0; }
 

@@ -13,6 +13,7 @@
 .projects-page.subcategory-page .subcat-intro .category-intro__grid { margin-top: var(--crumbs-gap); }   /* крошки → экран; фото кончается в 100 px от низа экрана */
 .subcat-intro h1 { margin-top: 12px; }
 .subcat-intro h1 span { color: var(--title); }   /* строки анимации появления — без серого второго слова категории */
+.projects-page.subcategory-page .subcat-intro :is(h1, h1 *) { font-size: var(--fs-subcategory-title); line-height: var(--lh-subcategory-title); }
 .subcat-intro__lead { margin-top: 24px; }
 .subcategory-page .subcat-intro .category-intro__col:last-child { justify-content: flex-end; }
 /* плашка подкатегорий — на ширину колонки: фото уже, полоски прогресса под текстом */
@@ -37,10 +38,9 @@
 .projects-page.subcategory-page .subcat-siblings .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .projects-page.subcategory-page .subcat-siblings .project-card { aspect-ratio: 16 / 9; }
 
-/* ---------- Первый экран на ноутбуке (до 1600 px): заголовок мельче, фото уже и ниже — всё помещается в экран ---------- */
+/* ---------- Первый экран на ноутбуке (до 1600 px): фото уже и ниже — всё помещается в экран ---------- */
 @media (max-width: 1600px) {
   .projects-page.subcategory-page .subcat-intro .category-intro__grid { grid-template-columns: 340px minmax(0, 1fr) 340px; }
-  .projects-page.subcategory-page .subcat-intro :is(h1, h1 *) { font-size: var(--fs-h2); line-height: var(--lh-h2); }   /* 32/35 вместо 40/42 */
-  .projects-page.subcategory-page .subcat-intro .hero-subs__title { font-size: 18px; line-height: 24px; }
+  .projects-page.subcategory-page .subcat-intro .hero-subs__title { font-size: var(--fs-subcategory-card-title); line-height: var(--lh-subcategory-card-title); }
   .projects-page.subcategory-page .subcat-intro { --intro-photo-h: max(420px, calc(100svh - 232px - var(--crumbs-gap))); }
 }

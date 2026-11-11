@@ -104,9 +104,18 @@
   --soft: var(--brand-light);
   --dark: var(--brand-black);
 
-  /* срезанный уголок плашек: маленькие элементы и крупные блоки */
-  --cut: 6px;
-  --cut-lg: 10px;
+  /* ---------- Отступы ----------
+     Шкала для новых компонентов и для синхронизации макетов с UI-китом. */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-section: 100px;
 }
 
 /* Логотип совпадает по высоте с кнопками хедера и сохраняет исходные пропорции. */
@@ -139,15 +148,6 @@ body *:not(svg, svg *) { font-family: var(--font-text) !important; }
 /* ---------- Углы: везде острые, скругление только у бейджей ---------- */
 body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !important; }
 
-/* ---------- Срезанные уголки плашек (как в брендбуке) ----------
-   Добавляются точечно: класс fs-cut (срез 6 px) или fs-cut-lg (10 px) на нужный элемент. */
-.fs-cut {
-  clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
-}
-.fs-cut-lg {
-  clip-path: polygon(var(--cut-lg) 0, calc(100% - var(--cut-lg)) 0, 100% var(--cut-lg), 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, var(--cut-lg) 100%, 0 calc(100% - var(--cut-lg)), 0 var(--cut-lg));
-}
-
 /* ---------- Фирменная стрелка ----------
    Одна иконка на весь проект: диагональ ↘ и уголок, у которого вертикальная
    палочка не доходит до угла. Остальные направления — поворотом. */
@@ -162,18 +162,29 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .footer__bottom a[href="#top"] svg { width: 16px; height: 16px; }
 
 /* ---------- Шкала шрифтов ----------
-   9 ступеней вместо 18 разных размеров. Пока применяется на страницах проектов
+   8 ступеней вместо 18 разных размеров. Пока применяется на страницах проектов
    (body.projects-page: «Проекты», категория, объект); концепт не затронут. */
 :root {
   --fs-display: 44px;  --lh-display: 46px;   /* заголовок первого экрана, капс */
-  --fs-h1: 40px;       --lh-h1: 42px;        /* заголовок страницы, слоган подвала */
+  --fs-slogan: 40px;   --lh-slogan: 42px;    /* слоган подвала и крупная фраза */
   --fs-h2: 32px;       --lh-h2: 35px;        /* заголовок раздела, капс */
   --fs-h3: 22px;       --lh-h3: 27px;        /* подзаголовок: категории, направления, объект в слайдере */
   --fs-h4: 20px;       --lh-h4: 26px;        /* подзаголовок карточки, крупные контакты */
   --fs-body: 16px;     --lh-body: 24px;      /* основной текст, вводные абзацы, кнопки */
   --fs-ui: 14px;       --lh-ui: 20px;        /* меню, фильтры, табы, ссылки, факты */
-  --fs-caption: 12px;  --lh-caption: 16px;   /* подписи, нижняя строка подвала, согласие */
-  --fs-badge: 12px;    --lh-badge: 16px;     /* бейджи, соцсети */
+  --fs-caption: 12px;  --lh-caption: 16px;   /* подписи, нижняя строка подвала, согласие, бейджи */
+  /* Роль «badge» остаётся для компонентов, но использует ступень caption. */
+  --fs-badge: var(--fs-caption);
+  --lh-badge: var(--lh-caption);
+
+  /* 1440: единственные контекстные поправки типографики на ноутбуке.
+     Основная шкала выше остаётся неизменной. */
+  --fs-header-nav: var(--fs-ui);
+  --lh-header-nav: var(--lh-ui);
+  --fs-subcategory-title: var(--fs-h2);
+  --lh-subcategory-title: var(--lh-h2);
+  --fs-subcategory-card-title: 18px;
+  --lh-subcategory-card-title: 24px;
 }
 
 /* подзаголовки внутри ссылок и карточек направлений — тоже Onest */
@@ -185,8 +196,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Заголовок страницы и слоган */
 .projects-page .category-intro h1,
 .projects-page .category-intro h1 *,
-.projects-page .project-info h1 { font-size: var(--fs-h1); line-height: var(--lh-h1); }
-.projects-page .footer__brand { font-size: var(--fs-h1); line-height: var(--lh-h1); }
+.projects-page .project-info h1 { font-size: var(--fs-slogan); line-height: var(--lh-slogan); }
+.projects-page .footer__brand { font-size: var(--fs-slogan); line-height: var(--lh-slogan); }
 /* Заголовки разделов */
 .projects-page :is(.projects h2, .category-section h2, .category-tasks__title, .category-form__intro h2, .category-systems .idea__title) { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; }
 /* Подзаголовки */
@@ -326,8 +337,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 }
 .projects-page .category-systems__lead { top: 99px; }                                    /* 24 px под заголовком (40 сдвиг + 35 строка + 24), как на втором экране */
 
-/* Премиальная страница: заголовок первого экрана 48/50 — на ступень крупнее Display */
-.projects-page .premium-hero h1 { font-size: 48px; line-height: 50px; }
+/* Премиальная страница: заголовок первого экрана использует общую ступень Display. */
+.projects-page .premium-hero h1 { font-size: var(--fs-display); line-height: var(--lh-display); }
 .projects-page .premium-hero__nav button { width: 38px; height: 38px; }   /* как стрелки категорий на странице «Проекты» */
 .projects-page .premium-hero__nav button svg { width: 18px; height: 18px; stroke-width: 1.6px; }
 
@@ -420,9 +431,17 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* каталог: от последнего ряда проектов до футера — 100 px, как между блоками (было 40 низ группы + 100 + 120 верх футера) */
 .catalog-page #category-groups { margin-bottom: -40px; }
 .catalog-page .footer { margin-top: 0; }
-/* шапка на больших экранах (1920): разделы меню и телефон 16/24 вместо 14/20; на ноутбуке (1440) остаются 14 — иначе не помещаются */
+/* Шапка на больших экранах (1920): разделы меню и телефон 16/24 вместо 14/20. */
 @media (min-width: 1601px) {
-  .header :is(.nav a, .header__phone) { font-size: 16px; line-height: 24px; }
+  :root {
+    --fs-header-nav: var(--fs-body);
+    --lh-header-nav: var(--lh-body);
+    --fs-subcategory-title: var(--fs-slogan);
+    --lh-subcategory-title: var(--lh-slogan);
+    --fs-subcategory-card-title: var(--fs-h4);
+    --lh-subcategory-card-title: var(--lh-h4);
+    --space-section: 120px;
+  }
 }
 /* Карточки проектов: при наведении на фото или название фото плавно приближается (1.05), сама карточка не сжимается */
 .projects-page .project-card { position: relative; isolation: isolate; background: var(--soft); }
@@ -461,6 +480,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* шапка одинаковая на всех страницах: шаг меню 25 px, телефон и пункты — без цвета ссылок */
 .header .nav { gap: 25px; }
 .header :is(.nav a, .header__phone) { color: inherit; text-decoration: none; }
+.header :is(.nav a, .header__phone) { font-size: var(--fs-header-nav); line-height: var(--lh-header-nav); }
 .projects-page main { padding-top: var(--header-height); }
 .projects-page .projects { --sticky-header-height: var(--header-height); }
 .project-info { top: var(--header-height); }
