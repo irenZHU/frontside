@@ -1,0 +1,46 @@
+/* Страница каталога: использует базовые токены и элементы из бренд.css. */
+.catalog-index-page { background: var(--brand-light); }
+.catalog-index-page main { padding-top: var(--header-height); }
+
+.catalog-intro { padding-top: 50px; padding-bottom: 72px; }
+.catalog-intro .breadcrumbs { margin: 0; }
+.catalog-intro__copy { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; align-items: end; margin-top: 80px; }
+.catalog-intro h1 { margin: 0; color: var(--brand-black); font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: -1.3px; text-transform: uppercase; }
+.catalog-intro__copy p { max-width: 340px; margin: 0 0 3px; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--brand-graphite); }
+
+.catalog-tabs { display: flex; flex-wrap: wrap; gap: 0; margin-top: 58px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.catalog-tabs a { flex: 1 1 0; min-height: 60px; display: flex; align-items: center; padding: 12px 24px 12px 0; color: var(--brand-black); font-size: var(--fs-ui); line-height: var(--lh-ui); text-decoration: none; transition: color .2s ease; }
+.catalog-tabs a + a { padding-left: 24px; border-left: 1px solid var(--line); }
+.catalog-tabs a:hover { color: var(--brand-red); }
+
+.catalog-section { padding: 72px 0 100px; border-top: 1px solid var(--line); background: #fff; }
+.catalog-section + .catalog-section { background: var(--brand-light); }
+.catalog-section__head { display: flex; gap: 28px; align-items: baseline; margin-bottom: 30px; }
+.catalog-section__head .section-label { color: var(--brand-red); }
+.catalog-section h2 { max-width: 800px; margin: 0; color: var(--brand-black); font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; text-transform: uppercase; }
+
+.catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+/* Карточка построена по образцу карточек объектов: название, отдельная фотография,
+   стрелка в нижнем углу. Изображение не служит фоном под текст. */
+.catalog-card { isolation: isolate; position: relative; min-height: 480px; overflow: hidden; display: block; padding: 40px 40px 34px; color: var(--brand-black); text-decoration: none; background: var(--brand-light); border: 1px solid var(--line); }
+.catalog-card--wide { grid-column: auto; min-height: 480px; }
+.catalog-card::before { content: ""; position: absolute; z-index: 0; top: 138px; right: 40px; bottom: 88px; left: 40px; background: #d9dde0 var(--card-image) center / cover no-repeat; transition: transform .35s ease; }
+.catalog-card__shade { display: none; }
+.catalog-card__content { position: relative; z-index: 1; display: flex; flex-direction: column; max-width: calc(100% - 48px); }
+.catalog-card small { margin-bottom: 8px; font-size: var(--fs-ui); line-height: var(--lh-ui); letter-spacing: .04em; text-transform: uppercase; }
+.catalog-card strong { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; letter-spacing: -.3px; text-transform: uppercase; }
+.catalog-card em { margin-top: 4px; font-size: var(--fs-ui); line-height: var(--lh-ui); font-style: normal; }
+.catalog-card__arrow { position: absolute; z-index: 1; right: 40px; bottom: 34px; display: grid; place-items: center; width: 38px; height: 38px; background: transparent; color: var(--brand-black); transition: color .2s ease, background-color .2s ease, transform .2s ease; }
+.catalog-card__arrow .fs-arrow { width: 18px; height: 18px; }
+.catalog-card:hover::before { transform: scale(1.025); }
+.catalog-card:hover .catalog-card__arrow { background: var(--brand-red); color: #fff; transform: translate(2px, -2px); }
+.catalog-grid--elements .catalog-card { min-height: 480px; }
+
+@media (min-width: 1601px) {
+  .catalog-intro { padding-top: 64px; padding-bottom: 96px; }
+  .catalog-intro__copy { margin-top: 100px; }
+  .catalog-section { padding-top: 96px; padding-bottom: 120px; }
+  .catalog-card, .catalog-card--wide, .catalog-grid--elements .catalog-card { min-height: 560px; padding: 44px 40px 38px; }
+  .catalog-card::before { top: 150px; right: 40px; bottom: 100px; left: 40px; }
+  .catalog-card__arrow { right: 40px; bottom: 38px; }
+}

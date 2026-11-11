@@ -8,15 +8,99 @@
    Чёрный     PANTONE Black C     CMYK 0/0/0/100   RGB 35/31/32     #231F20 */
 :root {
   --brand-red: #ef4836;
+  --brand-red-hover: #e62a17;
   --brand-grey: #bbbdc0;
   --brand-light: #f1f1f1;
   --brand-black: #231f20;
+  --brand-white: #fff;
+  --brand-body: var(--brand-black);
   --brand-graphite: color-mix(in srgb, var(--brand-black) 78%, var(--brand-grey) 22%);   /* графит: фирменный чёрный, разбавленный серым — заливка при наведении */
-  --header-height: 74px;
 
-  /* рабочие переменные страниц — на фирменных цветах */
+  /* Рабочие нейтральные: все близкие оттенки сведены к одной шкале. */
+  --brand-line: #d7d7d7;          /* контуры полей, чипов и разделители */
+  --brand-line-soft: var(--brand-line);
+  --brand-muted: #666;            /* второстепенный текст, подписи, метки, бейджи */
+  --brand-quiet: var(--brand-muted);
+  --brand-inverse-muted: rgba(255, 255, 255, .65);
+  --brand-inverse-line: rgba(255, 255, 255, .3);
+
+  /* Локальные, небрендовые фоны первого экрана «Фасадов». */
+  --artvision-sky: #4a8fdc;
+  --artvision-sky-muted: #8fa3bd;
+
+  /* ---------- Семантические роли интерфейса ----------
+     В компонентах используем эти роли, а не конкретный оттенок.
+     Так замена брендового цвета не разъедется по страницам. */
+  --color-text-primary: var(--brand-black);
+  --color-text-secondary: var(--brand-muted);
+  --color-text-accent: var(--brand-red);
+  --color-text-inverse: var(--brand-white);
+  --color-text-inverse-muted: var(--brand-inverse-muted);
+
+  /* Шкала белого на фотографии и тёмных поверхностях. */
+  --color-on-dark-primary: rgba(255, 255, 255, .92);
+  --color-on-dark-secondary: var(--brand-inverse-muted);
+  --color-on-dark-line: var(--brand-inverse-line);
+  --color-on-dark-fill: var(--color-on-dark-line);
+  --color-on-dark-subtle: rgba(255, 255, 255, .1);
+
+  --color-surface-base: var(--brand-white);
+  --color-surface-subtle: var(--brand-light);
+  --color-surface-hover: var(--brand-line-soft);
+  --color-surface-inverse: var(--brand-black);
+  --color-surface-glass: rgb(241 241 241 / var(--glass, 1));
+  --color-page-background: var(--color-surface-base);
+  --color-card-background: var(--color-surface-base);
+  --color-panel-background: var(--color-surface-subtle);
+
+  --color-border-default: var(--brand-line);
+  --color-border-subtle: var(--brand-line-soft);
+  --color-border-inverse: var(--brand-inverse-line);
+
+  --color-action-primary: var(--brand-red);
+  --color-action-primary-hover: var(--brand-graphite);
+  --color-action-accent-hover: var(--brand-red-hover);
+  --color-action-secondary: var(--brand-graphite);
+  --color-action-secondary-hover: var(--brand-black);
+  --color-action-on-primary: var(--brand-white);
+
+  --color-nav-default: var(--brand-black);
+  --color-nav-active: var(--brand-red);
+  --color-tab-default: var(--brand-muted);
+  --color-tab-active: var(--brand-black);
+  --color-tab-indicator: var(--brand-black);
+  --color-control-default: var(--brand-light);
+  --color-control-hover: var(--brand-line-soft);
+  --color-control-active: var(--brand-red);
+  --color-control-on-active: var(--brand-white);
+
+  /* Шкала затемнений: один фирменный оттенок, разные уровни прозрачности. */
+  --color-overlay-clear: rgba(35, 31, 32, 0);
+  --color-overlay-subtle: rgba(35, 31, 32, .12);
+  --color-overlay-soft: rgba(35, 31, 32, .2);
+  --color-overlay-medium: rgba(35, 31, 32, .3);
+  --color-overlay-strong: rgba(35, 31, 32, .4);
+  --color-overlay-heavy: rgba(35, 31, 32, .55);
+  --color-overlay-deep: rgba(35, 31, 32, .65);
+  --color-overlay-panel: rgba(35, 31, 32, .93);
+  --color-overlay-dim: rgba(35, 31, 32, var(--dim, 0));
+  --color-border-transparent: var(--color-overlay-subtle);
+  --color-link-underline: rgba(35, 31, 32, .35);
+  --color-shadow-subtle: rgba(35, 31, 32, .06);
+  --color-shadow-soft: var(--color-overlay-soft);
+  --color-shadow-raised: rgba(35, 31, 32, .18);
+
+  --header-height: 74px;
+  --header-control-size: 50px;
+  --header-control-inset: calc((var(--header-height) - var(--header-control-size)) / 2);
+  --header-nav-inset: calc((var(--header-height) - var(--lh-ui)) / 2);
+
+  /* Совместимые токены для уже собранных страниц. Новые компоненты используют --brand-*. */
   --red: var(--brand-red);
   --title: var(--brand-black);
+  --body: var(--brand-body);
+  --muted: var(--brand-muted);
+  --line: var(--brand-line);
   --soft: var(--brand-light);
   --dark: var(--brand-black);
 
@@ -28,9 +112,6 @@
 /* Логотип совпадает по высоте с кнопками хедера и сохраняет исходные пропорции. */
 .header .logo { width: 38px; height: 50px; display: block; padding: 0; background: transparent; }
 .header .logo img { display: block; width: auto; height: 50px; max-width: 100%; object-fit: contain; }
-.header .header__actions { top: 16px; }
-.header .logo { top: 16px; }
-.header .nav, .header .header__phone { top: 31px; }
 
 /* ---------- Шрифты ----------
    Wix Madefor Display — основной шрифт проекта: тексты, кнопки, меню, табы, подписи, формы.
@@ -109,7 +190,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Заголовки разделов */
 .projects-page :is(.projects h2, .category-section h2, .category-tasks__title, .category-form__intro h2, .category-systems .idea__title) { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; }
 /* Подзаголовки */
-.projects-page :is(.project-group header h3, .solution-card strong) { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: -.5px; }
+.projects-page :is(.project-group header h3, .solution-card strong) { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: -.3px; }
 .projects-page :is(.idea__point h3, .category-intro__directions strong, .category-form__contacts dd) { font-size: var(--fs-h4); line-height: var(--lh-h4); }
 /* Основной текст */
 .projects-page :is(.solutions__head p, .category-intro__lead, .category-section__head p, .category-systems__lead, .idea__point p, .category-about p, .category-form__intro p, .project-info__lead, .project-tabs__panel p, .footer__contacts > a) { font-size: var(--fs-body); line-height: var(--lh-body); }
@@ -122,8 +203,11 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .footer__social a { font-size: var(--fs-badge); }
 /* Подзаголовки — капсом, как заголовки */
 .projects-page :is(.project-group header h3, .solution-card strong, .idea__point h3, .category-intro__directions strong) { text-transform: uppercase; letter-spacing: -.3px; }
-/* Кнопка «Отправить заявку» — капсом 14/20 (в шапке и в меню, одинаково на всех страницах) */
-.btn-accent { text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+/* Кнопка «Отправить заявку» — капсом 14/20, шрифт Wix Madefor Display (как весь интерфейс) */
+.header .btn-accent { background: var(--color-action-primary); color: var(--color-action-on-primary); text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+/* Акцентная кнопка при наведении — графитовая заливка (назначение --color-action-primary-hover).
+   До юикита состояние нигде не было прописано: кнопка не реагировала на курсор. */
+.btn-accent:hover, .btn-accent:focus-visible { background: var(--color-action-primary-hover); }
 /* Подписи фильтров «Продукты» и «Категории» — капсом */
 .projects-page :is(.products__meta > span:first-child, .filter-header strong) { text-transform: uppercase; letter-spacing: .04em; }
 /* Надпись раздела («Портфолио») ближе к заголовку */
@@ -148,11 +232,11 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .geo .geo__content { align-self: flex-start; display: flex; align-items: center; }
 .projects-page .geo .geo__arrow { align-self: flex-end; }
 /* Описание категории под заголовком в каталоге «Проектов» */
-.projects-page .project-group__desc { max-width: 720px; margin: -12px 0 24px; color: #666; font-size: var(--fs-body); line-height: var(--lh-body); }
+.projects-page .project-group__desc { max-width: 720px; margin: -12px 0 24px; color: var(--brand-muted); font-size: var(--fs-body); line-height: var(--lh-body); }
 /* Категории в каталоге — красные по умолчанию, чтобы привлечь внимание; при наведении кнопка темнеет */
 .projects-page .project-group header h3 { color: var(--red); }
-.projects-page .project-group header .project-group__arrow { background: var(--red); color: #fff; }
-.projects-page .project-group header:hover .project-group__arrow { background: #c9301f; }
+.projects-page .project-group header .project-group__arrow { background: var(--red); color: var(--brand-white); }
+.projects-page .project-group header:hover .project-group__arrow { background: var(--brand-red-hover); }
 /* Первый экран категории: заголовок — ступень «первый экран», описание — крупный текст */
 .projects-page .category-hero h1 { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: -1.3px; }
 .projects-page .category-hero__lead { font-size: var(--fs-h4); line-height: var(--lh-h4); }
@@ -160,12 +244,12 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Кнопки слайдера на втором экране категории — как остальные кнопки-стрелки проекта:
    «вперёд» — главное действие, красная с белой стрелкой; «назад» — светлая; стрелка 20 px, как в CTA */
 .projects-page .category-intro__slider-nav button svg { width: 20px; height: 20px; stroke-width: 1.7px; }
-.projects-page .category-intro__slider-nav [data-slide-next] { background: var(--red); color: #fff; }
+.projects-page .category-intro__slider-nav [data-slide-next] { background: var(--red); color: var(--brand-white); }
 .projects-page .category-intro__slider-nav [data-slide-next]:hover,
-.projects-page .category-intro__slider-nav [data-slide-next]:focus-visible { background: #c9301f; }
+.projects-page .category-intro__slider-nav [data-slide-next]:focus-visible { background: var(--brand-red-hover); }
 /* Второй экран категории: над подкатегориями одна надпись — как «Категории» и «Продукты» на странице «Проекты» */
 .projects-page .category-intro__directions { gap: 16px; }
-.projects-page .category-intro__directions-label { margin: 0 0 8px; color: #666; font-size: var(--fs-ui); line-height: var(--lh-ui); text-transform: uppercase; letter-spacing: .04em; }
+.projects-page .category-intro__directions-label { margin: 0 0 8px; color: var(--brand-muted); font-size: var(--fs-ui); line-height: var(--lh-ui); text-transform: uppercase; letter-spacing: .04em; }
 /* Подкатегории — компактнее; надпись «Реализованные проекты» над подписью к фото */
 .projects-page .category-intro__directions { gap: 8px; }
 .projects-page .category-intro__directions-label { margin-bottom: 4px; }
@@ -174,9 +258,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-intro__slide strong { font-family: var(--font-text) !important; font-size: 22px; line-height: var(--lh-h3); font-weight: 500; letter-spacing: 0; text-transform: none; }
 /* Второй экран категории — на фирменном светло-сером; кнопка «назад» на нём белая, чтобы не сливалась */
 .projects-page .category-intro { background: var(--brand-light); }
-.projects-page .category-intro__slider-nav [data-slide-prev] { background: #fff; }
+.projects-page .category-intro__slider-nav [data-slide-prev] { background: var(--brand-white); }
 .projects-page .category-intro__slider-nav [data-slide-prev]:hover,
-.projects-page .category-intro__slider-nav [data-slide-prev]:focus-visible { background: var(--red); color: #fff; }
+.projects-page .category-intro__slider-nav [data-slide-prev]:focus-visible { background: var(--red); color: var(--brand-white); }
 /* Первый экран категории — на том же светло-сером, что второй: при перелёте фото фон не меняется */
 .projects-page .category-hero { background: var(--brand-light); }
 /* Второй экран категории — на всю высоту экрана: шапка 82 + по 40 сверху и снизу, фото забирает остальное */
@@ -192,7 +276,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page :is(.idea__point h3, .category-intro__directions strong) { font-weight: 500; }
 .projects-page .category-tasks__text { line-height: var(--lh-ui); }
 /* Блок систем: содержимое прижато к верху под шапкой (82 + 40), а не по центру экрана — без пустой полосы после «Проектов» */
-.projects-page .category-systems .idea__sticky { top: 82px; height: calc(100vh - 82px); align-items: flex-start; padding-top: 100px; box-sizing: border-box; }  /* закрепляется под шапкой: 96 и при прокрутке, и в закреплённом виде */
+.projects-page .category-systems .idea__sticky { align-items: flex-start; box-sizing: border-box; }
 /* Плашка подкатегорий: название — подзаголовок карточки (20, капс, Onest 500) */
 .projects-page .hero-subs__title { font-family: var(--font-head) !important; font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; text-transform: uppercase; letter-spacing: -.3px; }
 /* Задачи категории: номера по шкале (display 44/46), карточки ниже под спокойные цифры */
@@ -234,6 +318,12 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
   background-size: 0% 1px;
   outline: none;
 }
+/* Цвет текстовых ссылок — как у окружающего текста. :where() дает нулевую специфичность,
+   поэтому классы со своим цветом (.category-projects__more, .filter-header button и т. п.) остаются как есть,
+   а голая .fs-link больше не рендерится системно-синим. */
+:where(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button) {
+  color: inherit;
+}
 .projects-page .category-systems__lead { top: 99px; }                                    /* 24 px под заголовком (40 сдвиг + 35 строка + 24), как на втором экране */
 
 /* Премиальная страница: заголовок первого экрана 48/50 — на ступень крупнее Display */
@@ -249,7 +339,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 
 /* Каталог «Проекты»: первый экран (крошки + решения) на светло-сером фирменном, с «Реализованных проектов» — белый */
 .catalog-page main { background: var(--brand-light); }
-.catalog-page #projects { background: #fff; }
+.catalog-page #projects { background: var(--brand-white); }
 .catalog-page .solutions { padding-bottom: 100px; }   /* воздух под карточками решений внутри серого */
 /* Карточки категорий в каталоге: три в ряд (по числу подкатегорий), 16:9 — как на страницах категории и подкатегории */
 .catalog-page .project-group .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -260,12 +350,12 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Карточка проекта в каталоге: чипсина подкатегории — ссылка на подкатегорию, при наведении — чёрная фирменная */
 .project-card__details .project-card__name { order: -1; margin-bottom: 10px; color: inherit; text-decoration: none; }
 .project-card__details .project-card__name strong { margin: 0; }
-.project-card__badges > .project-card__sub { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border: 1px solid #d7d7d7; border-radius: 12px; background: #fff; color: #666; font: 400 var(--fs-badge)/var(--lh-badge) var(--font-text); text-decoration: none; }
+.project-card__badges > .project-card__sub { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border: 1px solid var(--brand-line); border-radius: 12px; background: var(--brand-white); color: var(--brand-muted); font: 400 var(--fs-badge)/var(--lh-badge) var(--font-text); text-decoration: none; }
 /* Карточки решений: подпись 14, в правом нижнем углу — красная кнопка-стрелка ↘ 38 px (стрелка 14), как у объектов страницы решения */
 .projects-page .solution-card em { font-size: var(--fs-ui); line-height: var(--lh-ui); }
-.projects-page .solution-card__arrow { position: absolute; top: auto; right: 20px; bottom: 20px; z-index: 2; display: grid; place-items: center; width: 38px; height: 38px; background: var(--brand-red); color: #fff; font-size: 0; transition: background .18s ease; }
+.projects-page .solution-card__arrow { position: absolute; top: auto; right: 20px; bottom: 20px; z-index: 2; display: grid; place-items: center; width: 38px; height: 38px; background: var(--brand-red); color: var(--brand-white); font-size: 0; transition: background .18s ease; }
 .projects-page .solution-card__arrow svg { width: 14px; height: 14px; }
-.projects-page .solution-card:hover .solution-card__arrow, .projects-page .solution-card:focus-visible .solution-card__arrow { background: #c9301f; }
+.projects-page .solution-card:hover .solution-card__arrow, .projects-page .solution-card:focus-visible .solution-card__arrow { background: var(--brand-red-hover); }
 /* «География проектов»: при наведении — красный фирменный */
 .projects-page .geo.hero__cta:hover, .projects-page .geo.hero__cta:focus-visible { background: var(--brand-red); }
 /* стрелка карточки решения: по умолчанию без фона, при наведении на карточку кнопка заливается красным снизу вверх */
@@ -277,15 +367,14 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Каталог: выбрана подкатегория — бейдж подкатегории на карточках скрыт */
 .project-group.is-subcategory .project-card__sub { display: none; }
 /* Подкатегории в каталоге — одиночный выбор: круглая радиокнопка (исключение из правила без скруглений), выбранная — красная точка */
-.filter-group input[type="radio"] { position: relative; border-radius: 50% !important; background: #fff; }
-.filter-group input[type="radio"]:checked { border-color: var(--brand-red); background: #fff; box-shadow: inset 0 0 0 3px #fff; background: var(--brand-red); }
+.filter-group input[type="radio"] { position: relative; border-radius: 50% !important; background: var(--brand-white); }
+.filter-group input[type="radio"]:checked { border-color: var(--brand-red); background: var(--brand-white); box-shadow: inset 0 0 0 3px var(--brand-white); background: var(--brand-red); }
 
 /* ===== Единый ховер кнопок-стрелок (2026-11-06) =====
    Квадратная кнопка со стрелкой при наведении заливается снизу вверх насыщенным красным --brand-red-hover (#E62A17,
    тот же тон, что фирменный #EF4836, чуть темнее, но без серости), стрелка — белая.
    Фон кнопки по умолчанию (красный, светлый, прозрачный) не меняется — заливка идёт слоем поверх него.
    Новые кнопки-стрелки добавлять в оба списка ниже. */
-:root { --brand-red-hover: #E62A17; }
 :is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button, .category-intro__slider-nav button) {
   background-image: linear-gradient(var(--brand-red-hover), var(--brand-red-hover)) !important;
   background-repeat: no-repeat !important; background-position: 50% 100% !important; background-size: 100% 0 !important;
@@ -295,14 +384,14 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
     .premium-object:hover .premium-object__arrow, .premium-object__arrow:focus-visible,
     .systems-nav__arrows button:not(:disabled):is(:hover, :focus-visible),
     .category-intro__slider-nav button:is(:hover, :focus-visible)) {
-  background-size: 100% 100% !important; color: #fff !important;
+  background-size: 100% 100% !important; color: var(--brand-white) !important;
 }
 /* под заливкой цвет кнопки не перекрашиваем — иначе мелькает тёмно-красный */
 .projects-page .project-group header:hover .project-group__arrow { background-color: var(--red); }
 .systems-nav__arrows [data-sys-next]:hover, .others-nav [data-others-next]:not(:disabled):hover { background-color: var(--red); }
 .projects-page .category-intro__slider-nav [data-slide-next]:is(:hover, :focus-visible) { background-color: var(--red); }
-.projects-page .category-intro__slider-nav [data-slide-prev]:is(:hover, :focus-visible) { background-color: #fff; }
-.systems-nav__arrows [data-sys-prev]:hover { background-color: #fff; }
+.projects-page .category-intro__slider-nav [data-slide-prev]:is(:hover, :focus-visible) { background-color: var(--brand-white); }
+.systems-nav__arrows [data-sys-prev]:hover { background-color: var(--brand-white); }
 .others-nav [data-others-prev]:not(:disabled):hover { background-color: var(--brand-light); }
 .premium-object:hover .premium-object__arrow { background-color: var(--brand-red); }
 /* карточка решения: стрелка без фона, заливка — тот же тёмный красный снизу вверх */
@@ -323,9 +412,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-intro .category-intro__slider-nav button svg { width: 14px; height: 14px; stroke-width: 1.6px; }
 /* «Применяемые системы» на невысоких экранах (ноутбук 1440 × ~730): воздух сверху и снизу резиновый — 100 px на высоких экранах,
    до 40 px на низких, чтобы блок (не меньше 560 px) целиком помещался под шапкой */
-.projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - 82px - 560px) / 2), 100px); }
+.projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - var(--header-height) - 560px) / 2), 100px); }
 .projects-page .category-systems .idea__sticky { padding-top: var(--sys-pad); }
-.projects-page .category-systems .container { height: max(560px, calc(100svh - 82px - 2 * var(--sys-pad))); }
+.projects-page .category-systems .container { height: max(560px, calc(100svh - var(--header-height) - 2 * var(--sys-pad))); }
 /* каталог: от чипсов «Системы» до первой категории — 48 px вместо 74 (пустая строка выбранных фильтров ниже) */
 .catalog-page .projects:not(.has-active-filters) .filter-status-bar { min-height: 20px; }
 /* каталог: от последнего ряда проектов до футера — 100 px, как между блоками (было 40 низ группы + 100 + 120 верх футера) */
@@ -347,7 +436,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
   .projects-page .category-intro { --intro-photo-h: max(560px, calc(100svh - 302px)); padding-bottom: 120px; }   /* фото второго экрана кончается в 120 px от низа экрана */
   .projects-page.subcategory-page .subcat-intro { --intro-photo-h: max(560px, calc(100svh - 252px - var(--crumbs-gap))); }
   .projects-page .category-tasks { padding-top: 116px; }
-  .projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - 82px - 560px) / 2), 120px); }
+  .projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - var(--header-height) - 560px) / 2), 120px); }
   .projects-page .projects { padding-bottom: 120px; }
   .category-page .projects { padding-top: 116px; }
   .projects + .category-section, .category-section.category-about { padding-top: 116px; }
@@ -367,8 +456,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .header, .projects-page .header__inner { height: var(--header-height); }
 .header, .header.is-scrolled { background: rgb(255 255 255 / .92); color: var(--title); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: blur(32px) saturate(1.4); backdrop-filter: blur(32px) saturate(1.4); box-shadow: 0 1px 0 rgb(16 32 56 / .06); transition-property: background-color, color, box-shadow, backdrop-filter, border-color; }
 .header .burger { background: var(--brand-light); }
-.header .header__actions, .header .logo { top: 12px; }
-.header .nav, .header .header__phone { top: 27px; }
+.header .header__actions, .header .logo { top: var(--header-control-inset); }
+.header .nav, .header .header__phone { top: var(--header-nav-inset); }
 /* шапка одинаковая на всех страницах: шаг меню 25 px, телефон и пункты — без цвета ссылок */
 .header .nav { gap: 25px; }
 .header :is(.nav a, .header__phone) { color: inherit; text-decoration: none; }
@@ -386,7 +475,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 }
 
 /* ---------- Развёрнутое бургер-меню: карта сайта клиента, одна на все страницы ---------- */
-.site-menu { position: fixed; inset: var(--header-height) 0 0 0; z-index: 90; overflow: auto; background: #fff; color: var(--title); }
+.site-menu { position: fixed; inset: var(--header-height) 0 0 0; z-index: 90; overflow: auto; background: var(--brand-white); color: var(--title); }
 .site-menu[hidden] { display: none; }
 .site-menu__inner { padding: 48px 0 56px; }
 .site-menu__grid { display: grid; grid-template-columns: 1.1fr 1.3fr 1.2fr 1fr; gap: 40px; align-items: start; }
@@ -395,7 +484,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .site-menu__title a { color: inherit; text-decoration: none; transition: color .2s ease; }
 .site-menu__title a:hover, .site-menu__title a:focus-visible { color: var(--brand-red); }
 .site-menu__sub + .site-menu__sub { margin-top: 20px; }
-.site-menu__subtitle { margin: 0 0 10px; color: var(--brand-graphite); font-size: var(--fs-caption); line-height: var(--lh-caption); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.site-menu__subtitle { margin: 0 0 10px; color: color-mix(in srgb, var(--brand-black) 45%, var(--brand-grey) 55%); font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-body); line-height: var(--lh-body); text-decoration: none; transition: color .2s ease; }
 .site-menu__link:hover, .site-menu__link:focus-visible { color: var(--brand-red); }
 .site-menu__link .fs-arrow { width: 13px; height: 13px; opacity: 0; translate: -4px 0; transition: opacity .2s ease, translate .2s ease; }
@@ -415,4 +504,14 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
   .site-menu__sub + .site-menu__sub { margin-top: 14px; }
   .site-menu__subtitle { margin-bottom: 8px; }
   .site-menu__link { padding: 2px 0; }
+}
+
+/* Шапка на ноутбуках (1400–1799): кнопка «Отправить заявку» шире макета-эталона, поэтому
+   телефон и группа «О компании» отодвинуты левее — иконка поиска не наезжает на телефон */
+@media (min-width: 1400px) and (max-width: 1799px) {
+  .header .nav--side { right: 500px; }
+  .header .header__phone { right: 334px; }
+}
+@media (min-width: 1400px) and (max-width: 1439px) {
+  .header .nav { gap: 20px; }   /* самый узкий ноутбук: шаг меню плотнее, иначе разделы слипаются */
 }

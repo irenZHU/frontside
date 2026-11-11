@@ -8,7 +8,7 @@
 /* фото на весь экран нет — шапка сразу тёмная, как на остальных страницах */
 .subcategory-page .header:not(.is-scrolled) { color: var(--title); }
 .subcategory-page .header:not(.is-scrolled) .nav a:not(.is-active) { color: var(--title); }
-.subcategory-page .header .burger { background: #f1f1f1; }
+.subcategory-page .header .burger { background: var(--brand-light); }
 .projects-page.subcategory-page .subcat-intro { padding-top: 0; box-shadow: none; clip-path: none; --intro-photo-h: max(560px, calc(100svh - 232px - var(--crumbs-gap))); }   /* под шапку отступ даёт main */
 .projects-page.subcategory-page .subcat-intro .category-intro__grid { margin-top: var(--crumbs-gap); }   /* крошки → экран; фото кончается в 100 px от низа экрана */
 .subcat-intro h1 { margin-top: 12px; }
@@ -22,8 +22,8 @@
 .subcategory-page .subcat-intro .hero-subs__bars { left: 172px; }
 
 /* Реализованные объекты: сетка объектов страницы решения (solution-premium.css) на белом фоне */
-.projects-page.subcategory-page .subcat-projects { position: relative; padding: 96px 0 100px; background: #fff; }
-.subcat-projects .premium-objects__grid { border-bottom: 1px solid rgba(35, 31, 32, .12); }   /* на белом сетка закрыта снизу */
+.projects-page.subcategory-page .subcat-projects { position: relative; padding: 96px 0 100px; background: var(--brand-white); }
+.subcat-projects .premium-objects__grid { border-bottom: 1px solid var(--color-border-transparent); }   /* на белом сетка закрыта снизу */
 
 /* О подкатегории: два абзаца вместо одного */
 .projects-page.subcategory-page .subcat-about__text p { font-size: var(--fs-ui); line-height: var(--lh-ui); }   /* описание 14/20 */
@@ -32,7 +32,7 @@
 .subcategory-page .category-about__inner { align-items: start; }   /* текст длиннее, чем на категории — заголовок по верху текста, а не по низу */
 
 /* ---------- Другие подкатегории раздела: карточки «Проектов», три на всю ширину контейнера ---------- */
-.projects-page.subcategory-page .subcat-siblings { padding-top: 0; background: #fff; }   /* белый фон, без градиента в серый */   /* сверху отступ даёт «О подкатегории» (94 + воздух строки = 100) */
+.projects-page.subcategory-page .subcat-siblings { padding-top: 0; background: var(--brand-white); }   /* белый фон, без градиента в серый */   /* сверху отступ даёт «О подкатегории» (94 + воздух строки = 100) */
 .subcategory-page .subcat-siblings .projects__head { margin-bottom: 40px; padding-top: 96px; border-top: 1px solid var(--line); }   /* разделитель после «О подкатегории»: по 100 px воздуха с обеих сторон */
 .projects-page.subcategory-page .subcat-siblings .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .projects-page.subcategory-page .subcat-siblings .project-card { aspect-ratio: 16 / 9; }

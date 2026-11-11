@@ -6,14 +6,14 @@
   --font: 'Onest', sans-serif;   /* веб-шрифт: у всех одинаково (Segoe UI нельзя встраивать) */
   --font-ui: 'Inter', sans-serif;                 /* навигация, кнопка, «Свобода реализации» */
 
-  --red: #e53e30;
-  --gray-text: #939393;
-  --slogan: #434343;
-  --title: #1d1d1d;
-  --body: #282828;
-  --card-text: #202020;
-  --specs-title: #3e3e3e;
-  --line: rgba(0, 0, 0, .14);
+  --red: var(--brand-red);
+  --gray-text: var(--brand-muted);
+  --slogan: var(--brand-black);
+  --title: var(--brand-black);
+  --body: var(--brand-body);
+  --card-text: var(--brand-black);
+  --specs-title: var(--brand-black);
+  --line: var(--color-border-transparent);
 
   --container: 1600px;
 }
@@ -26,7 +26,7 @@ body {
   font-family: var(--font);
   font-weight: 400;
   color: var(--title);
-  background: #fff;
+  background: var(--brand-white);
   min-width: 1280px;           /* концепт — только десктоп */
   overflow-x: hidden;
 }
@@ -44,18 +44,18 @@ body {
   inset: 0 0 auto 0;
   z-index: 100;
   height: 82px;                /* ряд элементов 50 px + по 16 px сверху и снизу */
-  color: #fff;
+  color: var(--brand-white);
   transition: background-color .35s ease, color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
 }
 .header.is-scrolled {          /* на прокрутке: белая, слегка прозрачная, с размытием */
-  background: rgba(255, 255, 255, .25);
+  background: var(--color-on-dark-line);
   -webkit-backdrop-filter: blur(32px) saturate(1.4);
   backdrop-filter: blur(32px) saturate(1.4);
   color: var(--title);
-  box-shadow: 0 1px 0 rgba(16, 32, 56, .06);
+  box-shadow: 0 1px 0 var(--color-shadow-subtle);
 }
 .header .icon-btn { color: inherit; }
-.header.is-scrolled .burger { background: #f1f1f1; }
+.header.is-scrolled .burger { background: var(--brand-light); }
 .header .container { height: 100%; }
 
 .logo {
@@ -101,7 +101,7 @@ body {
   padding: 0 20px;
   display: flex; align-items: center;
   background: var(--red);
-  color: #fff;
+  color: var(--brand-white);
   font: 400 16px/22px var(--font-ui);
   text-decoration: none;
   white-space: nowrap;
@@ -109,7 +109,7 @@ body {
 .burger {
   position: relative;
   width: 50px; height: 50px;
-  background: #fff; border: 0; cursor: pointer;
+  background: var(--brand-white); border: 0; cursor: pointer;
 }
 .burger svg { position: absolute; left: 12.5px; top: 17px; display: block; }
 
@@ -117,12 +117,12 @@ body {
 
 .hero {
   position: sticky;
-  background: #f3f3f3 !important;            /* первый экран стоит на месте, следующий блок наезжает сверху */
+  background: var(--brand-light) !important;            /* первый экран стоит на месте, следующий блок наезжает сверху */
   top: 0;
   z-index: 0;
   height: 100vh;               /* фото на весь экран */
   min-height: 700px;
-  background: #4a8fdc;
+  background: var(--artvision-sky);
   overflow: hidden;
 }
 .hero .container {
@@ -146,7 +146,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   font-size: 260px;
   line-height: 1;
   text-transform: uppercase;
-  color: #9a9a9a;
+  color: var(--brand-muted);
   animation: marquee 22s linear infinite, introFadeIn .8s ease both;
 }
 .intro__marquee span { padding-right: .3em; }
@@ -185,7 +185,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   line-height: 38px;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--brand-white);
   pointer-events: none;
   animation: introTitle 2.2s ease 1.9s both;   /* после того как картинка закрыла плашку */
 }
@@ -247,12 +247,12 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   font-weight: 400;
   text-transform: uppercase;
   white-space: nowrap;
-  color: #fff;
+  color: var(--brand-white);
 }
 .hero__slider {
   grid-column: 2; grid-row: 2;
   width: 560px;
-  color: #fff;
+  color: var(--brand-white);
 }
 .hero__slides { display: grid; margin-top: 28px; }
 .hero__slide {                 /* все слайды в одной ячейке — высота по самому длинному */
@@ -280,7 +280,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .hero__slide-title {
   grid-column: 2; grid-row: 1;
   align-self: last baseline;
-  color: #fff;
+  color: var(--brand-white);
   animation: heroFade 1s ease 4.1s both;
   font-size: 32px;
   line-height: 38px;
@@ -309,7 +309,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   content: '';
   display: block;
   height: 4px;
-  background: #fff;
+  background: var(--brand-white);
   transition: background .4s ease;
 }
 .hero__dot.is-active { width: 44px; }
@@ -325,7 +325,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   padding: 12px 14px 10px 16px;
   display: flex; justify-content: space-between;
   background: var(--red);
-  color: #fff;
+  color: var(--brand-white);
   text-decoration: none;
   font: 400 14px/18px var(--font-ui);
   text-transform: uppercase;
@@ -338,7 +338,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .hero__cta svg { width: 20px; height: 20px; align-self: flex-end; transition: transform .3s ease; }
 .hero__cta.is-low { translate: 0 16px; }
 .hero__cta.is-aligned { translate: none; transition: background .25s ease; }   /* выровнена со счётчиком — без сдвигов */     /* после первого экрана — ниже, 32 px от края, чтобы не закрывать контент */
-.hero__cta:hover { background: #c9321f; }
+.hero__cta:hover { background: var(--brand-red); }
 .hero__cta:hover svg { transform: translate(3px, 3px); }
 
 /* хлебные крошки под шапкой */
@@ -348,7 +348,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   display: flex;
   align-items: center;
   font: 400 14px/20px var(--font-ui);
-  color: #fff;
+  color: var(--brand-white);
   animation: heroFade 1s ease 3.9s both;
 }
 .crumbs a { color: inherit; text-decoration: none; transition: color .2s; }
@@ -359,9 +359,9 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   width: 2px; height: 14px;
   margin: 0 14px;
   vertical-align: -2px;
-  background: rgba(255, 255, 255, .4);
+  background: var(--color-on-dark-line);
 }
-.crumbs [aria-current] { color: rgba(255, 255, 255, .55); }   /* текущая страница — тише ссылок */
+.crumbs [aria-current] { color: var(--color-on-dark-secondary); }   /* текущая страница — тише ссылок */
 
 /* появление первого экрана: проявляются заголовок и текст */
 .hero__title, .hero__slider { animation: heroFade 1s ease both; }
@@ -376,7 +376,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .over {
   position: relative;
   z-index: 1;
-  background: #fff;
+  background: var(--brand-white);
 }
 
 /* ---------- 02 / 05. Лид по центру ---------- */
@@ -493,7 +493,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 }
 .idea__dim {                   /* фон блока при прокрутке плавно становится светло-серым, как фон заставки */
   position: absolute; inset: 0;
-  background: #f3f3f3;
+  background: var(--brand-light);
   opacity: 0;
   pointer-events: none;
   z-index: 0;                  /* под текстом и фото — их не затеняет */
@@ -504,8 +504,8 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   position: relative;
   z-index: 2;
   margin-top: -100vh;          /* наезжает на последний экран закреплённого блока */
-  background: #fff;
-  box-shadow: 0 -10px 40px rgba(16, 32, 56, .06);
+  background: var(--brand-white);
+  box-shadow: 0 -10px 40px var(--color-shadow-subtle);
 }
 .idea__sticky {
   position: sticky; top: 0;
@@ -558,15 +558,15 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   font: 400 16px/22px var(--font-ui);
   font-variant-numeric: tabular-nums;
 }
-.idea__counter-now { background: var(--red); color: #fff; }
-.idea__counter-all { background: #f1f1f1; color: var(--gray-text); }
+.idea__counter-now { background: var(--red); color: var(--brand-white); }
+.idea__counter-all { background: var(--brand-light); color: var(--gray-text); }
 
 .idea__photos {
   position: absolute;
   left: 50%; top: 0;
   width: 50%; height: 100%;
   overflow: hidden;
-  background: #8fa3bd;
+  background: var(--artvision-sky-muted);
 }
 .idea__img {
   position: absolute; inset: 0;
@@ -600,7 +600,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
   position: relative;
   margin-top: 40px;
   height: calc(var(--h) + (var(--n) - 1) * 80vh);   /* высота кадра + по 80% экрана на каждую следующую сферу */
-  color: #fff;
+  color: var(--brand-white);
 }
 .accents__sticky {              /* кадр 16:9 по ширине контейнера; при въезде вырастает из половины (accents.js) */
   position: sticky; top: var(--top);
@@ -627,7 +627,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 }
 .accents__img::after {          /* затемнение сильнее к низу — текст читается */
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,20,35,.38) 0%, rgba(10,20,35,.2) 45%, rgba(10,20,35,.6) 100%);
+  background: linear-gradient(180deg, var(--color-overlay-strong) 0%, var(--color-overlay-soft) 45%, var(--color-overlay-deep) 100%);
 }
 .accents .container { width: 100%; }   /* внутри кадра — на всю его ширину */
 .accents__slide .container { height: 100%; }
@@ -659,7 +659,7 @@ html.is-intro .header:not(.is-scrolled) { color: var(--title); }
 .accents__kicker::before { content: ''; width: 8px; height: 8px; background: var(--red); }
 .accents__counter { bottom: 7%; left: 64px; display: flex; }
 .accents__counter span { height: 64px; }   /* высота как у кнопки — одна линия сверху и снизу */
-.accents__counter .idea__counter-all { background: rgba(255,255,255,.18); color: #fff; }
+.accents__counter .idea__counter-all { background: var(--color-on-dark-fill); color: var(--brand-white); }
 
 /* ---------- 07. Технологические особенности ---------- */
 

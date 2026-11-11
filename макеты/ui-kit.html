@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дизайн-система — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="category-production.css">
+  <link rel="stylesheet" href="solution-premium.css">
+  <link rel="stylesheet" href="subcategory.css">
+  <link rel="stylesheet" href="project.css">
+  <link rel="stylesheet" href="ui-kit.css">
+  <link rel="stylesheet" href="бренд.css">
+</head>
+<body class="projects-page ui-kit-page" id="top">
+
+  <aside class="kit-side">
+    <a class="kit-side__logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+    <p class="kit-side__title">Дизайн-система</p>
+    <p class="ver">UI-кит · версия 1 · 10.11.2026<br>Источник: страницы макетов</p>
+    <nav id="kit-nav" aria-label="Разделы дизайн-системы">
+      <i>Основа</i>
+      <a href="#colors">Палитра</a>
+      <a href="#tokens">Токены цвета</a>
+      <a href="#fonts">Шрифты</a>
+      <a href="#scale">Шкала кеглей</a>
+      <a href="#type">Текст</a>
+      <a href="#grid">Сетка и ритм</a>
+      <i>Элементы</i>
+      <a href="#buttons">Кнопки</a>
+      <a href="#links">Ссылки</a>
+      <a href="#arrow">Стрелка</a>
+      <a href="#shape">Углы и плашки</a>
+      <i>Страницы</i>
+      <a href="#facades">Фасады</a>
+      <a href="#projects-page">Проекты</a>
+      <a href="#category-page">Категория</a>
+      <a href="#subcategory-page">Подкатегория</a>
+      <a href="#project-page">Карточка проекта</a>
+      <i>Блоки страниц</i>
+      <a href="#site-frame">Хедер и подвал</a>
+      <a href="#navigation">Навигация и фильтры</a>
+      <a href="#content-cards">Карточки</a>
+      <a href="#hero-blocks">Герои и слайдеры</a>
+      <a href="#feedback-form">Форма</a>
+    </nav>
+  </aside>
+
+  <main class="kit">
+
+    <header class="kit-hero">
+      <h1>Дизайн-система</h1>
+      <p>Правила и образцы интерфейса Frontside. Собраны со страниц макетов: «Проекты», категория, подкатегория, объект, решения. Новые блоки собираются из этих элементов, новые стили сначала появляются здесь.</p>
+      <ul>
+        <li>Все образцы живые и набраны теми же классами, что и на страницах, — юикит меняется вместе с бренд-файлом.</li>
+        <li>Состояния наведения показаны подписью «наведение» и классом-помощником .is-hover: в макетах это обычные :hover.</li>
+        <li>Клик по значению цвета копирует его.</li>
+        <li>Концепт (artvision.html) в систему не входит — у него свой язык.</li>
+      </ul>
+    </header>
+
+    <!-- 01 · ПАЛИТРА -->
+    <section class="kit-section" id="colors">
+      <span class="section-label">Основа</span>
+      <h2>Палитра</h2>
+      <p class="kit-rule">Цвета заданы в бренд-файле (макеты/бренд.css). Меняются там — меняются во всех макетах и здесь.</p>
+      <div class="kit-main-tabs product-chips" role="tablist" aria-label="Цветовая система">
+        <button class="product-chip is-active" id="palette-tab" type="button" role="tab" aria-selected="true" aria-controls="palette-panel" data-main-tab="palette">Палитра</button>
+        <button class="product-chip" id="tokens-tab" type="button" role="tab" aria-selected="false" aria-controls="tokens-panel" data-main-tab="tokens">Токены</button>
+      </div>
+
+      <div class="kit-main-tab-panel is-active" id="palette-panel" role="tabpanel" aria-labelledby="palette-tab" data-main-panel="palette">
+        <div class="kit-palette-groups">
+        <section class="kit-palette-group">
+          <h3>Текст</h3>
+          <ul class="kit-swatches">
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-text-primary)"></span><strong class="kit-swatch__name">Основной</strong><span class="kit-swatch__value" data-token="--color-text-primary"></span><span class="kit-swatch__use">Заголовки, основной текст, пункты меню</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-text-secondary)"></span><strong class="kit-swatch__name">Второстепенный</strong><span class="kit-swatch__value" data-token="--color-text-secondary"></span><span class="kit-swatch__use">Описания, подписи, метки и бейджи</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-text-accent)"></span><strong class="kit-swatch__name">Акцентный</strong><span class="kit-swatch__value" data-token="--color-text-accent"></span><span class="kit-swatch__use">Активные ссылки, категории и статусы</span></li>
+            <li class="kit-swatch kit-swatch--inverse" style="--kit-swatch-color: var(--color-text-inverse)"><span class="kit-swatch__chip"></span><strong class="kit-swatch__name">На тёмном</strong><span class="kit-swatch__value" data-token="--color-text-inverse"></span><span class="kit-swatch__use">Текст на фотографиях, тёмных плашках и кнопках</span></li>
+          </ul>
+        </section>
+
+        <section class="kit-palette-group">
+          <h3>Поверхности и плашки</h3>
+          <ul class="kit-swatches">
+            <li class="kit-swatch"><span class="kit-swatch__chip kit-swatch__chip--light" style="background: var(--color-page-background)"></span><strong class="kit-swatch__name">Фон страницы</strong><span class="kit-swatch__value" data-token="--color-page-background"></span><span class="kit-swatch__use">Основной светлый фон всех страниц</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip kit-swatch__chip--light" style="background: var(--color-card-background)"></span><strong class="kit-swatch__name">Фон карточки и формы</strong><span class="kit-swatch__value" data-token="--color-card-background"></span><span class="kit-swatch__use">Карточки проектов, поля и белые блоки</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip kit-swatch__chip--light" style="background: var(--color-panel-background)"></span><strong class="kit-swatch__name">Фон плашки</strong><span class="kit-swatch__value" data-token="--color-panel-background"></span><span class="kit-swatch__use">Чипсы, вторые планы и фоны секций</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip kit-swatch__chip--light" style="background: var(--color-surface-hover)"></span><strong class="kit-swatch__name">Hover-поверхность</strong><span class="kit-swatch__value" data-token="--color-surface-hover"></span><span class="kit-swatch__use">Наведение на второстепенные контролы</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-surface-inverse)"></span><strong class="kit-swatch__name">Тёмная поверхность</strong><span class="kit-swatch__value" data-token="--color-surface-inverse"></span><span class="kit-swatch__use">Футер, тёмные карточки и подложки</span></li>
+          </ul>
+        </section>
+
+        <section class="kit-palette-group">
+          <h3>Кнопки и действия</h3>
+          <ul class="kit-swatches">
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-action-primary)"></span><strong class="kit-swatch__name">Главное действие</strong><span class="kit-swatch__value" data-token="--color-action-primary"></span><span class="kit-swatch__use">CTA, активные стрелки, отправка формы</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-action-primary-hover)"></span><strong class="kit-swatch__name">Главное действие · hover</strong><span class="kit-swatch__value" data-token="--color-action-primary-hover"></span><span class="kit-swatch__use">Наведение и фокус кнопки «Отправить заявку»</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-action-accent-hover)"></span><strong class="kit-swatch__name">Акцентный контрол · hover</strong><span class="kit-swatch__value" data-token="--color-action-accent-hover"></span><span class="kit-swatch__use">Небольшие красные стрелки, слайдеры и активные контролы</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-action-secondary)"></span><strong class="kit-swatch__name">Второе действие</strong><span class="kit-swatch__value" data-token="--color-action-secondary"></span><span class="kit-swatch__use">Тёмная кнопка и вторичный CTA</span></li>
+            <li class="kit-swatch kit-swatch--inverse" style="--kit-swatch-color: var(--color-action-on-primary)"><span class="kit-swatch__chip"></span><strong class="kit-swatch__name">Текст действия</strong><span class="kit-swatch__value" data-token="--color-action-on-primary"></span><span class="kit-swatch__use">Текст и иконки на акцентной кнопке</span></li>
+          </ul>
+        </section>
+
+        <section class="kit-palette-group">
+          <h3>Навигация, табы и разделители</h3>
+          <ul class="kit-swatches">
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-nav-default)"></span><strong class="kit-swatch__name">Навигация по умолчанию</strong><span class="kit-swatch__value" data-token="--color-nav-default"></span><span class="kit-swatch__use">Неактивные пункты хедера</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-nav-active)"></span><strong class="kit-swatch__name">Активная навигация</strong><span class="kit-swatch__value" data-token="--color-nav-active"></span><span class="kit-swatch__use">Текущий раздел в хедере</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-tab-active)"></span><strong class="kit-swatch__name">Активный таб</strong><span class="kit-swatch__value" data-token="--color-tab-active"></span><span class="kit-swatch__use">Выбранный таб и его нижняя линия</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip kit-swatch__chip--light" style="background: var(--color-control-default)"></span><strong class="kit-swatch__name">Таб системы</strong><span class="kit-swatch__value" data-token="--color-control-default"></span><span class="kit-swatch__use">FRONTTOP, FRONTBASE и другие неактивные табы</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-control-active)"></span><strong class="kit-swatch__name">Таб системы · активный</strong><span class="kit-swatch__value" data-token="--color-control-active"></span><span class="kit-swatch__use">Выбранный системный таб</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip kit-swatch__chip--light" style="background: var(--color-border-default)"></span><strong class="kit-swatch__name">Разделитель</strong><span class="kit-swatch__value" data-token="--color-border-default"></span><span class="kit-swatch__use">Границы карточек, таблиц, полей и секций</span></li>
+            <li class="kit-swatch kit-swatch--inverse" style="--kit-swatch-color: var(--color-border-inverse)"><span class="kit-swatch__chip"></span><strong class="kit-swatch__name">Разделитель на тёмном</strong><span class="kit-swatch__value" data-token="--color-border-inverse"></span><span class="kit-swatch__use">Границы и линии футера</span></li>
+          </ul>
+        </section>
+
+        <section class="kit-palette-group">
+          <h3>Фото, тёмные фоны и тени</h3>
+          <ul class="kit-swatches">
+            <li class="kit-swatch kit-swatch--inverse" style="--kit-swatch-color: var(--color-on-dark-primary)"><span class="kit-swatch__chip"></span><strong class="kit-swatch__name">Текст на фото · основной</strong><span class="kit-swatch__value" data-token="--color-on-dark-primary"></span><span class="kit-swatch__use">Крупные заголовки и ключевые сообщения</span></li>
+            <li class="kit-swatch kit-swatch--inverse" style="--kit-swatch-color: var(--color-on-dark-secondary)"><span class="kit-swatch__chip"></span><strong class="kit-swatch__name">Текст на фото · второстепенный</strong><span class="kit-swatch__value" data-token="--color-on-dark-secondary"></span><span class="kit-swatch__use">Подписи, текущий слайд, вторые уровни</span></li>
+            <li class="kit-swatch kit-swatch--inverse" style="--kit-swatch-color: var(--color-on-dark-line)"><span class="kit-swatch__chip"></span><strong class="kit-swatch__name">Линия на тёмном</strong><span class="kit-swatch__value" data-token="--color-on-dark-line"></span><span class="kit-swatch__use">Прогресс, хлебные крошки и разделители</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-overlay-soft)"></span><strong class="kit-swatch__name">Затемнение · мягкое</strong><span class="kit-swatch__value" data-token="--color-overlay-soft"></span><span class="kit-swatch__use">Лёгкое затемнение фотографии и мягкие тени</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-overlay-strong)"></span><strong class="kit-swatch__name">Затемнение · сильное</strong><span class="kit-swatch__value" data-token="--color-overlay-strong"></span><span class="kit-swatch__use">Средний слой градиента на первом экране</span></li>
+            <li class="kit-swatch"><span class="kit-swatch__chip" style="background: var(--color-overlay-deep)"></span><strong class="kit-swatch__name">Затемнение · глубокое</strong><span class="kit-swatch__value" data-token="--color-overlay-deep"></span><span class="kit-swatch__use">Нижняя часть фотографий под текстом</span></li>
+          </ul>
+        </section>
+        </div>
+      </div>
+
+      <div class="kit-main-tab-panel" id="tokens-panel" role="tabpanel" aria-labelledby="tokens-tab" data-main-panel="tokens" hidden>
+        <div id="tokens">
+          <p class="kit-tab-note">Полный список переменных из <code>бренд.css</code>: название токена, связь с базовой палитрой и фактический цвет.</p>
+          <div class="kit-token-groups" data-token-groups aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · ШРИФТЫ -->
+    <section class="kit-section" id="fonts">
+      <span class="section-label">Основа</span>
+      <h2>Шрифты</h2>
+      <p class="kit-rule">Два шрифта на весь проект. Переключение автоматическое: тексту бренд-файл задаёт --font-text, заголовкам — --font-head.</p>
+
+      <div class="kit-fonts">
+        <div class="kit-font">
+          <p class="kit-font__sample">Frontside — фасадные системы 0123456789</p>
+          <p><strong>Wix Madefor Display</strong> — шрифт текста и интерфейса: абзацы, кнопки, меню, табы, подписи, формы.</p>
+        </div>
+        <div class="kit-font">
+          <h4 class="kit-font__sample">Frontside — фасадные системы 0123456789</h4>
+          <p><strong>Onest</strong> — шрифт заголовков: заголовки разделов, подзаголовки, крупные цифры, слоганы. Inter остаётся в подключении старых страниц и в интерфейсе не используется.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · ШКАЛА КЕГЛЕЙ -->
+    <section class="kit-section" id="scale">
+      <span class="section-label">Основа</span>
+      <h2>Шкала кеглей</h2>
+      <p class="kit-rule">Девять ступеней вместо отдельных кеглей. У каждой ступени свои кегль, интерлиньяж и место — новые размеры не придумываем.</p>
+
+      <ul class="kit-scale">
+        <li><b>display</b><span>44/46</span><span>заголовок первого экрана, капс</span></li>
+        <li><b>h1</b><span>40/42</span><span>заголовок страницы, слоган подвала</span></li>
+        <li><b>h2</b><span>32/35</span><span>заголовок раздела, капс</span></li>
+        <li><b>h3</b><span>22/27</span><span>подзаголовки: категории и направления</span></li>
+        <li><b>h4</b><span>20/26</span><span>подзаголовок карточки, крупные контакты</span></li>
+        <li><b>body</b><span>16/24</span><span>основной текст, вводные абзацы</span></li>
+        <li><b>ui</b><span>14/20</span><span>меню, фильтры, табы, ссылки, факты</span></li>
+        <li><b>caption</b><span>12/16</span><span>подписи, согласие, нижняя строка подвала</span></li>
+        <li><b>badge</b><span>12/16</span><span>бейджи карточек, соцсети</span></li>
+      </ul>
+    </section>
+
+    <!-- 04 · ТЕКСТ -->
+    <section class="kit-section" id="type">
+      <span class="section-label">Основа</span>
+      <h2>Текст</h2>
+      <p class="kit-rule">Живые образцы ступеней — с реальными фразами со страниц макетов.</p>
+
+      <div class="kit-type-row">
+        <h1 class="kit-type--display">Фасадные системы</h1>
+        <p class="kit-type-row__spec">display · 44/46 · капс, трекинг −1,3 px — заголовок первого экрана</p>
+      </div>
+      <div class="kit-type-row">
+        <h2 class="kit-type--h1">Меняем облик современных городов</h2>
+        <p class="kit-type-row__spec">h1 · 40/42 — заголовок страницы, слоган подвала</p>
+      </div>
+      <div class="kit-type-row">
+        <h2 class="kit-type--h2">Реализованные проекты</h2>
+        <p class="kit-type-row__spec">h2 · 32/35 · капс, трекинг −1,1 px — заголовок раздела</p>
+      </div>
+      <div class="kit-type-row">
+        <h3 class="kit-type--h3">FRONTTOP</h3>
+        <p class="kit-type-row__spec">h3 · 22/27 · капс, трекинг −0,3 px — подзаголовки: категории и направления</p>
+      </div>
+      <div class="kit-type-row">
+        <h4 class="kit-type--h4">Бизнес-центр «НЕБО 2»</h4>
+        <p class="kit-type-row__spec">h4 · 20/26 — подзаголовок карточки, крупные контакты</p>
+      </div>
+      <div class="kit-type-row">
+        <p class="kit-type--body">Фасадные решения для заводов, технопарков и объектов Light Industrial — с учётом нагрузок, логистики и условий эксплуатации.</p>
+        <p class="kit-type-row__spec">body · 16/24 — основной текст, вводные абзацы</p>
+      </div>
+      <div class="kit-type-row">
+        <p class="kit-type--ui">География проектов</p>
+        <p class="kit-type-row__spec">ui · 14/20 — меню, фильтры, табы, ссылки, факты</p>
+      </div>
+      <div class="kit-type-row">
+        <p class="kit-type--caption">Согласен с Политикой конфиденциальности и обработки персональных данных</p>
+        <p class="kit-type-row__spec">caption · 12/16 — подписи, согласие, нижняя строка подвала</p>
+      </div>
+      <div class="kit-type-row">
+        <p class="kit-type--badge">Промышленные предприятия</p>
+        <p class="kit-type-row__spec">badge · 12/16 — бейджи карточек, соцсети</p>
+      </div>
+
+      <h3 class="kit-sub">Капс и разрядка</h3>
+      <ul class="kit-facts">
+        <li>Капсом набраны display, заголовки разделов (h2), подзаголовки (h3) и кнопки. <span>Обычный текст и подписи — строчными.</span></li>
+        <li>Разрядка .04em — у капса интерфейса: кнопки, подписи фильтров. <span>Иначе капс сливается.</span></li>
+        <li>У заголовков — отрицательный трекинг: −1,3 px у display, −1,1 px у h2, −0,3 px у h3.</li>
+        <li>Название объекта в слайдере набрано кеглем h3, но строчными и без трекинга — это не подзаголовок раздела.</li>
+      </ul>
+    </section>
+
+    <!-- 05 · СЕТКА И РИТМ -->
+    <section class="kit-section" id="grid">
+      <span class="section-label">Основа</span>
+      <h2>Сетка и ритм</h2>
+      <p class="kit-rule">Общая геометрия страниц макетов.</p>
+
+      <ul class="kit-facts">
+        <li>Контейнер — min(1600 px, 100% − 160 px), по центру. <span>На 1920 — 1600 px с полями по 160 px, на 1440 — 1280 px, уже 1300 px поля сжимаются до 32 px.</span></li>
+        <li>Минимальная ширина макетов — 1280 px. <span>Макеты только десктопные.</span></li>
+        <li>Высота шапки — 74 px. <span>Шапка общая для всех страниц и белая везде.</span></li>
+        <li>Воздух между блоками — 100 px, на ширинах от 1601 px — 120 px. <span>Разделы отделяются друг от друга линией --line.</span></li>
+      </ul>
+    </section>
+
+    <!-- 06 · КНОПКИ -->
+    <section class="kit-section" id="buttons">
+      <span class="section-label">Элементы</span>
+      <h2>Кнопки</h2>
+      <p class="kit-rule">Углы везде острые. Состояния наведения показаны классом-помощником .is-hover — в макетах это обычные :hover.</p>
+
+      <h3 class="kit-sub">Акцентная кнопка</h3>
+      <div class="kit-row">
+        <div class="kit-item">
+          <a class="btn-accent kit-caps" href="#">Отправить заявку</a>
+          <span class="kit-note">.btn-accent — шапка всех страниц: высота 50 px, заливка --brand-red, капс 14/20, разрядка .04em · обычное</span>
+        </div>
+        <div class="kit-item">
+          <a class="btn-accent kit-caps is-hover" href="#">Отправить заявку</a>
+          <span class="kit-note">наведение: заливка --brand-graphite</span>
+        </div>
+      </div>
+
+      <h3 class="kit-sub">Кнопка-стрелка</h3>
+      <div class="kit-row">
+        <div class="kit-item">
+          <div class="project-group kit-arrow-demo">
+            <header>
+              <h3>Производственные объекты</h3>
+              <button class="project-group__arrow" type="button" aria-label="Открыть категорию">
+                <svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+              </button>
+            </header>
+          </div>
+          <span class="kit-note">квадрат 38 × 38, стрелка 18 px · обычное</span>
+        </div>
+        <div class="kit-item">
+          <div class="project-group kit-arrow-demo">
+            <header>
+              <h3>Технопарки</h3>
+              <button class="project-group__arrow is-hover" type="button" aria-label="Открыть категорию">
+                <svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+              </button>
+            </header>
+          </div>
+          <span class="kit-note">наведение: заливка снизу вверх --brand-red-hover, стрелка белая</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · ССЫЛКИ -->
+    <section class="kit-section" id="links">
+      <span class="section-label">Элементы</span>
+      <h2>Ссылки</h2>
+      <p class="kit-rule">Два вида ссылок. Пункты меню — без подчёркивания: действие показывает фирменная стрелка, которая появляется при наведении. Текстовые ссылки — с красной линией 1 px: при наведении текст краснеет, линия сжимается к центру и исчезает.</p>
+
+      <h3 class="kit-sub">Пункты меню</h3>
+      <div class="kit-row">
+        <div class="kit-item">
+          <a class="site-menu__link" href="#">Производство<svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+          <span class="kit-note">.site-menu__link · 16/24, без подчёркивания · обычное</span>
+        </div>
+        <div class="kit-item">
+          <a class="site-menu__link is-hover" href="#">Производство<svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+          <span class="kit-note">наведение: --brand-red, стрелка появляется и сдвигается вправо</span>
+        </div>
+      </div>
+
+      <h3 class="kit-sub">Текстовые ссылки</h3>
+      <div class="kit-row">
+        <div class="kit-item">
+          <a class="fs-link" href="#">Подробнее</a>
+          <span class="kit-note">.fs-link · линия 1 px цветом --brand-red · обычное</span>
+        </div>
+        <div class="kit-item">
+          <a class="fs-link is-hover" href="#">Подробнее</a>
+          <span class="kit-note">наведение: текст --brand-red, линия сжимается к центру и исчезает</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · СТРЕЛКА -->
+    <section class="kit-section" id="arrow">
+      <span class="section-label">Элементы</span>
+      <h2>Стрелка</h2>
+      <p class="kit-rule">Одна иконка на весь проект: диагональ ↘ и уголок, у которого вертикальная палочка не доходит до угла. Остальные направления — поворотом этой же стрелки.</p>
+
+      <h3 class="kit-sub">Направления</h3>
+      <div class="kit-arrows">
+        <div class="kit-item">
+          <svg class="fs-arrow" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note">.fs-arrow — базовая, ↘</span>
+        </div>
+        <div class="kit-item">
+          <svg class="fs-arrow fs-arrow--right" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note">.fs-arrow--right, →</span>
+        </div>
+        <div class="kit-item">
+          <svg class="fs-arrow fs-arrow--left" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note">.fs-arrow--left, ←</span>
+        </div>
+        <div class="kit-item">
+          <svg class="fs-arrow fs-arrow--up" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note">.fs-arrow--up, ↑</span>
+        </div>
+        <div class="kit-item">
+          <svg class="fs-arrow fs-arrow--up-right" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note">.fs-arrow--up-right, ↗</span>
+        </div>
+      </div>
+
+      <h3 class="kit-sub">Размеры</h3>
+      <div class="kit-row">
+        <div class="kit-item kit-arrow-size">
+          <svg class="fs-arrow fs-arrow--right" width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note" style="margin-top: 0">13 px — ссылки меню</span>
+        </div>
+        <div class="kit-item kit-arrow-size">
+          <svg class="fs-arrow fs-arrow--right" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note" style="margin-top: 0">14 px — кнопки-стрелки слайдеров и карточек решений</span>
+        </div>
+        <div class="kit-item kit-arrow-size">
+          <svg class="fs-arrow fs-arrow--right" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note" style="margin-top: 0">16 px — подвал</span>
+        </div>
+        <div class="kit-item kit-arrow-size">
+          <svg class="fs-arrow fs-arrow--right" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
+          <span class="kit-note" style="margin-top: 0">18 px — кнопка-стрелка категории</span>
+        </div>
+      </div>
+
+      <h3 class="kit-sub">Правила</h3>
+      <ul class="kit-facts">
+        <li>Толщина линии — 1,7 px, постоянная на всех размерах. <span>В брендбуке ориентир — около 1/12 размера иконки; в макетах значение фиксировано.</span></li>
+        <li>У уголка вертикальная палочка не доходит до конца — это опознавательный знак стрелки.</li>
+        <li>Другие стрелки и угловые скобки не используем. <span>Служебные знаки — шеврон фильтра, крестик снятия фильтра, иконка карты — остаются служебными, это не указатели.</span></li>
+      </ul>
+    </section>
+
+    <!-- 09 · УГЛЫ И ПЛАШКИ -->
+    <section class="kit-section" id="shape">
+      <span class="section-label">Элементы</span>
+      <h2>Углы и плашки</h2>
+      <p class="kit-rule">Везде острые углы: бренд-файл обнуляет скругления на всех элементах. Исключения — бейджи карточек, выбранные фильтры и круглая радиокнопка подкатегории.</p>
+
+      <h3 class="kit-sub">Срезы плашек</h3>
+      <div class="kit-plates">
+        <div class="kit-item">
+          <div class="kit-plate">Плашка</div>
+          <span class="kit-note">без среза — углы острые</span>
+        </div>
+        <div class="kit-item">
+          <div class="kit-plate fs-cut">Плашка</div>
+          <span class="kit-note">.fs-cut — срез 6 px</span>
+        </div>
+        <div class="kit-item">
+          <div class="kit-plate fs-cut-lg">Плашка</div>
+          <span class="kit-note">.fs-cut-lg — срез 10 px</span>
+        </div>
+      </div>
+
+      <h3 class="kit-sub">Бейджи — исключение из правила</h3>
+      <div class="kit-row">
+        <div class="kit-item">
+          <div class="project-card__badges">
+            <span class="project-card__sub">Промышленные предприятия</span>
+            <span>FRONTTOP</span>
+          </div>
+          <span class="kit-note">.project-card__badges · скругление 12 px, высота 23 px, кегль badge</span>
+        </div>
+      </div>
+
+      <h3 class="kit-sub">Правила</h3>
+      <ul class="kit-facts">
+        <li>Срез ставится точечно на плашках: .fs-cut — 6 px, .fs-cut-lg — 10 px. <span>Все остальные углы — прямые.</span></li>
+        <li>Скругление разрешено только у бейджей карточек и выбранных фильтров.</li>
+        <li>Круглая радиокнопка подкатегории — техническое исключение, в оформлении не повторяется.</li>
+      </ul>
+    </section>
+
+    <!-- 10 · СТРАНИЦЫ: образцы живых блоков уже собранных экранов. -->
+    <section class="kit-section" id="facades">
+      <span class="section-label">Страницы</span>
+      <h2>Фасады</h2>
+      <p class="kit-rule">Страница решения: сетка объектов с заголовком, фотографией и кнопкой-стрелкой. Используется класс <code>.premium-object</code>.</p>
+      <div class="kit-page-demo kit-page-demo--facades">
+        <article class="premium-object">
+          <h3>Физкультурно-оздоровительный комплекс «Чайка»</h3>
+          <a class="premium-object__photo" href="solution-premium.html"><img src="img/premium/chayka.webp" alt="Физкультурно-оздоровительный комплекс «Чайка»"></a>
+          <div class="premium-object__meta"><a class="premium-object__arrow" href="solution-premium.html" aria-label="Открыть объект"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+        </article>
+        <article class="premium-object">
+          <h3>Аэропорт в Стригино</h3>
+          <a class="premium-object__photo" href="solution-premium.html"><img src="img/premium/strigino.webp" alt="Аэропорт в Стригино"></a>
+          <div class="premium-object__meta"><a class="premium-object__arrow" href="solution-premium.html" aria-label="Открыть объект"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+        </article>
+      </div>
+      <a class="kit-page-link" href="solution-premium.html">Открыть страницу «Фасады»</a>
+    </section>
+
+    <section class="kit-section" id="projects-page">
+      <span class="section-label">Страницы</span>
+      <h2>Проекты</h2>
+      <p class="kit-rule">Фильтр категорий, чипы систем и карточка проекта — базовые элементы страницы списка.</p>
+      <div class="kit-projects-demo">
+        <aside class="sidebar" aria-label="Пример фильтра">
+          <div class="filter-header"><strong>Категории</strong></div>
+          <details class="filter-group" open><summary><span>Производственные объекты</span><b>⌄</b></summary><label><input type="radio" checked>Промышленные предприятия</label><label><input type="radio">Технопарки</label></details>
+          <details class="filter-group"><summary><span>Спортивные сооружения</span><b>⌄</b></summary></details>
+        </aside>
+        <div class="kit-projects-demo__content">
+          <div class="product-chips" role="group" aria-label="Пример фильтра систем"><button type="button" class="product-chip is-active">Все</button><button type="button" class="product-chip">FRONTTOP</button><button type="button" class="product-chip">UNIQUE</button></div>
+          <article class="project-item"><a class="project-card" href="project-total.html" style="--image:url('img/category-production-cover.jpg')" aria-label="Завод смазочных материалов TOTAL"></a><a class="project-card__details" href="project-total.html"><span class="project-card__badges"><span>Промышленные предприятия</span><span>FRONTBASE</span></span><strong>Завод смазочных материалов TOTAL</strong></a></article>
+        </div>
+      </div>
+      <a class="kit-page-link" href="projects.html">Открыть страницу «Проекты»</a>
+    </section>
+
+    <section class="kit-section" id="category-page">
+      <span class="section-label">Страницы</span>
+      <h2>Категория</h2>
+      <p class="kit-rule">Первый экран категории: фото, подпись, заголовок, описание, CTA и плашка следующей подкатегории.</p>
+      <div class="kit-category-demo">
+        <img src="img/category-production-cover.jpg" alt="Производственный объект">
+        <div class="kit-category-demo__copy"><span class="section-label">Категория проектов</span><h3>Производственные объекты</h3><p>Фасадные решения для заводов, технопарков и объектов Light Industrial.</p><a class="hero__cta" href="category-production.html"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+        <a class="hero-subs kit-category-demo__sub" href="subcategory-industrial.html"><span class="hero-subs__photo"><img src="img/premium/chayka.webp" alt=""></span><span class="hero-subs__text"><span class="hero-subs__label">Подкатегория</span><span class="hero-subs__title">Промышленные предприятия</span></span></a>
+      </div>
+      <a class="kit-page-link" href="category-production.html">Открыть страницу категории</a>
+    </section>
+
+    <section class="kit-section" id="subcategory-page">
+      <span class="section-label">Страницы</span>
+      <h2>Подкатегория</h2>
+      <p class="kit-rule">Первый экран подкатегории: текстовая колонка, кадр объекта и плашка перехода между подкатегориями.</p>
+      <div class="kit-subcategory-demo">
+        <div><p class="category-intro__directions-label">Подкатегория</p><h3>Промышленные предприятия</h3><p>Заводы и производственные комплексы, где фасад работает в условиях высоких нагрузок.</p><a class="fs-link" href="subcategory-industrial.html">Обсудить проект</a></div>
+        <img src="img/category-production-cover.jpg" alt="Промышленное предприятие">
+        <div class="kit-subcategory-demo__systems"><span class="category-intro__directions-label">Применяемые системы</span><strong>FRONTBASE</strong><strong>FRONTTOP</strong><strong>UNIQUE</strong></div>
+      </div>
+      <a class="kit-page-link" href="subcategory-industrial.html">Открыть страницу подкатегории</a>
+    </section>
+
+    <section class="kit-section" id="project-page">
+      <span class="section-label">Страницы</span>
+      <h2>Карточка проекта</h2>
+      <p class="kit-rule">Галерея объекта, факты, бейджи и вкладки — состав карточки проекта.</p>
+      <div class="kit-project-demo">
+        <div class="project-gallery"><figure class="project-gallery__item"><img src="img/category-production-cover.jpg" alt="Завод смазочных материалов TOTAL"></figure><figure class="project-gallery__item"><img src="img/premium/strigino.webp" alt="Фасад объекта"></figure></div>
+        <div class="project-info"><div class="project-info__inner"><p class="category-intro__directions-label project-info__label">Объект</p><h3>Завод смазочных материалов TOTAL</h3><p class="project-info__lead">Производственный комплекс для выпуска, хранения и отгрузки смазочных материалов.</p><div class="project-card__badges project-info__badges"><span>Производственные объекты</span><span>FRONTBASE</span></div><dl class="project-info__facts"><div><dt>Локация</dt><dd>Московская область</dd></div><div><dt>Площадь фасадов</dt><dd>20 000 м²</dd></div></dl><div class="project-tabs"><div class="project-tabs__list"><button type="button" aria-selected="true">О проекте</button><button type="button">Решения</button></div></div></div></div>
+      </div>
+      <a class="kit-page-link" href="project-total.html">Открыть карточку проекта</a>
+    </section>
+
+    <section class="kit-section" id="site-frame">
+      <span class="section-label">Блоки страниц</span>
+      <h2>Хедер и подвал</h2>
+      <p class="kit-rule">Сквозные элементы всех собранных страниц. Хедер — 74 px; активный пункт навигации выделяется фирменным красным.</p>
+      <div class="kit-frame-demo">
+        <header class="header is-scrolled">
+          <div class="header__inner"><a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a><nav class="nav nav--main" aria-label="Основная навигация"><a href="catalog.html">Каталог</a><a href="solution-premium.html">Решения</a><a href="#">Услуги</a><a class="is-active" href="projects.html">Проекты</a><a href="#">Документы</a></nav><nav class="nav nav--side" aria-label="Дополнительная навигация"><a href="#">О компании</a><a href="#">Новости</a><a href="#">Контакты</a></nav><span class="header__phone">+7 (495) 642-80-91</span><div class="header__actions"><a class="btn-accent" href="#feedback-form">Отправить заявку</a><button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button></div></div>
+        </header>
+        <footer class="footer"><div class="footer__grid"><div class="footer__brand">Меняем облик<br>современных городов</div><nav class="footer__nav"><a href="catalog.html">Каталог продукции</a><a href="projects.html">Проекты</a><a href="#">Услуги</a></nav><nav class="footer__nav"><a href="#">Реквизиты</a><a href="#">Вакансии</a><a href="#">Материалы для скачивания</a></nav><div class="footer__contacts"><span>Центральный офис</span><address>Москва, ул. Барклая, д. 6</address><a href="tel:+74956428091">+7 (495) 642-80-91</a></div></div><div class="footer__bottom"><span>© 2001–2026 Frontside</span><a href="#">Политика конфиденциальности</a></div></footer>
+      </div>
+    </section>
+
+    <section class="kit-section" id="navigation">
+      <span class="section-label">Блоки страниц</span>
+      <h2>Навигация и фильтры</h2>
+      <p class="kit-rule">Хлебные крошки используются на категориях, подкатегориях и карточке объекта. На странице проектов применяются аккордеон категорий, чипы систем и выбранные фильтры.</p>
+      <div class="kit-navigation-demo">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="client-home.html">Главная</a><a href="projects.html">Проекты</a><a href="category-production.html">Производственные объекты</a><span aria-current="page">Промышленные предприятия</span></nav>
+        <div class="kit-filter-demo"><aside class="sidebar"><div class="filter-header"><strong>Категории</strong></div><details class="filter-group" open><summary><span>Производственные объекты</span><b>⌄</b></summary><label><input type="radio" checked>Промышленные предприятия</label><label><input type="radio">Технопарки</label></details><details class="filter-group"><summary><span>Спортивные сооружения</span><b>⌄</b></summary></details></aside><div><span class="kit-note">Чипы систем</span><div class="product-chips"><button class="product-chip is-active" type="button">Все</button><button class="product-chip" type="button">FRONTTOP</button><button class="product-chip" type="button">FRONTBASE</button><button class="product-chip" type="button">UNIQUE</button></div><div class="selected-filters"><span class="selected-filter">Промышленные предприятия <button type="button" aria-label="Снять фильтр">×</button></span><button class="filter-reset" type="button">Сбросить</button></div></div></div>
+      </div>
+    </section>
+
+    <section class="kit-section" id="content-cards">
+      <span class="section-label">Блоки страниц</span>
+      <h2>Карточки</h2>
+      <p class="kit-rule">Три формата карточек, используемые на страницах: направление решения, объект в сетке «Фасады», объект в списке проектов.</p>
+      <div class="kit-content-cards">
+        <a class="solution-card" href="solution-premium.html" style="--image:url('img/idea-2.webp')"><span class="solution-card__copy"><small>Архитектура и эстетика</small><strong>Фасады для архитектурно выразительных объектов</strong><em>Сложная геометрия · Индивидуальный цвет</em></span><span class="solution-card__arrow"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></a>
+        <article class="premium-object"><h3>Аэропорт в Стригино</h3><a class="premium-object__photo" href="solution-premium.html"><img src="img/premium/strigino.webp" alt="Аэропорт в Стригино"></a><div class="premium-object__meta"><a class="premium-object__arrow" href="solution-premium.html" aria-label="Открыть объект"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div></article>
+        <article class="project-item"><a class="project-card" href="project-total.html" style="--image:url('img/category-production-cover.jpg')" aria-label="Завод смазочных материалов TOTAL"></a><a class="project-card__details" href="project-total.html"><span class="project-card__badges"><span>Промышленные предприятия</span><span>FRONTBASE</span></span><strong>Завод смазочных материалов TOTAL</strong></a></article>
+      </div>
+    </section>
+
+    <section class="kit-section" id="hero-blocks">
+      <span class="section-label">Блоки страниц</span>
+      <h2>Герои и слайдеры</h2>
+      <p class="kit-rule">Элементы первых экранов категории и подкатегории: счётчик, кнопки перелистывания, плашка подкатегории и карточка задачи.</p>
+      <div class="kit-hero-blocks">
+        <div class="kit-slider-controls"><span class="category-intro__counter"><b>01</b><span>04</span></span><div class="category-intro__slider-nav"><button type="button" aria-label="Предыдущий"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" aria-label="Следующий"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div></div>
+        <a class="hero-subs kit-hero-subs-demo" href="subcategory-industrial.html"><span class="hero-subs__photo"><img src="img/category-production-cover.jpg" alt=""></span><span class="hero-subs__text"><span class="hero-subs__label">Подкатегория</span><span class="hero-subs__title">Промышленные предприятия</span></span><span class="hero-subs__bars"><i></i><i></i><i></i></span></a>
+        <article class="grow-card"><div class="grow-card__top"><h3>Инженерная точность</h3><span class="category-intro__counter grow-card__num"><b>01</b><span>03</span></span></div><p>Учитываем режим работы объекта и требования к фасадной системе.</p></article>
+      </div>
+    </section>
+
+    <section class="kit-section" id="feedback-form">
+      <span class="section-label">Блоки страниц</span>
+      <h2>Форма обратной связи</h2>
+      <p class="kit-rule">Единый блок заявки для категории, подкатегории и карточки объекта: вводные данные, контакты, поля и согласие.</p>
+      <section class="category-form kit-form-demo" aria-label="Пример формы">
+        <div class="category-form__card"><div class="category-form__intro"><div><h2>Расскажите о вашем объекте</h2><p>Поможем подобрать решение под архитектуру, сроки и эксплуатацию.</p></div><dl class="category-form__contacts"><div><dt>Телефон</dt><dd><a href="tel:+74956428091">+7 (495) 642-80-91</a></dd></div><div><dt>Почта</dt><dd><a href="mailto:info@frontside.ru">info@frontside.ru</a></dd></div></dl></div><form class="category-form__form"><label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" placeholder="Имя"></label><label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" placeholder="+7 Телефон"></label><label class="category-form__field"><span class="visually-hidden">Компания</span><input type="text" placeholder="Название компании"></label><button class="category-form__submit" type="button"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><label class="category-form__agree"><input type="checkbox"><span>Согласен с политикой конфиденциальности</span></label></form></div>
+      </section>
+    </section>
+
+  </main>
+
+  <script>
+    // Переключение по разделам: активный раздел подсвечивается при прокрутке
+    (() => {
+      const links = [...document.querySelectorAll('#kit-nav a')];
+      links[0]?.classList.add('on');   // до первой прокрутки активен первый раздел
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+      }), { rootMargin: '-40% 0px -55% 0px' });
+      document.querySelectorAll('.kit-section').forEach(s => io.observe(s));
+
+      // Один компактный блок: вкладки переключают между палитрой и реестром токенов.
+      const colorTabs = [...document.querySelectorAll('[data-main-tab]')];
+      const colorPanels = [...document.querySelectorAll('[data-main-panel]')];
+      const showColorTab = name => {
+        colorTabs.forEach(tab => {
+          const active = tab.dataset.mainTab === name;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', String(active));
+        });
+        colorPanels.forEach(panel => {
+          const active = panel.dataset.mainPanel === name;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      };
+      colorTabs.forEach(tab => tab.addEventListener('click', () => showColorTab(tab.dataset.mainTab)));
+      document.querySelectorAll('#kit-nav a[href="#colors"], #kit-nav a[href="#tokens"]').forEach(link => {
+        link.addEventListener('click', () => showColorTab(link.getAttribute('href') === '#tokens' ? 'tokens' : 'palette'));
+      });
+      if (location.hash === '#tokens') showColorTab('tokens');
+
+      // Палитра получает значения из токенов бренд-файла: плашка, подпись и копирование всегда совпадают.
+      const resolveColorToken = token => {
+        const probe = document.createElement('span');
+        probe.style.color = `var(${token})`;
+        document.body.append(probe);
+        const value = getComputedStyle(probe).color;
+        probe.remove();
+        return value;
+      };
+      document.querySelectorAll('.kit-swatch__value[data-token]').forEach(el => {
+        const value = resolveColorToken(el.dataset.token);
+        el.textContent = value;
+        el.dataset.copy = value;
+      });
+
+      // клик по значению цвета копирует его
+      document.querySelectorAll('.kit-swatch__value[data-copy]').forEach(el => el.addEventListener('click', () => {
+        const was = el.textContent;
+        navigator.clipboard?.writeText(el.dataset.copy);
+        el.textContent = 'скопировано';
+        setTimeout(() => { el.textContent = was; }, 900);
+      }));
+
+      // Полный реестр цветовых токенов — читается из бренд-файла, чтобы не расходиться с кодом.
+      const tokenGroups = document.querySelector('[data-token-groups]');
+      const tokenSections = [
+        ['Брендовая основа', /^--brand-/],
+        ['Семантические роли интерфейса', /^--color-/],
+        ['Локальные токены страницы «Фасады»', /^--artvision-/]
+      ];
+      fetch('бренд.css')
+        .then(response => response.ok ? response.text() : Promise.reject())
+        .then(css => {
+          const root = css.match(/:root\s*\{([\s\S]*?)\}/)?.[1] || '';
+          const tokens = [...root.matchAll(/(--(?:brand|color|artvision)-[\w-]+)\s*:\s*([^;]+);/g)]
+            .map(([, name, source]) => ({ name, source: source.trim() }));
+          tokenSections.forEach(([title, pattern]) => {
+            const groupTokens = tokens.filter(({ name }) => pattern.test(name));
+            if (!groupTokens.length) return;
+            const group = document.createElement('section');
+            group.className = 'kit-token-group';
+            group.innerHTML = `<h3>${title}</h3>`;
+            const list = document.createElement('div');
+            list.className = 'kit-token-list';
+            groupTokens.forEach(({ name, source }) => {
+              const row = document.createElement('div');
+              row.className = 'kit-token-row';
+              const token = document.createElement('code');
+              token.textContent = name;
+              const alias = document.createElement('code');
+              alias.textContent = source;
+              const value = document.createElement('span');
+              value.className = 'kit-token-row__value';
+              value.textContent = resolveColorToken(name);
+              row.append(token, alias, value);
+              list.append(row);
+            });
+            group.append(list);
+            tokenGroups.append(group);
+          });
+        })
+        .catch(() => { tokenGroups.textContent = 'Не удалось прочитать бренд-файл.'; });
+
+    })();
+  </script>
+</body>
+</html>

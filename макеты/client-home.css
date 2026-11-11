@@ -6,14 +6,14 @@
 
 .client-home-page main { padding-top: 0; }
 
-.client-hero { position: relative; aspect-ratio: 1920 / 868; overflow: hidden; background: #343538; color: #fff; }
+.client-hero { position: relative; aspect-ratio: 1920 / 868; overflow: hidden; background: var(--brand-black); color: var(--brand-white); }
 
 .client-hero__slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .5s ease; }
 .client-hero__slide.is-active { opacity: 1; visibility: visible; }
 
 .client-hero__media { position: absolute; inset: 0; display: block; }
 .client-hero__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.client-hero__media::after { content: ""; position: absolute; inset: 0; z-index: 2; background: rgb(0 0 0 / .2); pointer-events: none; }
+.client-hero__media::after { content: ""; position: absolute; inset: 0; z-index: 2; background: var(--color-overlay-soft); pointer-events: none; }
 
 /* Текст: как у клиента — 33.18% сверху, 144 px слева */
 .client-hero__text { position: absolute; z-index: 10; top: 33.18%; left: 144px; max-width: 1000px; font-weight: 700; font-size: 48px; line-height: 60px; letter-spacing: .03em; }
@@ -21,24 +21,24 @@
 .client-hero__desc { margin: 25px 0 0; font-size: clamp(24px, 1.875vw, 36px); font-weight: 700; line-height: 1.2; letter-spacing: .03em; }
 
 /* Кнопка «Подробнее» — прозрачная с красной рамкой, стрелка выезжает вправо */
-.client-hero__btn { display: inline-flex; align-items: center; margin-top: 130px; padding: 15px; border: 1px solid #ef4836; background: transparent; color: #fff; font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: 1.4px; text-decoration: none; transition: background .2s ease, color .2s ease, border-color .2s ease; }
-.client-hero__btn:hover, .client-hero__btn:focus-visible { background: #ef4836; border-color: #ef4836; color: #fff; }
+.client-hero__btn { display: inline-flex; align-items: center; margin-top: 130px; padding: 15px; border: 1px solid var(--brand-red); background: transparent; color: var(--brand-white); font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: 1.4px; text-decoration: none; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.client-hero__btn:hover, .client-hero__btn:focus-visible { background: var(--brand-red); border-color: var(--brand-red); color: var(--brand-white); }
 .client-hero__arrow { width: 16px; height: 16px; margin-left: 10px; transition: transform .2s ease; }
 .client-hero__btn:hover .client-hero__arrow, .client-hero__btn:focus-visible .client-hero__arrow { transform: translateX(4px); }
 
 /* Точки слайдера — колонка слева от заголовка */
 .client-hero__pagination { position: absolute; z-index: 10; top: 33.18%; left: 108px; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding: 10px; }
-.client-hero__bullet { width: 10px; height: 10px; padding: 0; border: 0; background: #bbbdc0; cursor: pointer; transition: background .3s ease; border-radius: 50% !important; }
-.client-hero__bullet.is-active { background: #fff; }
-.client-hero__bullet:hover, .client-hero__bullet:focus-visible { background: #ef4836; }
+.client-hero__bullet { width: 10px; height: 10px; padding: 0; border: 0; background: var(--brand-grey); cursor: pointer; transition: background .3s ease; border-radius: 50% !important; }
+.client-hero__bullet.is-active { background: var(--brand-white); }
+.client-hero__bullet:hover, .client-hero__bullet:focus-visible { background: var(--brand-red); }
 
 /* Счётчик: крупное «01», шкала с красной заливкой снизу и общее «04» */
 .client-hero__counter { position: absolute; z-index: 10; top: 36.87%; right: clamp(20px, 15.21vw, 292px); display: flex; align-items: flex-start; gap: 23px; }
 .client-hero__numbers { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 96px; overflow: hidden; font-size: 80px; font-weight: 700; line-height: 96px; }
 .client-hero__num { display: block; height: 96px; }
 .client-hero__numbers.is-rolling { transform: translateY(-100%); transition: transform .5s ease; }
-.client-hero__bar { position: relative; width: 5px; height: 99px; background: #fff; }
-.client-hero__bar i { position: absolute; right: 0; bottom: 0; left: 0; height: 0; background: #ef4836; animation: client-hero-bar 5s linear forwards; }
+.client-hero__bar { position: relative; width: 5px; height: 99px; background: var(--brand-white); }
+.client-hero__bar i { position: absolute; right: 0; bottom: 0; left: 0; height: 0; background: var(--brand-red); animation: client-hero-bar 5s linear forwards; }
 .client-hero__total { font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: .03em; }
 
 @keyframes client-hero-bar { from { height: 0; } to { height: 100%; } }

@@ -98,15 +98,15 @@
 .category-intro__counter span { color: var(--muted); }
 .category-intro__counter span::before { content: "/"; margin: 0 8px; }
 /* Стрелки — того же размера, светло-серые, при наведении красные */
-.category-intro__slider-nav button { display: grid; place-items: center; width: 60px; height: 60px; padding: 0; border: 0; background: #f1f1f1; color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
+.category-intro__slider-nav button { display: grid; place-items: center; width: 60px; height: 60px; padding: 0; border: 0; background: var(--brand-light); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
 .category-intro__slider-nav button svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.6; }
 .category-intro__slider-nav button:hover,
-.category-intro__slider-nav button:focus-visible { background: var(--red); color: #fff; outline: none; }
+.category-intro__slider-nav button:focus-visible { background: var(--red); color: var(--brand-white); outline: none; }
 
 /* ---------- Портфолио: шапка, фильтр и карточки из projects.css ---------- */
 /* Второй блок — на светло-сером фоне концепта, без линии под заголовком */
 /* Сверху фон плавно переходит из белого первого экрана в серый — без резкой границы */
-.category-page .projects { padding: 96px 0; background: linear-gradient(#fff, var(--soft) 240px); }
+.category-page .projects { padding: 96px 0; background: linear-gradient(var(--brand-white), var(--soft) 240px); }
 .category-page .projects__head { padding-bottom: 0; }
 /* Табы и счётчик — одной строкой: табы слева, «4 объекта» справа. Ритм: заголовок — 40 — табы — 40 — карточки */
 .category-page .product-filter-bar { border-top: 0; padding: 40px 0; background: transparent; }
@@ -117,9 +117,9 @@
 .category-page .projects .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .category-page .project-item[hidden] { display: none; }
 /* Перелинковка: из категории — на общую страницу «Проекты» */
-.category-all-link { display: flex; align-items: center; justify-content: space-between; width: 300px; height: 60px; margin: 48px auto 0; padding: 0 24px; background: #fff; color: var(--title); font: 400 14px/20px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; transition: background .2s, color .2s; }
+.category-all-link { display: flex; align-items: center; justify-content: space-between; width: 300px; height: 60px; margin: 48px auto 0; padding: 0 24px; background: var(--brand-white); color: var(--title); font: 400 14px/20px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; transition: background .2s, color .2s; }
 .category-all-link svg { width: 18px; height: 18px; }
-.category-all-link:hover, .category-all-link:focus-visible { background: var(--red); color: #fff; outline: none; }
+.category-all-link:hover, .category-all-link:focus-visible { background: var(--red); color: var(--brand-white); outline: none; }
 
 /* ---------- Общий ритм разделов ---------- */
 .category-section { padding: 120px 0 0; }
@@ -142,7 +142,7 @@
 .category-tasks.facts { padding-top: 120px; }
 .category-tasks__title { margin: 0 0 56px; color: var(--title); font: 400 32px/1.1 var(--font); letter-spacing: -1.1px; text-align: center; text-transform: uppercase; }
 .category-tasks .fact__text { margin: 0; font-weight: 400; }
-.category-tasks__text { max-width: 400px; margin: 12px 0 0; color: #666; font: 400 14px/1.5 var(--font-ui); }
+.category-tasks__text { max-width: 400px; margin: 12px 0 0; color: var(--brand-muted); font: 400 14px/1.5 var(--font-ui); }
 .category-tasks .fact__num { font-family: var(--font); }
 
 /* Применяемые системы — блок «Идея» концепта (.idea из стиль.css), только свои дополнения */
@@ -156,7 +156,7 @@
 .category-systems .idea__point { gap: 16px; }
 .category-systems .idea__point p { width: 440px; max-width: 100%; }
 /* «Подробнее» — обычная текстовая ссылка с подчёркиванием */
-.category-systems__more { width: max-content; color: var(--title); font: 400 16px/22px var(--font); text-decoration: underline; text-decoration-color: rgba(29, 29, 29, .35); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
+.category-systems__more { width: max-content; color: var(--title); font: 400 16px/22px var(--font); text-decoration: underline; text-decoration-color: var(--color-link-underline); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
 .category-systems__more:hover { color: var(--red); text-decoration-color: var(--red); }
 /* Кнопка — по центру блока, на стыке текста и фото, на одной линии со счётчиком 01/04 (высота 60 px) */
 .category-systems__cta.hero__cta { position: absolute; left: calc(50% - 150px); bottom: 0; z-index: 3; width: 300px; height: 60px; animation: none; translate: none; }
@@ -173,43 +173,43 @@
 /* Фон — светлый, справа снизу вырезанное здание клиента (без неба, img/form-building.png) */
 .category-form { position: relative; margin-top: 120px; padding: 120px 0; overflow: hidden; background: var(--soft); }
 .category-form::before { content: ""; position: absolute; right: 0; bottom: 0; width: min(72%, 1300px); aspect-ratio: 1800 / 1200; background: url("img/form-building.png") right bottom / contain no-repeat; pointer-events: none; }
-.category-form__card { position: relative; box-shadow: 0 24px 60px rgba(16, 24, 32, .12); }
+.category-form__card { position: relative; box-shadow: 0 24px 60px var(--color-shadow-soft); }
 /* Компактная карточка по центру, уже контейнера — как в референсе */
 .category-form__card { display: grid; grid-template-columns: 1fr 1fr; max-width: 1120px; }
-.category-form__intro { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 40px; background: #fff; border-right: 1px solid var(--soft); }
+.category-form__intro { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 40px; background: var(--brand-white); border-right: 1px solid var(--soft); }
 .category-form__intro h2 { max-width: 460px; margin: 0; color: var(--title); font: 400 32px/1.1 var(--font); letter-spacing: -1.1px; text-transform: uppercase; }
-.category-form__intro p { max-width: 360px; margin: 16px 0 0; color: #666; font: 400 16px/1.5 var(--font); }
+.category-form__intro p { max-width: 360px; margin: 16px 0 0; color: var(--brand-muted); font: 400 16px/1.5 var(--font); }
 .category-form__contacts { display: grid; gap: 16px; margin: 0; }
 .category-form__contacts dt { color: var(--muted); font: 400 12px/16px var(--font-ui); text-transform: uppercase; letter-spacing: .02em; }
 .category-form__contacts dd { margin: 4px 0 0; font: 400 20px/1.2 var(--font); }
 .category-form__contacts a { color: var(--title); text-decoration: none; transition: color .2s; }
 .category-form__contacts a:hover { color: var(--red); }
 
-.category-form__form { display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; padding: 40px; background: #fff; }
+.category-form__form { display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; padding: 40px; background: var(--brand-white); }
 .category-form__field input { width: 100%; padding: 10px 0; border: 0; border-bottom: 1px solid var(--brand-grey); border-radius: 0; background: none; color: var(--title); font: 400 16px/22px var(--font); outline: none; transition: border-color .2s; }
 .category-form__field input::placeholder { color: var(--muted); }
 /* В заполненном поле над значением — подпись 12/16 (скрытая подпись поля становится видимой); в пустом — плейсхолдер */
 .category-form__field { position: relative; display: block; }
-.category-form__field > .visually-hidden { position: absolute; top: -10px; left: 0; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; clip-path: none; white-space: nowrap; color: #666; font: 400 var(--fs-caption, 12px)/var(--lh-caption, 16px) var(--font-text, var(--font)); opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+.category-form__field > .visually-hidden { position: absolute; top: -10px; left: 0; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; clip-path: none; white-space: nowrap; color: var(--brand-muted); font: 400 var(--fs-caption, 12px)/var(--lh-caption, 16px) var(--font-text, var(--font)); opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
 .category-form__field:has(input:not(:placeholder-shown)) > .visually-hidden { opacity: 1; transform: none; }
 /* автозаполнение браузера — без голубой заливки */
-.category-form__field input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px #fff inset; -webkit-text-fill-color: var(--title); caret-color: var(--title); }
+.category-form__field input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px var(--brand-white) inset; -webkit-text-fill-color: var(--title); caret-color: var(--title); }
 .category-form__field input:hover { border-bottom-color: var(--title); }   /* линия поля — светло-серая фирменная; при наведении темнеет, в фокусе красная */
 .category-form__field input:focus { border-bottom-color: var(--red); }
 .category-form__agree { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
-:is(.category-form, .form-modal) input[type="checkbox"] { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; border: 1px solid #d3d3d3; border-radius: 0; background: #fff; appearance: none; cursor: pointer; outline: none; }   /* как чекбоксы фильтра «Проектов» */
-:is(.category-form, .form-modal) input[type="checkbox"]:checked { border-color: var(--red); background: var(--red); box-shadow: inset 0 0 0 3px #fff; }
+:is(.category-form, .form-modal) input[type="checkbox"] { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; border: 1px solid var(--brand-line); border-radius: 0; background: var(--brand-white); appearance: none; cursor: pointer; outline: none; }   /* как чекбоксы фильтра «Проектов» */
+:is(.category-form, .form-modal) input[type="checkbox"]:checked { border-color: var(--red); background: var(--red); box-shadow: inset 0 0 0 3px var(--brand-white); }
 :is(.category-form, .form-modal) input[type="checkbox"]:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 /* Кнопка — красная, как CTA концепта: текст слева, стрелка справа */
-.category-form__submit { display: flex; align-items: center; justify-content: space-between; height: 56px; margin-top: 8px; padding: 0 24px; border: 0; background: var(--red); color: #fff; font: 400 16px/20px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; cursor: pointer; transition: background .2s; }
+.category-form__submit { display: flex; align-items: center; justify-content: space-between; height: 56px; margin-top: 8px; padding: 0 24px; border: 0; background: var(--red); color: var(--brand-white); font: 400 16px/20px var(--font-ui); text-transform: uppercase; letter-spacing: .04em; cursor: pointer; transition: background .2s; }
 .category-form__submit svg { width: 20px; height: 20px; }
-.category-form__submit:hover { background: #c9301f; }
-.category-form__agree span { color: #666; font: 400 13px/18px var(--font-ui); }
+.category-form__submit:hover { background: var(--brand-red-hover); }
+.category-form__agree span { color: var(--brand-muted); font: 400 13px/18px var(--font-ui); }
 .category-form__agree a { color: inherit; }
 .category-form__agree a:hover { color: var(--red); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 /* Подвал — того же графита, что фон формы; между ними тонкая линия */
-.category-page .footer { position: relative; z-index: 2; margin-top: 0; background: #2b2d2f; border-top: 1px solid rgba(255, 255, 255, .1); }
+.category-page .footer { position: relative; z-index: 2; margin-top: 0; background: var(--brand-black); border-top: 1px solid var(--color-on-dark-subtle); }
 
 /* ---------- Узкие экраны ---------- */
 @media (max-width: 1180px) {
@@ -232,20 +232,20 @@
 /* ---------- Первый экран: фото на весь экран ---------- */
 /* Первый экран закреплён (sticky) внутри .category-stage, второй экран наезжает на него снизу — как в концепте */
 .category-stage { position: relative; }
-.category-hero { position: sticky; top: 0; z-index: 0; height: 100vh; margin-top: -82px; overflow: hidden; color: #fff; }
+.category-hero { position: sticky; top: 0; z-index: 0; height: 100vh; margin-top: calc(-1 * var(--header-height)); overflow: hidden; color: var(--brand-white); }
 .category-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .category-hero__bg img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* затемнение для читаемости текста */
-.category-hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 20, 22, .45) 0, rgba(20, 20, 22, .15) 22%, rgba(20, 20, 22, .35) 60%, rgba(20, 20, 22, .55) 100%); }
-.category-intro { position: relative; z-index: 1; box-shadow: 0 -10px 40px rgba(16, 32, 56, .12); clip-path: inset(-80px 0 0 0); }  /* тень только сверху, над фото первого экрана; снизу обрезана */
-.category-hero__top { position: relative; z-index: 6; padding-top: 82px; }   /* крошки на той же высоте, что на остальных страницах */
-.category-hero .breadcrumbs { color: #fff; }
-.category-hero .breadcrumbs > * + *::before { background: rgba(255, 255, 255, .4); }
-.category-hero .breadcrumbs [aria-current] { color: rgba(255, 255, 255, .7); }
+.category-hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-overlay-strong) 0, var(--color-overlay-subtle) 22%, var(--color-overlay-medium) 60%, var(--color-overlay-heavy) 100%); }
+.category-intro { position: relative; z-index: 1; box-shadow: 0 -10px 40px var(--color-shadow-soft); clip-path: inset(-80px 0 0 0); }  /* тень только сверху, над фото первого экрана; снизу обрезана */
+.category-hero__top { position: relative; z-index: 6; padding-top: var(--header-height); }   /* крошки на той же высоте, что на остальных страницах */
+.category-hero .breadcrumbs { color: var(--brand-white); }
+.category-hero .breadcrumbs > * + *::before { background: var(--color-on-dark-line); }
+.category-hero .breadcrumbs [aria-current] { color: var(--color-on-dark-secondary); }
 .category-hero__content { position: absolute; z-index: 6; left: 50%; top: 50%; width: min(900px, 100% - 160px); translate: -50% -50%; text-align: center; will-change: opacity, transform; }
-.category-hero .section-label { justify-content: center; color: #fff; }
-.category-hero h1 { margin: 0; color: #fff; text-transform: uppercase; }
-.category-hero__lead { max-width: 720px; margin: 24px auto 0; color: rgba(255, 255, 255, .92); }
+.category-hero .section-label { justify-content: center; color: var(--brand-white); }
+.category-hero h1 { margin: 0; color: var(--brand-white); text-transform: uppercase; }
+.category-hero__lead { max-width: 720px; margin: 24px auto 0; color: var(--color-on-dark-primary); }
 
 /* Второй экран: крошки ушли на первый экран — отступ сверху под шапку */
 .category-intro { padding-top: 50px; }
@@ -257,7 +257,7 @@
 
 /* ---------- Плашка подкатегорий на первом экране (правый нижний угол) ---------- */
 .category-hero__bottom { position: absolute; z-index: 6; left: 0; right: 0; bottom: 40px; display: flex; justify-content: flex-end; pointer-events: none; }
-.hero-subs { position: relative; width: 480px; padding: 8px; background: #fff; color: var(--title); pointer-events: auto; }
+.hero-subs { position: relative; width: 480px; padding: 8px; background: var(--brand-white); color: var(--title); pointer-events: auto; }
 .hero-subs__card { display: grid; grid-template-columns: 200px 1fr; gap: 16px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
 .hero-subs__photo { display: block; height: 150px; overflow: hidden; background: var(--brand-light); }
 .hero-subs__photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
@@ -280,7 +280,7 @@
 /* надпись «Подкатегория» над названием — как подписи на втором экране */
 .hero-subs__text { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
 .hero-subs__text .hero-subs__title { padding-top: 0; }
-.hero-subs__label { color: #666; font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: .04em; }
+.hero-subs__label { color: var(--brand-muted); font-size: 12px; line-height: 16px; text-transform: uppercase; letter-spacing: .04em; }
 /* Кнопка — в левом нижнем углу сетки, плашка подкатегорий — в правом, обе по одной линии низа */
 .category-hero__bottom { justify-content: space-between; align-items: flex-end; }
 .category-hero .category-hero__cta { position: static; translate: none; pointer-events: auto; }
@@ -297,8 +297,8 @@
 .category-intro__col:last-child { justify-content: flex-end; }
 
 /* ---------- Модалка «Обсудить проект»: поля и кнопка формы обратной связи, одна колонка ---------- */
-.form-modal { width: min(560px, calc(100% - 48px)); max-height: calc(100vh - 48px); margin: auto; padding: 0; border: 0; border-radius: 0; background: #fff; color: var(--title); box-shadow: 0 24px 60px rgba(16, 24, 32, .18); overflow: auto; }
-.form-modal::backdrop { background: rgba(35, 31, 32, .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.form-modal { width: min(560px, calc(100% - 48px)); max-height: calc(100vh - 48px); margin: auto; padding: 0; border: 0; border-radius: 0; background: var(--brand-white); color: var(--title); box-shadow: 0 24px 60px var(--color-shadow-raised); overflow: auto; }
+.form-modal::backdrop { background: var(--color-overlay-heavy); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 .form-modal[open] { animation: form-modal-in .35s cubic-bezier(.22, .61, .24, 1); }
 .form-modal[open]::backdrop { animation: form-modal-fade .35s ease; }
 @keyframes form-modal-in { from { opacity: 0; transform: translateY(16px); } }
@@ -310,23 +310,23 @@
 /* крестик: квадрат 40 px на светло-сером, как кнопки слайдера; при наведении — красный */
 .form-modal__close { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 0; background: var(--brand-light); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
 .form-modal__close svg { width: 16px; height: 16px; }
-.form-modal__close:hover, .form-modal__close:focus-visible { background: var(--red); color: #fff; outline: none; }
+.form-modal__close:hover, .form-modal__close:focus-visible { background: var(--red); color: var(--brand-white); outline: none; }
 @media (prefers-reduced-motion: reduce) { .form-modal[open], .form-modal[open]::backdrop { animation: none; } }
 
 /* ---------- Применяемые системы (категория и подкатегория): светло-серый фон, вместо счётчика — стрелки и полоса прогресса ---------- */
 .category-systems .idea__sticky, .category-systems .idea__dim { background: var(--brand-light); }
 .systems-nav { position: absolute; left: 0; bottom: 0; display: grid; gap: 24px; width: 440px; }
 .systems-nav__arrows { display: flex; gap: 8px; }   /* стрелки прибиты к левому краю; 38 px — как на первом экране страницы решения */
-.systems-nav__arrows button { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 0; background: #fff; color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
-.systems-nav__arrows [data-sys-next] { background: var(--red); color: #fff; }
-.systems-nav__arrows button:hover, .systems-nav__arrows button:focus-visible { background: #c9301f; color: #fff; outline: none; }
+.systems-nav__arrows button { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 0; background: var(--brand-white); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
+.systems-nav__arrows [data-sys-next] { background: var(--red); color: var(--brand-white); }
+.systems-nav__arrows button:hover, .systems-nav__arrows button:focus-visible { background: var(--brand-red-hover); color: var(--brand-white); outline: none; }
 .systems-nav__arrows svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.6px; }   /* стрелка 14 px в кнопке 38 px */
 /* дорожка — фирменный серый, заполнение — чёрный */
 .systems-nav__progress { display: flex; gap: 8px; }
 .systems-nav__progress span { flex: 1; height: 2px; overflow: hidden; background: var(--brand-grey); }
 .systems-nav__progress i { display: block; height: 100%; background: var(--brand-black); transform: scaleX(0); transform-origin: 0 50%; transition: transform .15s linear; }
 /* блок «Проекты» на категории — на белом фоне, как каталог проектов (без перехода в серый) */
-.category-page .projects { background: #fff; }
+.category-page .projects { background: var(--brand-white); }
 .category-page .projects .project-card { aspect-ratio: 16 / 9; }   /* фото карточек проектов — 16:9 */
 /* Другие категории перед формой: карточки «Проектов», три на всю ширину контейнера, как другие подкатегории */
 .projects-page.category-page .category-others { padding-top: 0; }   /* сверху отступ даёт «О разделе» */
@@ -337,11 +337,11 @@
 .category-page .category-others .cards::-webkit-scrollbar { display: none; }
 .category-page .category-others .project-item { scroll-snap-align: start; }
 .others-nav [data-others-prev] { background: var(--brand-light); }
-.others-nav [data-others-next] { background: var(--red); color: #fff; }
+.others-nav [data-others-next] { background: var(--red); color: var(--brand-white); }
 .others-nav button:disabled { background: var(--brand-light); color: var(--brand-grey); cursor: default; }
 /* Проекты категории: под табами — описание выбранной подкатегории, карточки по три в ряд */
 .category-page .product-filter-bar { padding-bottom: 24px; }
-.category-projects__desc { max-width: 720px; margin: 0 0 40px; color: #666; font: 400 var(--fs-body)/var(--lh-body) var(--font-text); }
+.category-projects__desc { max-width: 720px; margin: 0 0 40px; color: var(--brand-muted); font: 400 var(--fs-body)/var(--lh-body) var(--font-text); }
 .projects-page.category-page #projects-list .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 /* описание подкатегории слева, ссылка на её страницу — справа, по первой строке описания */
 .category-projects__about { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
@@ -349,7 +349,7 @@
 .category-projects__more[hidden] { display: none; }
 /* «Все проекты Frontside»: блок теперь на белом — кнопка светло-серая; при наведении заливается красным снизу вверх, как кнопки-стрелки */
 .category-all-link { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .25s ease; }
-.category-all-link:hover, .category-all-link:focus-visible { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 100%; color: #fff; }
+.category-all-link:hover, .category-all-link:focus-visible { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 100%; color: var(--brand-white); }
 
 /* ---------- Задачи, которые решает фасад: фото второго экрана раскрывается до ширины контейнера, задачи — колодой ----------
    Механика блока «Особые требования к процессу» (solution-premium.css, .premium-grow): кадр закреплён под шапкой,
@@ -359,16 +359,16 @@
 /* фон второго экрана продолжается в блоке «Задачи»: блок заходит на второй экран на путь переезда (--grow-gap), серый — от низа второго экрана */
 .projects-page .category-grow { background: linear-gradient(transparent var(--grow-gap, 0px), var(--brand-light) var(--grow-gap, 0px)); }   /* блок заходит на второй экран — клики проходят к его кнопкам */
 .category-grow__track { height: 400vh; }   /* + путь переезда фото — задаёт скрипт */
-.category-grow__sticky { position: sticky; top: 82px; height: calc(100vh - 82px); overflow: hidden; pointer-events: none; }   /* поверх второго экрана — клики проходят к его кнопкам */
+.category-grow__sticky { position: sticky; top: var(--header-height); height: calc(100vh - var(--header-height)); overflow: hidden; pointer-events: none; }   /* поверх второго экрана — клики проходят к его кнопкам */
 .category-grow__frame { position: absolute; inset: 0; z-index: 0; }   /* свой слой: картинки слайдера и затемнение не перекрывают заголовок и карточки */
 .category-grow__frame .category-grow__media { position: absolute; top: 0; left: 0; margin: 0; will-change: width, height, left; }
-.category-grow__media::after { content: ""; position: absolute; inset: 0; z-index: 3; background: linear-gradient(90deg, rgba(20, 20, 22, .55) 0%, rgba(20, 20, 22, .2) 45%, rgba(20, 20, 22, 0) 70%); opacity: 0; transition: opacity .8s ease; }   /* затемнение под заголовок — вместе с ним */
+.category-grow__media::after { content: ""; position: absolute; inset: 0; z-index: 3; background: linear-gradient(90deg, var(--color-overlay-heavy) 0%, var(--color-overlay-soft) 45%, var(--color-overlay-clear) 70%); opacity: 0; transition: opacity .8s ease; }   /* затемнение под заголовок — вместе с ним */
 .category-grow__frame.is-open .category-grow__media::after { opacity: 1; }
 .category-grow__cards { position: absolute; top: 0; bottom: 0; left: 50%; z-index: 1; translate: -50% 0; }
-.category-grow__title { position: absolute; left: 64px; top: 64px; z-index: 2; max-width: 560px; margin: 0; color: #fff; font: 400 var(--fs-h2)/var(--lh-h2) var(--font-head); letter-spacing: -1.1px; text-transform: uppercase; opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .24, 1); }
+.category-grow__title { position: absolute; left: 64px; top: 64px; z-index: 2; max-width: 560px; margin: 0; color: var(--brand-white); font: 400 var(--fs-h2)/var(--lh-h2) var(--font-head); letter-spacing: -1.1px; text-transform: uppercase; opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .24, 1); }
 .category-grow__title.is-in { opacity: 1; transform: none; }
 .category-grow__deck { position: absolute; right: 40px; bottom: 0; width: 600px; height: min(560px, 62%); }
-.grow-card { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; background: rgb(241 241 241 / var(--glass, 1)); -webkit-backdrop-filter: blur(var(--blur, 0px)); backdrop-filter: blur(var(--blur, 0px)); opacity: 0; transform: translateY(110%); transform-origin: 50% 0; will-change: transform; }
+.grow-card { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; background: var(--color-surface-glass); -webkit-backdrop-filter: blur(var(--blur, 0px)); backdrop-filter: blur(var(--blur, 0px)); opacity: 0; transform: translateY(110%); transform-origin: 50% 0; will-change: transform; }
 .grow-card > * { opacity: var(--fade, 1); }
 .grow-card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; }
 .grow-card h3 { max-width: 400px; margin: 0; color: var(--title); font: 400 var(--fs-h3)/var(--lh-h3) var(--font-head); text-transform: uppercase; }
