@@ -70,6 +70,8 @@ const SITE_MENU = [
 ];
 
 const MENU_ARROW = '<svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>';
+const MENU_PROMO_ARROW = '<svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>';
+const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
 
 (function () {
   const burger = document.querySelector('header .burger');
@@ -82,6 +84,13 @@ const MENU_ARROW = '<svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fi
       ${(group.groups || []).map(sub).join('')}
       ${(group.items || []).map(link).join('')}
     </section>`;
+  const promo = (title, href, image) => `<a class="site-menu__promo-card" href="${href}" style="--menu-promo-image:url('${image}')"><span>${title}</span><span class="site-menu__promo-arrow">${MENU_PROMO_ARROW}</span></a>`;
+  const contacts = `<section class="site-menu__contacts" aria-label="Контакты">
+      <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+      <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+      <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+      <div class="site-menu__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a></div>
+    </section>`;
 
   const menu = document.createElement('div');
   menu.className = 'site-menu';
@@ -91,7 +100,7 @@ const MENU_ARROW = '<svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fi
   menu.setAttribute('aria-modal', 'true');
   menu.setAttribute('aria-label', 'Меню сайта');
   menu.innerHTML = `<div class="container site-menu__inner">
-      <div class="site-menu__grid">${SITE_MENU.map(col => `<div class="site-menu__col">${col.map(section).join('')}</div>`).join('')}</div>
+      <div class="site-menu__grid">${MENU_COLUMNS.map(col => `<div class="site-menu__col">${col.map(section).join('')}</div>`).join('')}<aside class="site-menu__promo" aria-label="Быстрые переходы">${promo('Каталог', 'catalog.html', 'img/premium/detail-blue.webp')}${promo('Решения', 'solution-premium.html', 'img/premium/chayka.webp')}${contacts}</aside></div>
     </div>`;
   document.body.append(menu);
 
@@ -100,6 +109,7 @@ const MENU_ARROW = '<svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fi
     burger.classList.toggle('is-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    document.body.classList.toggle('has-site-menu', open);
     document.body.style.overflow = open ? 'hidden' : '';
     (open ? menu.querySelector('a') : burger).focus();
   };

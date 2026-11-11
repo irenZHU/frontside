@@ -18,11 +18,12 @@
 .client-hero__title { width: 64.896vw; margin: 0; font-size: clamp(40px, 4.6875vw, 90px); font-weight: 700; line-height: .8; letter-spacing: .03em; }
 .client-hero__desc { margin: 25px 0 0; font-size: clamp(24px, 1.875vw, 36px); font-weight: 700; line-height: 1.2; letter-spacing: .03em; }
 
-/* Кнопка «Подробнее» — прозрачная с красной рамкой, стрелка выезжает вправо */
-.client-hero__btn { display: inline-flex; align-items: center; margin-top: 130px; padding: 15px; border: 1px solid var(--brand-red); background: transparent; color: var(--brand-white); font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: 1.4px; text-decoration: none; transition: background .2s ease, color .2s ease, border-color .2s ease; }
-.client-hero__btn:hover, .client-hero__btn:focus-visible { background: var(--brand-red); border-color: var(--brand-red); color: var(--brand-white); }
-.client-hero__arrow { width: 16px; height: 16px; margin-left: 10px; transition: transform .2s ease; }
-.client-hero__btn:hover .client-hero__arrow, .client-hero__btn:focus-visible .client-hero__arrow { transform: translateX(4px); }
+/* Кнопка «Подробнее» — прозрачная с красной рамкой; фирменная заливка идёт слева направо. */
+.client-hero__btn { display: inline-flex; align-items: center; margin-top: 130px; padding: 15px; border: 1px solid var(--brand-red); background-color: transparent; background-image: linear-gradient(var(--brand-red), var(--brand-red)); background-repeat: no-repeat; background-position: 0 50%; background-size: 0 100%; color: var(--brand-white); font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: 1.4px; text-decoration: none; transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease, border-color .18s ease; }
+.client-hero__btn:hover, .client-hero__btn:focus-visible { background-size: 100% 100%; border-color: var(--brand-red); color: var(--brand-white); }
+.client-hero__btn:focus-visible { outline: 2px solid var(--brand-white); outline-offset: 3px; }
+/* «Подробнее» ведёт на отдельную страницу, поэтому стрелка направлена по диагонали вниз. */
+.client-hero__arrow { width: 16px; height: 16px; margin-left: 10px; transform: rotate(45deg); transform-origin: center; }
 
 /* Точки слайдера — колонка слева от заголовка */
 .client-hero__pagination { position: absolute; z-index: 10; top: 33.18%; left: 108px; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding: 10px; }
@@ -77,6 +78,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .client-hero__slide, .client-hero__numbers, .client-hero__arrow { transition: none; }
+  .client-hero__slide, .client-hero__numbers, .client-hero__btn { transition: none; }
   .client-hero__bar i { animation: none; height: 100%; }
 }

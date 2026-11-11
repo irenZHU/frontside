@@ -61,8 +61,8 @@
 .premium-object__photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.22, .61, .24, 1); }
 .premium-object__photo:hover img { transform: scale(1.04); }
 .premium-object__meta { display: flex; justify-content: flex-end; margin-top: 24px; }
-.premium-object__arrow { display: grid; place-items: center; width: 38px; height: 38px; color: var(--title); transition: background .25s ease, color .25s ease; }   /* стрелка ↘; при наведении на плашку — красная кнопка, как в каталоге проектов */
-.premium-object__arrow svg { width: 18px; height: 18px; }
+.premium-object__arrow { display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); color: var(--title); transition: background .25s ease, color .25s ease; }   /* стрелка ↘; при наведении на плашку — красная кнопка, как в каталоге проектов */
+.premium-object__arrow svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
 .premium-object:hover .premium-object__arrow, .premium-object__arrow:focus-visible { background: var(--brand-red); color: var(--brand-white); outline: none; }
 /* Наведение: ячейка заливается графитом (чёрный + серый из фирстиля), текст белый, красная линия ссылки остаётся */
 .premium-object:not(.premium-object--cta) { transition: background .35s ease; }
@@ -133,10 +133,10 @@
 .premium-process__steps { margin: -40px; }   /* поля плашек уходят за контейнер: текст по краю контейнера, воздух блока прежний */
 .premium-process__steps li, .premium-process__steps li + li { padding: 40px 40px 40px; background: linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1); }
 .premium-process__steps p { margin-bottom: 40px; }
-.premium-process__link { position: absolute; right: 40px; bottom: 40px; display: grid; place-items: center; width: 38px; height: 38px; color: var(--title); }
+.premium-process__link { position: absolute; right: 40px; bottom: 40px; display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); color: var(--title); }
 .premium-process__link::after { content: ""; position: absolute; inset: -2000px; }   /* ссылка на всю плашку (li обрезает) */
 .premium-process__steps li { overflow: hidden; }
-.premium-process__link svg { width: 14px; height: 14px; }
+.premium-process__link svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
 .premium-process__steps :is(.premium-process__num, h3, p), .premium-process__link { transition: color .25s ease; }
 .premium-process__steps li:hover, .premium-process__steps li:focus-within { background-size: 100% 100%; }
 .premium-process__steps li:is(:hover, :focus-within) :is(.premium-process__num, h3, p), .premium-process__steps li:is(:hover, :focus-within) .premium-process__link { color: var(--brand-white); }
@@ -144,5 +144,6 @@
 .premium-process__steps li:has(+ li:is(:hover, :focus-within)) + li { border-left-color: transparent; }
 .premium-process__link:focus-visible { outline: none; }
 /* на красной плашке стрелка — белая кнопка 38 px с красной стрелкой, проявляется снизу вверх, как заливка плашки */
-.premium-process__link { background: linear-gradient(var(--brand-white), var(--brand-white)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .25s ease; }
+/* Иконка этапа использует тот же направленный hover: светлый слой раскрывается слева направо. */
+.premium-process__link { background: linear-gradient(var(--brand-white), var(--brand-white)) no-repeat 0 50% / 0 100%; transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease; }
 .premium-process__steps li:is(:hover, :focus-within) .premium-process__link { background-size: 100% 100%; color: var(--brand-red); }

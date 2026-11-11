@@ -70,9 +70,16 @@
   --color-tab-active: var(--brand-black);
   --color-tab-indicator: var(--brand-black);
   --color-control-default: var(--brand-light);
-  --color-control-hover: var(--brand-line-soft);
+  --color-control-hover: color-mix(in srgb, var(--brand-light) 94%, var(--brand-black));
   --color-control-active: var(--brand-red);
   --color-control-on-active: var(--brand-white);
+
+  /* Кнопки с текстом и диагональной стрелкой. */
+  --control-action-height: 48px;
+  --control-action-arrow-size: 20px;
+  /* Квадратные кнопки со стрелкой: единый размер для карточек, слайдеров и «наверх». */
+  --control-icon-button-size: 48px;
+  --control-icon-arrow-size: 20px;
 
   /* Шкала затемнений: один фирменный оттенок, разные уровни прозрачности. */
   --color-overlay-clear: rgba(35, 31, 32, 0);
@@ -159,7 +166,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .fs-arrow--up { transform: rotate(-135deg); }
 .fs-arrow--up-right { transform: rotate(-90deg); }
 
-.footer__bottom a[href="#top"] svg { width: 16px; height: 16px; }
+.footer__bottom a[href="#top"] svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
 
 /* ---------- Шкала шрифтов ----------
    8 ступеней вместо 18 разных размеров. Пока применяется на страницах проектов
@@ -206,7 +213,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Основной текст */
 .projects-page :is(.solutions__head p, .category-intro__lead, .category-section__head p, .category-systems__lead, .idea__point p, .category-about p, .category-form__intro p, .project-info__lead, .project-tabs__panel p, .footer__contacts > a) { font-size: var(--fs-body); line-height: var(--lh-body); }
 /* Интерфейс */
-.projects-page :is(.header__phone, .footer__nav a, .footer__contacts address, .filter-group label, .section-label, .category-intro .section-label) { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+.projects-page :is(.footer__nav a, .footer__contacts address, .filter-group label, .section-label, .category-intro .section-label) { font-size: var(--fs-ui); line-height: var(--lh-ui); }
 /* Подписи */
 .projects-page :is(.solution-card small, .solution-card em, .category-form__agree span, .category-form__agree a) { font-size: var(--fs-caption); line-height: var(--lh-caption); }
 /* Бейджи и соцсети */
@@ -244,20 +251,17 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .geo .geo__arrow { align-self: flex-end; }
 /* Описание категории под заголовком в каталоге «Проектов» */
 .projects-page .project-group__desc { max-width: 720px; margin: -12px 0 24px; color: var(--brand-muted); font-size: var(--fs-body); line-height: var(--lh-body); }
-/* Категории в каталоге — красные по умолчанию, чтобы привлечь внимание; при наведении кнопка темнеет */
+/* Названия категорий в каталоге — красные; стрелка рядом с заголовком без фоновой плашки. */
 .projects-page .project-group header h3 { color: var(--red); }
-.projects-page .project-group header .project-group__arrow { background: var(--red); color: var(--brand-white); }
-.projects-page .project-group header:hover .project-group__arrow { background: var(--brand-red-hover); }
+.projects-page .project-group header .project-group__arrow { background: transparent; color: var(--color-action-primary); }
 /* Первый экран категории: заголовок — ступень «первый экран», описание — крупный текст */
 .projects-page .category-hero h1 { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: -1.3px; }
 .projects-page .category-hero__lead { font-size: var(--fs-h4); line-height: var(--lh-h4); }
 .projects-page .category-intro__title { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; text-transform: uppercase; }
 /* Кнопки слайдера на втором экране категории — как остальные кнопки-стрелки проекта:
-   «вперёд» — главное действие, красная с белой стрелкой; «назад» — светлая; стрелка 20 px, как в CTA */
+   «вперёд» — главное действие, красная с белой стрелкой; «назад» — светлая; стрелка 20 px, как в CTA. */
 .projects-page .category-intro__slider-nav button svg { width: 20px; height: 20px; stroke-width: 1.7px; }
 .projects-page .category-intro__slider-nav [data-slide-next] { background: var(--red); color: var(--brand-white); }
-.projects-page .category-intro__slider-nav [data-slide-next]:hover,
-.projects-page .category-intro__slider-nav [data-slide-next]:focus-visible { background: var(--brand-red-hover); }
 /* Второй экран категории: над подкатегориями одна надпись — как «Категории» и «Продукты» на странице «Проекты» */
 .projects-page .category-intro__directions { gap: 16px; }
 .projects-page .category-intro__directions-label { margin: 0 0 8px; color: var(--brand-muted); font-size: var(--fs-ui); line-height: var(--lh-ui); text-transform: uppercase; letter-spacing: .04em; }
@@ -270,8 +274,6 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Второй экран категории — на фирменном светло-сером; кнопка «назад» на нём белая, чтобы не сливалась */
 .projects-page .category-intro { background: var(--brand-light); }
 .projects-page .category-intro__slider-nav [data-slide-prev] { background: var(--brand-white); }
-.projects-page .category-intro__slider-nav [data-slide-prev]:hover,
-.projects-page .category-intro__slider-nav [data-slide-prev]:focus-visible { background: var(--red); color: var(--brand-white); }
 /* Первый экран категории — на том же светло-сером, что второй: при перелёте фото фон не меняется */
 .projects-page .category-hero { background: var(--brand-light); }
 /* Второй экран категории — на всю высоту экрана: шапка 82 + по 40 сверху и снизу, фото забирает остальное */
@@ -362,51 +364,218 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .project-card__details .project-card__name { order: -1; margin-bottom: 10px; color: inherit; text-decoration: none; }
 .project-card__details .project-card__name strong { margin: 0; }
 .project-card__badges > .project-card__sub { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border: 1px solid var(--brand-line); border-radius: 12px; background: var(--brand-white); color: var(--brand-muted); font: 400 var(--fs-badge)/var(--lh-badge) var(--font-text); text-decoration: none; }
-/* Карточки решений: подпись 14, в правом нижнем углу — красная кнопка-стрелка ↘ 38 px (стрелка 14), как у объектов страницы решения */
+/* Карточки решений: подпись 14, в правом нижнем углу — единая красная кнопка-стрелка 48 / 20. */
 .projects-page .solution-card em { font-size: var(--fs-ui); line-height: var(--lh-ui); }
-.projects-page .solution-card__arrow { position: absolute; top: auto; right: 20px; bottom: 20px; z-index: 2; display: grid; place-items: center; width: 38px; height: 38px; background: var(--brand-red); color: var(--brand-white); font-size: 0; transition: background .18s ease; }
-.projects-page .solution-card__arrow svg { width: 14px; height: 14px; }
-.projects-page .solution-card:hover .solution-card__arrow, .projects-page .solution-card:focus-visible .solution-card__arrow { background: var(--brand-red-hover); }
+.projects-page .solution-card__arrow { position: absolute; top: auto; right: 20px; bottom: 20px; z-index: 2; display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); background: var(--brand-red); color: var(--brand-white); font-size: 0; transition: background .18s ease; }
+.projects-page .solution-card__arrow svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
 /* «География проектов»: при наведении — красный фирменный */
 .projects-page .geo.hero__cta:hover, .projects-page .geo.hero__cta:focus-visible { background: var(--brand-red); }
-/* стрелка карточки решения: по умолчанию без фона, при наведении на карточку кнопка заливается красным снизу вверх */
+/* Единый паттерн текстовых действий: CTA, переход к списку, отправка формы и география.
+   Все элементы стоят по центральной горизонтальной оси; диагональная стрелка всегда 20 px. */
+.projects-page :is(.hero__cta, .category-all-link, .category-form__submit) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--control-action-height);
+  min-height: var(--control-action-height);
+  padding-block: 0;
+}
+.projects-page :is(.hero__cta, .category-all-link, .category-form__submit) > .fs-arrow,
+.projects-page :is(.hero__cta, .category-all-link, .category-form__submit) > svg {
+  flex: 0 0 var(--control-action-arrow-size);
+  width: var(--control-action-arrow-size);
+  height: var(--control-action-arrow-size);
+  align-self: center;
+}
+.projects-page :is(.hero__cta, .category-all-link, .category-form__submit):is(:hover, :focus-visible) > svg { transform: none; }
+.projects-page .projects .geo.hero__cta {
+  height: var(--control-action-height);
+  min-height: var(--control-action-height);
+  padding-block: 0;
+  align-items: center;
+}
+.projects-page .geo .geo__content,
+.projects-page .geo .geo__arrow,
+.projects-page .hero__cta .geo__icon { align-self: center; }
+.projects-page .geo .geo__content { align-items: center; }
+.projects-page.premium-page .hero__cta.premium-cta { height: var(--control-action-height); min-height: var(--control-action-height); padding-block: 0; }
+/* Заливка текстовых кнопок раскрывается слева направо, без смены их обычного цвета. */
+.projects-page :is(.hero__cta:not(.geo), .category-form__submit) {
+  background-color: var(--color-action-primary);
+  background-image: linear-gradient(var(--color-action-primary-hover), var(--color-action-primary-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease, translate .5s cubic-bezier(.22, .61, .24, 1), opacity .35s ease;
+}
+.projects-page :is(.hero__cta:not(.geo), .category-form__submit):is(:hover, :focus-visible, .is-hover) {
+  background-color: var(--color-action-primary);
+  background-image: linear-gradient(var(--color-action-primary-hover), var(--color-action-primary-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 100% 100%;
+  color: var(--color-action-on-primary);
+  outline: none;
+}
+.projects-page .projects .geo.hero__cta {
+  background-color: var(--brand-black);
+  background-image: linear-gradient(var(--color-action-primary), var(--color-action-primary));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease;
+}
+.projects-page .projects .geo.hero__cta:is(:hover, :focus-visible, .is-hover) {
+  background-color: var(--brand-black);
+  background-image: linear-gradient(var(--color-action-primary), var(--color-action-primary));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 100% 100%;
+  color: var(--color-action-on-primary);
+  outline: none;
+}
+/* Стрелка карточки решения: без фона по умолчанию; красный слой раскрывается слева направо при наведении. */
 .projects-page .solution-card__arrow { background: none; overflow: hidden; }
-.projects-page .solution-card__arrow::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--brand-red); transform: scaleY(0); transform-origin: 50% 100%; transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
+.projects-page .solution-card__arrow::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--brand-red); transform: scaleX(0); transform-origin: 0 50%; transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
 .projects-page .solution-card__arrow svg { position: relative; }
 .projects-page .solution-card:hover .solution-card__arrow, .projects-page .solution-card:focus-visible .solution-card__arrow { background: none; }
-.projects-page .solution-card:hover .solution-card__arrow::before, .projects-page .solution-card:focus-visible .solution-card__arrow::before { transform: scaleY(1); }
+.projects-page .solution-card:hover .solution-card__arrow::before, .projects-page .solution-card:focus-visible .solution-card__arrow::before { transform: scaleX(1); }
 /* Каталог: выбрана подкатегория — бейдж подкатегории на карточках скрыт */
 .project-group.is-subcategory .project-card__sub { display: none; }
 /* Подкатегории в каталоге — одиночный выбор: круглая радиокнопка (исключение из правила без скруглений), выбранная — красная точка */
 .filter-group input[type="radio"] { position: relative; border-radius: 50% !important; background: var(--brand-white); }
 .filter-group input[type="radio"]:checked { border-color: var(--brand-red); background: var(--brand-white); box-shadow: inset 0 0 0 3px var(--brand-white); background: var(--brand-red); }
 
-/* ===== Единый ховер кнопок-стрелок (2026-11-06) =====
-   Квадратная кнопка со стрелкой при наведении заливается снизу вверх насыщенным красным --brand-red-hover (#E62A17,
-   тот же тон, что фирменный #EF4836, чуть темнее, но без серости), стрелка — белая.
+/* ===== Единые размеры и ховер кнопок-стрелок =====
+   Квадратная кнопка при наведении раскрывает цветной слой слева направо; иконка становится белой.
    Фон кнопки по умолчанию (красный, светлый, прозрачный) не меняется — заливка идёт слоем поверх него.
    Новые кнопки-стрелки добавлять в оба списка ниже. */
-:is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button, .category-intro__slider-nav button) {
+:is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button,
+    .category-intro__slider-nav button, .premium-process__link,
+    .footer__bottom a[href="#top"]) {
+  display: grid;
+  place-items: center;
+  width: var(--control-icon-button-size);
+  min-width: var(--control-icon-button-size);
+  height: var(--control-icon-button-size);
+  min-height: var(--control-icon-button-size);
+}
+:is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button,
+    .category-intro__slider-nav button, .premium-process__link,
+    .footer__bottom a[href="#top"]) svg {
+  width: var(--control-icon-arrow-size);
+  height: var(--control-icon-arrow-size);
+}
+:is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button, .category-intro__slider-nav button, .premium-hero__nav button, .form-modal__close) {
   background-image: linear-gradient(var(--brand-red-hover), var(--brand-red-hover)) !important;
-  background-repeat: no-repeat !important; background-position: 50% 100% !important; background-size: 100% 0 !important;
+  background-repeat: no-repeat !important; background-position: 0 50% !important; background-size: 0 100% !important;
   transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease !important;
 }
 :is(.project-group header:hover .project-group__arrow, .project-group__arrow:focus-visible,
     .premium-object:hover .premium-object__arrow, .premium-object__arrow:focus-visible,
     .systems-nav__arrows button:not(:disabled):is(:hover, :focus-visible),
-    .category-intro__slider-nav button:is(:hover, :focus-visible)) {
+    .category-intro__slider-nav button:is(:hover, :focus-visible),
+    .premium-hero__nav button:is(:hover, :focus-visible),
+    .form-modal__close:is(:hover, :focus-visible)) {
   background-size: 100% 100% !important; color: var(--brand-white) !important;
 }
-/* под заливкой цвет кнопки не перекрашиваем — иначе мелькает тёмно-красный */
-.projects-page .project-group header:hover .project-group__arrow { background-color: var(--red); }
+/* Красная кнопка по умолчанию уходит в графит, а стрелка рядом с заголовком без фона получает красную заливку. */
+.projects-page .project-group__arrow {
+  background-color: transparent;
+  background-image: linear-gradient(var(--color-action-primary), var(--color-action-primary)) !important;
+}
+.projects-page .project-group header:hover .project-group__arrow { background-color: transparent; }
+/* У прозрачной стрелки нет базовой плашки: при наведении появляется фирменный красный слой. */
+.projects-page .premium-object__arrow {
+  background-image: linear-gradient(var(--color-action-primary), var(--color-action-primary)) !important;
+}
 .systems-nav__arrows [data-sys-next]:hover, .others-nav [data-others-next]:not(:disabled):hover { background-color: var(--red); }
 .projects-page .category-intro__slider-nav [data-slide-next]:is(:hover, :focus-visible) { background-color: var(--red); }
 .projects-page .category-intro__slider-nav [data-slide-prev]:is(:hover, :focus-visible) { background-color: var(--brand-white); }
 .systems-nav__arrows [data-sys-prev]:hover { background-color: var(--brand-white); }
 .others-nav [data-others-prev]:not(:disabled):hover { background-color: var(--brand-light); }
-.premium-object:hover .premium-object__arrow { background-color: var(--brand-red); }
-/* карточка решения: стрелка без фона, заливка — тот же тёмный красный снизу вверх */
-.projects-page .solution-card__arrow::before { background: var(--brand-red-hover); }
+.projects-page .premium-object:hover .premium-object__arrow { background-color: transparent; }
+.projects-page .form-modal__close:is(:hover, :focus-visible) { background-color: var(--brand-light); }
+/* Стрелки слайдеров: светлая кнопка получает спокойный нейтральный слой,
+   красная — только мягко затемняется. Старое мгновенное перекрашивание убрано. */
+:is(.systems-nav__arrows [data-sys-prev], .others-nav [data-others-prev],
+    .projects-page .category-intro__slider-nav [data-slide-prev]) {
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover)) !important;
+}
+:is(.systems-nav__arrows [data-sys-next], .others-nav [data-others-next],
+    .projects-page .category-intro__slider-nav [data-slide-next]) {
+  background-image: linear-gradient(var(--color-action-accent-hover), var(--color-action-accent-hover)) !important;
+}
+:is(.systems-nav__arrows [data-sys-prev], .others-nav [data-others-prev],
+    .projects-page .category-intro__slider-nav [data-slide-prev]):is(:hover, :focus-visible) {
+  color: var(--color-text-primary) !important;
+}
+/* Фильтры: hover лишь делает строку заметнее — без красного акцента и резкой заливки. */
+.projects-page .filter-group summary {
+  color: var(--color-text-secondary);
+  transition: color .18s ease;
+}
+.projects-page .filter-group summary:is(:hover, :focus-visible) {
+  color: var(--color-text-primary);
+  outline: none;
+}
+.projects-page .filter-group label {
+  cursor: pointer;
+  transition: color .18s ease;
+}
+.projects-page .filter-group label:is(:hover, :focus-within) { color: var(--color-text-primary); }
+.projects-page .filter-group label:is(:hover, :focus-within) input:not(:checked) { border-color: var(--color-text-secondary); }
+/* «Наверх» — такая же красная кнопка: тёмная заливка раскрывается слева направо. */
+.footer__bottom a[href="#top"] {
+  overflow: hidden;
+  background-color: var(--brand-red);
+  background-image: linear-gradient(var(--brand-red-hover), var(--brand-red-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease;
+}
+.footer__bottom a[href="#top"]:is(:hover, :focus-visible) {
+  background-size: 100% 100%;
+  color: var(--brand-white);
+  outline: 2px solid var(--brand-white);
+  outline-offset: 2px;
+}
+/* Выбранный фильтр — компактный второстепенный контрол: мягкая заливка растёт слева направо. */
+.selected-filter {
+  background-color: var(--brand-white);
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), border-color .18s ease;
+}
+.selected-filter:is(:hover, :focus-within) {
+  background-size: 100% 100%;
+  border-color: var(--color-border-default);
+}
+/* Фокус остаётся видимым и без курсора: та же поверхность меняется клавиатурой,
+   а тонкий контур не теряется на белом и светло-сером фоне. */
+.projects-page :is(.hero__cta, .category-all-link, .category-form__submit,
+  .product-chip, .selected-filter, .project-group__arrow, .premium-object__arrow,
+  .systems-nav__arrows button, .category-intro__slider-nav button,
+  .premium-process__link, .form-modal__close):focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .projects-page :is(.hero__cta, .category-all-link, .category-form__submit,
+    .product-chip, .selected-filter, .project-group__arrow, .premium-object__arrow,
+    .systems-nav__arrows button, .category-intro__slider-nav button,
+    .premium-hero__nav button, .premium-process__link, .form-modal__close),
+  .projects-page .solution-card__arrow::before,
+  .header .header__actions :is(.icon-btn, .burger, .btn-accent) {
+    transition: none !important;
+  }
+  .projects-page .filter-group :is(summary, label) { transition: none; }
+}
+/* Карточка решения: стрелка без фона при наведении получает фирменную красную заливку слева направо. */
+.projects-page .solution-card__arrow::before { background: var(--color-action-primary); }
 /* Каталог: фильтр систем — в колонке проектов над категориями; общий разделитель — под заголовком на всю ширину,
    подписи «Категории» и «Системы» на одной линии в 24 px под ним */
 .catalog-page .projects__head { border-bottom: 1px solid var(--line); }
@@ -418,9 +587,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .catalog-page .projects.has-active-filters .filter-status-bar { top: var(--sticky-header-height); }
 /* Колонка фильтров прилипает в 40 px под шапкой: системы больше не липкие, плашка выбранных фильтров — только над проектами */
 .catalog-page .sidebar, .catalog-page .projects.has-active-filters .sidebar { top: calc(var(--sticky-header-height) + 40px); max-height: calc(100vh - var(--sticky-header-height) - 80px); }
-/* Второй экран категории: кнопки слайдера 40 px, стрелка 14 — как остальные кнопки-стрелки */
-.projects-page .category-intro .category-intro__slider-nav button { width: 40px; height: 40px; }
-.projects-page .category-intro .category-intro__slider-nav button svg { width: 14px; height: 14px; stroke-width: 1.6px; }
+/* Второй экран категории: единый квадратный контрол 48 px, стрелка 20 px. */
+.projects-page .category-intro .category-intro__slider-nav button { width: var(--control-icon-button-size); height: var(--control-icon-button-size); }
+.projects-page .category-intro .category-intro__slider-nav button svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); stroke-width: 1.6px; }
 /* «Применяемые системы» на невысоких экранах (ноутбук 1440 × ~730): воздух сверху и снизу резиновый — 100 px на высоких экранах,
    до 40 px на низких, чтобы блок (не меньше 560 px) целиком помещался под шапкой */
 .projects-page .category-systems { --sys-pad: clamp(40px, calc((100svh - var(--header-height) - 560px) / 2), 100px); }
@@ -481,6 +650,76 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .header .nav { gap: 25px; }
 .header :is(.nav a, .header__phone) { color: inherit; text-decoration: none; }
 .header :is(.nav a, .header__phone) { font-size: var(--fs-header-nav); line-height: var(--lh-header-nav); }
+.header .header__phone { font: 400 var(--fs-header-nav)/var(--lh-header-nav) var(--font-text); }
+/* Действия в шапке используют единый эффект заливки слева направо.
+   Поиск и бургер — второстепенные нейтральные контролы, CTA — главное действие. */
+.header .header__actions :is(.icon-btn, .burger, .btn-accent) {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease;
+}
+.header .header__actions .icon-btn {
+  background-color: transparent;
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+}
+.header .header__actions .burger {
+  background-color: var(--brand-light);
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+}
+.header .header__actions .btn-accent {
+  background-color: var(--color-action-primary);
+  background-image: linear-gradient(var(--color-action-primary-hover), var(--color-action-primary-hover));
+}
+.header .header__actions :is(.icon-btn, .burger, .btn-accent):is(:hover, :focus-visible, .is-hover) {
+  background-size: 100% 100%;
+  outline: none;
+}
+.header .header__actions :is(.icon-btn, .burger):is(:hover, :focus-visible, .is-hover) { color: var(--color-text-primary); }
+.header .header__actions .btn-accent:is(:hover, :focus-visible, .is-hover) { color: var(--color-action-on-primary); }
+.header .header__actions .burger svg { stroke: currentColor; }
+/* Неактивные табы-фильтры остаются второстепенными:
+   нейтральная hover-поверхность раскрывается слева направо. */
+.product-chip:not(.is-active) {
+  background-color: var(--color-control-default);
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease;
+}
+.product-chip:not(.is-active):is(:hover, :focus-visible, .is-hover) {
+  background-color: var(--color-control-default);
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 100% 100%;
+  color: var(--color-text-primary);
+  outline: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .header .header__actions :is(.icon-btn, .burger, .btn-accent),
+  .product-chip:not(.is-active) { transition: none; }
+}
+/* Навигация хедера: текущий раздел отмечен красным, а линия раскрывается
+   точно по нижнему краю сквозного хедера. */
+.header .nav a { position: relative; transition: color .25s ease; }
+.header .nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: calc(var(--header-nav-inset) + var(--lh-header-nav) - var(--header-height));
+  left: 0;
+  height: 2px;
+  background: var(--brand-red);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .3s cubic-bezier(.2, .7, .2, 1);
+}
+.header .nav a:is(:hover, :focus-visible, .is-active, .is-hover) { color: var(--brand-red); }
+.header .nav a:is(:hover, :focus-visible, .is-active, .is-hover)::after { transform: scaleX(1); }
+.header .nav a:focus-visible { outline: none; }
 .projects-page main { padding-top: var(--header-height); }
 .projects-page .projects { --sticky-header-height: var(--header-height); }
 .project-info { top: var(--header-height); }
@@ -495,26 +734,55 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 }
 
 /* ---------- Развёрнутое бургер-меню: карта сайта клиента, одна на все страницы ---------- */
-.site-menu { position: fixed; inset: var(--header-height) 0 0 0; z-index: 90; overflow: auto; background: var(--brand-white); color: var(--title); }
+body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-height) 0 0; z-index: 80; pointer-events: none; background: var(--color-overlay-subtle); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.site-menu { position: fixed; inset: var(--header-height) 0 auto 0; z-index: 90; max-height: calc(100svh - var(--header-height)); overflow: auto; background: var(--brand-white); color: var(--title); }
 .site-menu[hidden] { display: none; }
-.site-menu__inner { padding: 48px 0 56px; }
-.site-menu__grid { display: grid; grid-template-columns: 1.1fr 1.3fr 1.2fr 1fr; gap: 40px; align-items: start; }
+.site-menu__inner { padding: var(--space-48) 0; }
+.site-menu__grid { display: grid; grid-template-columns: 1.3fr 1.4fr 1.1fr 1fr 1fr; gap: var(--space-32); align-items: start; }
 .site-menu__group + .site-menu__group { margin-top: 36px; }
 .site-menu__title { margin: 0 0 14px; font-size: var(--fs-body); line-height: var(--lh-body); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .site-menu__title a { color: inherit; text-decoration: none; transition: color .2s ease; }
 .site-menu__title a:hover, .site-menu__title a:focus-visible { color: var(--brand-red); }
 .site-menu__sub + .site-menu__sub { margin-top: 20px; }
-.site-menu__subtitle { margin: 0 0 10px; color: color-mix(in srgb, var(--brand-black) 45%, var(--brand-grey) 55%); font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-.site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-body); line-height: var(--lh-body); text-decoration: none; transition: color .2s ease; }
+.site-menu__subtitle { margin: 0 0 10px; color: var(--brand-grey); font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-ui); line-height: var(--lh-ui); text-decoration: none; transition: color .2s ease; }
 .site-menu__link:hover, .site-menu__link:focus-visible { color: var(--brand-red); }
 .site-menu__link .fs-arrow { width: 13px; height: 13px; opacity: 0; translate: -4px 0; transition: opacity .2s ease, translate .2s ease; }
 .site-menu__link:hover .fs-arrow, .site-menu__link:focus-visible .fs-arrow { opacity: 1; translate: 0 0; }
+.site-menu__promo { display: grid; gap: var(--space-16); }
+.site-menu__promo-card { position: relative; display: flex; align-items: flex-end; justify-content: space-between; aspect-ratio: 1.45; padding: var(--space-24); overflow: hidden; isolation: isolate; background: linear-gradient(var(--color-overlay-soft), var(--color-overlay-deep)), var(--menu-promo-image) center / cover; color: var(--color-text-inverse); font-family: var(--font-head) !important; font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; letter-spacing: -.3px; text-transform: uppercase; text-decoration: none; transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
+.site-menu__promo-arrow { display: block; flex: 0 0 20px; width: 20px; height: 20px; color: currentColor; }
+.site-menu__promo-arrow .fs-arrow { width: 20px; height: 20px; }
+.site-menu__promo-card:hover, .site-menu__promo-card:focus-visible { outline: none; transform: translateY(-2px); }
+.site-menu__promo-card:focus-visible { box-shadow: 0 0 0 2px var(--color-action-primary); }
+.site-menu__contacts { display: grid; gap: var(--space-4); padding-top: var(--space-8); }
+.site-menu__contacts > span { margin-top: var(--space-8); color: var(--color-text-secondary); font-size: var(--fs-caption); line-height: var(--lh-caption); }
+.site-menu__contacts > span:first-child { margin-top: 0; }
+.site-menu__contacts address { margin: 0 0 var(--space-4); color: var(--color-text-secondary); font-size: var(--fs-ui); line-height: var(--lh-ui); font-style: normal; }
+.site-menu__contacts > a { color: var(--color-text-primary); font-size: var(--fs-body); line-height: var(--lh-body); text-decoration: none; }
+.site-menu__contacts > a:hover, .site-menu__contacts > a:focus-visible { color: var(--color-text-accent); outline: none; }
+.site-menu__social { display: flex; gap: 10px; margin-top: var(--space-16); }
+.site-menu__social a { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--color-border-default); color: var(--color-text-primary); font-size: var(--fs-caption); line-height: var(--lh-caption); text-decoration: none; transition: border-color .2s ease, background .2s ease, color .2s ease; }
+.site-menu__social a:hover, .site-menu__social a:focus-visible { border-color: var(--color-action-primary); background: var(--color-action-primary); color: var(--color-action-on-primary); outline: none; }
 
 /* бургер открыт — крестик */
 .header .burger.is-open svg { display: none; }
-.header .burger.is-open::before, .header .burger.is-open::after { content: ""; position: absolute; left: 14px; top: 24px; width: 22px; height: 2px; background: var(--title); }
+.header .burger.is-open::before, .header .burger.is-open::after { content: ""; position: absolute; left: 14px; top: 24px; width: 22px; height: 2px; background: currentColor; }
 .header .burger.is-open::before { transform: rotate(45deg); }
 .header .burger.is-open::after { transform: rotate(-45deg); }
+
+/* Базовые страницы по-разному задают фон бургера. Фиксируем слой hover здесь,
+   после всех их правил, чтобы заливка поиска и меню всегда была видна. */
+.header .header__actions :is(.icon-btn, .burger) {
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover)) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 50% !important;
+  background-size: 0 100% !important;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease !important;
+}
+.header .header__actions :is(.icon-btn, .burger):is(:hover, :focus-visible, .is-hover) {
+  background-size: 100% 100% !important;
+}
 
 /* Невысокие экраны (ноутбук 1440 × ~730): воздух меню плотнее, чтобы карта сайта помещалась без прокрутки */
 @media (max-height: 820px) {

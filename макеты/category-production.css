@@ -98,10 +98,8 @@
 .category-intro__counter span { color: var(--muted); }
 .category-intro__counter span::before { content: "/"; margin: 0 8px; }
 /* Стрелки — того же размера, светло-серые, при наведении красные */
-.category-intro__slider-nav button { display: grid; place-items: center; width: 60px; height: 60px; padding: 0; border: 0; background: var(--brand-light); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
-.category-intro__slider-nav button svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.6; }
-.category-intro__slider-nav button:hover,
-.category-intro__slider-nav button:focus-visible { background: var(--red); color: var(--brand-white); outline: none; }
+.category-intro__slider-nav button { display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); padding: 0; border: 0; background: var(--brand-light); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
+.category-intro__slider-nav button svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); stroke: currentColor; stroke-width: 1.6; }
 
 /* ---------- Портфолио: шапка, фильтр и карточки из projects.css ---------- */
 /* Второй блок — на светло-сером фоне концепта, без линии под заголовком */
@@ -316,11 +314,10 @@
 /* ---------- Применяемые системы (категория и подкатегория): светло-серый фон, вместо счётчика — стрелки и полоса прогресса ---------- */
 .category-systems .idea__sticky, .category-systems .idea__dim { background: var(--brand-light); }
 .systems-nav { position: absolute; left: 0; bottom: 0; display: grid; gap: 24px; width: 440px; }
-.systems-nav__arrows { display: flex; gap: 8px; }   /* стрелки прибиты к левому краю; 38 px — как на первом экране страницы решения */
-.systems-nav__arrows button { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 0; background: var(--brand-white); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
+.systems-nav__arrows { display: flex; gap: 8px; }   /* стрелки прибиты к левому краю; единый размер 48 px. */
+.systems-nav__arrows button { display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); padding: 0; border: 0; border-radius: 0; background: var(--brand-white); color: var(--title); cursor: pointer; transition: background .18s ease, color .18s ease; }
 .systems-nav__arrows [data-sys-next] { background: var(--red); color: var(--brand-white); }
-.systems-nav__arrows button:hover, .systems-nav__arrows button:focus-visible { background: var(--brand-red-hover); color: var(--brand-white); outline: none; }
-.systems-nav__arrows svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.6px; }   /* стрелка 14 px в кнопке 38 px */
+.systems-nav__arrows svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); stroke: currentColor; stroke-width: 1.6px; }   /* стрелка 20 px в кнопке 48 px */
 /* дорожка — фирменный серый, заполнение — чёрный */
 .systems-nav__progress { display: flex; gap: 8px; }
 .systems-nav__progress span { flex: 1; height: 2px; overflow: hidden; background: var(--brand-grey); }
@@ -347,9 +344,24 @@
 .category-projects__about { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
 .category-projects__more { flex: 0 0 auto; margin-top: 2px; color: var(--title); font-size: var(--fs-ui); line-height: var(--lh-ui); }
 .category-projects__more[hidden] { display: none; }
-/* «Все проекты Frontside»: блок теперь на белом — кнопка светло-серая; при наведении заливается красным снизу вверх, как кнопки-стрелки */
-.category-all-link { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1), color .25s ease; }
-.category-all-link:hover, .category-all-link:focus-visible { background: var(--brand-light) linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 100%; color: var(--brand-white); }
+/* Второстепенное действие: спокойная заливка из hover-состояния фильтров растёт слева направо. */
+.category-all-link {
+  background-color: var(--color-control-default);
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 0 100%;
+  transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease;
+}
+.category-all-link:is(:hover, :focus-visible, .is-hover) {
+  background-color: var(--color-control-default);
+  background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 100% 100%;
+  color: var(--color-text-primary);
+  outline: none;
+}
 
 /* ---------- Задачи, которые решает фасад: фото второго экрана раскрывается до ширины контейнера, задачи — колодой ----------
    Механика блока «Особые требования к процессу» (solution-premium.css, .premium-grow): кадр закреплён под шапкой,

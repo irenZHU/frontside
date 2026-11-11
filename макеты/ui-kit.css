@@ -158,10 +158,10 @@ main.kit { margin-left: var(--kit-side); padding: 40px 64px 120px; }
 .kit-item { min-width: 0; }
 .kit-control-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; max-width: 860px; }
 .kit-control-demo { display: flex; flex-direction: column; align-items: flex-start; }
-.ui-kit-page .kit-control-demo .hero__cta { position: static; left: auto; bottom: auto; z-index: auto; width: 300px; height: 60px; animation: none; translate: none; }
+.ui-kit-page .kit-control-demo .hero__cta { position: static; left: auto; bottom: auto; z-index: auto; width: 300px; height: var(--control-action-height); animation: none; translate: none; }
 .ui-kit-page .kit-control-demo .category-form__submit { width: 300px; margin-top: 0; }
 .ui-kit-page .kit-control-demo .category-all-link { margin: 0; }
-.ui-kit-page .kit-control-demo.projects .geo.hero__cta { position: static; left: auto; bottom: auto; z-index: auto; width: 300px; height: 64px; margin: 0; animation: none; translate: none; }
+.ui-kit-page .kit-control-demo.projects .geo.hero__cta { position: static; left: auto; bottom: auto; z-index: auto; width: 300px; height: var(--control-action-height); margin: 0; animation: none; translate: none; }
 .kit-control-demo .icon-btn { background: var(--brand-light); }
 .kit-control-demo .category-intro__slider-nav { margin: 0; }
 .kit-footer-link-demo { width: max-content; padding: 12px 16px; background: var(--brand-black); }
@@ -194,8 +194,11 @@ main.kit { margin-left: var(--kit-side); padding: 40px 64px 120px; }
 .kit-inline-controls { display: inline-flex; align-items: center; gap: 12px; min-height: 60px; }
 .kit-inline-controls .icon-btn { background: var(--brand-light); }
 .kit-inline-controls .product-chips { margin: 0; }
-.ui-kit-page .kit-static-cta { position: static; z-index: auto; width: 300px; height: 60px; animation: none; translate: none; }
-.ui-kit-page .kit-geo-cta { height: 64px; background: var(--brand-black); }
+.kit-control-state { display: inline-flex; align-items: center; gap: 8px; }
+.ui-kit-page .kit-header-control-demo { position: relative; inset: auto; z-index: auto; width: auto; height: 50px; background: transparent; color: var(--color-text-primary); box-shadow: none; }
+.ui-kit-page .kit-header-control-demo .header__actions { position: static; display: flex; height: 50px; margin: 0; }
+.ui-kit-page .kit-static-cta { position: static; z-index: auto; width: 300px; height: var(--control-action-height); animation: none; translate: none; }
+.ui-kit-page .kit-geo-cta { height: var(--control-action-height); background: var(--brand-black); }
 .ui-kit-page .kit-form-submit { width: 300px; margin: 0; }
 .ui-kit-page .kit-category-link { margin: 0; }
 .kit-component-table .btn-accent { width: fit-content; }
@@ -216,11 +219,11 @@ main.kit { margin-left: var(--kit-side); padding: 40px 64px 120px; }
 .kit-component-table .kit-process-link-demo::after { content: none; }
 .kit-component-table .kit-footer-bottom-link-demo { display: block; margin: 0; padding: 0; border: 0; }
 .kit-component-table .kit-footer-bottom-link-demo a { color: var(--brand-white); font-size: var(--fs-caption); line-height: var(--lh-caption); }
-.kit-component-table .kit-footer-bottom-link-demo .kit-back-top-link-demo { display: inline-grid; width: 16px; height: 16px; margin-left: 14px; place-items: center; vertical-align: middle; }
-.kit-component-table .kit-footer-bottom-link-demo .kit-back-top-link-demo svg { width: 16px; height: 16px; }
+.kit-component-table .kit-footer-bottom-link-demo .kit-back-top-link-demo { display: inline-grid; width: var(--control-icon-button-size); height: var(--control-icon-button-size); margin-left: 14px; place-items: center; vertical-align: middle; }
+.kit-component-table .kit-footer-bottom-link-demo .kit-back-top-link-demo svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
 .kit-component-table .category-intro__slider-nav { margin: 0; }
-.kit-component-table .category-intro__slider-nav button { width: 40px; height: 40px; }
-.kit-component-table .category-intro__slider-nav button svg { width: 14px; height: 14px; stroke-width: 1.6px; }
+.kit-component-table .category-intro__slider-nav button { width: var(--control-icon-button-size); height: var(--control-icon-button-size); }
+.kit-component-table .category-intro__slider-nav button svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); stroke-width: 1.6px; }
 #buttons .kit-sub { margin: 40px 0 0; }
 
 /* Состояния наведения показаны классом-помощником .is-hover —
