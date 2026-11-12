@@ -35,6 +35,28 @@
     };
     sec.querySelector('[data-sys-prev]')?.addEventListener('click', () => show(current - 1));
     sec.querySelector('[data-sys-next]')?.addEventListener('click', () => show(current + 1));
+    // На категории и подкатегории стрелки заменены свайпом по фотографии.
+    if (document.body.matches('.production-page, .subcategory-page')) {
+      const photos = sec.querySelector('.idea__photos');
+      let start = null;
+      photos.addEventListener('touchstart', e => {
+        start = e.touches.length === 1 ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+      }, { passive: true });
+      photos.addEventListener('touchend', e => {
+        if (!start) return;
+        const dx = e.changedTouches[0].clientX - start.x, dy = e.changedTouches[0].clientY - start.y;
+        start = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) show(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+      photos.addEventListener('touchcancel', () => { start = null; }, { passive: true });
+      photos.tabIndex = 0;
+      photos.setAttribute('aria-label', 'Фасадные системы: листайте фото влево или вправо');
+      photos.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        e.preventDefault();
+        show(current + (e.key === 'ArrowRight' ? 1 : -1));
+      });
+    }
     show(0);
     return;
   }

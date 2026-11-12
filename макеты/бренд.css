@@ -807,6 +807,22 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .header .nav { gap: 20px; }   /* самый узкий ноутбук: шаг меню плотнее, иначе разделы слипаются */
 }
 
+/* Производственные объекты: локальный адаптив, без изменения соседних макетов. */
+.production-page { --grow-track-height: 400vh; }
+@media (min-width: 768px) and (max-width: 1180px) {
+  body.production-page { min-width: 0; }
+  .projects-page.production-page .container { width: calc(100% - 64px); }
+  .production-page .header .nav, .production-page .header__phone { display: none; }
+  .production-page .site-menu__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .production-page .category-hero__content { width: calc(100% - 64px); }
+}
+@media (max-width: 767px) {
+  .production-page { --grow-track-height: 340vh; }
+  .projects-page.production-page .category-form__intro h2 { font-size: 24px; line-height: 29px; }
+  .projects-page.production-page .footer__brand { font-size: 32px; line-height: 35px; }
+  .projects-page.production-page .footer__nav a { font-size: 16px; line-height: 24px; }
+}
+
 /* ---------- Мобильная основа: 0–767 px ----------
    Первый адаптивный слой общий для всех страниц: сквозной хедер и меню.
    Базовый макет — 360 px, поля контейнера 16 px, интерактивные зоны — не меньше 48 px. */
@@ -1100,4 +1116,98 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .footer__social .footer__to-top svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
   .footer__bottom { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-16); min-height: 0; padding-top: var(--space-16); }
   .footer__bottom > a:last-child { display: none; }
+}
+
+/* Производственные объекты: естественный поток и единый ритм на телефоне. */
+@media (max-width: 767px) {
+  .projects-page.production-page .category-hero { height: auto; min-height: 600px; padding-bottom: var(--space-16); }
+  .projects-page.production-page .category-hero__content { position: relative; inset: auto; width: calc(100% - 32px); margin: var(--space-48) auto var(--space-32); translate: none; }
+  .projects-page.production-page .category-hero__bottom { position: relative; inset: auto; display: flex; flex-direction: column; gap: var(--space-24); }
+  .projects-page.production-page .category-hero__cta { order: 1; margin-top: 0; }
+  .projects-page.production-page .hero-subs { display: block; width: 100%; touch-action: pan-y pinch-zoom; }
+  .projects-page.production-page .hero-subs__card { grid-template-columns: 112px minmax(0, 1fr); gap: var(--space-12); }
+  .projects-page.production-page .hero-subs__photo { height: 120px; }
+  .projects-page.production-page .hero-subs__text { min-width: 0; padding-top: var(--space-4); padding-bottom: var(--space-24); }
+  .projects-page.production-page .hero-subs__title { font-size: 16px; line-height: 20px; overflow-wrap: anywhere; }
+  .projects-page.production-page .hero-subs__bars { left: 132px; right: var(--space-8); bottom: var(--space-8); }
+
+  .projects-page.production-page .category-intro .reveal-lines .line,
+  .projects-page.production-page .category-intro .reveal-lines .line > span { display: inline; overflow: visible; transform: none; transition: none; }
+  .projects-page.production-page .category-intro .reveal-lines .line + .line::before { content: " "; }
+  .projects-page.production-page .category-intro__title + .category-intro__lead { margin-top: var(--space-16); }
+  .projects-page.category-page.production-page #projects-list .product-filter-bar { box-sizing: border-box; width: 100%; margin-inline: 0; }
+
+  .projects-page.production-page .category-systems { background: var(--brand-light); }
+  .projects-page.production-page .category-systems .idea__sticky { padding: 0; }
+  .projects-page.production-page .category-systems .idea__title { margin-top: 0; }
+  .projects-page.production-page .category-systems .idea__points,
+  .projects-page.production-page .category-systems .systems-nav { width: 100%; min-width: 0; }
+  .projects-page.production-page .category-systems .idea__point.is-active { display: flex; flex-direction: column; gap: var(--space-16); }
+  .projects-page.production-page .category-systems .idea__point p { width: auto; }
+  .projects-page.production-page .category-systems .idea__photos { left: auto; top: auto; touch-action: pan-y pinch-zoom; }
+  .projects-page.production-page .category-systems .systems-nav__arrows { display: none; }
+
+  .projects-page.production-page .category-about__inner > * { padding-inline: 0; }
+  .projects-page.production-page .category-others { padding-top: 0; }
+  .projects-page.production-page .category-others .projects__head { padding-top: var(--space-24); }
+  .projects-page.production-page .category-others .others-nav { display: none; }
+}
+
+.subcategory-page .footer__social .footer__to-top { display: none; }
+
+/* Подкатегория: те же мобильные компоненты, без десктопных фиксированных колонок. */
+@media (max-width: 767px) {
+  .projects-page.subcategory-page .subcat-intro { padding: 0 0 var(--space-48); }
+  .projects-page.subcategory-page .subcat-intro .category-intro__grid { grid-template-columns: minmax(0, 1fr); margin-top: var(--space-24); }
+  .projects-page.subcategory-page .subcat-intro :is(h1, h1 *) { font-size: 28px; line-height: 32px; letter-spacing: -.6px; }
+  .projects-page.subcategory-page .reveal-lines .line,
+  .projects-page.subcategory-page .reveal-lines .line > span { display: inline; overflow: visible; transform: none; transition: none; }
+  .projects-page.subcategory-page .reveal-lines .line + .line::before { content: " "; }
+  .projects-page.subcategory-page .subcat-intro__lead { margin-top: var(--space-16); }
+  .projects-page.subcategory-page .subcat-intro .category-intro__cta { width: 100%; margin-top: var(--space-8); }
+  .projects-page.subcategory-page .subcat-intro .category-intro__media { grid-column: auto; order: 0; touch-action: pan-y pinch-zoom; }
+  .projects-page.subcategory-page .subcat-intro .hero-subs { display: block; touch-action: pan-y pinch-zoom; }
+  .projects-page.subcategory-page .subcat-intro .hero-subs__card { grid-template-columns: 112px minmax(0, 1fr); gap: var(--space-12); }
+  .projects-page.subcategory-page .subcat-intro .hero-subs__photo { height: 120px; }
+  .projects-page.subcategory-page .subcat-intro .hero-subs__text { min-width: 0; padding-top: var(--space-4); padding-bottom: var(--space-24); }
+  .projects-page.subcategory-page .subcat-intro .hero-subs__title { font-size: 16px; line-height: 20px; overflow-wrap: anywhere; }
+  .projects-page.subcategory-page .subcat-intro .hero-subs__bars { left: 132px; right: var(--space-8); bottom: var(--space-8); }
+  .projects-page.subcategory-page .subcat-intro .breadcrumbs { flex-wrap: nowrap; overflow: hidden; white-space: nowrap; }
+  .projects-page.subcategory-page .subcat-intro .breadcrumbs > * { flex: 0 0 auto; }
+  .projects-page.subcategory-page .subcat-intro .breadcrumbs a:nth-child(3) { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .projects-page.subcategory-page .subcat-intro .breadcrumbs [aria-current] { flex: 1 1 auto; min-width: 64px; overflow: hidden; text-overflow: ellipsis; }
+
+  .projects-page.subcategory-page .subcat-projects { padding: var(--space-48) 0; }
+  .projects-page.subcategory-page .premium-head { display: block; margin-bottom: var(--space-24); }
+  .projects-page.subcategory-page .premium-title { font-size: 24px; line-height: 29px; letter-spacing: 0; }
+  .projects-page.subcategory-page .premium-head__link { display: inline-block; margin-top: var(--space-16); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .projects-page.subcategory-page .premium-objects__grid { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: var(--space-24); border: 0; }
+  .projects-page.subcategory-page .premium-object { padding: var(--space-16); border: 1px solid var(--brand-line); }
+  .projects-page.subcategory-page .premium-object + .premium-object { border-top: 0; }
+  .projects-page.subcategory-page .premium-object h3 { min-height: 0; margin: 0 0 var(--space-16); font-size: 20px; line-height: 24px; letter-spacing: 0; }
+  .projects-page.subcategory-page .premium-object__photo { aspect-ratio: 16 / 9; }
+  .projects-page.subcategory-page .premium-object__meta { margin-top: var(--space-12); }
+
+  .projects-page.subcategory-page .category-systems { background: var(--brand-light); }
+  .projects-page.subcategory-page .category-systems .idea__sticky { padding: 0; }
+  .projects-page.subcategory-page .category-systems .idea__title { margin-top: 0; }
+  .projects-page.subcategory-page .category-systems .idea__points,
+  .projects-page.subcategory-page .category-systems .systems-nav { width: 100%; min-width: 0; }
+  .projects-page.subcategory-page .category-systems .idea__point.is-active { display: flex; flex-direction: column; gap: var(--space-16); }
+  .projects-page.subcategory-page .category-systems .idea__point p { width: auto; }
+  .projects-page.subcategory-page .category-systems .idea__photos { left: auto; top: auto; touch-action: pan-y pinch-zoom; }
+  .projects-page.subcategory-page .category-systems .systems-nav__arrows { display: none; }
+  .projects-page.subcategory-page .category-about { padding: var(--space-48) 0; }
+  .projects-page.subcategory-page .category-about__inner > * { padding-inline: 0; }
+  .projects-page.subcategory-page .subcat-about__text { margin-top: 0; }
+
+  .projects-page.subcategory-page .subcat-siblings { padding: 0 0 var(--space-48); }
+  .projects-page.subcategory-page .subcat-siblings .projects__head { padding-top: var(--space-24); margin-bottom: var(--space-24); }
+  .projects-page.subcategory-page .subcat-siblings .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none !important; gap: var(--space-16); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .projects-page.subcategory-page .subcat-siblings .cards::-webkit-scrollbar { display: none; }
+  .projects-page.subcategory-page .subcat-siblings .project-item { scroll-snap-align: start; min-width: 0; }
+  .projects-page.subcategory-page .category-form__intro h2 { font-size: 24px; line-height: 29px; }
+  .projects-page.subcategory-page .footer__brand { font-size: 32px; line-height: 35px; }
+  .projects-page.subcategory-page .footer__nav a { font-size: 16px; line-height: 24px; }
+  .subcategory-page .footer__social .footer__to-top { display: grid; }
 }

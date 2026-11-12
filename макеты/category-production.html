@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="category-production.css">
   <link rel="stylesheet" href="бренд.css">
 </head>
-<body class="projects-page category-page" id="top">
+<body class="projects-page category-page production-page" id="top">
   <header class="header is-scrolled">
     <div class="container header__inner">
       <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
@@ -66,7 +66,7 @@
             <p class="category-intro__directions-label reveal-lines" style="--d:.1s">Производственные объекты</p>
             <div>
               <h2 class="category-intro__title reveal-lines">Подбираем систему под режим работы здания</h2>
-              <p class="category-intro__lead reveal-lines" style="--d:.25s">Здесь собраны реализованные объекты Frontside по трём направлениям: промышленные предприятия, технопарки и Light Industrial. По каждому — применённая система, решения по фасаду и фотографии. Листайте проекты справа или выберите подкатегорию.</p>
+              <p class="category-intro__lead reveal-lines" style="--d:.25s">Здесь собраны реализованные объекты Frontside по трём направлениям: промышленные предприятия, технопарки и Light Industrial. По каждому — применённая система, решения по фасаду и фотографии. Листайте проекты или выберите подкатегорию.</p>
             </div>
           </div>
           <div class="category-intro__media category-intro__spot" data-grow-spot aria-hidden="true"></div>   <!-- место фото: само фото — кадр блока «Задачи» ниже, стоит ровно здесь -->
@@ -184,16 +184,16 @@
             <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
           </div>
           </div>
-          <!-- стрелки и полоса прогресса: отрезок на каждую систему, заполняется прокруткой (idea-scroll.js) -->
-          <div class="systems-nav">
-            <div class="systems-nav__arrows"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
-            <div class="systems-nav__progress" data-sys-progress aria-hidden="true"></div>
-          </div>
           <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></div>
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></div>
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></div>
           <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></div>
+          </div>
+          <!-- стрелки и полоса прогресса: отрезок на каждую систему, заполняется прокруткой (idea-scroll.js) -->
+          <div class="systems-nav">
+            <div class="systems-nav__arrows"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
+            <div class="systems-nav__progress" data-sys-progress aria-hidden="true"></div>
           </div>
           <a class="hero__cta category-systems__cta" href="#feedback"><span class="hero__cta-text">Подобрать систему</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
         </div>
@@ -372,7 +372,20 @@
       clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
     }
     bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
+    let subTouch=null, subSwiped=false;
+    subsBox.addEventListener("touchstart",e=>{
+      subSwiped=false;
+      subTouch=matchMedia("(max-width: 767px)").matches&&e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
+    },{passive:true});
+    subsBox.addEventListener("touchend",e=>{
+      if(!subTouch)return;
+      const dx=e.changedTouches[0].clientX-subTouch.x,dy=e.changedTouches[0].clientY-subTouch.y;
+      subTouch=null;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5){subSwiped=true;showSub(subIndex+(dx<0?1:-1));}
+    },{passive:true});
+    subsBox.addEventListener("touchcancel",()=>{subTouch=null;},{passive:true});
     subCard.addEventListener("click",()=>{
+      if(subSwiped){subSwiped=false;return;}
       const sub=subs[subIndex];
       if(sub.page){ location.href=sub.page; return; }
       setDirection(sub.name);
@@ -401,19 +414,22 @@
     const growSpot=document.querySelector("[data-grow-spot]"), growTrack=document.querySelector("[data-grow-track]");
     const growFrameBox=document.querySelector("[data-grow-frame]"), growMedia=growFrameBox.querySelector("[data-slide-media]");
     const growCards=[...document.querySelectorAll("[data-card]")], growGrid=document.querySelector(".category-grow__cards");
-    const growTitle=document.querySelector("[data-grow-title]"), HEADER_H=82;
+    const growTitle=document.querySelector("[data-grow-title]"), growSticky=document.querySelector(".category-grow__sticky");
+    let headerHeight=0, stickyHeight=0;
     let growGap=0;   // путь переезда: от верха фото до низа второго экрана
     function placeGrow(){   // дорожка начинается на уровне верха фото второго экрана и длиннее на путь переезда
+      headerHeight=parseFloat(getComputedStyle(growSticky).getPropertyValue("--header-height"));
+      stickyHeight=growSticky.getBoundingClientRect().height;
       growTrack.style.marginTop="0px";
       growGap=growTrack.getBoundingClientRect().top-growSpot.getBoundingClientRect().top;
       growTrack.style.marginTop=`${-growGap}px`;
       growTrack.parentElement.style.setProperty("--grow-gap",`${growGap}px`);
-      growTrack.style.height=`calc(400vh + ${growGap}px)`;
+      growTrack.style.height=`calc(var(--grow-track-height) + ${growGap}px)`;
       growFrame();
     }
     function growFrame(){
-      const r=growTrack.getBoundingClientRect(), run=r.height-(innerHeight-HEADER_H);
-      const s=clamp(HEADER_H-r.top,0,run), rest=Math.max(run-growGap,1);   // s — пройдено с момента, как фото дошло до шапки
+      const r=growTrack.getBoundingClientRect(), run=r.height-stickyHeight;
+      const s=clamp(headerHeight-r.top,0,run), rest=Math.max(run-growGap,1);   // s — пройдено с момента, как фото дошло до шапки
       const e=ease(clamp((s-growGap)/(rest*.3),0,1));      // раскрытие — после переезда, первые 30 % оставшегося пути
       const f=growFrameBox.getBoundingClientRect(), spot=growSpot.getBoundingClientRect(), grid=growGrid.getBoundingClientRect();
       const x0=spot.left-f.left, w0=spot.width, h0=spot.height, x1=grid.left-f.left, w1=grid.width, h1=f.height;
