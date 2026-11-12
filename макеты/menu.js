@@ -18,7 +18,7 @@ const SITE_MENU = [
   ],
   [
     {
-      title: 'Каталог', href: 'projects.html#catalog', groups: [
+      title: 'Каталог', href: 'catalog.html', mobileLink: true, groups: [
         {
           title: 'Фасадные системы', items: [
             { t: 'Все системы', href: 'projects.html#catalog' },
@@ -81,10 +81,10 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
   const sub = group => `<div class="site-menu__sub"><p class="site-menu__subtitle">${group.title}</p>${group.items.map(link).join('')}</div>`;
   const section = group => `<section class="site-menu__group">
       <h2 class="site-menu__title">
-        <a class="site-menu__title-link" href="${group.href}">${group.title}</a>
-        <button class="site-menu__toggle" type="button" aria-expanded="false">${group.title}<span aria-hidden="true"></span></button>
+        <a class="site-menu__title-link${group.mobileLink ? ' site-menu__direct-link' : ''}" href="${group.href}">${group.title}${group.mobileLink ? MENU_ARROW : ''}</a>
+        ${group.mobileLink ? '' : `<button class="site-menu__toggle" type="button" aria-expanded="false">${group.title}<span aria-hidden="true"></span></button>`}
       </h2>
-      <div class="site-menu__content"><a class="site-menu__link site-menu__section-link" href="${group.href}"><span class="site-menu__link-label">Открыть раздел «${group.title}»</span>${MENU_ARROW}</a>${(group.groups || []).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
+      <div class="site-menu__content">${group.mobileLink ? '' : `<a class="site-menu__link site-menu__section-link" href="${group.href}"><span class="site-menu__link-label">Открыть раздел «${group.title}»</span>${MENU_ARROW}</a>`}${(group.groups || []).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
     </section>`;
   const promo = (title, href, image) => `<a class="site-menu__promo-card" href="${href}" style="--menu-promo-image:url('${image}')"><span>${title}</span><span class="site-menu__promo-arrow">${MENU_PROMO_ARROW}</span></a>`;
   const contacts = `<section class="site-menu__contacts" aria-label="Контакты">
@@ -114,7 +114,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     document.body.classList.toggle('has-site-menu', open);
     document.body.style.overflow = open ? 'hidden' : '';
     const firstControl = matchMedia('(max-width: 767px)').matches
-      ? menu.querySelector('.site-menu__toggle')
+      ? menu.querySelector('.site-menu__direct-link, .site-menu__toggle')
       : menu.querySelector('a');
     (open ? firstControl : burger).focus();
   };

@@ -2,8 +2,11 @@
    Делит абзац с классом .reveal-lines на строки (как они легли на экране),
    каждая строка поднимается снизу из-под маски с небольшим сдвигом во времени. */
 (function () {
+  // Исходный текст сохраняем до создания масок: их textContent склеивает строки.
+  const sourceText = new WeakMap();
   function split(el) {
-    const text = el.textContent.trim().replace(/\s+/g, ' ');
+    if (!sourceText.has(el)) sourceText.set(el, el.textContent.trim().replace(/\s+/g, ' '));
+    const text = sourceText.get(el);
     el.innerHTML = text.split(' ').map(w => `<span class="w">${w}</span>`).join(' ');
     const lines = [];
     let top = null;
@@ -17,6 +20,8 @@
 
   const items = [...document.querySelectorAll('.reveal-lines')];
   items.forEach(split);
+  // Метрики веб-шрифтов могут отличаться от временного системного шрифта.
+  if (document.fonts) document.fonts.ready.then(() => items.forEach(split));
 
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }

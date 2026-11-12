@@ -55,7 +55,7 @@
 .project-tabs__panel .project-info__facts { margin: 0 0 20px; }
 
 /* ---------- Другие объекты ---------- */
-.project-page .project-related { padding: 96px 0; background: var(--soft); }
+.project-page .project-related { padding: 96px 0; background: var(--color-surface-base); }
 .project-page .project-related .projects__head { padding-bottom: 40px; }
 /* Карточки — как на странице категории: 4 в ряд */
 .project-page .project-related .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
@@ -74,3 +74,7 @@
 /* Заголовок первого экрана по системе категории и подкатегории: серая подпись «Объект» → h1 → описание → чипсины категории и систем */
 .projects-page .project-info h1 { margin-top: 12px; }
 .projects-page .project-info__lead + .project-info__badges { margin-top: 24px; }
+
+/* Счётчик нужен только в мобильной галерее. */
+.project-gallery-block { min-width: 0; }
+.project-gallery-nav { display: none; }

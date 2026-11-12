@@ -37,7 +37,8 @@
 
     <!-- Карточка проекта: слева фото, справа, справа закреплённая колонка с информацией (структура как у карточки товара) -->
     <section class="container project-hero" aria-labelledby="project-title">
-      <div class="project-gallery" aria-label="Фотографии объекта">
+      <div class="project-gallery-block">
+      <div class="project-gallery" id="project-gallery" role="region" aria-label="Фотографии объекта" tabindex="0">
           <figure class="project-gallery__item"><img src="https://frontside.ru/upload/iblock/d9c/5945ku7plffivzh5t2flav8iv84u0s4g.webp" alt="Завод смазочных материалов TOTAL, фото 1"></figure>
           <figure class="project-gallery__item"><img src="https://frontside.ru/upload/iblock/cb5/pafytilhyxcislls8qz6mnu5719pxspp.webp" alt="Завод смазочных материалов TOTAL, фото 2"></figure>
           <figure class="project-gallery__item project-gallery__item--wide"><img src="https://frontside.ru/upload/iblock/d9c/qd1moe8hw5q7o3e17x128q7kl873f5qw.webp" alt="Завод смазочных материалов TOTAL, фото 3" loading="lazy"></figure>
@@ -46,6 +47,13 @@
           <figure class="project-gallery__item project-gallery__item--wide"><img src="https://frontside.ru/upload/iblock/3de/zxsdz2o0akm9ovyei4970wr1ziz488il.webp" alt="Завод смазочных материалов TOTAL, фото 6" loading="lazy"></figure>
           <figure class="project-gallery__item"><img src="https://frontside.ru/upload/iblock/dea/cr67kdodfmr0giosvyffiwz2ho2kuwxf.webp" alt="Завод смазочных материалов TOTAL, фото 7" loading="lazy"></figure>
           <figure class="project-gallery__item"><img src="https://frontside.ru/upload/iblock/ea5/hnh8flqjqis35nytevnne8ukk63qlfh5.webp" alt="Завод смазочных материалов TOTAL, фото 8" loading="lazy"></figure>
+      </div>
+
+      <div class="category-intro__slider-nav project-gallery-nav">
+        <span class="category-intro__counter" aria-live="polite" aria-atomic="true" aria-label="Номер фотографии"><b data-gallery-index>01</b><span data-gallery-total>08</span></span>
+        <button type="button" data-slide-prev aria-controls="project-gallery" aria-label="Предыдущее фото"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+        <button type="button" data-slide-next aria-controls="project-gallery" aria-label="Следующее фото"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+      </div>
       </div>
 
       <div class="project-info">
@@ -67,7 +75,7 @@
 
           <!-- Вкладки — как «О товаре / Характеристики» -->
           <div class="project-tabs">
-            <div class="project-tabs__list" role="tablist">
+            <div class="project-tabs__list" role="tablist" aria-label="Информация об объекте">
               <button type="button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true">О проекте</button>
               <button type="button" role="tab" id="tab-specs" aria-controls="panel-specs" aria-selected="false" tabindex="-1">Решения</button>
             </div>
@@ -147,18 +155,7 @@
     <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
   </footer>
 
-  <script>
-    // Колонка информации выше экрана: закрепляем её так, чтобы при прокрутке был виден и её низ
-    const info=document.querySelector(".project-info");
-    const stick=()=>{info.style.top=Math.min(82,innerHeight-info.offsetHeight-24)+"px";};
-    addEventListener("resize",stick);new ResizeObserver(stick).observe(info);stick();
-
-    // Вкладки «О проекте / Решения»
-    const tabs=[...document.querySelectorAll(".project-tabs [role=tab]")];
-    tabs.forEach(tab=>tab.addEventListener("click",()=>{
-      tabs.forEach(t=>{const on=t===tab;t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute("aria-controls")).hidden=!on;});
-    }));
-  </script>
+  <script src="project.js" defer></script>
   <script src="form-modal.js"></script>
   <script src="phone-mask.js"></script>
 
