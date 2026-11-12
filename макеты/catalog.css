@@ -22,3 +22,27 @@
 .catalog-index-page .category-form { margin-top: 0; }
 .catalog-index-page .category-form__intro h2 { font-weight: 400; }
 .catalog-index-page .footer { margin-top: 0; }
+
+/* Мобильный каталог: одна колонка и горизонтально прокручиваемые табы.
+   Опирается на общий мобильный контейнер и хедер из бренд.css. */
+@media (max-width: 767px) {
+  .catalog-index-page, .catalog-index-page main, .catalog-content, .catalog-section { max-width: 100%; overflow-x: clip; }
+  .catalog-intro { padding-top: var(--space-48); }
+  .catalog-intro h1 { font-size: 32px; line-height: 36px; letter-spacing: -.8px; white-space: normal; }
+
+  .catalog-page .catalog-product-filter { margin-bottom: var(--space-32); padding: var(--space-16) 0; overflow-x: auto; scrollbar-width: none; }
+  .catalog-page .catalog-product-filter::-webkit-scrollbar { display: none; }
+  .catalog-product-filter .product-chips { display: flex; flex-wrap: nowrap; width: max-content; padding-right: var(--space-16); }
+  .catalog-product-filter .product-chip { min-height: 44px; padding-inline: var(--space-16); white-space: nowrap; }
+
+  .catalog-section { padding-bottom: var(--space-64); }
+  .catalog-section__head { margin-bottom: var(--space-24); }
+  .catalog-section h2 { font-size: 24px; line-height: 29px; letter-spacing: -.3px; }
+  .catalog-grid { grid-template-columns: 1fr; gap: var(--space-16); }
+  .catalog-grid .solution-card { height: 256px; }
+  .catalog-grid .solution-card__copy { padding: var(--space-16); }
+  .catalog-grid .solution-card__copy h3 { font-size: 20px; line-height: 24px; }
+  .catalog-grid .solution-card__arrow { right: var(--space-16); bottom: var(--space-16); }
+
+  .catalog-index-page .footer { margin-top: 0; }
+}

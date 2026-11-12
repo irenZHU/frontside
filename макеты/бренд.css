@@ -167,6 +167,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .fs-arrow--up-right { transform: rotate(-90deg); }
 
 .footer__bottom a[href="#top"] svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
+.footer__to-top { display: none; }
 
 /* ---------- Шкала шрифтов ----------
    8 ступеней вместо 18 разных размеров. Пока применяется на страницах проектов
@@ -743,6 +744,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 .site-menu__title { margin: 0 0 14px; font-size: var(--fs-body); line-height: var(--lh-body); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .site-menu__title a { color: inherit; text-decoration: none; transition: color .2s ease; }
 .site-menu__title a:hover, .site-menu__title a:focus-visible { color: var(--brand-red); }
+.site-menu__toggle { display: none; }
 .site-menu__sub + .site-menu__sub { margin-top: 20px; }
 .site-menu__subtitle { margin: 0 0 10px; color: var(--brand-grey); font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-ui); line-height: var(--lh-ui); text-decoration: none; transition: color .2s ease; }
@@ -802,4 +804,76 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 }
 @media (min-width: 1400px) and (max-width: 1439px) {
   .header .nav { gap: 20px; }   /* самый узкий ноутбук: шаг меню плотнее, иначе разделы слипаются */
+}
+
+/* ---------- Мобильная основа: 0–767 px ----------
+   Первый адаптивный слой общий для всех страниц: сквозной хедер и меню.
+   Базовый макет — 360 px, поля контейнера 16 px, интерактивные зоны — не меньше 48 px. */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+    --header-control-size: 48px;
+    --header-control-inset: 8px;
+  }
+
+  html, body { width: 100%; min-width: 0 !important; overflow-x: clip; }
+  .container, .projects-page .container { width: calc(100% - 32px); }
+  .breadcrumbs { padding-top: var(--space-16); }
+
+  .header, .projects-page .header__inner { height: var(--header-height); }
+  .header .logo { top: var(--header-control-inset); width: 30px; height: 40px; }
+  .header .logo img { width: 30px; height: 40px; }
+  .header .nav, .header .header__phone { display: none; }
+  .header .header__actions { top: var(--header-control-inset); right: 0; height: var(--header-control-size); margin-left: 0; }
+  .header .header__actions :is(.icon-btn, .burger) { width: var(--header-control-size); height: var(--header-control-size); }
+  .header .header__actions .icon-btn svg { width: var(--header-control-size); height: var(--header-control-size); }
+  .header .header__actions .btn-accent { display: flex; height: var(--header-control-size); padding: 0 12px; font-size: 12px; line-height: 16px; letter-spacing: .04em; }
+  .header .burger { display: grid; padding: 0; place-items: center; border: 0; appearance: none; background-color: var(--brand-light); color: var(--brand-black); }
+  .header .burger svg { position: static; display: block; stroke: currentColor !important; }
+  .header .burger.is-open::before, .header .burger.is-open::after { left: 13px; top: 23px; }
+
+  body.has-site-menu::before { inset: var(--header-height) 0 0; }
+  .site-menu { inset: var(--header-height) 0 0; max-height: none; }
+  .site-menu__inner { width: calc(100% - 32px); padding: var(--space-32) 0 var(--space-48); }
+  .site-menu__grid { grid-template-columns: 1fr; gap: 0; }
+  .site-menu__col { display: contents; }
+  .site-menu__group { padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border-default); }
+  .site-menu__group + .site-menu__group { margin-top: 0; }
+  .site-menu__title { margin: 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .site-menu__title-link { display: none; }
+  .site-menu__toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); font: inherit; font-weight: 600; letter-spacing: inherit; text-align: left; text-transform: inherit; }
+  .site-menu__toggle span { width: 9px; height: 9px; margin-left: var(--space-16); border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .2s ease; }
+  .site-menu__group.is-open .site-menu__toggle span { transform: rotate(225deg) translateY(-2px); }
+  .site-menu__content { display: none; padding-top: var(--space-12); }
+  .site-menu__group.is-open .site-menu__content { display: block; }
+  .site-menu__subtitle { font-size: var(--fs-caption); line-height: var(--lh-caption); }
+  .site-menu__link { width: 100%; min-height: 44px; padding: var(--space-12) var(--space-8) var(--space-12) 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .site-menu__link-label { min-width: 0; }
+  .site-menu__link .fs-arrow { flex: 0 0 13px; margin-left: auto; opacity: 1; translate: 0; }
+  .site-menu__promo { display: none; }
+  .site-menu__promo-card { min-height: 152px; padding: var(--space-16); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .site-menu__contacts { grid-column: 1 / -1; padding: var(--space-24) 0 0; }
+
+  /* Форма обратной связи: общий мобильный компонент для каталога,
+     категорий, подкатегорий и карточек объектов. */
+  .projects-page .category-form { margin-top: 0; padding: var(--space-48) 0; background: var(--brand-light); }
+  .projects-page .category-form::before { display: none; }
+  .projects-page .category-form__card { display: grid; grid-template-columns: 1fr; gap: 0; max-width: none; background: var(--brand-white); box-shadow: 0 16px 40px var(--color-shadow-soft); }
+  .projects-page .category-form__intro { display: flex; grid-template-columns: 1fr; gap: var(--space-24); padding: var(--space-24); border-right: 0; border-bottom: 1px solid var(--brand-line); }
+  .projects-page .category-form__intro h2 { font-size: 24px; line-height: 29px; }
+  .projects-page .category-form__intro p { margin-top: var(--space-12); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .projects-page .category-form__contacts { grid-template-columns: 1fr; gap: var(--space-16); }
+  .projects-page .category-form__form { padding: var(--space-24); }
+
+  /* Подвал: одна ясная колонка, без десктопной сетки и наложений. */
+  .footer { margin-top: 0; padding: var(--space-48) 0 var(--space-16); }
+  .footer__grid { grid-template-columns: 1fr; gap: var(--space-32); min-height: 0; padding-bottom: var(--space-32); }
+  .footer__brand { font-size: 32px; line-height: 35px; letter-spacing: -1px; }
+  .footer__nav { gap: var(--space-12); padding-top: 0; }
+  .footer__nav a { font-size: var(--fs-body); line-height: var(--lh-body); }
+  .footer__contacts { gap: var(--space-4); padding-top: 0; }
+  .footer__social .footer__to-top { display: grid; place-items: center; margin-left: auto; border-color: var(--brand-red); background: var(--brand-red); color: var(--brand-white); }
+  .footer__social .footer__to-top svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
+  .footer__bottom { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-16); min-height: 0; padding-top: var(--space-16); }
+  .footer__bottom > a:last-child { display: none; }
 }

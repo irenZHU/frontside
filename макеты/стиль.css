@@ -6,6 +6,15 @@
   --font: 'Onest', sans-serif;   /* шрифт заголовков */
   --font-ui: 'Inter', sans-serif;                 /* навигация, кнопка, «Свобода реализации» */
 
+  /* Базовая геометрия сквозного хедера.
+     Значения объявлены уже в первом подключаемом слое, чтобы при переходе
+     между страницами шапка не успевала отрисоваться со старой высотой 82 px
+     до подключения брендовых токенов. */
+  --header-height: 74px;
+  --header-control-size: 50px;
+  --header-control-inset: 12px;
+  --header-nav-inset: 27px;
+
   --red: var(--brand-red);
   --gray-text: var(--brand-muted);
   --slogan: var(--brand-black);
@@ -43,7 +52,7 @@ body {
   position: fixed;             /* шапка всегда на экране */
   inset: 0 0 auto 0;
   z-index: 100;
-  height: 82px;                /* ряд элементов 50 px + по 16 px сверху и снизу */
+  height: var(--header-height);
   color: var(--brand-white);
   transition: background-color .35s ease, color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
 }
@@ -60,14 +69,14 @@ body {
 
 .logo {
   position: absolute;
-  left: 0; top: 16px;
+  left: 0; top: var(--header-control-inset);
   width: 38px; height: 50px;
 }
 .logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .nav {
   position: absolute;
-  top: 31px;
+  top: var(--header-nav-inset);
   display: flex;
   gap: 25px;
   font: 400 14px/20px var(--font-ui);
@@ -79,14 +88,14 @@ body {
 
 .header__phone {
   position: absolute;
-  left: 1133px; top: 31px;
+  left: 1133px; top: var(--header-nav-inset);
   font: 400 14px/20px var(--font-ui);
   white-space: nowrap;
 }
 
 .header__actions {
   position: absolute;
-  right: 0; top: 16px;          /* прижато к правому краю — не сдвигается, когда подгружается шрифт */
+  right: 0; top: var(--header-control-inset); /* прижато к правому краю — не сдвигается, когда подгружается шрифт */
   display: flex;
   height: 50px;
 }

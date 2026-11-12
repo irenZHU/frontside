@@ -77,12 +77,14 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
   const burger = document.querySelector('header .burger');
   if (!burger) return;
 
-  const link = item => `<a class="site-menu__link" href="${item.href}">${item.t}${MENU_ARROW}</a>`;
+  const link = item => `<a class="site-menu__link" href="${item.href}"><span class="site-menu__link-label">${item.t}</span>${MENU_ARROW}</a>`;
   const sub = group => `<div class="site-menu__sub"><p class="site-menu__subtitle">${group.title}</p>${group.items.map(link).join('')}</div>`;
   const section = group => `<section class="site-menu__group">
-      <h2 class="site-menu__title"><a href="${group.href}">${group.title}</a></h2>
-      ${(group.groups || []).map(sub).join('')}
-      ${(group.items || []).map(link).join('')}
+      <h2 class="site-menu__title">
+        <a class="site-menu__title-link" href="${group.href}">${group.title}</a>
+        <button class="site-menu__toggle" type="button" aria-expanded="false">${group.title}<span aria-hidden="true"></span></button>
+      </h2>
+      <div class="site-menu__content">${(group.groups || []).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
     </section>`;
   const promo = (title, href, image) => `<a class="site-menu__promo-card" href="${href}" style="--menu-promo-image:url('${image}')"><span>${title}</span><span class="site-menu__promo-arrow">${MENU_PROMO_ARROW}</span></a>`;
   const contacts = `<section class="site-menu__contacts" aria-label="Контакты">
@@ -111,12 +113,24 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
     document.body.classList.toggle('has-site-menu', open);
     document.body.style.overflow = open ? 'hidden' : '';
-    (open ? menu.querySelector('a') : burger).focus();
+    const firstControl = matchMedia('(max-width: 767px)').matches
+      ? menu.querySelector('.site-menu__toggle')
+      : menu.querySelector('a');
+    (open ? firstControl : burger).focus();
   };
 
   burger.setAttribute('aria-expanded', 'false');
   burger.setAttribute('aria-controls', 'site-menu');
   burger.addEventListener('click', () => setOpen(menu.hidden));
-  menu.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+  menu.addEventListener('click', e => {
+    const toggle = e.target.closest('.site-menu__toggle');
+    if (toggle) {
+      const group = toggle.closest('.site-menu__group');
+      const isOpen = group.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      return;
+    }
+    if (e.target.closest('a')) setOpen(false);
+  });
   addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) setOpen(false); });
 })();
