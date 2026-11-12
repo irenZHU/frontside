@@ -915,6 +915,81 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .project-card__details .project-card__name { margin-bottom: var(--space-8); }
   .projects-page .project-card__badges { gap: var(--space-4); }
 
+  /* Решение «Фасады»: на телефоне сложные sticky-колоды становятся
+     последовательными карточками — без потери текста, фото и действий. */
+  .premium-page .category-hero { position: relative; top: auto; height: 620px; margin-top: calc(-1 * var(--header-height)); }
+  .premium-page .category-hero__top { padding-top: calc(var(--header-height) + var(--space-16)); }
+  .premium-page .breadcrumbs { flex-wrap: nowrap; min-width: 0; overflow: hidden; white-space: nowrap; }
+  .premium-page .breadcrumbs > * { flex: 0 0 auto; }
+  .premium-page .breadcrumbs [aria-current] { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .premium-page .category-hero__content { left: var(--space-16); right: var(--space-16); top: 50%; width: auto; translate: 0 -50%; text-align: left; }
+  .premium-page .category-hero .section-label { justify-content: flex-start; }
+  .premium-page .premium-hero h1 { font-size: 28px; line-height: 32px; letter-spacing: -.6px; }
+  .premium-page .category-hero__lead { margin: var(--space-16) 0 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .premium-page .premium-hero__name { font-size: 28px; line-height: 32px; letter-spacing: -.6px; }
+  .premium-page .category-hero__bottom { right: var(--space-16); bottom: var(--space-24); left: var(--space-16); }
+  .premium-page .premium-hero__object { gap: var(--space-16); width: 100%; }
+  .premium-page .premium-hero__row { gap: var(--space-16); }
+  .premium-page .premium-hero__caption strong { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .premium-page .premium-hero__nav button { width: var(--control-icon-button-size); height: var(--control-icon-button-size); }
+  .premium-page .premium-hero__nav button svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); }
+
+  .premium-page .premium-objects { padding: var(--space-48) 0 0; clip-path: none; box-shadow: none; }
+  .premium-page .premium-head { display: block; margin-bottom: var(--space-24); }
+  .premium-page .premium-title { font-size: 24px; line-height: 29px; letter-spacing: 0; }
+  .premium-page :is(.premium-title, .premium-grow__title) { word-spacing: .12em; }
+  .premium-page :is(.premium-title, .premium-grow__title) > span { display: block; }
+  .premium-page .premium-head__link { display: inline-block; margin-top: var(--space-16); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .premium-page .premium-objects__grid { grid-template-columns: 1fr; gap: 0; margin-top: var(--space-24); border: 0; }
+  .premium-page .premium-object { padding: var(--space-16); border: 1px solid var(--brand-line); }
+  .premium-page .premium-object:nth-child(odd) { border-right: 1px solid var(--brand-line); }
+  .premium-page .premium-object + .premium-object { border-top: 0; }
+  .premium-page .premium-object h3 { min-height: 0; margin: 0 0 var(--space-16); font-size: 20px; line-height: 24px; letter-spacing: 0; }
+  .premium-page .premium-object__photo { aspect-ratio: 16 / 9; }
+  .premium-page .premium-object__meta { margin-top: var(--space-12); }
+  .premium-page .premium-object--cta { align-items: flex-start; text-align: left; }
+  .premium-page .premium-object__cta-text { margin-bottom: var(--space-24); font-size: 24px; line-height: 29px; }
+  .premium-page .hero__cta.premium-cta { width: 100%; height: var(--control-action-height); }
+
+  .premium-page .premium-req { padding: var(--space-48) 0; }
+  .premium-page .premium-req .premium-head { margin-bottom: var(--space-24); }
+  .premium-page .premium-req__track { height: calc(520px + (var(--n) - 1) * 72vh + 18vh); margin-top: var(--space-24); }
+  .premium-page .premium-req__sticky { position: sticky; top: calc(var(--header-height) + var(--space-16)); width: calc(100% - 32px); height: min(520px, calc(100svh - var(--header-height) - 40px)); clip-path: inset(calc(var(--cy, 0px) - 40px) var(--cx, 0px) var(--cy, 0px)); }
+  .premium-page .premium-req__stage { position: absolute; display: block; clip-path: inset(-40px 0 0); }
+  .premium-page .premium-req__slide { position: absolute; display: grid; grid-template-columns: 1fr; margin: 0; overflow: hidden; box-shadow: none; }
+  .premium-page .premium-req__slide::after { display: block; }
+  .premium-page .premium-req__panel { min-height: 216px; padding: var(--space-24); text-align: left; align-items: flex-start; }
+  .premium-page .premium-req__title { justify-items: start; gap: var(--space-16); max-width: 100%; font-size: 20px; line-height: 24px; letter-spacing: 0; text-align: left; word-spacing: .08em; }
+  .premium-page .premium-req__note { font-size: var(--fs-ui); line-height: var(--lh-ui); text-align: left; }
+  .premium-page .premium-req__img { min-height: 0; aspect-ratio: 2 / 1; }
+
+  .premium-page .premium-grow { padding: var(--space-48) 0; }
+  .premium-page .premium-grow__track { height: 360vh; }
+  .premium-page .premium-grow__sticky { position: sticky; top: var(--header-height); height: calc(100svh - var(--header-height)); overflow: hidden; }
+  .premium-page .premium-grow__frame { position: absolute; aspect-ratio: auto; clip-path: inset(0 100% 0 0); }
+  .premium-page .premium-grow__frame::after { display: block; background: linear-gradient(90deg, var(--color-overlay-heavy), var(--color-overlay-soft) 65%, var(--color-overlay-clear)); }
+  .premium-page .premium-grow__cards { position: absolute; top: 0; right: 0; bottom: 0; left: 0; translate: none; pointer-events: none; }
+  .premium-page .premium-grow__title { left: var(--space-16); top: var(--space-24); max-width: calc(100% - 32px); font-size: 24px; line-height: 29px; letter-spacing: 0; }
+  .premium-page .premium-grow__deck { position: absolute; right: var(--space-16); bottom: 0; left: var(--space-16); width: auto; height: min(420px, 58%); }
+  .premium-page .premium-card { min-width: 0; min-height: 0; padding: var(--space-24); background: var(--color-surface-glass); }
+  .premium-page .premium-card__top { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: var(--space-16); min-width: 0; }
+  .premium-page .premium-card__num { margin: 0; }
+  .premium-page .premium-card h3 { max-width: 100%; font-size: 20px; line-height: 24px; letter-spacing: 0; overflow-wrap: anywhere; }
+  .premium-page .premium-card p { max-width: 100%; font-size: var(--fs-ui); line-height: var(--lh-ui); overflow-wrap: anywhere; }
+
+  .premium-page .premium-process { padding: var(--space-48) 0; }
+  .premium-page .premium-process .premium-head--center { justify-content: flex-start; text-align: left; }
+  .premium-page .premium-process .premium-head--center .section-label { justify-content: flex-start; }
+  .premium-page .premium-process__steps { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none; gap: var(--space-16); margin: 0 calc(-1 * var(--space-16)) 0 0; padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .premium-page .premium-process__steps::-webkit-scrollbar { display: none; }
+  .premium-page .premium-process__steps li,
+  .premium-page .premium-process__steps li + li { min-height: 248px; padding: var(--space-24); border: 1px solid var(--brand-line); background: none; scroll-snap-align: start; }
+  .premium-page .premium-process__num { margin-bottom: var(--space-24); font-size: 40px; line-height: 42px; }
+  .premium-page .premium-process__steps h3 { margin-bottom: var(--space-12); font-size: 20px; line-height: 24px; }
+  .premium-page .premium-process__steps p { margin-bottom: var(--space-24); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .premium-page .premium-process__link { right: 0; bottom: var(--space-24); }
+  .premium-page .premium-process__link::after { inset: -24px 0; }
+
   /* Форма обратной связи: общий мобильный компонент для каталога,
      категорий, подкатегорий и карточек объектов. */
   .projects-page .category-form { margin-top: 0; padding: var(--space-48) 0; background: var(--brand-light); }
