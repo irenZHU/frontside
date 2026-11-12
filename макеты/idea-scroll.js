@@ -18,6 +18,26 @@
   const bar = sec.querySelector('[data-sys-progress]');
   if (bar) bar.innerHTML = Array.from({ length: n }, () => '<span><i></i></span>').join('');
   const fills = bar ? [...bar.querySelectorAll('i')] : [];
+
+  // На мобильном блок становится обычной последовательностью, а не высокой
+  // scroll-анимацией. Иначе десктопная формула высоты даёт отрицательный run
+  // и следующий блок может перекрыть контент.
+  if (matchMedia('(max-width: 767px)').matches) {
+    let current = 0;
+    const show = index => {
+      current = (index + n) % n;
+      points.forEach((point, i) => {
+        point.classList.toggle('is-active', i === current);
+        point.classList.remove('is-past');
+      });
+      imgs.forEach((img, i) => img.style.setProperty('--clip', i === current ? '0%' : '100%'));
+      fills.forEach((fill, i) => fill.style.transform = `scaleX(${i <= current ? 1 : 0})`);
+    };
+    sec.querySelector('[data-sys-prev]')?.addEventListener('click', () => show(current - 1));
+    sec.querySelector('[data-sys-next]')?.addEventListener('click', () => show(current + 1));
+    show(0);
+    return;
+  }
   const go = d => {
     const run = sec.offsetHeight - 2 * innerHeight;
     const now = Math.min(Math.max(-sec.getBoundingClientRect().top / run, 0), 1) * (n - 1);

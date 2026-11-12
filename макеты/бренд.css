@@ -990,6 +990,94 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .premium-page .premium-process__link { right: 0; bottom: var(--space-24); }
   .premium-page .premium-process__link::after { inset: -24px 0; }
 
+  /* Категория проектов: последовательная мобильная версия без десктопных колонок. */
+  .category-page:not(.premium-page) .category-hero { position: relative; top: auto; height: 600px; margin-top: calc(-1 * var(--header-height)); }
+  .category-page:not(.premium-page) .category-hero__top { padding-top: calc(var(--header-height) + var(--space-16)); }
+  .category-page:not(.premium-page) .category-hero .breadcrumbs { flex-wrap: nowrap; min-width: 0; overflow: hidden; white-space: nowrap; }
+  .category-page:not(.premium-page) .category-hero .breadcrumbs > * { flex: 0 0 auto; }
+  .category-page:not(.premium-page) .category-hero .breadcrumbs [aria-current] { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .category-page:not(.premium-page) .category-hero__content { left: var(--space-16); right: var(--space-16); top: 48%; width: auto; translate: 0 -50%; text-align: left; }
+  .category-page:not(.premium-page) .category-hero .section-label { justify-content: flex-start; }
+  .category-page:not(.premium-page) .category-hero h1 { font-size: 28px; line-height: 32px; letter-spacing: -.6px; }
+  .category-page:not(.premium-page) .category-hero__lead { margin: var(--space-16) 0 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .category-page:not(.premium-page) .category-hero__bottom { right: var(--space-16); bottom: var(--space-16); left: var(--space-16); display: block; }
+  .category-page:not(.premium-page) .category-hero__cta { width: 100%; }
+  .category-page:not(.premium-page) .hero-subs { display: none; }
+
+  .category-page:not(.premium-page) .category-intro { padding: var(--space-48) 0; box-shadow: none; clip-path: none; }
+  /* На десктопе сетка начинается ниже крошек. На телефоне второй блок идёт
+     сразу после первого экрана — без сохранённого десктопного разрыва. */
+  .projects-page.category-page:not(.premium-page) .category-intro__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-24); margin-top: 0; }
+  .category-page:not(.premium-page) .category-intro__media { order: 0; height: auto; aspect-ratio: 16 / 9; }
+  .category-page:not(.premium-page) .category-intro__col { gap: var(--space-16); }
+  .category-page:not(.premium-page) .category-intro__title { font-size: 24px; line-height: 29px; letter-spacing: 0; word-spacing: .08em; }
+  .category-page:not(.premium-page) .category-intro__lead { font-size: var(--fs-ui); line-height: var(--lh-ui); word-spacing: .08em; }
+  .category-page:not(.premium-page) .category-intro__slide strong { font-size: 20px; line-height: 24px; letter-spacing: 0; }
+  .category-page:not(.premium-page) .category-intro__slider-nav { margin-top: var(--space-16); }
+
+  .category-page:not(.premium-page) .category-grow { padding: var(--space-48) 0; }
+  .category-page:not(.premium-page) .category-grow__track { height: 340vh; }
+  .category-page:not(.premium-page) .category-grow__sticky { top: var(--header-height); height: calc(100svh - var(--header-height)); }
+  .category-page:not(.premium-page) .category-grow__cards { right: 0; left: 0; translate: none; }
+  .category-page:not(.premium-page) .category-grow__title { left: var(--space-16); top: var(--space-24); max-width: calc(100% - 32px); font-size: 24px; line-height: 29px; letter-spacing: 0; }
+  .category-page:not(.premium-page) .category-grow__deck { right: var(--space-16); bottom: 0; left: var(--space-16); width: auto; height: min(400px, 58%); }
+  .category-page:not(.premium-page) .grow-card { padding: var(--space-24); }
+  .category-page:not(.premium-page) .grow-card__top { flex-direction: column-reverse; align-items: flex-start; gap: var(--space-16); }
+  .category-page:not(.premium-page) .grow-card h3 { max-width: 100%; font-size: 20px; line-height: 24px; letter-spacing: 0; overflow-wrap: anywhere; }
+  .category-page:not(.premium-page) .grow-card p { max-width: 100%; font-size: var(--fs-ui); line-height: var(--lh-ui); overflow-wrap: anywhere; }
+
+  .category-page:not(.premium-page) .projects { padding: var(--space-48) 0; background: var(--brand-white); }
+  .category-page:not(.premium-page) .projects__head h2 { font-size: 24px; line-height: 29px; letter-spacing: 0; }
+  /* Фильтры остаются под шапкой ровно в пределах блока портфолио. */
+  .projects-page.category-page:not(.premium-page) #projects-list .product-filter-bar { position: sticky; top: var(--header-height); z-index: 8; margin-inline: calc(-1 * var(--space-16)); padding: var(--space-8) var(--space-16); overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--brand-line); background: var(--brand-white); }
+  .category-page:not(.premium-page) .product-filter-bar::-webkit-scrollbar { display: none; }
+  .category-page:not(.premium-page) .products, .category-page:not(.premium-page) .product-chips { width: max-content; }
+  .category-page:not(.premium-page) .product-chips { flex-wrap: nowrap; }
+  .category-page:not(.premium-page) .product-chip { min-height: 44px; padding-inline: var(--space-16); white-space: nowrap; }
+  .category-page:not(.premium-page) .category-projects__about { display: block; margin-bottom: var(--space-24); }
+  .category-page:not(.premium-page) .category-projects__desc { margin: 0 0 var(--space-16); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  /* Портфолио повторяет десктопную карточку, но на телефоне — строго одна
+     карточка в строке. Последующие элементы появляются по мере прокрутки. */
+  .projects-page.category-page:not(.premium-page) #projects-list .cards { display: grid; grid-template-columns: minmax(0, 1fr) !important; gap: var(--space-24); }
+  html[data-category-mobile-list="ready"] .projects-page.category-page:not(.premium-page) #projects-list .project-item[data-mobile-deferred] { display: none !important; }
+  .category-page:not(.premium-page) .project-card { min-height: 0; height: auto; aspect-ratio: 16 / 9; }
+  .category-page:not(.premium-page) .project-card__details { padding-top: var(--space-12); }
+  .category-page:not(.premium-page) .category-all-link { width: 100%; height: var(--control-action-height); margin-top: var(--space-32); }
+
+  /* На телефоне блок систем не участвует в десктопном налистывании:
+     все его части должны оставаться в обычном потоке, иначе .cover
+     перекрывает содержимое отрицательным отступом. */
+  .category-page:not(.premium-page) .category-systems { min-height: 0; height: auto; margin-top: 0; padding: var(--space-48) 0; }
+  .category-page:not(.premium-page) .category-systems .idea__sticky { position: static; display: block; height: auto; }
+  .category-page:not(.premium-page) .category-systems .container { height: auto; }
+  .category-page:not(.premium-page) .category-systems .idea__dim { display: none; }
+  .category-page:not(.premium-page) .idea__title { position: static; width: auto; font-size: 24px; line-height: 29px; letter-spacing: 0; transform: none !important; }
+  .category-page:not(.premium-page) .category-systems__lead { position: static; left: auto; top: auto; width: auto; max-width: none; margin-top: var(--space-16); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .category-page:not(.premium-page) .idea__points { position: static; margin-top: var(--space-24); }
+  .category-page:not(.premium-page) .idea__point { position: static; display: none; opacity: 1; transform: none; }
+  .category-page:not(.premium-page) .idea__point.is-active { display: block; }
+  .category-page:not(.premium-page) .idea__point > * { opacity: 1 !important; transform: none !important; transition: none; }
+  .category-page:not(.premium-page) .idea__point h3 { font-size: 20px; line-height: 24px; }
+  .category-page:not(.premium-page) .idea__point p { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .category-page:not(.premium-page) .idea__photos { position: relative; width: 100%; height: auto; margin-top: var(--space-24); aspect-ratio: 16 / 9; }
+  .category-page:not(.premium-page) .systems-nav { position: static; margin-top: var(--space-24); }
+  .category-page:not(.premium-page) .category-systems__cta { position: static; width: 100%; margin-top: var(--space-24); }
+  .category-page:not(.premium-page) .cover { margin-top: 0; box-shadow: none; }
+
+  .category-page:not(.premium-page) .category-about { padding: var(--space-48) 0; }
+  .category-page:not(.premium-page) .category-about__inner { grid-template-columns: 1fr; gap: var(--space-24); }
+  .category-page:not(.premium-page) .category-about h2 { font-size: 24px; line-height: 29px; letter-spacing: 0; }
+  .category-page:not(.premium-page) .category-about p { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  /* «Другие категории» — та же мобильная лента, что карточки решений:
+     одна полная карточка и край следующей, без сжатия карточек в сетку. */
+  .category-page:not(.premium-page) .category-others { overflow: hidden; }
+  .category-page:not(.premium-page) .category-others .projects__head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-16); margin-bottom: var(--space-24); padding-top: 0; }
+  .category-page:not(.premium-page) .category-others .projects__head h2 { min-width: 0; }
+  .category-page:not(.premium-page) .category-others .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none !important; gap: var(--space-16); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .category-page:not(.premium-page) .category-others .cards::-webkit-scrollbar { display: none; }
+  .category-page:not(.premium-page) .category-others .project-item { scroll-snap-align: start; }
+  .category-page:not(.premium-page) .others-nav { flex: 0 0 auto; display: flex; margin: 0; }
+
   /* Форма обратной связи: общий мобильный компонент для каталога,
      категорий, подкатегорий и карточек объектов. */
   .projects-page .category-form { margin-top: 0; padding: var(--space-48) 0; background: var(--brand-light); }
