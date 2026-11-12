@@ -748,6 +748,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 .site-menu__sub + .site-menu__sub { margin-top: 20px; }
 .site-menu__subtitle { margin: 0 0 10px; color: var(--brand-grey); font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-ui); line-height: var(--lh-ui); text-decoration: none; transition: color .2s ease; }
+.site-menu__section-link { display: none; }
 .site-menu__link:hover, .site-menu__link:focus-visible { color: var(--brand-red); }
 .site-menu__link .fs-arrow { width: 13px; height: 13px; opacity: 0; translate: -4px 0; transition: opacity .2s ease, translate .2s ease; }
 .site-menu__link:hover .fs-arrow, .site-menu__link:focus-visible .fs-arrow { opacity: 1; translate: 0 0; }
@@ -848,11 +849,71 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .site-menu__group.is-open .site-menu__content { display: block; }
   .site-menu__subtitle { font-size: var(--fs-caption); line-height: var(--lh-caption); }
   .site-menu__link { width: 100%; min-height: 44px; padding: var(--space-12) var(--space-8) var(--space-12) 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .site-menu__section-link { display: flex; color: var(--color-text-accent); }
   .site-menu__link-label { min-width: 0; }
   .site-menu__link .fs-arrow { flex: 0 0 13px; margin-left: auto; opacity: 1; translate: 0; }
   .site-menu__promo { display: none; }
   .site-menu__promo-card { min-height: 152px; padding: var(--space-16); font-size: var(--fs-ui); line-height: var(--lh-ui); }
   .site-menu__contacts { grid-column: 1 / -1; padding: var(--space-24) 0 0; }
+
+  /* «Проекты»: последовательность блоков на телефоне. */
+  .projects-page.catalog-page main { max-width: 100%; overflow-x: clip; }
+  .projects-page .solutions { padding: var(--space-48) 0 var(--space-64); }
+  .projects-page .solutions__head { display: block; }
+  .projects-page .solutions h1 { font-size: 32px; line-height: 36px; letter-spacing: -.8px; }
+  .projects-page .solutions__head p { width: auto; margin: var(--space-16) 0 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  /* Карточки направлений — горизонтальная лента: край следующей карточки
+     остаётся видимым и подсказывает жест прокрутки. */
+  .projects-page .solutions__grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none; gap: var(--space-16); margin-top: var(--space-32); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .projects-page .solutions__grid::-webkit-scrollbar { display: none; }
+  .projects-page .solutions__grid .solution-card { height: 256px; scroll-snap-align: start; }
+  .projects-page .solutions__grid .solution-card__copy { padding: var(--space-16); }
+  .projects-page .solutions__grid .solution-card strong { max-width: calc(100% - 56px); font-size: 20px; line-height: 24px; }
+  .projects-page .solutions__grid .solution-card em { display: none; }
+  .projects-page .solutions__grid .solution-card__arrow { top: auto; right: var(--space-16); bottom: var(--space-16); }
+  .projects-page .projects { padding: var(--space-64) 0; }
+  .projects-page .projects__head { display: block; padding-bottom: 0; border-bottom: 0; }
+  .projects-page .projects__head .section-label { margin-bottom: var(--space-12); }
+  .projects-page .projects h2 { font-size: 24px; line-height: 29px; letter-spacing: -.3px; }
+  .projects-page .projects .geo.hero__cta { width: 100%; margin-top: var(--space-24); }
+  .projects-page .projects__layout { grid-template-columns: 1fr; gap: var(--space-24); padding-top: var(--space-16); }
+  /* Общая строка фильтров: закрепляется под хедером и не дробится линиями. */
+  .projects-page .mobile-filter-panel { position: sticky; top: var(--header-height); z-index: 4; align-self: start; margin: 0 calc(-1 * var(--space-16)); padding: 0 var(--space-16) var(--space-16); border: 0; border-bottom: 1px solid var(--brand-line); background: var(--brand-white); }
+  .projects-page .mobile-filter-controls { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24); }
+  .projects-page .mobile-filter-toggle { display: inline-flex; align-items: center; justify-content: flex-start; width: 100%; min-height: 48px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); font: var(--fs-body)/var(--lh-body) var(--font-ui, Inter, Arial, sans-serif); text-align: left; cursor: pointer; }
+  .projects-page .drawer-chevron { flex: 0 0 auto; width: 8px; height: 8px; margin-left: var(--space-12); border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); }
+  .projects-page .filter-drawer,
+  .projects-page .product-drawer { position: fixed; z-index: 12; inset: var(--header-height) 0 0; display: block; overflow-y: auto; background: var(--brand-white); transform: translateX(-100%); visibility: hidden; pointer-events: none; transition: transform .28s ease, visibility 0s linear .28s; }
+  .projects-page .filter-drawer__inner,
+  .projects-page .product-drawer__inner { min-height: 100%; padding: var(--space-24) var(--space-16) var(--space-48); }
+  .projects-page .filter-drawer.is-open,
+  .projects-page .product-drawer.is-open { transform: translateX(0); visibility: visible; pointer-events: auto; transition-delay: 0s; }
+  .projects-page .mobile-drawer__head { display: flex; align-items: center; justify-content: space-between; min-height: 48px; margin: 0 0 var(--space-24); }
+  .projects-page .mobile-drawer__head strong { color: var(--color-text-primary); font: 500 24px/29px var(--font-ui, Onest, Arial, sans-serif); text-transform: uppercase; }
+  .projects-page .mobile-drawer__close { position: relative; display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; margin-right: -12px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); cursor: pointer; }
+  .projects-page .mobile-drawer__close::before,
+  .projects-page .mobile-drawer__close::after { content: ""; position: absolute; width: 20px; height: 1px; background: currentColor; }
+  .projects-page .mobile-drawer__close::before { transform: rotate(45deg); }
+  .projects-page .mobile-drawer__close::after { transform: rotate(-45deg); }
+  html[data-projects-mobile-drawers="ready"] .projects-page .projects__layout > .sidebar,
+  html[data-projects-mobile-drawers="ready"] .projects-page .product-filter-bar { display: none; }
+  .projects-page .filter-group summary { min-height: 44px; padding: var(--space-12) 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .projects-page .filter-group label { min-height: 40px; margin: 0; padding: var(--space-8) 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .projects-page .product-filter-bar { position: static; overflow: visible; }
+  .projects-page .product-drawer__inner { padding-bottom: var(--space-48); }
+  .projects-page .product-chips { flex-wrap: wrap; width: auto; padding-right: 0; }
+  .projects-page .product-chip { min-height: 44px; padding-inline: var(--space-16); white-space: nowrap; }
+  .projects-page .filter-status-bar { display: none; }
+  .projects-page .project-group { margin-bottom: var(--space-40); }
+  .projects-page .project-group + .project-group { padding-top: var(--space-40); }
+  .projects-page .project-group header { align-items: center; gap: var(--space-12); margin-bottom: var(--space-12); }
+  .projects-page .project-group header h3 { white-space: normal; font-size: 20px; line-height: 24px; }
+  .projects-page .project-group__desc { margin: 0 0 var(--space-24); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .projects-page .cards, .projects-page.catalog-page .project-group .cards { grid-template-columns: 1fr; gap: var(--space-24); }
+  .projects-page .project-card { min-height: 0; height: auto; aspect-ratio: 16 / 9; }
+  .projects-page .project-card__details { padding-top: var(--space-12); }
+  .projects-page .project-card__details .project-card__name { margin-bottom: var(--space-8); }
+  .projects-page .project-card__badges { gap: var(--space-4); }
 
   /* Форма обратной связи: общий мобильный компонент для каталога,
      категорий, подкатегорий и карточек объектов. */

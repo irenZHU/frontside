@@ -84,7 +84,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
         <a class="site-menu__title-link" href="${group.href}">${group.title}</a>
         <button class="site-menu__toggle" type="button" aria-expanded="false">${group.title}<span aria-hidden="true"></span></button>
       </h2>
-      <div class="site-menu__content">${(group.groups || []).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
+      <div class="site-menu__content"><a class="site-menu__link site-menu__section-link" href="${group.href}"><span class="site-menu__link-label">Открыть раздел «${group.title}»</span>${MENU_ARROW}</a>${(group.groups || []).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
     </section>`;
   const promo = (title, href, image) => `<a class="site-menu__promo-card" href="${href}" style="--menu-promo-image:url('${image}')"><span>${title}</span><span class="site-menu__promo-arrow">${MENU_PROMO_ARROW}</span></a>`;
   const contacts = `<section class="site-menu__contacts" aria-label="Контакты">
