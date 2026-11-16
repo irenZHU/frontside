@@ -123,6 +123,11 @@
   --space-48: 48px;
   --space-64: 64px;
   --space-section: 100px;
+
+  /* Компонентные размеры: сеточные исключения из общей шкалы отступов. */
+  --projects-filter-width: 248px;
+  --projects-column-gap: 56px;
+  --footer-column-gap: 52px;
 }
 
 /* Логотип совпадает по высоте с кнопками хедера и сохраняет исходные пропорции. */
@@ -130,17 +135,31 @@
 .header .logo img { display: block; width: auto; height: 50px; max-width: 100%; object-fit: contain; }
 
 /* ---------- Шрифты ----------
-   Wix Madefor Display — основной шрифт проекта: тексты, кнопки, меню, табы, подписи, формы.
-   Заголовки и подзаголовки остаются на Onest. Шрифт лежит в fonts/ (лицензия OFL). */
+   Solomon Sans — основной шрифт проекта: тексты, кнопки, меню, табы, подписи, формы.
+   Заголовки и подзаголовки остаются на Onest. Начертания Regular, Medium и SemiBold лежат в fonts/. */
 @font-face {
-  font-family: "Wix Madefor Display";
-  src: url("fonts/WixMadeforDisplay-VariableFont_wght.ttf") format("truetype");
-  font-weight: 400 800;
+  font-family: "Solomon Sans";
+  src: url("fonts/SolomonSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Solomon Sans";
+  src: url("fonts/SolomonSans-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Solomon Sans";
+  src: url("fonts/SolomonSans-SemiBold.otf") format("opentype");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 :root {
-  --font-text: "Wix Madefor Display", Arial, sans-serif;
+  --font-text: "Solomon Sans", Arial, sans-serif;
   --font-head: "Onest", Arial, sans-serif;
 }
 body,
@@ -209,14 +228,19 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .project-info h1 { font-size: var(--fs-slogan); line-height: var(--lh-slogan); }
 .projects-page .footer__brand { font-size: var(--fs-slogan); line-height: var(--lh-slogan); }
 /* Заголовки разделов */
-.projects-page :is(.projects h2, .category-section h2, .category-tasks__title, .category-form__intro h2, .category-systems .idea__title) { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; }
+/* Отдельные селекторы не наследуют максимальную специфичность из :is(). */
+.projects-page .projects h2,
+.projects-page .category-section h2,
+.projects-page .category-tasks__title,
+.projects-page .category-form__intro h2,
+.projects-page .category-systems .idea__title { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: -1.1px; }
 /* Подзаголовки */
 .projects-page :is(.project-group header h3, .solution-card strong) { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: -.3px; }
 .projects-page :is(.idea__point h3, .category-intro__directions strong, .category-form__contacts dd) { font-size: var(--fs-h4); line-height: var(--lh-h4); }
 /* Основной текст */
 .projects-page :is(.solutions__head p, .category-intro__lead, .category-section__head p, .category-systems__lead, .idea__point p, .category-about p, .category-form__intro p, .project-info__lead, .project-tabs__panel p, .footer__contacts > a) { font-size: var(--fs-body); line-height: var(--lh-body); }
 /* Интерфейс */
-.projects-page :is(.footer__nav a, .footer__contacts address, .filter-group label, .section-label, .category-intro .section-label) { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+.projects-page :is(.footer__contacts address, .filter-group label, .section-label, .category-intro .section-label) { font-size: var(--fs-ui); line-height: var(--lh-ui); }
 /* Подписи */
 .projects-page :is(.solution-card small, .solution-card em, .category-form__agree span, .category-form__agree a) { font-size: var(--fs-caption); line-height: var(--lh-caption); }
 /* Бейджи и соцсети */
@@ -224,7 +248,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .footer__social a { font-size: var(--fs-badge); }
 /* Подзаголовки — капсом, как заголовки */
 .projects-page :is(.project-group header h3, .solution-card strong, .idea__point h3, .category-intro__directions strong) { text-transform: uppercase; letter-spacing: -.3px; }
-/* Кнопка «Отправить заявку» — капсом 14/20, шрифт Wix Madefor Display (как весь интерфейс) */
+/* Кнопка «Отправить заявку» — капсом 14/20, шрифт Solomon Sans (как весь интерфейс) */
 .header .btn-accent { background: var(--color-action-primary); color: var(--color-action-on-primary); text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-ui); line-height: var(--lh-ui); }
 /* Акцентная кнопка при наведении — графитовая заливка (назначение --color-action-primary-hover).
    До юикита состояние нигде не было прописано: кнопка не реагировала на курсор. */
@@ -272,7 +296,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-intro__directions { gap: 8px; }
 .projects-page .category-intro__directions-label { margin-bottom: 4px; }
 .projects-page .category-intro__slide > .category-intro__directions-label { margin: 0 0 12px; }
-/* Название проекта в «Реализованных проектах» — обычный текст, не подзаголовок: Wix, без капса */
+/* Название проекта в «Реализованных проектах» — обычный текст, не подзаголовок: Solomon Sans, без капса */
 .projects-page .category-intro__slide strong { font-family: var(--font-text) !important; font-size: 22px; line-height: var(--lh-h3); font-weight: 500; letter-spacing: 0; text-transform: none; }
 /* Второй экран категории — на фирменном светло-сером; кнопка «назад» на нём белая, чтобы не сливалась */
 .projects-page .category-intro { background: var(--brand-light); }
@@ -288,7 +312,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* Ритм разделов на странице категории: от второго экрана до «Задач» — 96, как между остальными блоками */
 .projects-page .category-tasks { padding-top: 96px; }   /* + 4 px воздуха в строке заголовка = 100 видимых */
 /* Аудит категории: заголовки одной жирности, подзаголовки 20 px — 500, текст задач по шкале */
-.projects-page :is(.category-hero h1, .category-intro__title) { font-weight: 400; }
+.projects-page :is(.category-hero h1, .category-intro__title) { font-weight: 500; }
 .projects-page :is(.idea__point h3, .category-intro__directions strong) { font-weight: 500; }
 .projects-page .category-tasks__text { line-height: var(--lh-ui); }
 /* Блок систем: содержимое прижато к верху под шапкой (82 + 40), а не по центру экрана — без пустой полосы после «Проектов» */
@@ -297,13 +321,12 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .hero-subs__title { font-family: var(--font-head) !important; font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; text-transform: uppercase; letter-spacing: -.3px; }
 /* Задачи категории: номера по шкале (display 44/46), карточки ниже под спокойные цифры */
 .projects-page .category-tasks .fact { height: 220px; }
-.projects-page .category-tasks .fact__num { font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 400; letter-spacing: 0; color: var(--brand-grey); }
+.projects-page .category-tasks .fact__num { font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 500; letter-spacing: 0; color: var(--brand-grey); }
 /* Бейджи-чипсы на карточках и странице проекта — без капса */
 .projects-page :is(.project-card__badges > span, .project-info__badges > a) { text-transform: none; letter-spacing: 0; }
 
 /* Порядок в шрифтах страницы категории (2026-11-05): всё по шкале */
-.projects-page .category-page .project-card__details strong,
-.category-page.projects-page .project-card__details strong { font-size: var(--fs-body); line-height: var(--lh-body); }
+.projects-page .project-card__details strong { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; letter-spacing: -.3px; }
 .projects-page :is(.category-intro__counter, .category-intro__counter *, .idea__counter span, .category-systems__more) { font-size: var(--fs-body); line-height: var(--lh-body); }
 .projects-page .hero__cta-text { font-size: var(--fs-ui); line-height: var(--lh-ui); letter-spacing: .04em; }
 .projects-page .category-form__submit { font-size: var(--fs-ui); line-height: var(--lh-ui); }
@@ -364,9 +387,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .catalog-page .project-group { margin-bottom: 40px; }
 .catalog-page .project-group + .project-group { padding-top: 40px; border-top: 1px solid var(--line); }
 /* Карточка проекта в каталоге: чипсина подкатегории — ссылка на подкатегорию, при наведении — чёрная фирменная */
-.project-card__details .project-card__name { order: -1; margin-bottom: 10px; color: inherit; text-decoration: none; }
+.project-card__details .project-card__name { order: -1; margin-bottom: var(--space-8); color: inherit; text-decoration: none; }
 .project-card__details .project-card__name strong { margin: 0; }
-.project-card__badges > .project-card__sub { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border: 1px solid var(--brand-line); border-radius: 12px; background: var(--brand-white); color: var(--brand-muted); font: 400 var(--fs-badge)/var(--lh-badge) var(--font-text); text-decoration: none; }
+.project-card__badges > .project-card__sub { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border: 1px solid var(--brand-line); border-radius: 12px; background: var(--brand-white); color: var(--brand-muted); font: 500 var(--fs-badge)/var(--lh-badge) var(--font-text); text-decoration: none; }
 /* Карточки решений: подпись 14, в правом нижнем углу — единая красная кнопка-стрелка 48 / 20. */
 .projects-page .solution-card em { font-size: var(--fs-ui); line-height: var(--lh-ui); }
 .projects-page .solution-card__arrow { position: absolute; top: auto; right: 20px; bottom: 20px; z-index: 2; display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); background: var(--brand-red); color: var(--brand-white); font-size: 0; transition: background .18s ease; }
@@ -455,7 +478,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
    Новые кнопки-стрелки добавлять в оба списка ниже. */
 :is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button,
     .category-intro__slider-nav button, .premium-process__link,
-    .footer__bottom a[href="#top"]) {
+    .footer__bottom a[href="#top"], .site-menu__promo-arrow) {
   display: grid;
   place-items: center;
   width: var(--control-icon-button-size);
@@ -465,11 +488,11 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 }
 :is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button,
     .category-intro__slider-nav button, .premium-process__link,
-    .footer__bottom a[href="#top"]) svg {
+    .footer__bottom a[href="#top"], .site-menu__promo-arrow) svg {
   width: var(--control-icon-arrow-size);
   height: var(--control-icon-arrow-size);
 }
-:is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button, .category-intro__slider-nav button, .premium-hero__nav button, .form-modal__close) {
+:is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button, .category-intro__slider-nav button, .premium-hero__nav button, .form-modal__close, .site-menu__promo-arrow) {
   background-image: linear-gradient(var(--brand-red-hover), var(--brand-red-hover)) !important;
   background-repeat: no-repeat !important; background-position: 0 50% !important; background-size: 0 100% !important;
   transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease !important;
@@ -479,7 +502,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
     .systems-nav__arrows button:not(:disabled):is(:hover, :focus-visible),
     .category-intro__slider-nav button:is(:hover, :focus-visible),
     .premium-hero__nav button:is(:hover, :focus-visible),
-    .form-modal__close:is(:hover, :focus-visible)) {
+    .form-modal__close:is(:hover, :focus-visible),
+    .site-menu__promo-card:is(:hover, :focus-visible) .site-menu__promo-arrow) {
   background-size: 100% 100% !important; color: var(--brand-white) !important;
 }
 /* Красная кнопка по умолчанию уходит в графит, а стрелка рядом с заголовком без фона получает красную заливку. */
@@ -541,8 +565,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .footer__bottom a[href="#top"]:is(:hover, :focus-visible) {
   background-size: 100% 100%;
   color: var(--brand-white);
-  outline: 2px solid var(--brand-white);
-  outline-offset: 2px;
+  outline: none;
 }
 /* Выбранный фильтр — компактный второстепенный контрол: мягкая заливка растёт слева направо. */
 .selected-filter {
@@ -600,8 +623,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-systems .container { height: max(560px, calc(100svh - var(--header-height) - 2 * var(--sys-pad))); }
 /* каталог: от чипсов «Системы» до первой категории — 48 px вместо 74 (пустая строка выбранных фильтров ниже) */
 .catalog-page .projects:not(.has-active-filters) .filter-status-bar { min-height: 20px; }
-/* каталог: от последнего ряда проектов до футера — 100 px, как между блоками (было 40 низ группы + 100 + 120 верх футера) */
-.catalog-page #category-groups { margin-bottom: -40px; }
+/* У списка убираем компенсацию: теперь после карточек расположен текстовый блок. */
+.catalog-page #category-groups { margin-bottom: 0; }
+.catalog-page #category-groups > .project-group:last-child { margin-bottom: 0; }
 .catalog-page .footer { margin-top: 0; }
 /* Шапка на больших экранах (1920): разделы меню и телефон 16/24 вместо 14/20. */
 @media (min-width: 1601px) {
@@ -645,7 +669,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 
 /* ---------- Хедер: кнопки 50 px и равные поля по 12 px ---------- */
 .header, .projects-page .header__inner { height: var(--header-height); }
-.header, .header.is-scrolled { background: rgb(255 255 255 / .92); color: var(--title); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: blur(32px) saturate(1.4); backdrop-filter: blur(32px) saturate(1.4); box-shadow: 0 1px 0 rgb(16 32 56 / .06); transition-property: background-color, color, box-shadow, backdrop-filter, border-color; }
+.header, .header.is-scrolled { background: rgb(255 255 255 / .92); color: var(--title); border-bottom: 1px solid var(--line); -webkit-backdrop-filter: blur(32px) saturate(1.4); backdrop-filter: blur(32px) saturate(1.4); box-shadow: 0 1px 0 var(--color-shadow-subtle); transition-property: background-color, color, box-shadow, backdrop-filter, border-color; }
 .header .burger { background: var(--brand-light); }
 .header .header__actions, .header .logo { top: var(--header-control-inset); }
 .header .nav, .header .header__phone { top: var(--header-nav-inset); }
@@ -653,7 +677,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .header .nav { gap: 25px; }
 .header :is(.nav a, .header__phone) { color: inherit; text-decoration: none; }
 .header :is(.nav a, .header__phone) { font-size: var(--fs-header-nav); line-height: var(--lh-header-nav); }
-.header .header__phone { font: 400 var(--fs-header-nav)/var(--lh-header-nav) var(--font-text); }
+.header .header__phone { font: 500 var(--fs-header-nav)/var(--lh-header-nav) var(--font-text); }
 /* Действия в шапке используют единый эффект заливки слева направо.
    Поиск и бургер — второстепенные нейтральные контролы, CTA — главное действие. */
 .header .header__actions :is(.icon-btn, .burger, .btn-accent) {
@@ -756,10 +780,10 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 .site-menu__link:hover .fs-arrow, .site-menu__link:focus-visible .fs-arrow { opacity: 1; translate: 0 0; }
 .site-menu__promo { display: grid; gap: var(--space-16); }
 .site-menu__promo-card { position: relative; display: flex; align-items: flex-end; justify-content: space-between; aspect-ratio: 1.45; padding: var(--space-24); overflow: hidden; isolation: isolate; background: linear-gradient(var(--color-overlay-soft), var(--color-overlay-deep)), var(--menu-promo-image) center / cover; color: var(--color-text-inverse); font-family: var(--font-head) !important; font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; letter-spacing: -.3px; text-transform: uppercase; text-decoration: none; transition: transform .3s cubic-bezier(.2, .7, .2, 1); }
-.site-menu__promo-arrow { display: block; flex: 0 0 20px; width: 20px; height: 20px; color: currentColor; }
+.site-menu__promo-arrow { flex: 0 0 var(--control-icon-button-size); color: currentColor; background-color: transparent; background-image: linear-gradient(var(--color-action-primary), var(--color-action-primary)) !important; }
 .site-menu__promo-arrow .fs-arrow { width: 20px; height: 20px; }
 .site-menu__promo-card:hover, .site-menu__promo-card:focus-visible { outline: none; transform: translateY(-2px); }
-.site-menu__promo-card:focus-visible { box-shadow: 0 0 0 2px var(--color-action-primary); }
+.site-menu__promo-card:focus-visible { box-shadow: none; }
 .site-menu__contacts { display: grid; gap: var(--space-4); padding-top: var(--space-8); }
 .site-menu__contacts > span { margin-top: var(--space-8); color: var(--color-text-secondary); font-size: var(--fs-caption); line-height: var(--lh-caption); }
 .site-menu__contacts > span:first-child { margin-top: 0; }
@@ -900,7 +924,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   /* Общая строка фильтров: закрепляется под хедером и не дробится линиями. */
   .projects-page .mobile-filter-panel { position: sticky; top: var(--header-height); z-index: 4; align-self: start; margin: 0 calc(-1 * var(--space-16)); padding: 0 var(--space-16) var(--space-16); border: 0; border-bottom: 1px solid var(--brand-line); background: var(--brand-white); }
   .projects-page .mobile-filter-controls { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24); }
-  .projects-page .mobile-filter-toggle { display: inline-flex; align-items: center; justify-content: flex-start; width: 100%; min-height: 48px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); font: var(--fs-body)/var(--lh-body) var(--font-ui, Inter, Arial, sans-serif); text-align: left; cursor: pointer; }
+  .projects-page .mobile-filter-toggle { display: inline-flex; align-items: center; justify-content: flex-start; width: 100%; min-height: 48px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); font: 500 var(--fs-body)/var(--lh-body) var(--font-ui, Inter, Arial, sans-serif); text-align: left; cursor: pointer; }
   .projects-page .drawer-chevron { flex: 0 0 auto; width: 8px; height: 8px; margin-left: var(--space-12); border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); }
   .projects-page .filter-drawer,
   .projects-page .product-drawer { position: fixed; z-index: 12; inset: var(--header-height) 0 0; display: block; overflow-y: auto; background: var(--brand-white); transform: translateX(-100%); visibility: hidden; pointer-events: none; transition: transform .28s ease, visibility 0s linear .28s; }
@@ -924,6 +948,8 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .product-chips { flex-wrap: wrap; width: auto; padding-right: 0; }
   .projects-page .product-chip { min-height: 44px; padding-inline: var(--space-16); white-space: nowrap; }
   .projects-page .filter-status-bar { display: none; }
+  .projects-page .projects .mobile-filter-panel .filter-status-bar { position: static; display: flex; flex-wrap: wrap; gap: var(--space-8); min-height: 0; margin-top: var(--space-8); padding: 0; }
+  .projects-page .projects:not(.has-active-filters) .mobile-filter-panel .filter-status-bar { display: none; }
   .projects-page .project-group { margin-bottom: var(--space-40); }
   .projects-page .project-group + .project-group { padding-top: var(--space-40); }
   .projects-page .project-group header { align-items: center; gap: var(--space-12); margin-bottom: var(--space-12); }
@@ -1044,7 +1070,8 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .category-page:not(.premium-page) .category-grow__cards { right: 0; left: 0; translate: none; }
   .category-page:not(.premium-page) .category-grow__title { left: var(--space-16); top: var(--space-24); max-width: calc(100% - 32px); font-size: 24px; line-height: 29px; letter-spacing: 0; }
   .category-page:not(.premium-page) .category-grow__deck { right: var(--space-16); bottom: 0; left: var(--space-16); width: auto; height: min(400px, 58%); }
-  .category-page:not(.premium-page) .grow-card { padding: var(--space-24); }
+  .category-page:not(.premium-page) .grow-card { gap: var(--space-24); padding: var(--space-24); overflow-y: auto; }
+  .category-page:not(.premium-page) .grow-card.is-current { pointer-events: auto; }
   .category-page:not(.premium-page) .grow-card__top { flex-direction: column-reverse; align-items: flex-start; gap: var(--space-16); }
   .category-page:not(.premium-page) .grow-card h3 { max-width: 100%; font-size: 20px; line-height: 24px; letter-spacing: 0; overflow-wrap: anywhere; }
   .category-page:not(.premium-page) .grow-card p { max-width: 100%; font-size: var(--fs-ui); line-height: var(--lh-ui); overflow-wrap: anywhere; }
@@ -1115,7 +1142,8 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   /* Подвал: одна ясная колонка, без десктопной сетки и наложений. */
   .footer { margin-top: 0; padding: var(--space-48) 0 var(--space-16); }
   .footer__grid { grid-template-columns: 1fr; gap: var(--space-32); min-height: 0; padding-bottom: var(--space-32); }
-  .footer__brand { font-size: 32px; line-height: 35px; letter-spacing: -1px; }
+  .footer__brand,
+  .projects-page .footer__brand { font-size: 32px; line-height: 35px; letter-spacing: -1px; }
   .footer__nav { gap: var(--space-12); padding-top: 0; }
   .footer__nav a { font-size: var(--fs-body); line-height: var(--lh-body); }
   .footer__contacts { gap: var(--space-4); padding-top: 0; }
@@ -1296,3 +1324,208 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 @media (min-width: 768px) {
   .site-menu__direct-link .fs-arrow { display: none; }
 }
+
+/* Раскрытия хедера: ссылки первого уровня и отдельные кнопки-стрелки. */
+.header .nav { margin-left: 0; }
+.header-nav-item { display: flex; align-items: center; gap: var(--space-4); }
+.header-nav-toggle {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: var(--header-height);
+  margin-block: calc(-1 * var(--header-nav-inset));
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.header-nav-toggle > span {
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.header-nav-toggle[aria-expanded="true"] > span { transform: translateY(2px) rotate(225deg); }
+.header-nav-toggle:is(:hover, :focus-visible), .header-nav-item.is-open { color: var(--brand-red); }
+.header-nav-toggle:focus-visible { outline: 1px solid var(--brand-red); outline-offset: -4px; }
+.header .header-nav-item.is-open > a::after { transform: scaleX(1); }
+.header-dropdown {
+  position: fixed;
+  inset: var(--header-height) 0 auto;
+  z-index: 95;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--brand-white);
+  color: var(--brand-black);
+  border-bottom: 1px solid var(--brand-line);
+  box-shadow: 0 16px 40px var(--color-shadow-soft);
+}
+.header-dropdown[hidden] { display: none; }
+.header-dropdown__inner { padding-block: var(--space-32) var(--space-40); }
+.header-dropdown__section { margin-bottom: var(--space-24); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.header-dropdown__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-40); }
+.header-dropdown .site-menu__sub { margin: 0; }
+.header-dropdown .site-menu__subtitle { color: var(--brand-grey); }
+.header-dropdown .site-menu__link { min-height: 32px; width: 100%; padding-block: var(--space-4); }
+.header-dropdown .site-menu__link-label { flex: 1; }
+.header-dropdown .site-menu__link .fs-arrow { flex-shrink: 0; }
+@media (min-width: 768px) and (max-width: 1600px) {
+  .header .nav { gap: var(--space-16); }
+  .header .nav--side { left: auto; right: 500px; }
+}
+@media (max-width: 767px) {
+  .header-dropdown { display: none; }
+}
+
+/* Один баннер в каждом раскрытии: тот же компонент, что в бургер-меню. */
+.header-dropdown__layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(240px, 1fr); gap: var(--space-40); align-items: start; }
+.header-dropdown__layout > .site-menu__promo-card { min-width: 0; }
+@media (min-width: 768px) and (max-width: 1180px) {
+  .header-dropdown__layout { grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr); gap: var(--space-24); }
+  .header-dropdown__grid { gap: var(--space-24); }
+}
+
+/* Содержание клиентских промоблоков в существующем фотографическом баннере. */
+.header-dropdown .header-dropdown__banner { min-height: 280px; aspect-ratio: auto; padding: var(--space-24); align-items: stretch; gap: var(--space-16); }
+.header-dropdown__banner-copy { display: flex; flex: 1; flex-direction: column; justify-content: space-between; min-width: 0; gap: var(--space-24); }
+.header-dropdown__banner-copy strong { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; }
+.header-dropdown__banner-copy > span { font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 500; letter-spacing: 0; text-transform: none; }
+.header-dropdown__banner > .site-menu__promo-arrow { align-self: flex-end; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-menu__promo-arrow { transition: none !important; }
+}
+
+/* Ноутбук: ширина групп учитывает кнопки раскрытия; без абсолютных координат. */
+@media (min-width: 1400px) and (max-width: 1600px) {
+  .header .header__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); }
+  .header .header__inner > :is(.logo, .nav, .header__phone, .header__actions) {
+    position: static;
+    inset: auto;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .header .nav { align-items: center; gap: var(--space-16); }
+  .header .nav--main { margin-left: var(--space-16); }
+  .header .header-nav-toggle { height: var(--header-height); margin-block: 0; }
+}
+
+/* Базовое начертание текста и элементов интерфейса — Medium. */
+:where(body, button, input, select, textarea) { font-weight: 500; }
+
+/* Текст перед футером «Проектов»: ширина двух колонок сетки карточек. */
+.catalog-page .projects-seo-layout { margin-top: var(--space-section); padding-top: 0; }
+.projects-seo { display: grid; grid-column: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-16); }
+.projects-seo__content { grid-column: span 2; min-width: 0; }
+.projects-seo__content h2 { margin: 0; }
+.projects-seo__content p { margin: var(--space-16) 0 0; color: var(--brand-muted); font-size: var(--fs-body); line-height: var(--lh-body); }
+@media (min-width: 768px) and (max-width: 1300px) {
+  .projects-seo { column-gap: var(--space-12); }
+}
+@media (max-width: 767px) {
+  .catalog-page .projects-seo-layout { margin-top: var(--space-48); }
+  .projects-seo { grid-column: 1; grid-template-columns: minmax(0, 1fr); }
+  .projects-seo__content { grid-column: auto; }
+}
+
+.footer .footer__nav a { font-size: var(--fs-body); line-height: var(--lh-body); }
+
+/* Сквозной футер: «Наверх» над линией, служебные ссылки под ней справа. */
+.footer .footer__grid { padding-bottom: calc(var(--control-icon-button-size) + 2 * var(--space-24)); }
+.footer .footer__bottom { position: relative; justify-content: flex-end; }
+.footer .footer__bottom > span:first-child { margin-right: auto; }
+.footer .footer__bottom > a[href="#top"] {
+  position: absolute;
+  inset: auto 0 calc(100% + var(--space-24)) auto;
+  display: grid;
+  width: var(--control-icon-button-size);
+  height: var(--control-icon-button-size);
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.footer .footer__social .footer__to-top { display: none; }
+@media (max-width: 767px) {
+  .footer .footer__bottom > span:first-child { flex-basis: 100%; }
+}
+
+/* Смена фона: каждая секция сохраняет полный межсекционный отступ со своей стороны. */
+@media (min-width: 768px) {
+  .catalog-page #solutions { padding-bottom: var(--space-section); }
+  .catalog-page #projects { padding-top: var(--space-section); }
+}
+
+/* Категория, 1440: при смене фона по 100 px с каждой стороны; на одном фоне — 100 px суммарно. */
+@media (min-width: 1280px) and (max-width: 1600px) {
+  .production-page { --category-systems-gap: var(--space-section); }
+  .projects-page.production-page .category-intro { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .projects-page.production-page .category-intro .category-intro__grid { margin-top: 0; }
+  /* Слайдер → задачи: 100 px на сером фоне и 100 px на белом. */
+  .projects-page.production-page .category-grow { padding-top: var(--space-section); padding-bottom: 0; }
+  .projects-page.production-page #projects-list { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .projects-page.production-page .category-systems { --sys-pad: var(--category-systems-gap); }
+  .projects-page.production-page .category-systems .idea__title { margin-top: 0; }
+  .projects-page.production-page .category-systems__lead { top: calc(var(--lh-h2) + var(--space-24)); }
+  .projects-page.production-page .category-about { padding-top: var(--space-section); }
+  .projects-page.production-page .category-others { padding-top: 0; padding-bottom: var(--space-section); }
+  .projects-page.production-page .category-form { margin-top: 0; padding-top: var(--space-section); }
+}
+
+/* Центральное фото категории и подкатегории: одинаковые размеры десктопного слайдера. */
+@media (min-width: 768px) {
+  :root { --project-slider-height: max(420px, calc(100svh - 232px - var(--crumbs-gap))); }
+  .projects-page.production-page .category-intro,
+  .projects-page.subcategory-page .subcat-intro { --intro-photo-h: var(--project-slider-height); }
+}
+@media (min-width: 1601px) {
+  :root { --project-slider-height: max(560px, calc(100svh - 252px - var(--crumbs-gap))); }
+}
+@media (min-width: 1181px) and (max-width: 1600px) {
+  .projects-page.production-page .category-intro .category-intro__grid,
+  .projects-page.subcategory-page .subcat-intro .category-intro__grid { grid-template-columns: 340px minmax(0, 1fr) 340px; }
+}
+@media (max-width: 767px) {
+  .production-page .category-intro [data-slide-media] { touch-action: pan-y pinch-zoom; }
+}
+
+/* Одинаковый белый фон: перед другими категориями один интервал 100 / 120 px,
+   разделённый поровну вокруг линии. При смене фона поля секций остаются полными. */
+@media (min-width: 1280px) {
+  .projects-page.production-page .category-about,
+  .projects-page.subcategory-page .category-about { padding-bottom: calc(var(--space-section) / 2); }
+  .projects-page.production-page .category-others .projects__head,
+  .projects-page.subcategory-page .subcat-siblings .projects__head { padding-top: calc(var(--space-section) / 2); }
+}
+
+/* Подкатегория: заголовок систем по верху фото, как на категории; описание ниже на 24 px.
+   Адаптивный --sys-pad сохраняет вместимость закреплённого блока на невысоких экранах. */
+@media (min-width: 768px) {
+  .projects-page.subcategory-page .category-systems .idea__title { margin-top: 0; }
+  .projects-page.subcategory-page .category-systems__lead { top: calc(var(--lh-h2) + var(--space-24)); }
+}
+
+/* Блок систем: CTA на одной линии со стрелками; под ними остаются 24 px и полоса 2 px. */
+@media (min-width: 768px) {
+  .projects-page .category-systems__cta { bottom: calc(var(--space-24) + 2px); }
+}
+
+/* Оптический центр прописных Solomon Sans: видимые буквы на 2 px выше центра строки.
+   Корректируем текст; размеры кнопок и положение SVG остаются прежними. */
+.header .header__actions .btn-accent { padding-block: 4px 0; }
+.projects-page :is(.hero__cta-text, .category-all-link > span, .category-form__submit > span) { translate: 0 2px; }
+
+/* Текст системных табов: оптический центр Solomon Sans, общий для каталога и фильтра проектов. */
+.projects-page .product-chip { display: inline-flex; align-items: center; justify-content: center; padding-block: 4px 0; }
+
+/* Чипсы: фокус обозначается существующей заливкой без дополнительной обводки. */
+.projects-page :is(button, a):is(.product-chip, .selected-filter):focus-visible { outline: none; }
+
+/* Бейджи карточек и объекта: видимые буквы Solomon Sans 12 px по центру плашки. */
+.projects-page :is(.project-card__badges > span, .project-card__badges > .project-card__sub, .project-info__badges > a) { padding-block: 2px 0; }
+
+/* Фокус рабочих компонентов без внешнего контура. Смена заливки/цвета и линия поля сохраняются. */
+body.projects-page :focus-visible { outline: none !important; }

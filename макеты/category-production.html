@@ -69,7 +69,7 @@
               <p class="category-intro__lead reveal-lines" style="--d:.25s">Здесь собраны реализованные объекты Frontside по трём направлениям: промышленные предприятия, технопарки и Light Industrial. По каждому — применённая система, решения по фасаду и фотографии. Листайте проекты или выберите подкатегорию.</p>
             </div>
           </div>
-          <div class="category-intro__media category-intro__spot" data-grow-spot aria-hidden="true"></div>   <!-- место фото: само фото — кадр блока «Задачи» ниже, стоит ровно здесь -->
+          <figure class="category-intro__media" data-slide-media></figure>
           <div class="category-intro__col">
             <!-- Подпись к фото в центре и перелистывание объектов категории -->
             <div class="category-intro__slide">
@@ -90,17 +90,17 @@
     </section>
     </div>
 
-    <!-- Задачи, которые решает фасад — механика блока «Особые требования к процессу» со страницы «Фасады»:
-         фото из центра второго экрана при прокрутке закрепляется под шапкой и раскрывается до ширины контейнера,
-         затем слева проявляется заголовок, и задачи выезжают колодой — следующая наезжает на предыдущую -->
+    <!-- Блок «Задачи»: фото на ширину контейнера, поверх него задачи листаются колодой. -->
     <section class="category-grow" aria-labelledby="tasks-title">
       <div class="category-grow__track" data-grow-track>
         <div class="category-grow__sticky">
-          <div class="category-grow__frame" data-grow-frame>
-            <figure class="category-intro__media category-grow__media" data-slide-media></figure>
+          <div class="container category-grow__frame" data-grow-frame>
+            <figure class="category-grow__media" data-grow-media>
+              <img class="is-active" src="https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp" alt="Фасад завода смазочных материалов TOTAL">
+            </figure>
           </div>
           <div class="container category-grow__cards">
-            <h2 class="category-grow__title" id="tasks-title" data-grow-title>Задачи, которые решает фасад</h2>
+            <h2 class="category-grow__title is-in" id="tasks-title" data-grow-title>Задачи, которые решает фасад</h2>
             <div class="category-grow__deck">
             <article class="grow-card" data-card>
               <div class="grow-card__top"><h3>Инженерная точность</h3><span class="category-intro__counter grow-card__num"><b>01</b><span>03</span></span></div>
@@ -295,10 +295,10 @@
     }
     chips.forEach(chip=>chip.addEventListener("click",()=>setDirection(chip.dataset.directionFilter)));
     setDirection("Промышленные предприятия");   // по умолчанию открыта первая подкатегория
-    // Фото первого экрана листает объекты категории — данные берутся из карточек портфолио
+    // Самостоятельный слайдер второго блока — данные из карточек портфолио
     const media=document.querySelector("[data-slide-media]");
     const slideText=document.querySelector(".category-intro__slide-text");
-    // Слайды — реализованные проекты из карточек; первым — TOTAL (сильный кадр для второго экрана и блока «Задачи»),
+    // Слайды — реализованные проекты из карточек; первым — TOTAL,
     // фото «ЭГИДЫ» в слайдере не показываем
     const slideItems=items.filter(item=>!item.textContent.includes("ЭГИДА"));
     const firstSlide=Math.max(0,slideItems.findIndex(item=>item.textContent.includes("TOTAL")));
@@ -316,7 +316,9 @@
       media.append(img);
       return img;
     });
-    let slideIndex=0,busy=false;
+    const SLIDE_DELAY=5000;
+    let slideIndex=0,busy=false,slideTimer;
+    function scheduleSlide(){clearTimeout(slideTimer);slideTimer=setTimeout(()=>showSlide(slideIndex+1),SLIDE_DELAY);}
     document.querySelector("[data-slide-total]").textContent=String(slides.length).padStart(2,"0");
     function showSlide(index){
       if(busy) return;
@@ -337,9 +339,23 @@
         slideText.offsetHeight;
         slideText.classList.remove("is-entering");
       },400);
+      scheduleSlide();
     }
     document.querySelector("[data-slide-prev]").addEventListener("click",()=>showSlide(slideIndex-1));
     document.querySelector("[data-slide-next]").addEventListener("click",()=>showSlide(slideIndex+1));
+    // Тот же жест, что на первом экране подкатегории; вертикальный скролл остаётся свободным.
+    let slideTouch=null;
+    media.addEventListener("touchstart",event=>{
+      slideTouch=matchMedia("(max-width: 767px)").matches&&event.touches.length===1?{x:event.touches[0].clientX,y:event.touches[0].clientY}:null;
+    },{passive:true});
+    media.addEventListener("touchend",event=>{
+      if(!slideTouch)return;
+      const dx=event.changedTouches[0].clientX-slideTouch.x,dy=event.changedTouches[0].clientY-slideTouch.y;
+      slideTouch=null;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5)showSlide(slideIndex+(dx<0?1:-1));
+    },{passive:true});
+    media.addEventListener("touchcancel",()=>{slideTouch=null;},{passive:true});
+    scheduleSlide();
     // Направления на первом экране: включают фильтр и ведут к проектам
     document.querySelectorAll("[data-direction]").forEach(button=>button.addEventListener("click",()=>{setDirection(button.dataset.direction);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});}));
     // шапка: над фото первого экрана прозрачная, после начала прокрутки — белая
@@ -406,41 +422,26 @@
     // пришли из каталога по чипсине подкатегории (#sub=Технопарки) — сразу включаем её фильтр
     const hashSub=decodeURIComponent(location.hash).match(/^#sub=(.+)$/);
     if(hashSub&&chips.some(chip=>chip.dataset.directionFilter===hashSub[1])){setDirection(hashSub[1]);requestAnimationFrame(()=>document.getElementById("projects-list").scrollIntoView());}
-    // Фото второго экрана → блок «Задачи» (как «Особые требования к процессу» на «Фасадах»): кадр стоит ровно на месте фото
-    // второго экрана. Когда верх фото доходит до шапки, кадр закрепляется в прежнем размере, и второй экран уезжает вверх —
-    // фото «переезжает» в третий блок; только потом оно раскрывается до ширины контейнера и высоты экрана,
-    // затем задачи выезжают снизу по одной, прежние уходят вглубь колоды матовым стеклом
+    // Фото третьего блока постоянно на ширину контейнера; прокрутка листает только задачи.
     const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), ease=t=>1-Math.pow(1-t,3);
-    const growSpot=document.querySelector("[data-grow-spot]"), growTrack=document.querySelector("[data-grow-track]");
-    const growFrameBox=document.querySelector("[data-grow-frame]"), growMedia=growFrameBox.querySelector("[data-slide-media]");
-    const growCards=[...document.querySelectorAll("[data-card]")], growGrid=document.querySelector(".category-grow__cards");
-    const growTitle=document.querySelector("[data-grow-title]"), growSticky=document.querySelector(".category-grow__sticky");
+    const growTrack=document.querySelector("[data-grow-track]");
+    const growCards=[...document.querySelectorAll("[data-card]")];
+    const growSticky=document.querySelector(".category-grow__sticky");
     let headerHeight=0, stickyHeight=0;
-    let growGap=0;   // путь переезда: от верха фото до низа второго экрана
-    function placeGrow(){   // дорожка начинается на уровне верха фото второго экрана и длиннее на путь переезда
+    function placeGrow(){
       headerHeight=parseFloat(getComputedStyle(growSticky).getPropertyValue("--header-height"));
       stickyHeight=growSticky.getBoundingClientRect().height;
-      growTrack.style.marginTop="0px";
-      growGap=growTrack.getBoundingClientRect().top-growSpot.getBoundingClientRect().top;
-      growTrack.style.marginTop=`${-growGap}px`;
-      growTrack.parentElement.style.setProperty("--grow-gap",`${growGap}px`);
-      growTrack.style.height=`calc(var(--grow-track-height) + ${growGap}px)`;
       growFrame();
     }
     function growFrame(){
-      const r=growTrack.getBoundingClientRect(), run=r.height-stickyHeight;
-      const s=clamp(headerHeight-r.top,0,run), rest=Math.max(run-growGap,1);   // s — пройдено с момента, как фото дошло до шапки
-      const e=ease(clamp((s-growGap)/(rest*.3),0,1));      // раскрытие — после переезда, первые 30 % оставшегося пути
-      const f=growFrameBox.getBoundingClientRect(), spot=growSpot.getBoundingClientRect(), grid=growGrid.getBoundingClientRect();
-      const x0=spot.left-f.left, w0=spot.width, h0=spot.height, x1=grid.left-f.left, w1=grid.width, h1=f.height;
-      growMedia.style.left=`${x0+(x1-x0)*e}px`; growMedia.style.width=`${w0+(w1-w0)*e}px`; growMedia.style.height=`${h0+(h1-h0)*e}px`;
-      growFrameBox.classList.toggle("is-open",e>.98);
-      growTitle.classList.toggle("is-in",e>.98);         // заголовок появляется, когда кадр раскрылся
-      const q=clamp((s-growGap-rest*.32)/(rest*.6),0,1)*growCards.length;
+      const r=growTrack.getBoundingClientRect(), run=Math.max(r.height-stickyHeight,1);
+      const s=clamp(headerHeight-r.top,0,run);
+      const q=clamp(s/run,0,1)*growCards.length;
       growCards.forEach((card,i)=>{
         const inT=ease(clamp(q-i,0,1)), depth=clamp(q-i-1,0,growCards.length);
         card.style.transform=`translateY(${(1-inT)*110}%) translateY(${-24*depth}px) scale(${1-.05*depth})`;
         card.style.opacity=inT>0?1:0;
+        card.classList.toggle("is-current",inT>0&&i===Math.ceil(q)-1);
         const g=Math.min(depth,1);
         card.style.setProperty("--glass",(1-.45*g).toFixed(3));
         card.style.setProperty("--blur",(14*g).toFixed(1)+"px");

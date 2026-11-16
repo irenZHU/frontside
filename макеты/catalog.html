@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Каталог — Frontside</title>
-  <link rel="preload" href="fonts/WixMadeforDisplay-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/SolomonSans-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -36,30 +36,94 @@
     <nav class="container catalog-product-filter product-filter-bar" aria-label="Разделы каталога"><div class="product-chips"><a class="product-chip is-active" href="#fasadnye-sistemy" aria-current="location">Фасадные системы</a><a class="product-chip" href="#architecture">Расширенные архитектурные возможности</a><a class="product-chip" href="#elements">Декоративные элементы систем</a></div></nav>
 
     <section class="catalog-section" id="fasadnye-sistemy" aria-labelledby="systems-title">
-      <div class="container catalog-section__head"><h2 id="systems-title">Фасадные системы</h2></div>
+      <div class="container catalog-section__head"><h2 id="systems-title">Фасадные системы</h2><p>Готовые фасадные решения, которые формируют облик здания и&nbsp;закрывают тепловой контур. Выбирайте систему под архитектуру объекта, способ монтажа и&nbsp;требования к&nbsp;поверхности фасада.</p></div>
       <div class="container catalog-grid">
-        <article class="solution-card catalog-system-card" data-system="FRONTTOP" style="--image:url('https://frontside.ru/upload/iblock/fbe/79gzo3e5wt89lfgds33lehzd1jj1kbjo.webp')"><div class="solution-card__copy"><small>FRONTTOP</small><h3>Модульная фасадная система</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card catalog-system-card" data-system="UNIQUE" style="--image:url('https://frontside.ru/upload/iblock/a28/tvoxzenojbe6ncuyv91exavvjt9dkqhz.webp')"><div class="solution-card__copy"><small>UNIQUE</small><h3>Эстетичная фасадная система</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card catalog-system-card" data-system="AESTHETIC" style="--image:url('https://frontside.ru/upload/iblock/3a8/qyzr41fh4mcbudb1ohky8kkvgm12mxds.webp')"><div class="solution-card__copy"><small>AESTHETIC</small><h3>Вертикальная фасадная система</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card catalog-system-card" data-system="FRONTBASE" style="--image:url('https://frontside.ru/upload/iblock/804/mckredniwwi5gaanjaw2trirvl8php0x.webp')"><div class="solution-card__copy"><small>FRONTBASE</small><h3>Стеновые и кровельные сэндвич-панели</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
+        <article class="project-item catalog-system-card" data-system="FRONTTOP">
+          <a class="project-card" href="https://frontside.ru/catalog/fronttop/" aria-label="Модульная фасадная система FRONTTOP" style="--image:url('https://frontside.ru/upload/iblock/fbe/79gzo3e5wt89lfgds33lehzd1jj1kbjo.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>FRONTTOP</span></span>
+            <a class="project-card__name" href="https://frontside.ru/catalog/fronttop/"><strong>Модульная фасадная система</strong></a>
+          </div>
+        </article>
+        <article class="project-item catalog-system-card" data-system="UNIQUE">
+          <a class="project-card" href="https://frontside.ru/catalog/unique/" aria-label="Эстетичная фасадная система UNIQUE" style="--image:url('https://frontside.ru/upload/iblock/a28/tvoxzenojbe6ncuyv91exavvjt9dkqhz.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>UNIQUE</span></span>
+            <a class="project-card__name" href="https://frontside.ru/catalog/unique/"><strong>Эстетичная фасадная система</strong></a>
+          </div>
+        </article>
+        <article class="project-item catalog-system-card" data-system="AESTHETIC">
+          <a class="project-card" href="https://frontside.ru/catalog/aesthetic/" aria-label="Вертикальная фасадная система AESTHETIC" style="--image:url('https://frontside.ru/upload/iblock/3a8/qyzr41fh4mcbudb1ohky8kkvgm12mxds.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>AESTHETIC</span></span>
+            <a class="project-card__name" href="https://frontside.ru/catalog/aesthetic/"><strong>Вертикальная фасадная система</strong></a>
+          </div>
+        </article>
+        <article class="project-item catalog-system-card" data-system="FRONTBASE">
+          <a class="project-card" href="https://frontside.ru/catalog/frontbase/" aria-label="Базовая фасадная система FRONTBASE" style="--image:url('https://frontside.ru/upload/iblock/804/mckredniwwi5gaanjaw2trirvl8php0x.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>FRONTBASE</span></span>
+            <a class="project-card__name" href="https://frontside.ru/catalog/frontbase/"><strong>Базовая фасадная система</strong></a>
+          </div>
+        </article>
+        <article class="project-item catalog-system-card" data-system="UNIQUE BV">
+          <a class="project-card" href="https://frontside.ru/compare/" aria-label="Фасадные панели UNIQUE BV" style="--image:url('https://frontside.ru/upload/iblock/abc/bzswyp7bzf9ek7ofv1no5dim8zft9u2p.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>UNIQUE BV</span></span>
+            <a class="project-card__name" href="https://frontside.ru/compare/"><strong>Фасадные панели</strong></a>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="catalog-section" id="architecture" aria-labelledby="architecture-title">
-      <div class="container catalog-section__head"><h2 id="architecture-title">Расширенные архитектурные возможности</h2></div>
+      <div class="container catalog-section__head"><h2 id="architecture-title">Расширенные архитектурные возможности</h2><p>Индивидуальное профилирование, архитектурное тиснение, облицовка и&nbsp;LED-подсветка расширяют возможности базовых систем. Добавляйте фасаду рисунок, рельеф и&nbsp;световые акценты.</p></div>
       <div class="container catalog-grid">
-        <article class="solution-card" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/626/1zv0xqfoy5puvo63op9q5akz770o9l1s.webp')"><div class="solution-card__copy"><small>Технология индивидуального профилирования</small><h3>UNIQUE 2.0</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card" style="--image:url('https://frontside.ru/upload/iblock/248/rls03j84zzs8zx95gqjabupld8bj4te7.webp')"><div class="solution-card__copy"><small>Технология архитектурного тиснения</small><h3>ARTVISION</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/5ad/s7r8178j8b28omtdb0gvn1xzag8ndxdg.webp')"><div class="solution-card__copy"><small>Архитектурная облицовка</small><h3>ARTLINE</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/a59/zzzwoxoertifhvfr2brhnl8sxyu46jnx.webp')"><div class="solution-card__copy"><small>Интегрированная</small><h3>LED-подсветка</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
+        <article class="project-item">
+          <a class="project-card" href="https://frontside.ru/catalog/unique-2-0/" aria-label="Технология индивидуального профилирования UNIQUE 2.0" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/626/1zv0xqfoy5puvo63op9q5akz770o9l1s.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>UNIQUE 2.0</span></span>
+            <a class="project-card__name" href="https://frontside.ru/catalog/unique-2-0/"><strong>Технология индивидуального профилирования</strong></a>
+          </div>
+        </article>
+        <article class="project-item">
+          <a class="project-card" href="artvision.html" aria-label="Технология архитектурного тиснения ARTVISION" style="--image:url('https://frontside.ru/upload/iblock/248/rls03j84zzs8zx95gqjabupld8bj4te7.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>ARTVISION</span></span>
+            <a class="project-card__name" href="artvision.html"><strong>Технология архитектурного тиснения</strong></a>
+          </div>
+        </article>
+        <article class="project-item">
+          <a class="project-card" href="https://frontside.ru/catalog/led/" aria-label="Интегрированная LED-подсветка" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/a59/zzzwoxoertifhvfr2brhnl8sxyu46jnx.webp')"></a>
+          <div class="project-card__details">
+            <a class="project-card__name" href="https://frontside.ru/catalog/led/"><strong>Интегрированная LED-подсветка</strong></a>
+          </div>
+        </article>
+        <article class="project-item">
+          <a class="project-card" href="https://frontside.ru/catalog/artline/" aria-label="Архитектурная облицовка ARTLINE" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/5ad/s7r8178j8b28omtdb0gvn1xzag8ndxdg.webp')"></a>
+          <div class="project-card__details">
+            <span class="project-card__badges"><span>ARTLINE</span></span>
+            <a class="project-card__name" href="https://frontside.ru/catalog/artline/"><strong>Архитектурная облицовка</strong></a>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="catalog-section catalog-section--last" id="elements" aria-labelledby="elements-title">
-      <div class="container catalog-section__head"><h2 id="elements-title">Декоративные элементы систем</h2></div>
+      <div class="container catalog-section__head"><h2 id="elements-title">Декоративные элементы систем</h2><p>Угловые и&nbsp;радиусные элементы помогают оформить повороты и&nbsp;скругления фасада. Дополняйте систему деталями, которые поддерживают геометрию и&nbsp;целостный облик здания.</p></div>
       <div class="container catalog-grid">
-        <article class="solution-card" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/65c/nqloawb43cuhjb5aeauin0p66cohlatz.webp')"><div class="solution-card__copy"><h3>Угловые элементы</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
-        <article class="solution-card" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/9ab/eg7uedwhjbpyiro74pclqemv2c809ur6.webp')"><div class="solution-card__copy"><h3>Радиусные элементы</h3></div><span class="solution-card__arrow" aria-hidden="true"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></span></article>
+        <article class="project-item">
+          <a class="project-card" href="https://frontside.ru/catalog/uglovye-fasadnye-elementy/" aria-label="Угловые элементы" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/65c/nqloawb43cuhjb5aeauin0p66cohlatz.webp')"></a>
+          <div class="project-card__details">
+            <a class="project-card__name" href="https://frontside.ru/catalog/uglovye-fasadnye-elementy/"><strong>Угловые элементы</strong></a>
+          </div>
+        </article>
+        <article class="project-item">
+          <a class="project-card" href="https://frontside.ru/catalog/radiusnye-fasadnye-elementy/" aria-label="Радиусные элементы" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/9ab/eg7uedwhjbpyiro74pclqemv2c809ur6.webp')"></a>
+          <div class="project-card__details">
+            <a class="project-card__name" href="https://frontside.ru/catalog/radiusnye-fasadnye-elementy/"><strong>Радиусные элементы</strong></a>
+          </div>
+        </article>
       </div>
     </section>
     </div>

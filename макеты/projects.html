@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Проекты — Frontside</title>
-  <link rel="preload" href="fonts/WixMadeforDisplay-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/SolomonSans-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -56,7 +56,23 @@
           <details class="filter-group" data-category="Административные и общественные здания"><summary><span>Административные и общественные здания</span><b>⌄</b></summary><label><input type="radio" name="subcategory-6" value="Офисные здания">Офисные здания</label></details>
           <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><label><input type="radio" name="subcategory-7" value="ЦОД">ЦОД</label></details>
         </aside>
-        <div class="catalog"><div class="product-filter-bar"><div class="products" aria-label="Фильтр систем"><div class="products__meta"><span>Системы</span></div><div class="product-chips" role="group" aria-label="Выбор системы"><button type="button" class="product-chip is-active" data-product-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-product-filter="fronttop" aria-pressed="false">FRONTTOP</button><button type="button" class="product-chip" data-product-filter="frontbase" aria-pressed="false">FRONTBASE</button><button type="button" class="product-chip" data-product-filter="unique" aria-pressed="false">UNIQUE</button><button type="button" class="product-chip" data-product-filter="aesthetic" aria-pressed="false">AESTHETIC</button></div></div></div><div class="filter-status-bar"><div class="selected-filters" data-selected-filters aria-live="polite"></div><button type="button" data-reset hidden>Сбросить</button></div><div id="category-groups"></div></div>
+        <div class="catalog"><div class="product-filter-bar"><div class="products" aria-label="Фильтр систем"><div class="products__meta"><span>Системы</span></div><div class="product-chips" role="group" aria-label="Выбор системы"><button type="button" class="product-chip is-active" data-product-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-product-filter="fronttop" aria-pressed="false">FRONTTOP</button><button type="button" class="product-chip" data-product-filter="frontbase" aria-pressed="false">FRONTBASE</button><button type="button" class="product-chip" data-product-filter="unique" aria-pressed="false">UNIQUE</button><button type="button" class="product-chip" data-product-filter="aesthetic" aria-pressed="false">AESTHETIC</button></div></div></div><div class="filter-status-bar"><div class="selected-filters" data-selected-filters aria-live="polite"></div><button type="button" data-reset hidden>Сбросить</button></div><div id="category-groups"></div>
+          <div class="projects-empty-state" data-projects-empty role="status" hidden>
+            <strong>Ничего не найдено</strong>
+            <span>Измените условия фильтра или сбросьте их.</span>
+            <button class="filter-reset" type="button" data-reset>Сбросить фильтры</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="container projects__layout projects-seo-layout">
+          <section class="projects-seo" aria-labelledby="projects-seo-title">
+            <div class="projects-seo__content">
+              <h2 id="projects-seo-title">Фасадные системы Frontside в&nbsp;реализованных проектах</h2>
+              <p>В&nbsp;портфолио Frontside собраны проекты фасадов промышленных зданий, логистических центров, спортивных сооружений, аэропортов, торговых и&nbsp;общественных объектов. Фотографии показывают, как фасадные системы FRONTTOP, UNIQUE, AESTHETIC и&nbsp;FRONTBASE работают в&nbsp;разной архитектуре: от&nbsp;лаконичных производственных корпусов до&nbsp;зданий со&nbsp;сложной геометрией.</p>
+              <p>Выберите категорию объекта или систему, чтобы найти близкие вашему проекту решения. В&nbsp;карточках указаны применённые системы и&nbsp;типы зданий, а&nbsp;на&nbsp;страницах объектов можно подробнее рассмотреть фасады и&nbsp;узнать об&nbsp;особенностях реализации. Эти примеры помогут определить направление для будущего проекта и&nbsp;обсудить его с&nbsp;командой Frontside.</p>
+            </div>
+          </section>
       </div>
     </section>
   </main>
@@ -206,6 +222,7 @@
     const selectedFilters = document.querySelector('[data-selected-filters]');
     const resetButton = document.querySelector('[data-reset]');
     const projectsSection = document.querySelector('.projects');
+    const emptyState = projectsSection.querySelector('[data-projects-empty]');
     const productsBar = document.querySelector('.product-filter-bar');
     const filtersStatusBar = document.querySelector('.filter-status-bar');
     let selectedProducts = new Set();
@@ -221,6 +238,7 @@
       const filtering = !isAll || selectedSubcategories.size > 0;   // без фильтров — по три карточки, с фильтром — все подходящие проекты
       cards.forEach(card => card.hidden = (!filtering && card.hasAttribute('data-extra')) || (!isAll && !card.dataset.product.split(' ').some(key => selectedProducts.has(key))) || (selectedSubcategories.size > 0 && !selectedSubcategories.has(card.dataset.subcategory)));
       document.querySelectorAll('.project-group').forEach(group => group.hidden = ![...group.querySelectorAll('.project-item')].some(card => !card.hidden));
+      emptyState.hidden = cards.some(card => !card.hidden);
       // Выбрана подкатегория — шапка категории становится шапкой подкатегории:
       // заголовок и описание подкатегории; бейдж подкатегории на карточках скрыт
       document.querySelectorAll('.project-group').forEach(group => {
@@ -252,7 +270,7 @@
     });
     document.querySelectorAll('.filter-group input').forEach(input => input.addEventListener('change', applyFilters));
     selectedFilters.addEventListener('click', event => {const button=event.target.closest('[data-remove-filter]');if(!button)return;const [kind,value]=button.dataset.removeFilter.split(':');if(kind==='product')selectedProducts.delete(value);else [...document.querySelectorAll('.filter-group input:checked')][Number(value)].checked=false;applyFilters();});
-    resetButton.addEventListener('click', () => {document.querySelectorAll('.sidebar input').forEach(i=>i.checked=false);selectedProducts.clear();applyFilters();});
+    projectsSection.querySelectorAll('[data-reset]').forEach(button => button.addEventListener('click', () => {document.querySelectorAll('.filter-group input').forEach(i=>i.checked=false);selectedProducts.clear();applyFilters();}));
     addEventListener('scroll', syncStickyFilters, {passive:true});
     addEventListener('resize', syncStickyFilters);
     applyFilters();

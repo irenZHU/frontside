@@ -1,6 +1,6 @@
 /* Первый экран клиента (frontside.ru): фото, заголовок, кнопка,
    точки слайдера и счётчик 01 | 04 с бегущей шкалой. Хедер — наш, сквозной.
-   Шрифт остаётся системным для проекта: Wix Madefor Display и Onest. */
+   Шрифт остаётся системным для проекта: Solomon Sans и Onest. */
 
 .client-home-page main { padding-top: 0; }
 
@@ -13,17 +13,18 @@
 .client-hero__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .client-hero__media::after { content: ""; position: absolute; inset: 0; z-index: 2; background: var(--color-overlay-soft); pointer-events: none; }
 
-/* Текст: как у клиента — 33.18% сверху, 144 px слева */
-.client-hero__text { position: absolute; z-index: 10; top: 33.18%; left: 144px; max-width: 1000px; font-weight: 700; font-size: 48px; line-height: 60px; letter-spacing: .03em; }
-.client-hero__title { width: 64.896vw; margin: 0; font-size: clamp(40px, 4.6875vw, 90px); font-weight: 700; line-height: .8; letter-spacing: .03em; }
-.client-hero__desc { margin: 25px 0 0; font-size: clamp(24px, 1.875vw, 36px); font-weight: 700; line-height: 1.2; letter-spacing: .03em; }
+/* Отдельная роль главной: крупная типографика 600; заголовок Onest, описание Solomon Sans.
+   Положение как у клиента — 33.18% сверху, 144 px слева. */
+.client-hero__text { position: absolute; z-index: 10; top: 33.18%; left: 144px; max-width: 1000px; font-weight: 600; font-size: 48px; line-height: 60px; letter-spacing: .03em; }
+.client-hero__title { width: 64.896vw; margin: 0; font-size: clamp(40px, 4.6875vw, 90px); font-weight: 600; line-height: .8; letter-spacing: .03em; }
+.client-hero__desc { margin: 25px 0 0; font-size: clamp(24px, 1.875vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: .03em; }
 
 /* Кнопка «Подробнее» — прозрачная с красной рамкой; фирменная заливка идёт слева направо. */
 .client-hero__btn { display: inline-flex; align-items: center; margin-top: 130px; padding: 15px; border: 1px solid var(--brand-red); background-color: transparent; background-image: linear-gradient(var(--brand-red), var(--brand-red)); background-repeat: no-repeat; background-position: 0 50%; background-size: 0 100%; color: var(--brand-white); font-size: 20px; font-weight: 600; line-height: 1.2; letter-spacing: 1.4px; text-decoration: none; transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease, border-color .18s ease; }
 .client-hero__btn:hover, .client-hero__btn:focus-visible { background-size: 100% 100%; border-color: var(--brand-red); color: var(--brand-white); }
 .client-hero__btn:focus-visible { outline: 2px solid var(--brand-white); outline-offset: 3px; }
 /* «Подробнее» ведёт на отдельную страницу, поэтому стрелка направлена по диагонали вниз. */
-.client-hero__arrow { width: 16px; height: 16px; margin-left: 10px; transform: rotate(45deg); transform-origin: center; }
+.client-hero__arrow { flex: 0 0 var(--control-action-arrow-size); width: var(--control-action-arrow-size); height: var(--control-action-arrow-size); margin-left: 10px; }
 
 /* Точки слайдера — колонка слева от заголовка */
 .client-hero__pagination { position: absolute; z-index: 10; top: 33.18%; left: 108px; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding: 10px; }
@@ -33,12 +34,12 @@
 
 /* Счётчик: крупное «01», шкала с красной заливкой снизу и общее «04» */
 .client-hero__counter { position: absolute; z-index: 10; top: 36.87%; right: clamp(20px, 15.21vw, 292px); display: flex; align-items: flex-start; gap: 23px; }
-.client-hero__numbers { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 96px; overflow: hidden; font-size: 80px; font-weight: 700; line-height: 96px; }
+.client-hero__numbers { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 96px; overflow: hidden; font-size: 80px; font-weight: 600; line-height: 96px; }
 .client-hero__num { display: block; height: 96px; }
 .client-hero__numbers.is-rolling { transform: translateY(-100%); transition: transform .5s ease; }
 .client-hero__bar { position: relative; width: 5px; height: 99px; background: var(--brand-white); }
 .client-hero__bar i { position: absolute; right: 0; bottom: 0; left: 0; height: 0; background: var(--brand-red); animation: client-hero-bar 5s linear forwards; }
-.client-hero__total { font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: .03em; }
+.client-hero__total { font-size: 36px; font-weight: 600; line-height: 1.2; letter-spacing: .03em; }
 
 @keyframes client-hero-bar { from { height: 0; } to { height: 100%; } }
 
@@ -51,7 +52,8 @@
   .client-hero__text { left: 76px; }
   .client-hero__desc { margin-top: 16px; }
   .client-hero__pagination { left: 40px; }
-  .client-hero__btn { position: absolute; bottom: 265px; left: 76px; margin-top: 0; }
+  /* Кнопка следует за описанием и не зависит от высоты текстового блока. */
+  .client-hero__btn { margin-top: 40px; }
   .client-hero__counter { top: auto; right: 40px; bottom: 265px; }
   .client-hero__numbers { align-self: center; height: 58px; font-size: 48px; line-height: 58px; }
   .client-hero__num { height: 58px; }
@@ -60,17 +62,15 @@
 
 @media (max-width: 1024px) {
   .client-hero__btn { font-size: 16px; }
-  .client-hero__arrow { width: 12px; height: 12px; }
 }
 
 @media (max-width: 767px) {
   .client-hero { height: 668px; }
-  .client-hero__text { top: 138px; left: 54px; }
+  .client-hero__text { top: 138px; right: 16px; left: 54px; }
   .client-hero__title { font-size: 32px; }
   .client-hero__desc { font-size: 24px; }
   .client-hero__pagination { top: 138px; left: 16px; }
-  .client-hero__btn { bottom: 304px; left: 54px; }
-  .client-hero__counter { right: 16px; bottom: 304px; gap: 16px; }
+  .client-hero__counter { right: 16px; bottom: 64px; gap: 16px; }
   .client-hero__numbers { height: 38px; font-size: 32px; line-height: 1.2; }
   .client-hero__num { height: 38px; }
   .client-hero__bar { height: 46px; }

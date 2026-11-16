@@ -1,0 +1,26 @@
+/* Вариант для показа заказчику: Solomon только в заголовках каталога. */
+@font-face {
+  font-family: "Catalog Solomon Sans";
+  src: url("fonts/SolomonSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Catalog Solomon Sans";
+  src: url("fonts/SolomonSans-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Catalog Solomon Sans";
+  src: url("fonts/SolomonSans-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+.catalog-index-page main :is(h1, h2, h3) {
+  font-family: "Catalog Solomon Sans", Arial, sans-serif !important;
+}

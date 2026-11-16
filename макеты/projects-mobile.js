@@ -33,15 +33,22 @@
     return { drawer, close };
   }
 
-  function buildMobileFilters() {
-    if (!mobile.matches || document.documentElement.dataset.projectsMobileDrawers === 'ready') return;
-
+  function setupFilters() {
     const layout = document.querySelector('.projects-page .projects__layout');
     const sidebar = layout?.querySelector(':scope > .sidebar');
     const catalog = layout?.querySelector(':scope > .catalog');
     const filterGroups = sidebar ? [...sidebar.querySelectorAll(':scope > .filter-group')] : [];
     const chips = catalog?.querySelector('.product-chips');
-    if (!layout || !sidebar || !catalog || !filterGroups.length || !chips) return;
+    const statusBar = catalog?.querySelector('.filter-status-bar');
+    if (!layout || !sidebar || !catalog || !filterGroups.length || !chips || !statusBar) return;
+
+    // Возвращаем исходные узлы при смене ширины: выбор и обработчики сохраняются.
+    const categoryAnchor = document.createComment('Категории на десктопе');
+    const systemsAnchor = document.createComment('Системы на десктопе');
+    const statusAnchor = document.createComment('Выбранные фильтры на десктопе');
+    sidebar.insertBefore(categoryAnchor, filterGroups[0]);
+    chips.before(systemsAnchor);
+    statusBar.before(statusAnchor);
 
     const panel = document.createElement('div');
     panel.className = 'mobile-filter-panel';
@@ -50,41 +57,67 @@
     controls.className = 'mobile-filter-controls';
 
     const categoryContent = document.createElement('div');
-    filterGroups.forEach(group => categoryContent.append(group));
+    const systemsContent = document.createElement('div');
     const categories = createDrawer('filter-drawer', 'projects-categories', 'Категории', categoryContent);
-    const systems = createDrawer('product-drawer', 'projects-systems', 'Системы', chips);
+    const systems = createDrawer('product-drawer', 'projects-systems', 'Системы', systemsContent);
     const categoryToggle = createToggle('Категории', categories.drawer.id);
     const systemsToggle = createToggle('Системы', systems.drawer.id);
 
     function closeAll({ focusToggle = null } = {}) {
       categories.drawer.classList.remove('is-open');
       systems.drawer.classList.remove('is-open');
+      categories.drawer.setAttribute('aria-hidden', 'true');
+      systems.drawer.setAttribute('aria-hidden', 'true');
       categoryToggle.setAttribute('aria-expanded', 'false');
       systemsToggle.setAttribute('aria-expanded', 'false');
       focusToggle?.focus();
     }
-    function openDrawer(drawer, toggle, otherDrawer, otherToggle) {
+    function openDrawer(drawer, toggle) {
       const open = !drawer.classList.contains('is-open');
       closeAll();
       if (open) {
         drawer.classList.add('is-open');
+        drawer.setAttribute('aria-hidden', 'false');
         toggle.setAttribute('aria-expanded', 'true');
+        drawer.querySelector('.mobile-drawer__close').focus();
       }
-      otherDrawer.classList.remove('is-open');
-      otherToggle.setAttribute('aria-expanded', 'false');
     }
 
-    categoryToggle.addEventListener('click', () => openDrawer(categories.drawer, categoryToggle, systems.drawer, systemsToggle));
-    systemsToggle.addEventListener('click', () => openDrawer(systems.drawer, systemsToggle, categories.drawer, categoryToggle));
+    categoryToggle.addEventListener('click', () => openDrawer(categories.drawer, categoryToggle));
+    systemsToggle.addEventListener('click', () => openDrawer(systems.drawer, systemsToggle));
     categories.close.addEventListener('click', () => closeAll({ focusToggle: categoryToggle }));
     systems.close.addEventListener('click', () => closeAll({ focusToggle: systemsToggle }));
 
     controls.append(categoryToggle, systemsToggle);
     panel.append(controls, categories.drawer, systems.drawer);
-    layout.insertBefore(panel, sidebar);
-    document.documentElement.dataset.projectsMobileDrawers = 'ready';
+    closeAll();
+
+    function syncLayout() {
+      closeAll();
+      if (mobile.matches) {
+        filterGroups.forEach(group => categoryContent.append(group));
+        systemsContent.append(chips);
+        panel.append(statusBar);
+        layout.insertBefore(panel, sidebar);
+        document.documentElement.dataset.projectsMobileDrawers = 'ready';
+      } else {
+        filterGroups.forEach(group => categoryAnchor.before(group));
+        systemsAnchor.before(chips);
+        statusAnchor.before(statusBar);
+        panel.remove();
+        delete document.documentElement.dataset.projectsMobileDrawers;
+      }
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      if (categories.drawer.classList.contains('is-open')) closeAll({ focusToggle: categoryToggle });
+      else if (systems.drawer.classList.contains('is-open')) closeAll({ focusToggle: systemsToggle });
+    });
+    mobile.addEventListener('change', syncLayout);
+    syncLayout();
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildMobileFilters, { once: true });
-  else buildMobileFilters();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupFilters, { once: true });
+  else setupFilters();
 })();
