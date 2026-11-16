@@ -400,7 +400,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
       closeDropdown();
       if (wasOpen) return;
       if (!menu.hidden) setOpen(false);
-      dropdown.innerHTML = `<div class="container header-dropdown__inner"><a class="site-menu__link header-dropdown__section" href="${group.href}"><span>${title}</span></a><div class="header-dropdown__layout"><div class="header-dropdown__grid">${group.groups.map(sub).join('')}</div>${dropdownBanner(title, group.href)}</div></div>`;
+      dropdown.innerHTML = `<div class="container header-dropdown__inner"><div class="header-dropdown__layout"><div class="header-dropdown__grid">${group.groups.map(sub).join('')}</div>${dropdownBanner(title, group.href)}</div></div>`;
       dropdown.setAttribute('aria-label', `Подразделы: ${title}`);
       dropdown.hidden = false;
       activeDropdown = button;
