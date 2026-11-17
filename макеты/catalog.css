@@ -49,3 +49,19 @@
   font-size: var(--fs-body);
   line-height: var(--lh-body);
 }
+
+/* Вариант для сравнения с заказчиком: прежний Wix только на странице каталога. */
+@font-face {
+  font-family: "Wix Madefor Display";
+  src: url("fonts/WixMadeforDisplay-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+body.catalog-index-page { --font-text: "Wix Madefor Display", Arial, sans-serif; }
+
+/* Wix показываем в прежнем Regular 400; заголовочные роли Onest сохраняются. */
+body.catalog-index-page,
+body.catalog-index-page *:not(svg, svg *):not(:is(h1, h2, h3, h4, h5, h6, .project-card__details strong, .footer__brand, .site-menu__promo-card)):not(:is(h1, h2, h3, h4, h5, h6) *) {
+  font-weight: 400 !important;
+}
