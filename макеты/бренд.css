@@ -924,8 +924,12 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .projects__layout { grid-template-columns: 1fr; gap: var(--space-24); padding-top: var(--space-16); }
   /* Общая строка фильтров: закрепляется под хедером и не дробится линиями. */
   .projects-page .mobile-filter-panel { position: sticky; top: var(--header-height); z-index: 4; align-self: start; margin: 0 calc(-1 * var(--space-16)); padding: 0 var(--space-16) var(--space-16); border: 0; border-bottom: 1px solid var(--brand-line); background: var(--brand-white); }
-  .projects-page .mobile-filter-controls { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24); }
-  .projects-page .mobile-filter-toggle { display: inline-flex; align-items: center; justify-content: flex-start; width: 100%; min-height: 48px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); font: 500 var(--fs-body)/var(--lh-body) var(--font-ui, Inter, Arial, sans-serif); text-align: left; cursor: pointer; }
+  .projects-page .mobile-filter-controls { display: grid; grid-template-columns: 44px minmax(0, 1fr); align-items: center; gap: var(--space-12); }
+  .projects-page .mobile-filter-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--brand-line); border-radius: 0; background: var(--brand-white); color: var(--color-text-primary); cursor: pointer; }
+  .projects-page .mobile-filter-toggle:focus-visible { outline: 1px solid var(--red); outline-offset: 2px; }
+  .projects-page .mobile-filter-controls .product-chips { flex-wrap: nowrap; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .projects-page .mobile-filter-controls .product-chips::-webkit-scrollbar { display: none; }
+  .projects-page .mobile-filter-controls .product-chip { flex: 0 0 auto; }
   .projects-page .drawer-chevron { flex: 0 0 auto; width: 8px; height: 8px; margin-left: var(--space-12); border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); }
   .projects-page .filter-drawer,
   .projects-page .product-drawer { position: fixed; z-index: 12; inset: var(--header-height) 0 0; display: block; overflow-y: auto; background: var(--brand-white); transform: translateX(-100%); visibility: hidden; pointer-events: none; transition: transform .28s ease, visibility 0s linear .28s; }

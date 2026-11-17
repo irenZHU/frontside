@@ -7,7 +7,8 @@
     button.className = 'mobile-filter-toggle';
     button.setAttribute('aria-controls', controls);
     button.setAttribute('aria-expanded', 'false');
-    button.innerHTML = `<span>${label}</span><span class="drawer-chevron" aria-hidden="true"></span>`;
+    button.setAttribute('aria-label', label);
+    button.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h3m6 0h9M3 17h9m6 0h3"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>';
     return button;
   }
 
@@ -57,19 +58,13 @@
     controls.className = 'mobile-filter-controls';
 
     const categoryContent = document.createElement('div');
-    const systemsContent = document.createElement('div');
     const categories = createDrawer('filter-drawer', 'projects-categories', 'Категории', categoryContent);
-    const systems = createDrawer('product-drawer', 'projects-systems', 'Системы', systemsContent);
-    const categoryToggle = createToggle('Категории', categories.drawer.id);
-    const systemsToggle = createToggle('Системы', systems.drawer.id);
+    const categoryToggle = createToggle('Фильтр по категориям', categories.drawer.id);
 
     function closeAll({ focusToggle = null } = {}) {
       categories.drawer.classList.remove('is-open');
-      systems.drawer.classList.remove('is-open');
       categories.drawer.setAttribute('aria-hidden', 'true');
-      systems.drawer.setAttribute('aria-hidden', 'true');
       categoryToggle.setAttribute('aria-expanded', 'false');
-      systemsToggle.setAttribute('aria-expanded', 'false');
       focusToggle?.focus();
     }
     function openDrawer(drawer, toggle) {
@@ -84,19 +79,17 @@
     }
 
     categoryToggle.addEventListener('click', () => openDrawer(categories.drawer, categoryToggle));
-    systemsToggle.addEventListener('click', () => openDrawer(systems.drawer, systemsToggle));
     categories.close.addEventListener('click', () => closeAll({ focusToggle: categoryToggle }));
-    systems.close.addEventListener('click', () => closeAll({ focusToggle: systemsToggle }));
 
-    controls.append(categoryToggle, systemsToggle);
-    panel.append(controls, categories.drawer, systems.drawer);
+    controls.append(categoryToggle);
+    panel.append(controls, categories.drawer);
     closeAll();
 
     function syncLayout() {
       closeAll();
       if (mobile.matches) {
         filterGroups.forEach(group => categoryContent.append(group));
-        systemsContent.append(chips);
+        controls.append(chips);
         panel.append(statusBar);
         layout.insertBefore(panel, sidebar);
         document.documentElement.dataset.projectsMobileDrawers = 'ready';
@@ -112,7 +105,6 @@
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;
       if (categories.drawer.classList.contains('is-open')) closeAll({ focusToggle: categoryToggle });
-      else if (systems.drawer.classList.contains('is-open')) closeAll({ focusToggle: systemsToggle });
     });
     mobile.addEventListener('change', syncLayout);
     syncLayout();
