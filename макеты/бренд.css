@@ -937,6 +937,11 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .product-drawer__inner { min-height: 100%; padding: var(--space-24) var(--space-16) var(--space-48); }
   .projects-page .filter-drawer.is-open,
   .projects-page .product-drawer.is-open { transform: translateX(0); visibility: visible; pointer-events: auto; transition-delay: 0s; }
+  .projects-page .filter-drawer { display: flex; flex-direction: column; overflow: hidden; }
+  .projects-page .filter-drawer__inner { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; }
+  .projects-page .mobile-drawer__actions { flex: 0 0 auto; padding: var(--space-16); padding-bottom: max(var(--space-16), env(safe-area-inset-bottom)); border-top: 1px solid var(--brand-line); background: var(--brand-white); }
+  .projects-page .mobile-drawer__apply { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; border: 0; border-radius: 0; padding: var(--space-12) var(--space-16); background: var(--red); color: var(--brand-white); font: 500 14px/20px var(--font-ui, Inter, Arial, sans-serif); text-transform: uppercase; cursor: pointer; }
+  .projects-page .mobile-drawer__apply:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 2px; }
   .projects-page .mobile-drawer__head { display: flex; align-items: center; justify-content: space-between; min-height: 48px; margin: 0 0 var(--space-24); }
   .projects-page .mobile-drawer__head strong { color: var(--color-text-primary); font: 500 24px/29px var(--font-ui, Onest, Arial, sans-serif); text-transform: uppercase; }
   .projects-page .mobile-drawer__close { position: relative; display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; margin-right: -12px; padding: 0; border: 0; background: transparent; color: var(--color-text-primary); cursor: pointer; }

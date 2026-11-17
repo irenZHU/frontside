@@ -60,6 +60,15 @@
     const categoryContent = document.createElement('div');
     const categories = createDrawer('filter-drawer', 'projects-categories', 'Категории', categoryContent);
     const categoryToggle = createToggle('Фильтр по категориям', categories.drawer.id);
+    const actions = document.createElement('div');
+    actions.className = 'mobile-drawer__actions';
+    const apply = document.createElement('button');
+    apply.type = 'button';
+    apply.className = 'mobile-drawer__apply';
+    apply.textContent = 'Применить';
+    actions.append(apply);
+    categories.drawer.append(actions);
+    apply.addEventListener('click', () => closeAll({ focusToggle: categoryToggle }));
 
     function closeAll({ focusToggle = null } = {}) {
       categories.drawer.classList.remove('is-open');
