@@ -164,7 +164,7 @@
 /* По центру, две колонки — по тем же линиям, что половины формы ниже (ширина 1120, поля по 40 px) */
 .category-about__inner { display: grid; grid-template-columns: 1fr 1fr; align-items: end; max-width: 1120px; }
 .category-about__inner > * { padding: 0 40px; }
-.category-about h2 { margin: 24px 0 0; }
+.category-about h2 { margin: 0; }
 .category-about p { margin: 0; color: var(--body); font: 500 17px/1.55 var(--font); }
 
 /* Форма обратной связи — на графитовом фоне, карточка из двух половин */

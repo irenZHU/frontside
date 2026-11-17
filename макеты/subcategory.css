@@ -29,7 +29,7 @@
 /* О подкатегории: два абзаца вместо одного */
 .projects-page.subcategory-page .subcat-about__text p { font-size: var(--fs-ui); line-height: var(--lh-ui); }   /* описание 14/20 */
 .subcat-about__text p + p { margin-top: 16px; }
-.subcat-about__text { margin-top: 43px; }   /* первая строка — на одной линии с верхом заголовка по глифам (ниже подписи) */
+.subcat-about__text { margin-top: 0; }   /* описание выровнено по верху заголовка без служебной метки */
 .subcategory-page .category-about__inner { align-items: start; }   /* текст длиннее, чем на категории — заголовок по верху текста, а не по низу */
 
 /* ---------- Другие подкатегории раздела: карточки «Проектов», три на всю ширину контейнера ---------- */

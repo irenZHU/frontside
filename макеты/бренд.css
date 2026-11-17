@@ -123,6 +123,7 @@
   --space-48: 48px;
   --space-64: 64px;
   --space-section: 100px;
+  --space-section-surface: 100px; /* Смена фона: 100 + 100 и на 1440, и на 1920. */
 
   /* Компонентные размеры: сеточные исключения из общей шкалы отступов. */
   --projects-filter-width: 248px;
@@ -1458,8 +1459,8 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
 /* Смена фона: каждая секция сохраняет полный межсекционный отступ со своей стороны. */
 @media (min-width: 768px) {
-  .catalog-page #solutions { padding-bottom: var(--space-section); }
-  .catalog-page #projects { padding-top: var(--space-section); }
+  .catalog-page #solutions { padding-bottom: var(--space-section-surface); }
+  .catalog-page #projects { padding-top: var(--space-section-surface); }
 }
 
 /* Категория, 1440: при смене фона по 100 px с каждой стороны; на одном фоне — 100 px суммарно. */
@@ -1532,3 +1533,21 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
 /* Фокус рабочих компонентов без внешнего контура. Смена заливки/цвета и линия поля сохраняются. */
 body.projects-page :focus-visible { outline: none !important; }
+
+/* Смена фона: двойной интервал 100 + 100 на обоих десктопных размерах.
+   На одном фоне остаётся --space-section (100 / 120); мобильные поля сохраняются. */
+@media (min-width: 768px) {
+  .projects-page.production-page .category-intro { padding-bottom: var(--space-section-surface); }
+  .projects-page.production-page .category-grow { padding-top: var(--space-section-surface); }
+  .projects-page.production-page #projects-list,
+  .projects-page.subcategory-page .subcat-projects { padding-bottom: var(--space-section-surface); }
+  .projects-page.production-page .category-systems,
+  .projects-page.subcategory-page .category-systems { --sys-pad: clamp(40px, calc((100svh - var(--header-height) - 560px) / 2), var(--space-section-surface)); }
+  .projects-page.production-page .category-section.category-about,
+  .projects-page.subcategory-page .category-section.category-about { padding-top: var(--space-section-surface); }
+  .projects-page.production-page .category-others,
+  .projects-page.subcategory-page .subcat-siblings { padding-bottom: var(--space-section-surface); }
+  .catalog-index-page .catalog-section:last-child { padding-bottom: var(--space-section-surface); }
+  .projects-page .category-form { padding-top: var(--space-section-surface); }
+  .premium-page .premium-process { padding-bottom: var(--space-section-surface); }
+}
