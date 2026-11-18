@@ -54,7 +54,7 @@
           <figure class="category-intro__media">
             <img class="is-active" src="https://frontside.ru/upload/iblock/d9c/5945ku7plffivzh5t2flav8iv84u0s4g.webp" alt="Завод смазочных материалов TOTAL">
           </figure>
-          <div class="category-intro__col">
+          <div class="category-intro__col subcat-intro__preview">
             <!-- Плашка подкатегорий со страницы категории: другие подкатегории раздела, листается сама, полоски — прогресс -->
             <div class="hero-subs" aria-label="Подкатегории раздела" data-reveal style="--d:.5s">
               <a class="hero-subs__card" href="category-production.html#projects-list" data-hero-sub>
@@ -248,12 +248,37 @@
       if(i===0) return firstPhoto;
       const img=new Image(); img.src=frame.image; img.alt=frame.name; media.append(img); return img;
     });
+    // На телефоне большое фото и анонсы становятся одной горизонтальной лентой.
+    // Данные и порядок кадров общие с десктопным слайдером.
+    const mobileIntro=matchMedia("(max-width: 767px)"), reducedIntroMotion=matchMedia("(prefers-reduced-motion: reduce)");
+    const introGrid=document.querySelector('.subcat-intro .category-intro__grid');
+    const introCta=introGrid.querySelector('.category-intro__cta'), ctaAnchor=document.createComment('Кнопка в десктопной колонке');
+    introCta.before(ctaAnchor);
+    const mobileSlider=document.createElement('div'), mobileTrack=document.createElement('div');
+    mobileSlider.className='subcat-slider'; mobileSlider.setAttribute('role','region');
+    mobileSlider.setAttribute('aria-roledescription','карусель'); mobileSlider.setAttribute('aria-label','Подкатегории производственных объектов');
+    mobileTrack.className='subcat-slider__track'; mobileTrack.tabIndex=0;
+    const mobileSlides=frames.map(frame=>{
+      const slide=document.createElement('figure'), image=new Image(), caption=document.createElement('figcaption'), link=document.createElement('a');
+      slide.className='subcat-slider__slide'; image.className='subcat-slider__photo';
+      image.src=frame.image; image.alt=frame.name; image.draggable=false;
+      link.className='subcat-slider__caption'; link.href=frame.href; link.textContent=frame.name;
+      caption.append(link); slide.append(image,caption); mobileTrack.append(slide); return slide;
+    });
+    mobileSlider.append(mobileTrack); introGrid.append(mobileSlider);
+    function syncIntroLayout(){
+      clearTimeout(mobileScrollTimer);
+      if(mobileIntro.matches) introGrid.append(introCta);
+      else ctaAnchor.after(introCta);
+      if(mobileIntro.matches) mobileTrack.scrollTo({left:mobileSlides[frameIndex].offsetLeft-mobileSlides[0].offsetLeft,behavior:'instant'});
+    }
     subBars.innerHTML=frames.map(frame=>`<button type="button" role="tab" aria-label="${frame.name}"><i></i></button>`).join("");
     const bars=[...subBars.children], FRAME_DELAY=5000;
-    let frameIndex=0, frameTimer;
+    let frameIndex=0, frameTimer, mobileScrollTimer;
     function showFrame(i){
       const prev=photos[frameIndex];
       frameIndex=(i+frames.length)%frames.length;
+      if(mobileIntro.matches) mobileTrack.scrollTo({left:mobileSlides[frameIndex].offsetLeft-mobileSlides[0].offsetLeft,behavior:reducedIntroMotion.matches?'instant':'smooth'});
       if(photos[frameIndex]!==prev){
         photos.forEach(img=>img.classList.remove("is-prev"));
         prev.classList.replace("is-active","is-prev");
@@ -272,22 +297,21 @@
       clearTimeout(frameTimer); frameTimer=setTimeout(()=>showFrame(frameIndex+1),FRAME_DELAY);
     }
     bars.forEach((bar,j)=>bar.addEventListener("click",()=>showFrame(j)));
-    // На телефоне фото и карточка следующей подкатегории листаются свайпом.
-    [media,subsBox].forEach(surface=>{
-      let start=null,swiped=false;
-      surface.addEventListener("touchstart",e=>{
-        swiped=false;
-        start=matchMedia("(max-width: 767px)").matches&&e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
-      },{passive:true});
-      surface.addEventListener("touchend",e=>{
-        if(!start)return;
-        const dx=e.changedTouches[0].clientX-start.x,dy=e.changedTouches[0].clientY-start.y;
-        start=null;
-        if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5){swiped=true;showFrame(frameIndex+(dx<0?1:-1));}
-      },{passive:true});
-      surface.addEventListener("touchcancel",()=>{start=null;},{passive:true});
-      surface.addEventListener("click",e=>{if(swiped){e.preventDefault();e.stopPropagation();swiped=false;}},true);
-    });
+    mobileTrack.addEventListener('scroll',()=>{
+      if(!mobileIntro.matches)return;
+      clearTimeout(frameTimer); clearTimeout(mobileScrollTimer);
+      mobileScrollTimer=setTimeout(()=>{
+        const step=mobileSlides[1].offsetLeft-mobileSlides[0].offsetLeft;
+        if(!mobileIntro.matches||step<=0)return;
+        showFrame(Math.max(0,Math.min(frames.length-1,Math.round(mobileTrack.scrollLeft/step))));
+      },150);
+    },{passive:true});
+    mobileTrack.addEventListener('pointerdown',()=>clearTimeout(frameTimer),{passive:true});
+    const resumeIntro=()=>{clearTimeout(frameTimer);frameTimer=setTimeout(()=>showFrame(frameIndex+1),FRAME_DELAY);};
+    mobileTrack.addEventListener('pointerup',resumeIntro,{passive:true});
+    mobileTrack.addEventListener('pointercancel',resumeIntro,{passive:true});
+    mobileIntro.addEventListener('change',syncIntroLayout);
+    syncIntroLayout();
     showFrame(0);
     // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
     const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});

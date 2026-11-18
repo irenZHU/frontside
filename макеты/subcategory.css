@@ -15,7 +15,8 @@
 .subcat-intro h1 span { color: var(--title); }   /* строки анимации появления — без серого второго слова категории */
 .projects-page.subcategory-page .subcat-intro :is(h1, h1 *) { font-size: var(--fs-subcategory-title); line-height: var(--lh-subcategory-title); }
 .subcat-intro__lead { margin-top: 24px; }
-.subcategory-page .subcat-intro .category-intro__col:last-child { justify-content: flex-end; }
+.subcat-slider { display: none; }
+.subcategory-page .subcat-intro .subcat-intro__preview { justify-content: flex-end; }
 /* плашка подкатегорий — на ширину колонки: фото уже, полоски прогресса под текстом */
 .subcategory-page .subcat-intro .hero-subs { width: 100%; }
 .subcategory-page .subcat-intro .hero-subs__card { grid-template-columns: 140px 1fr; text-decoration: none; }
