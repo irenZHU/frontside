@@ -920,7 +920,11 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .projects__head { display: block; padding-bottom: 0; border-bottom: 0; }
   .projects-page .projects__head .section-label { margin-bottom: var(--space-12); }
   .projects-page .projects h2 { font-size: 24px; line-height: 29px; letter-spacing: -.3px; }
-  .projects-page .projects .geo.hero__cta { width: 100%; margin-top: var(--space-24); }
+  .projects-page .projects__head:has(.geo) { display: flex; align-items: center; gap: var(--space-16); }
+  .projects-page .projects-title-line { display: block; }
+  .projects-page .projects .geo.hero__cta { flex: 0 0 48px; width: 48px; height: 48px; min-height: 48px; margin-top: 0; padding: 12px; justify-content: center; align-items: center; }
+  .projects-page .geo .hero__cta-text, .projects-page .geo .geo__arrow { display: none; }
+  .projects-page .hero__cta .geo__icon { flex-basis: 24px; width: 24px; height: 24px; }
   .projects-page .projects__layout { grid-template-columns: 1fr; gap: var(--space-24); padding-top: var(--space-16); }
   /* Общая строка фильтров: закрепляется под хедером и не дробится линиями. */
   .projects-page .mobile-filter-panel { position: sticky; top: var(--header-height); z-index: 4; align-self: start; margin: 0 calc(-1 * var(--space-16)); padding: 0 var(--space-16) var(--space-16); border: 0; border-bottom: 1px solid var(--brand-line); background: var(--brand-white); }
