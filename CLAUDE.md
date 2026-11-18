@@ -1,5 +1,10 @@
 # Frontside — макеты сайта
 
+## Границы текущего проекта
+
+- ARTVISION и все файлы `artvision*`, а также `v2.css` — отдельные концепты. Не включать их в сводки типографики, аудит рабочих страниц, UI-кит и общие правки текущего сайта. Не использовать их стили как источник для рабочих страниц и не изменять сами концепты.
+- Текущие рабочие страницы: `client-home.html`, `catalog.html`, `projects.html`, `category-production.html`, `subcategory-industrial.html`, `project-total.html`, `solution-premium.html`, `solution-premium-solomon.html`.
+
 Статические макеты в `макеты/`, сервер `node сервер.mjs` → http://localhost:4740 (корень → концепт `artvision.html`).
 Публикация: ветка `main` → `gh-pages` (https://irenzhu.github.io/frontside/). Коммит и публикация — только по просьбе дизайнера.
 Не коммитить: `claude.command` (ключ API), `референсы/` (исходники с правками).
