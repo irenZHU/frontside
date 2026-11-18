@@ -1066,7 +1066,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .category-page:not(.premium-page) .category-hero__content { left: var(--space-16); right: var(--space-16); top: 48%; width: auto; translate: 0 -50%; text-align: left; }
   .category-page:not(.premium-page) .category-hero .section-label { justify-content: flex-start; }
   .category-page:not(.premium-page) .category-hero h1 { font-size: 28px; line-height: 32px; letter-spacing: -.6px; }
-  .category-page:not(.premium-page) .category-hero__lead { margin: var(--space-16) 0 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .category-page:not(.premium-page) .category-hero__lead { margin: var(--space-16) 0 0; font-size: 15px; line-height: var(--lh-ui); }
   .category-page:not(.premium-page) .category-hero__bottom { right: var(--space-16); bottom: var(--space-16); left: var(--space-16); display: block; }
   .category-page:not(.premium-page) .category-hero__cta { width: 100%; }
   .category-page:not(.premium-page) .hero-subs { display: none; }
@@ -1172,7 +1172,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
 /* Производственные объекты: естественный поток и единый ритм на телефоне. */
 @media (max-width: 767px) {
-  .projects-page.production-page .category-hero { display: flex; flex-direction: column; height: auto; min-height: 100svh; min-height: 100dvh; padding-bottom: max(var(--space-16), env(safe-area-inset-bottom)); }
+  .projects-page.production-page .category-hero { display: flex; flex-direction: column; height: auto; min-height: 100svh; min-height: 100dvh; padding-bottom: max(var(--space-24), env(safe-area-inset-bottom)); }
   .projects-page.production-page .category-hero__top { flex: 0 0 auto; }
   .projects-page.production-page .category-hero__content { position: relative; inset: auto; flex: 0 0 auto; width: calc(100% - 32px); margin: auto auto var(--space-32); padding-top: var(--space-48); translate: none; }
   .projects-page.production-page .category-hero__bottom { position: relative; inset: auto; flex: 0 0 auto; display: flex; flex-direction: column; gap: var(--space-24); }
@@ -1188,7 +1188,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page.production-page .category-intro .reveal-lines .line > span { display: inline; overflow: visible; transform: none; transition: none; }
   .projects-page.production-page .category-intro .reveal-lines .line + .line::before { content: " "; }
   .projects-page.production-page .category-intro__title + .category-intro__lead { margin-top: var(--space-16); }
-  .projects-page.category-page.production-page #projects-list .product-filter-bar { box-sizing: border-box; width: 100%; margin-inline: 0; }
+  .projects-page.category-page.production-page #projects-list .product-filter-bar { box-sizing: border-box; width: 100%; margin-inline: 0; border-bottom: 0; }
 
   .projects-page.production-page .category-systems { background: var(--brand-light); }
   .projects-page.production-page .category-systems .idea__sticky { padding: 0; }
@@ -1202,8 +1202,17 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
   .projects-page.production-page .category-about__inner > * { padding-inline: 0; }
   .projects-page.production-page .category-others { padding-top: 0; }
-  .projects-page.production-page .category-others .projects__head { padding-top: var(--space-24); }
+  .projects-page.production-page .category-others .projects__head { padding-top: var(--space-32); }
   .projects-page.production-page .category-others .others-nav { display: none; }
+
+  /* Межблочный ритм: по 64 px у смены фона, один интервал 64 px на одном фоне. */
+  .projects-page.production-page .category-intro { padding: var(--space-64) 0; }
+  .projects-page.production-page .category-grow { padding: var(--space-64) 0 0; }
+  .projects-page.production-page #projects-list,
+  .projects-page.production-page .category-systems,
+  .projects-page.production-page .category-form { padding: var(--space-64) 0; }
+  .projects-page.production-page .category-section.category-about { padding: var(--space-64) 0 var(--space-32); }
+  .projects-page.production-page .category-others { padding-bottom: var(--space-64); }
 }
 
 
