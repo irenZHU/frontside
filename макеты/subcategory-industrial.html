@@ -268,8 +268,8 @@
     mobileSlider.append(mobileTrack); introGrid.append(mobileSlider);
     function syncIntroLayout(){
       clearTimeout(mobileScrollTimer);
-      if(mobileIntro.matches) introGrid.append(introCta);
-      else ctaAnchor.after(introCta);
+      if(mobileIntro.matches){ introGrid.append(introCta); mobileSlider.append(subBars); }
+      else { ctaAnchor.after(introCta); subsBox.append(subBars); }
       if(mobileIntro.matches) mobileTrack.scrollTo({left:mobileSlides[frameIndex].offsetLeft-mobileSlides[0].offsetLeft,behavior:'instant'});
     }
     subBars.innerHTML=frames.map(frame=>`<button type="button" role="tab" aria-label="${frame.name}"><i></i></button>`).join("");

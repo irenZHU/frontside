@@ -915,9 +915,9 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .solutions__head p { width: auto; margin: var(--space-16) 0 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
   /* Карточки направлений — горизонтальная лента: край следующей карточки
      остаётся видимым и подсказывает жест прокрутки. */
-  .projects-page .solutions__grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none; gap: var(--space-16); margin-top: var(--space-32); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .projects-page .solutions__grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - var(--space-8)); grid-template-columns: none; gap: var(--space-8); margin-top: var(--space-32); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .projects-page .solutions__grid::-webkit-scrollbar { display: none; }
-  .projects-page .solutions__grid .solution-card { height: 256px; scroll-snap-align: start; }
+  .projects-page .solutions__grid .solution-card { height: auto; aspect-ratio: 16 / 9; scroll-snap-align: start; }
   .projects-page .solutions__grid .solution-card__copy { padding: var(--space-16); }
   .projects-page .solutions__grid .solution-card strong { max-width: calc(100% - 56px); font-size: 20px; line-height: 24px; }
   .projects-page .solutions__grid .solution-card em { display: none; }
@@ -1051,13 +1051,13 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .premium-page .premium-process { padding: var(--space-section) 0 var(--space-section-surface); }
   .premium-page .premium-process .premium-head--center { justify-content: flex-start; text-align: left; }
   .premium-page .premium-process .premium-head--center .section-label { justify-content: flex-start; }
-  .premium-page .premium-process__steps { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none; gap: var(--space-16); margin: 0 calc(-1 * var(--space-16)) 0 0; padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .premium-page .premium-process__steps { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - var(--space-8)); grid-template-columns: none; gap: var(--space-8); margin: 0 calc(-1 * var(--space-16)) 0 0; padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .premium-page .premium-process__steps::-webkit-scrollbar { display: none; }
   .premium-page .premium-process__steps li,
-  .premium-page .premium-process__steps li + li { min-height: 248px; padding: var(--space-24); border: 1px solid var(--brand-line); background: none; scroll-snap-align: start; }
+  .premium-page .premium-process__steps li + li { min-height: 248px; padding: var(--space-24); padding-bottom: calc(var(--control-icon-button-size) + 2 * var(--space-24)); border: 1px solid var(--brand-line); background: none; scroll-snap-align: start; }
   .premium-page .premium-process__num { margin-bottom: var(--space-24); font-size: 40px; line-height: 42px; }
   .premium-page .premium-process__steps h3 { margin-bottom: var(--space-12); font-size: 20px; line-height: 24px; }
-  .premium-page .premium-process__steps p { margin-bottom: var(--space-24); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .premium-page .premium-process__steps p { margin-bottom: 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
   .premium-page .premium-process__link { right: 0; bottom: var(--space-24); }
   .premium-page .premium-process__link::after { inset: -24px 0; }
 
@@ -1144,7 +1144,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .category-page:not(.premium-page) .category-others { overflow: hidden; }
   .category-page:not(.premium-page) .category-others .projects__head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-16); margin-bottom: var(--space-24); padding-top: 0; }
   .category-page:not(.premium-page) .category-others .projects__head h2 { min-width: 0; }
-  .category-page:not(.premium-page) .category-others .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none !important; gap: var(--space-16); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .category-page:not(.premium-page) .category-others .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - var(--space-8)); grid-template-columns: none !important; gap: var(--space-8); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .category-page:not(.premium-page) .category-others .cards::-webkit-scrollbar { display: none; }
   .category-page:not(.premium-page) .category-others .project-item { scroll-snap-align: start; }
   .category-page:not(.premium-page) .others-nav { flex: 0 0 auto; display: flex; margin: 0; }
@@ -1175,9 +1175,9 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
 /* Производственные объекты: естественный поток и единый ритм на телефоне. */
 @media (max-width: 767px) {
-  .projects-page.production-page .category-hero { display: flex; flex-direction: column; height: auto; min-height: 100svh; min-height: 100dvh; padding-bottom: max(var(--space-24), env(safe-area-inset-bottom)); }
+  .projects-page.production-page .category-hero { display: flex; flex-direction: column; height: auto; min-height: 100svh; min-height: 100dvh; padding-bottom: max(var(--space-48), env(safe-area-inset-bottom)); }
   .projects-page.production-page .category-hero__top { flex: 0 0 auto; }
-  .projects-page.production-page .category-hero__content { position: relative; inset: auto; flex: 0 0 auto; width: calc(100% - 32px); margin: auto auto var(--space-32); padding-top: var(--space-48); translate: none; }
+  .projects-page.production-page .category-hero__content { position: relative; inset: auto; flex: 0 0 auto; width: calc(100% - 32px); margin: auto auto var(--space-48); padding-top: var(--space-48); translate: none; }
   .projects-page.production-page .category-hero__bottom { position: relative; inset: auto; flex: 0 0 auto; display: flex; flex-direction: column; gap: var(--space-24); }
   .projects-page.production-page .category-hero__cta { display: none; }
   .projects-page.production-page .hero-subs { display: block; width: 100%; touch-action: pan-y pinch-zoom; }
@@ -1191,6 +1191,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page.production-page .category-intro .reveal-lines .line > span { display: inline; overflow: visible; transform: none; transition: none; }
   .projects-page.production-page .category-intro .reveal-lines .line + .line::before { content: " "; }
   .projects-page.production-page .category-intro__title + .category-intro__lead { margin-top: var(--space-16); }
+  .projects-page.production-page .category-intro__col:first-child > .category-intro__directions-label { display: none; }
   .projects-page.category-page.production-page #projects-list .product-filter-bar { box-sizing: border-box; width: 100%; margin-inline: 0; margin-block: var(--space-16); border-bottom: 0; }
   /* По 24 px до и после табов: 16 px снаружи + существующие 8 px внутри. */
   .projects-page.production-page .category-projects__about { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-16); margin-bottom: var(--space-24); }
@@ -1235,12 +1236,16 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page.subcategory-page .subcat-intro__preview { display: none; }
   .projects-page.subcategory-page .subcat-slider { display: block; min-width: 0; }
   /* Та же лента карточек, что у решений и других подкатегорий: следующий кадр виден справа. */
-  .projects-page.subcategory-page .subcat-slider__track { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); gap: var(--space-16); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .projects-page.subcategory-page .subcat-slider__track { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - var(--space-8)); gap: var(--space-8); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .projects-page.subcategory-page .subcat-slider__track::-webkit-scrollbar { display: none; }
   .projects-page.subcategory-page .subcat-slider__slide { min-width: 0; margin: 0; scroll-snap-align: start; }
   .projects-page.subcategory-page .subcat-slider__photo { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
   .projects-page.subcategory-page .subcat-slider__caption { display: block; margin-top: var(--space-12); color: var(--color-text-primary); font-size: 16px; line-height: 20px; text-decoration: none; }
   .projects-page.subcategory-page .subcat-slider__caption:is(:hover, :focus-visible) { color: var(--red); }
+  .projects-page.subcategory-page .subcat-slider .hero-subs__bars { position: static; width: 100%; margin-top: var(--space-16); }
+  .projects-page.subcategory-page .subcat-slider .hero-subs__bars i { display: none; }
+  .projects-page.subcategory-page .subcat-slider .hero-subs__bars button.is-active::before { background: var(--brand-black); }
+  .projects-page.subcategory-page .subcat-slider .hero-subs__bars button::after { content: ""; position: absolute; inset: calc(-1 * var(--space-16)) 0; }
   .projects-page.subcategory-page .subcat-intro .hero-subs__card { grid-template-columns: 112px minmax(0, 1fr); gap: var(--space-12); }
   .projects-page.subcategory-page .subcat-intro .hero-subs__photo { height: 120px; }
   .projects-page.subcategory-page .subcat-intro .hero-subs__text { min-width: 0; padding-top: var(--space-4); padding-bottom: var(--space-24); }
@@ -1277,7 +1282,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
   .projects-page.subcategory-page .subcat-siblings { padding: 0 0 var(--space-48); }
   .projects-page.subcategory-page .subcat-siblings .projects__head { padding-top: var(--space-32); margin-bottom: var(--space-24); }
-  .projects-page.subcategory-page .subcat-siblings .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none !important; gap: var(--space-16); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .projects-page.subcategory-page .subcat-siblings .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - var(--space-8)); grid-template-columns: none !important; gap: var(--space-8); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .projects-page.subcategory-page .subcat-siblings .cards::-webkit-scrollbar { display: none; }
   .projects-page.subcategory-page .subcat-siblings .project-item { scroll-snap-align: start; min-width: 0; }
   .projects-page.subcategory-page .category-form__intro h2 { font-size: 24px; line-height: 29px; }
@@ -1299,9 +1304,9 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page.project-page .project-info h1 { margin-top: var(--space-12); font-size: 28px; line-height: 32px; letter-spacing: -.6px; }
   .projects-page.project-page .project-info__lead { margin-top: var(--space-16); font-size: 14px; line-height: 20px; }
   .project-page .project-gallery-block { margin-top: var(--space-24); }
-  .project-page .project-gallery { position: relative; display: flex; gap: var(--space-8); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .project-page .project-gallery { position: relative; display: flex; gap: var(--space-8); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .project-page .project-gallery::-webkit-scrollbar { display: none; }
-  .project-page .project-gallery__item { flex: 0 0 100%; min-width: 0; aspect-ratio: 4 / 3; scroll-snap-align: start; }
+  .project-page .project-gallery__item { flex: 0 0 calc(100% - var(--space-8)); min-width: 0; aspect-ratio: 16 / 9; scroll-snap-align: start; }
   .project-page .project-gallery-nav { display: flex; }
   .projects-page.project-page .project-info__badges { margin-top: var(--space-24); }
   .project-page .project-info__facts { margin-top: var(--space-24); gap: 0; }
@@ -1318,7 +1323,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .project-page .project-tabs__panel .project-info__facts { margin: 0 0 var(--space-24); }
   .projects-page.project-page .project-related { padding-block: var(--space-section) var(--space-section-surface); }
   .projects-page.project-page .project-related .projects__head { padding-bottom: 0; margin-bottom: var(--space-24); }
-  .projects-page.project-page .project-related .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 48px); grid-template-columns: none; gap: var(--space-16); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .projects-page.project-page .project-related .cards { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - var(--space-8)); grid-template-columns: none; gap: var(--space-8); margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .project-page .project-related .cards::-webkit-scrollbar { display: none; }
   .project-page .project-related .project-item { min-width: 0; scroll-snap-align: start; }
   .project-page .project-related .category-all-link { width: 100%; min-height: 48px; margin-top: var(--space-24); }
@@ -1580,6 +1585,27 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
 /* Фокус рабочих компонентов без внешнего контура. Смена заливки/цвета и линия поля сохраняются. */
 body.projects-page :focus-visible { outline: none !important; }
+
+/* Сквозные мобильные описания и ленты фотографий. Фильтры и подписи сохраняют свою ступень. */
+@media (max-width: 767px) {
+  body.projects-page:is(.catalog-page, .category-page, .client-home-page) :is(.solutions__head p, .project-group__desc, .category-hero__lead,
+    .category-intro__lead, .category-projects__desc, .category-systems__lead,
+    .idea__point p, .category-about p, .subcat-about__text p, .category-form__intro p,
+    .project-info__lead, .project-tabs__panel p, .grow-card p, .premium-card p,
+    .premium-req__note, .premium-process__steps p) { font-size: 15px; line-height: 20px; }
+  body.projects-page:is(.production-page, .subcategory-page) :is(.category-intro__media, .idea__photos).mobile-photo-track {
+    position: relative; display: flex; gap: var(--space-8); width: calc(100% + var(--space-16));
+    height: auto; aspect-ratio: auto; margin-right: calc(-1 * var(--space-16)); padding-right: var(--space-16);
+    overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+    background: transparent; touch-action: auto;
+  }
+  body.projects-page .mobile-photo-track::-webkit-scrollbar { display: none; }
+  body.projects-page .mobile-photo-track > :is(img, .idea__img) {
+    position: relative; inset: auto; flex: 0 0 calc(100% - var(--space-8)); min-width: 0;
+    width: auto; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+    clip-path: none; transform: none; transition: none; scroll-snap-align: start;
+  }
+}
 
 /* Смена фона: двойной интервал 100 + 100 на обоих десктопных размерах.
    На одном фоне остаётся --space-section (100 / 120); мобильные поля сохраняются. */
