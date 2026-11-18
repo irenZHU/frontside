@@ -969,6 +969,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .project-group header { align-items: center; gap: var(--space-12); margin-bottom: var(--space-12); }
   .projects-page .project-group header h3 { white-space: normal; font-size: 20px; line-height: 24px; }
   .projects-page .project-group__desc { margin: 0 0 var(--space-24); font-size: var(--fs-ui); line-height: var(--lh-ui); }
+  .projects-page.catalog-page :is(.solutions__head p, .project-group__desc) { font-size: 15px; line-height: 20px; }
   .projects-page .cards, .projects-page.catalog-page .project-group .cards { grid-template-columns: 1fr; gap: var(--space-24); }
   .projects-page .project-card { min-height: 0; height: auto; aspect-ratio: 16 / 9; }
   .projects-page .project-card__details { padding-top: var(--space-12); }
