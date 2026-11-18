@@ -33,6 +33,7 @@
   .catalog-product-filter .product-chip { min-height: 44px; padding-inline: var(--space-16); white-space: nowrap; }
 
   .catalog-section { padding-bottom: var(--space-64); }
+  .catalog-section--last { padding-bottom: var(--space-section-surface); }
   .catalog-section__head { margin-bottom: var(--space-24); }
   .catalog-section h2 { font-size: 24px; line-height: 29px; letter-spacing: -.3px; }
   .catalog-grid { grid-template-columns: 1fr; gap: var(--space-16); }
