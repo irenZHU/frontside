@@ -863,7 +863,10 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
   html, body { width: 100%; min-width: 0 !important; overflow-x: clip; }
   .container, .projects-page .container { width: calc(100% - 32px); }
-  .breadcrumbs { padding-top: var(--space-16); }
+  /* Сквозные крошки: один отступ 16 px от хедера, как на «Проектах».
+     На фото обёртка компенсирует только хедер, без второго отступа. */
+  .projects-page .breadcrumbs { padding-top: var(--space-16); }
+  .projects-page .category-hero__top { padding-top: var(--header-height); }
 
   .header, .projects-page .header__inner { height: var(--header-height); }
   .header .logo { top: var(--header-control-inset); width: 30px; height: 40px; }
@@ -904,6 +907,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   /* «Проекты»: последовательность блоков на телефоне. */
   .projects-page.catalog-page main { max-width: 100%; overflow-x: clip; }
   .projects-page .solutions { padding: var(--crumbs-gap) 0 var(--space-64); }
+  .projects-page.catalog-page #solutions { padding-bottom: var(--space-48); }
   .projects-page .solutions__head { display: block; }
   .projects-page .solutions h1 { font-size: 32px; line-height: 36px; letter-spacing: -.8px; }
   .projects-page .solutions__head p { width: auto; margin: var(--space-16) 0 0; font-size: var(--fs-ui); line-height: var(--lh-ui); }
@@ -917,6 +921,7 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   .projects-page .solutions__grid .solution-card em { display: none; }
   .projects-page .solutions__grid .solution-card__arrow { top: auto; right: var(--space-16); bottom: var(--space-16); }
   .projects-page .projects { padding: var(--space-64) 0; }
+  .projects-page.catalog-page #projects { padding-top: var(--space-48); }
   .projects-page .projects__head { display: block; padding-bottom: 0; border-bottom: 0; }
   .projects-page .projects__head .section-label { margin-bottom: var(--space-12); }
   .projects-page .projects h2 { font-size: 24px; line-height: 29px; letter-spacing: -.3px; }
@@ -979,7 +984,6 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   /* Решение «Фасады»: на телефоне сложные sticky-колоды становятся
      последовательными карточками — без потери текста, фото и действий. */
   .premium-page .category-hero { position: relative; top: auto; height: 620px; margin-top: calc(-1 * var(--header-height)); }
-  .premium-page .category-hero__top { padding-top: calc(var(--header-height) + var(--space-16)); }
   .premium-page .breadcrumbs { flex-wrap: nowrap; min-width: 0; overflow: hidden; white-space: nowrap; }
   .premium-page .breadcrumbs > * { flex: 0 0 auto; }
   .premium-page .breadcrumbs [aria-current] { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -1056,7 +1060,6 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
   /* Категория проектов: последовательная мобильная версия без десктопных колонок. */
   .category-page:not(.premium-page) .category-hero { position: relative; top: auto; height: 600px; margin-top: calc(-1 * var(--header-height)); }
-  .category-page:not(.premium-page) .category-hero__top { padding-top: calc(var(--header-height) + var(--space-16)); }
   .category-page:not(.premium-page) .category-hero .breadcrumbs { flex-wrap: nowrap; min-width: 0; overflow: hidden; white-space: nowrap; }
   .category-page:not(.premium-page) .category-hero .breadcrumbs > * { flex: 0 0 auto; }
   .category-page:not(.premium-page) .category-hero .breadcrumbs [aria-current] { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -1169,10 +1172,11 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 
 /* Производственные объекты: естественный поток и единый ритм на телефоне. */
 @media (max-width: 767px) {
-  .projects-page.production-page .category-hero { height: auto; min-height: 600px; padding-bottom: var(--space-16); }
-  .projects-page.production-page .category-hero__content { position: relative; inset: auto; width: calc(100% - 32px); margin: var(--space-48) auto var(--space-32); translate: none; }
-  .projects-page.production-page .category-hero__bottom { position: relative; inset: auto; display: flex; flex-direction: column; gap: var(--space-24); }
-  .projects-page.production-page .category-hero__cta { order: 1; margin-top: 0; }
+  .projects-page.production-page .category-hero { display: flex; flex-direction: column; height: auto; min-height: 100svh; min-height: 100dvh; padding-bottom: max(var(--space-16), env(safe-area-inset-bottom)); }
+  .projects-page.production-page .category-hero__top { flex: 0 0 auto; }
+  .projects-page.production-page .category-hero__content { position: relative; inset: auto; flex: 0 0 auto; width: calc(100% - 32px); margin: auto auto var(--space-32); padding-top: var(--space-48); translate: none; }
+  .projects-page.production-page .category-hero__bottom { position: relative; inset: auto; flex: 0 0 auto; display: flex; flex-direction: column; gap: var(--space-24); }
+  .projects-page.production-page .category-hero__cta { display: none; }
   .projects-page.production-page .hero-subs { display: block; width: 100%; touch-action: pan-y pinch-zoom; }
   .projects-page.production-page .hero-subs__card { grid-template-columns: 112px minmax(0, 1fr); gap: var(--space-12); }
   .projects-page.production-page .hero-subs__photo { height: 120px; }
