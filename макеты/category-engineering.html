@@ -114,7 +114,7 @@
     <section class="projects" id="projects-list">
       <div class="container projects__head"><h2>Проекты инженерных и выставочных объектов</h2></div>
       <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Объекты энергетики" aria-pressed="false">Объекты энергетики</button><button type="button" class="product-chip" data-direction-filter="Экспоцентры" aria-pressed="false">Экспоцентры</button></div></div></div>
-      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="https://frontside.ru/projects/inzhenernye-i-vystavochnye-obekty/obekty-energetiki/" data-sub-link>Перейти в подкатегорию</a></div>
+      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="subcategory-energy.html" data-sub-link>Перейти в подкатегорию</a></div>
       <div class="container"><div class="cards">
 <article class="project-item" data-sub="Объекты энергетики" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/promyshlennye-obekty/podstantsiya-sputnik-voronezh/" target="_blank" rel="noopener" aria-label="Подстанция «Спутник» в Воронеже" style="--image:url('img/engineering/podstantsiya-sputnik-voronezh-0.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/promyshlennye-obekty/podstantsiya-sputnik-voronezh/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>Подстанция «Спутник» в Воронеже</strong></a></article>
 <article class="project-item" data-sub="Экспоцентры" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/pakgauzy/" target="_blank" rel="noopener" aria-label="Выставочные павильоны «Пакгаузы»" style="--image:url('img/engineering/pakgauzy-0.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/pakgauzy/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>Выставочные павильоны «Пакгаузы»</strong></a></article>
@@ -229,12 +229,12 @@
     const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
     // Переходы на подкатегории сайта клиента.
     const subPages={
-  "Объекты энергетики": "https://frontside.ru/projects/inzhenernye-i-vystavochnye-obekty/obekty-energetiki/",
-  "Экспоцентры": "https://frontside.ru/projects/inzhenernye-i-vystavochnye-obekty/ekspocentry/"
+  "Объекты энергетики": "subcategory-energy.html",
+  "Экспоцентры": "subcategory-expo.html"
 };
     const subDescriptions={
-  "Объекты энергетики": "Постройкам энергосистемы нужен завершенный облик. На подстанции «Спутник» в Воронеже его обеспечили панели FRONTTOP с гладким фасадом. Еще один пример FRONTTOP в энергетике есть в <a class=\"fs-link\" href=\"https://frontside.ru/about/news/fronttop-dlya-elektricheskoy-podstantsii/\">новости о новой подстанции</a>, а <a class=\"fs-link\" href=\"https://frontside.ru/projects/inzhenernye-i-vystavochnye-obekty/obekty-energetiki/\">фасад подстанции</a> разобран в подкатегории.",
-  "Экспоцентры": "Выставочное здание должно быть заметным и отвечать идее площадки. На павильонах «Пакгаузы» в Нижнем Новгороде применили вертикальную систему AESTHETIC. Другие проекты, где выполнен <a class=\"fs-link\" href=\"https://frontside.ru/projects/inzhenernye-i-vystavochnye-obekty/ekspocentry/\">фасад выставочного павильона</a>, показаны на странице подкатегории."
+  "Объекты энергетики": "Постройкам энергосистемы нужен завершенный облик. На подстанции «Спутник» в Воронеже его обеспечили панели FRONTTOP с гладким фасадом. Еще один пример FRONTTOP в энергетике есть в <a class=\"fs-link\" href=\"https://frontside.ru/about/news/fronttop-dlya-elektricheskoy-podstantsii/\">новости о новой подстанции</a>, а <a class=\"fs-link\" href=\"subcategory-energy.html\">фасад подстанции</a> разобран в подкатегории.",
+  "Экспоцентры": "Выставочное здание должно быть заметным и отвечать идее площадки. На павильонах «Пакгаузы» в Нижнем Новгороде применили вертикальную систему AESTHETIC. Другие проекты, где выполнен <a class=\"fs-link\" href=\"subcategory-expo.html\">фасад выставочного павильона</a>, показаны на странице подкатегории."
 };
     const subDescriptionLinks={};
     function setDirection(value){
@@ -359,10 +359,12 @@
     const subs=[
   {
     "name": "Объекты энергетики",
+    "page": "subcategory-energy.html",
     "image": "img/engineering/podstantsiya-sputnik-voronezh-0.webp"
   },
   {
     "name": "Экспоцентры",
+    "page": "subcategory-expo.html",
     "image": "img/engineering/pakgauzy-0.webp"
   }
 ];
