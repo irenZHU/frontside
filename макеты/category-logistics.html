@@ -113,7 +113,7 @@
     <!-- Складские и логистические объекты из портфолио Frontside. -->
     <section class="projects" id="projects-list">
       <div class="container projects__head"><h2>Проекты складов и логистических центров</h2></div>
-      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Распределительные центры" aria-pressed="false">Распределительные центры</button><button type="button" class="product-chip" data-direction-filter="Складские комплексы" aria-pressed="false">Складские комплексы</button><button type="button" class="product-chip" data-direction-filter="Логистические терминалы" aria-pressed="false">Логистические терминалы</button></div></div></div>
+      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Распределительные центры" aria-pressed="false">Распределительные центры</button><button type="button" class="product-chip" data-direction-filter="Складские комплексы" aria-pressed="false">Складские комплексы</button><button type="button" class="product-chip" data-direction-filter="Логистические терминалы" aria-pressed="false">Логистические терминалы</button><a class="product-chip" href="subcategory-cold-storage.html">Холодильные склады</a></div></div></div>
       <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="https://frontside.ru/projects/logisticheskie-centry-i-sklady/raspredelitelnye-centry/" data-sub-link>Перейти в подкатегорию</a></div>
       <div class="container"><div class="cards">
 <article class="project-item" data-sub="Распределительные центры" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/bykovo/" target="_blank" rel="noopener" aria-label="Логистический комплекс «Быково»" style="--image:url('img/logistics/bykovo-0.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/bykovo/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Логистический комплекс «Быково»</strong></a></article>
@@ -396,6 +396,11 @@
   {
     "name": "Логистические терминалы",
     "image": "img/logistics/logisticheskij-centr-pek-0.webp"
+  },
+  {
+    "name": "Холодильные склады",
+    "image": "img/logistics/bykovo-0.webp",
+    "page": "subcategory-cold-storage.html"
   }
 ];
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");

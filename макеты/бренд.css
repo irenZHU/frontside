@@ -381,6 +381,13 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 :where(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button) {
   color: inherit;
 }
+/* Продолжение SEO-текста использует обычную текстовую ссылку и системные отступы. */
+.seo-more__content { margin-top: var(--space-16); }
+.seo-more__content--headed { margin-top: var(--space-32); }
+.projects-page .seo-more__toggle { display: inline-block; margin: var(--space-24) 0 0; padding: 0; border: 0; background-color: transparent; color: var(--brand-black); font: 500 var(--fs-ui)/var(--lh-ui) var(--font-text); text-align: left; cursor: pointer; }
+@media (min-width: 1601px) {
+  .projects-page .seo-more__toggle { font-size: var(--fs-body); line-height: var(--lh-body); }
+}
 /* Переход в подкатегорию стоит на нижней строке описания. */
 @media (min-width: 768px) {
   .projects-page .category-projects__about { align-items: flex-end; margin-bottom: var(--space-40); }
