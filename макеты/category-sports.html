@@ -123,7 +123,7 @@
     <section class="projects" id="projects-list">
       <div class="container projects__head"><h2>Проекты спортивных комплексов</h2></div>
       <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="ФОК" aria-pressed="false">ФОК</button><button type="button" class="product-chip" data-direction-filter="Стадионы" aria-pressed="false">Стадионы</button><button type="button" class="product-chip" data-direction-filter="Арены" aria-pressed="false">Арены</button><button type="button" class="product-chip" data-direction-filter="Манежи и спортивные залы" aria-pressed="false">Манежи и спортивные залы</button></div></div></div>
-      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="https://frontside.ru/projects/sportivnye-sooruzheniya/fok/" data-sub-link>Перейти в подкатегорию</a></div>
+      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="subcategory-fok.html" data-sub-link>Перейти в подкатегорию</a></div>
       <div class="container"><div class="cards">
           <article class="project-item" data-sub="ФОК" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/infrastrukturnye-obekty/fok-na-ul-chobotovskaya/" target="_blank" rel="noopener" aria-label="ФОК на ул. Чоботовская" style="--image:url('img/sports/fok-na-ul-chobotovskaya.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/infrastrukturnye-obekty/fok-na-ul-chobotovskaya/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>ФОК на ул. Чоботовская</strong></a></article>
           <article class="project-item" data-sub="ФОК" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tsentr-khudozhestvennoy-i-esteticheskoy-gimnastiki/" target="_blank" rel="noopener" aria-label="Центр Художественной и Эстетической Гимнастики" style="--image:url('img/sports/tsentr-khudozhestvennoy-i-esteticheskoy-gimnastiki.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tsentr-khudozhestvennoy-i-esteticheskoy-gimnastiki/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>Центр Художественной и Эстетической Гимнастики</strong></a></article>
@@ -275,10 +275,10 @@
     const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
     // Ссылки подключим после добавления страниц торговых подкатегорий.
     const subPages={
-  "ФОК": "https://frontside.ru/projects/sportivnye-sooruzheniya/fok/",
-  "Стадионы": "https://frontside.ru/projects/sportivnye-sooruzheniya/stadiony/",
-  "Арены": "https://frontside.ru/projects/sportivnye-sooruzheniya/areny/",
-  "Манежи и спортивные залы": "https://frontside.ru/projects/sportivnye-sooruzheniya/manezhi-i-sportivnye-zaly/"
+  "ФОК": "subcategory-fok.html",
+  "Стадионы": "subcategory-stadiums.html",
+  "Арены": "subcategory-arenas.html",
+  "Манежи и спортивные залы": "subcategory-sports-halls.html"
 };
     const subDescriptions={
   "ФОК": "Это массовый тип объектов, и каждому нужен выразительный облик при ограниченном бюджете и сжатых сроках. Например, у ФОК в Зеленограде вертикальный ритм модулей UNIQUE задает графику здания, ФОК на ул. Чоботовская в Москве получил фасад на FRONTTOP. Другие фасады ФОК собраны на странице подраздела.",
@@ -289,19 +289,19 @@
     const subDescriptionLinks={
   "ФОК": {
     "text": "фасады ФОК",
-    "href": "https://frontside.ru/projects/sportivnye-sooruzheniya/fok/"
+    "href": "subcategory-fok.html"
   },
   "Стадионы": {
     "text": "фасад стадиона",
-    "href": "https://frontside.ru/projects/sportivnye-sooruzheniya/stadiony/"
+    "href": "subcategory-stadiums.html"
   },
   "Арены": {
     "text": "фасад ледовой арены",
-    "href": "https://frontside.ru/projects/sportivnye-sooruzheniya/areny/"
+    "href": "subcategory-arenas.html"
   },
   "Манежи и спортивные залы": {
     "text": "фасады манежей и спортивных залов",
-    "href": "https://frontside.ru/projects/sportivnye-sooruzheniya/manezhi-i-sportivnye-zaly/"
+    "href": "subcategory-sports-halls.html"
   }
 };
     function setDirection(value){
@@ -500,6 +500,7 @@
     "image": "img/sports/futbolnyy-manezh-maksat.webp"
   }
 ];
+    subs.forEach(sub=>{ if(subPages[sub.name]?.startsWith('subcategory-')) sub.page=subPages[sub.name]; });
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];
     let subIndex=0, subTimer;
@@ -584,6 +585,7 @@
   <script src="form-modal.js"></script>
   <script src="phone-mask.js"></script>
 
+  <script src="seo-collapse.js" defer></script>
   <script src="menu.js" defer></script>
   <script src="category-mobile.js" defer></script>
 </body>

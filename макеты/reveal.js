@@ -5,7 +5,9 @@
   // Исходный текст сохраняем до создания масок: их textContent склеивает строки.
   const sourceText = new WeakMap();
   function split(el) {
-    if (!sourceText.has(el)) sourceText.set(el, el.textContent.trim().replace(/\s+/g, ' '));
+    // В подкатегориях сохраняем неразрывные пробелы при разбиении на строки.
+    const whitespace = el.closest('.subcategory-page') ? /[ \t\r\n\f]+/g : /\s+/g;
+    if (!sourceText.has(el)) sourceText.set(el, el.textContent.trim().replace(whitespace, ' '));
     const text = sourceText.get(el);
     el.innerHTML = text.split(' ').map(w => `<span class="w">${w}</span>`).join(' ');
     const lines = [];

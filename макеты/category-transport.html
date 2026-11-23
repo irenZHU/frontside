@@ -264,9 +264,9 @@
     const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
     // Ссылки подключим после добавления страниц торговых подкатегорий.
     const subPages={
-  "Аэропорты": "https://frontside.ru/projects/transportnaya-infrastruktura/aeroporty/",
-  "Вокзалы": "https://frontside.ru/projects/transportnaya-infrastruktura/vokzaly/",
-  "Паркинги": "https://frontside.ru/projects/transportnaya-infrastruktura/parkingi/"
+  "Аэропорты": "subcategory-airports.html",
+  "Вокзалы": "subcategory-stations.html",
+  "Паркинги": "subcategory-parking.html"
 };
     const subDescriptions={
   "Аэропорты": "Терминал занимает большой объем и принимает непрерывный поток пассажиров, а по его облику судят о городе. Подход Frontside к этой задаче описан на странице проекта фасада аэропорта.",
@@ -276,15 +276,15 @@
     const subDescriptionLinks={
   "Аэропорты": {
     "text": "фасада аэропорта",
-    "href": "https://frontside.ru/projects/transportnaya-infrastruktura/aeroporty/"
+    "href": "subcategory-airports.html"
   },
   "Вокзалы": {
     "text": "фасада вокзала",
-    "href": "https://frontside.ru/projects/transportnaya-infrastruktura/vokzaly/"
+    "href": "subcategory-stations.html"
   },
   "Паркинги": {
     "text": "фасад паркинга",
-    "href": "https://frontside.ru/projects/transportnaya-infrastruktura/parkingi/"
+    "href": "subcategory-parking.html"
   }
 };
     function setDirection(value){
@@ -424,6 +424,7 @@
     "image": "img/transport/parking-yanino-0.webp"
   }
 ];
+    subs.forEach(sub=>{ if(subPages[sub.name]?.startsWith('subcategory-')) sub.page=subPages[sub.name]; });
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];
     let subIndex=0, subTimer;
@@ -508,6 +509,7 @@
   <script src="form-modal.js"></script>
   <script src="phone-mask.js"></script>
 
+  <script src="seo-collapse.js" defer></script>
   <script src="menu.js" defer></script>
   <script src="category-mobile.js" defer></script>
 </body>

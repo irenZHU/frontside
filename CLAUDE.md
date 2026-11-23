@@ -3,7 +3,7 @@
 ## Границы текущего проекта
 
 - ARTVISION и все файлы `artvision*`, а также `v2.css` — отдельные концепты. Не включать их в сводки типографики, аудит рабочих страниц, UI-кит и общие правки текущего сайта. Не использовать их стили как источник для рабочих страниц и не изменять сами концепты.
-- Текущие рабочие страницы: `client-home.html`, `catalog.html`, `projects.html`, `category-production.html`, `category-commercial.html`, `category-sports.html`, `category-public.html`, `category-transport.html`, `category-logistics.html`, `category-engineering.html`, `subcategory-industrial.html`, `subcategory-offices.html`, `project-total.html`, `solution-premium.html`, `solution-premium-solomon.html`.
+- Текущие рабочие страницы: `client-home.html`, `catalog.html`, `projects.html`, `category-production.html`, `category-commercial.html`, `category-sports.html`, `category-public.html`, `category-transport.html`, `category-logistics.html`, `category-engineering.html`, `subcategory-cold-storage.html`, `subcategory-industrial.html`, `subcategory-offices.html`, `subcategory-auto.html`, `subcategory-hypermarkets.html`, `subcategory-parking.html`, `subcategory-arenas.html`, `subcategory-shops.html`, `subcategory-malls.html`, `subcategory-stations.html`, `subcategory-airports.html`, `subcategory-sports-halls.html`, `subcategory-stadiums.html`, `subcategory-fok.html`, `subcategory-medical.html`, `project-total.html`, `solution-premium.html`, `solution-premium-solomon.html`.
 
 Статические макеты в `макеты/`, сервер `node сервер.mjs` → http://localhost:4740 (корень → концепт `artvision.html`).
 Публикация: ветка `main` → `gh-pages` (https://irenzhu.github.io/frontside/). Коммит и публикация — только по просьбе дизайнера.
@@ -47,6 +47,12 @@
 
 - Кнопка «Наверх» — в строке соцсетей у правого края контейнера. Дублирующую кнопку возле разделителя на мобильном скрывать.
 - Под разделителем — копирайт, затем служебные ссылки одной колонкой по левому краю, с интервалом 12 px. От строки соцсетей до разделителя — 32 px.
+
+## Длинные SEO-тексты
+
+- Если в SEO-блоке больше двух абзацев, по умолчанию показывать первые два. Остальные абзацы и относящиеся к ним подзаголовки раскрываются кнопкой «Смотреть ещё», повторное нажатие «Свернуть» скрывает продолжение.
+- Использовать общий `seo-collapse.js` и существующий стиль текстовой ссылки `.fs-link`. Полный текст и ссылки сохранять в HTML; без JavaScript текст остаётся доступным целиком.
+- Правило одинаково для десктопа и мобильной версии. Блоки из одного или двух абзацев оставлять открытыми без кнопки.
 
 ## Мобильные слайдеры и описания
 

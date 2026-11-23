@@ -261,11 +261,11 @@
     const items=[...document.querySelectorAll(".project-item[data-sub]")];
     // Согласованные описания подкатегорий и ссылки внутри текста.
     const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
-    // Ссылки подключим после добавления страниц торговых подкатегорий.
+    // Переходы на собранные страницы подкатегорий.
     const subPages={
   "Офисные здания": "subcategory-offices.html",
   "Административные здания": "https://frontside.ru/projects/administrativnye-i-obshchestvennye-zdaniya/administrativnye-zdaniya/",
-  "Медицинские учреждения": "https://frontside.ru/projects/administrativnye-i-obshchestvennye-zdaniya/medicinskie-uchrezhdeniya/"
+  "Медицинские учреждения": "subcategory-medical.html"
 };
     const subDescriptions={
   "Офисные здания": "По облику здания клиенты и партнеры судят о его владельце и арендаторах, поэтому фасад работает на их имидж. Бизнес-центр «НЕБО 2» в Москве выполнен на системе AESTHETIC, «Феникс Контакт РУС» в «Сколково» на UNIQUE. Больше примеров того, каким мы выполняем фасад офисного здания, есть в подкатегории.",
@@ -283,7 +283,7 @@
   },
   "Медицинские учреждения": {
     "text": "фасад клиники",
-    "href": "https://frontside.ru/projects/administrativnye-i-obshchestvennye-zdaniya/medicinskie-uchrezhdeniya/"
+    "href": "subcategory-medical.html"
   }
 };
     function setDirection(value){
@@ -418,6 +418,7 @@
     "image": "img/public/klinika-bebibum-project.webp"
   }
 ];
+    subs.forEach(sub=>{ if(subPages[sub.name]?.startsWith('subcategory-')) sub.page=subPages[sub.name]; });
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];
     let subIndex=0, subTimer;
@@ -502,6 +503,7 @@
   <script src="form-modal.js"></script>
   <script src="phone-mask.js"></script>
 
+  <script src="seo-collapse.js" defer></script>
   <script src="menu.js" defer></script>
   <script src="category-mobile.js" defer></script>
 </body>

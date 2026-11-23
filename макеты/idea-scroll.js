@@ -26,7 +26,7 @@
   let current = 0;
   const photos = sec.querySelector('.idea__photos');
   const originalRole = photos.getAttribute('role'), originalLabel = photos.getAttribute('aria-label');
-  const nativeSlider = document.body.matches('.production-page, .subcategory-page');
+  const nativeSlider = n > 1 && document.body.matches('.production-page, .subcategory-page');
     if (nativeSlider) {
       photos.classList.add('mobile-photo-track');
       imgs.forEach((img, i) => { img.setAttribute('role', 'img'); img.setAttribute('aria-label', points[i].querySelector('h3').textContent); });
@@ -59,6 +59,7 @@
       });
     }
   const go = d => {
+    if (n < 2) return;
     if (mobile.matches) { show(current + d); return; }
     const run = sec.offsetHeight - 2 * innerHeight;
     const now = Math.min(Math.max(-sec.getBoundingClientRect().top / run, 0), 1) * (n - 1);
@@ -77,7 +78,7 @@
     const over = Math.min(Math.max((-r.top - run) / innerHeight, 0), 1);
     // фон становится светло-серым только когда на блок налистывается следующий
     dim.style.opacity = over.toFixed(3);
-    const p = Math.min(Math.max(-r.top / run, 0), 1) * (n - 1); // 0 … n-1
+    const p = n === 1 ? 0 : Math.min(Math.max(-r.top / run, 0), 1) * (n - 1); // 0 … n-1
 
     // параллакс: фото внутри рамки плывут медленнее прокрутки, заголовок — чуть быстрее,
     // при въезде и при наложении следующего блока весь блок уходит с отставанием
