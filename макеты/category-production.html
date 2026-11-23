@@ -285,7 +285,7 @@
     const subPages={
       "Промышленные предприятия":"subcategory-industrial.html",
       "Технопарки":"https://frontside.ru/projects/promyshlennye-obekty/tekhnoparki/",
-      "Light Industrial":"https://frontside.ru/projects/promyshlennye-obekty/light-industrial/"
+      "Light Industrial":"subcategory-light-industrial.html"
     };
     const subDescriptions={
       "Промышленные предприятия":"На заводах и фабриках фасад закрывает протяженные стены цехов и отвечает за их тепловой контур. Эту задачу решает FRONTBASE, на ней выполнены завод «Либхер» в Дзержинске и завод «Italon» в Ступино. Остальные примеры, где решался фасад завода, собраны в подкатегории.",
@@ -295,7 +295,7 @@
     const subDescriptionLinks={
       "Промышленные предприятия":{text:"фасад завода",href:"https://frontside.ru/projects/promyshlennye-obekty/promyshlennye-predpriyatiya/"},
       "Технопарки":{text:"здание технопарка",href:"https://frontside.ru/projects/promyshlennye-obekty/tekhnoparki/"},
-      "Light Industrial":{text:"формат light industrial",href:"https://frontside.ru/projects/promyshlennye-obekty/light-industrial/"}
+      "Light Industrial":{text:"формат light industrial",href:"subcategory-light-industrial.html"}
     };
     function setDirection(value){
       items.forEach(item=>item.hidden=value!=="all"&&item.dataset.sub!==value);
@@ -405,7 +405,7 @@
     const subs=[
       {name:"Промышленные предприятия", page:"subcategory-industrial.html", image:"https://frontside.ru/upload/iblock/d9c/5945ku7plffivzh5t2flav8iv84u0s4g.webp"},
       {name:"Технопарки", image:document.querySelector('[aria-label="Технопарк Рябиновая"]')?.style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,"")},
-      {name:"Light Industrial", image:"img/production/industrial-hub-aykhab.jpg"}
+      {name:"Light Industrial", image:"img/production/industrial-hub-aykhab.jpg", page:"subcategory-light-industrial.html"}
     ];
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];
