@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фасады торговых зданий — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="category-production.css">
+  <link rel="stylesheet" href="бренд.css">
+</head>
+<body class="projects-page category-page production-page commercial-page" id="top">
+  <header class="header is-scrolled">
+    <div class="container header__inner">
+      <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main" aria-label="Основная навигация">
+        <a href="catalog.html">Каталог</a><a href="solution-premium.html">Решения</a><a href="#services">Услуги</a><a class="is-active" href="projects.html">Проекты</a><a href="#documents">Документы</a>
+      </nav>
+      <nav class="nav nav--side" aria-label="Дополнительная навигация">
+        <a href="#about">О компании</a><a href="#news">Новости</a><a href="#contacts">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Поиск"><svg width="50" height="50" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="28" r="8"/><path d="M35.2 34.2 41.7 40.7"/></svg></button>
+        <a class="btn-accent" href="#feedback">Отправить заявку</a>
+        <button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый и второй экран: первый стоит на месте (sticky), второй наезжает на него снизу — как в концепте -->
+    <div class="category-stage">
+    <!-- Первый экран: фото на весь экран, по центру заголовок и короткое описание.
+         Экран закреплён: при прокрутке на него наезжает второй экран -->
+    <section class="category-hero" aria-labelledby="category-title">
+      <!-- Фото: ТЦ «Радиус», https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-radius/ -->
+      <div class="category-hero__bg" aria-hidden="true"><img src="img/commercial/tc-radius-detail.webp" alt=""></div>
+      <div class="container category-hero__top"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="artvision.html">Главная</a><a href="projects.html#projects">Проекты</a><span aria-current="page">Фасады торговых зданий</span></nav></div>
+      <div class="category-hero__content">
+        <h1 id="category-title">Фасады торговых зданий</h1>
+        <p class="category-hero__lead">Торговый объект должен быть заметен с дороги и парковки и выдерживать постоянный поток покупателей, а сеть задает требования к облику</p>
+      </div>
+      <!-- Четыре подкатегории: фото, название и переключение с прогрессом. -->
+      <div class="container category-hero__bottom">
+        <a class="hero__cta category-intro__cta category-hero__cta" href="#feedback"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        <div class="hero-subs" aria-label="Подкатегории">
+          <button class="hero-subs__card" type="button" data-hero-sub>
+            <span class="hero-subs__photo"><img src="img/commercial/tc-radius-cover.webp" alt="ТЦ «Радиус»" data-hero-sub-img></span>
+            <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория</span><span class="hero-subs__title" data-hero-sub-title>Торговые центры</span></span>
+          </button>
+          <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Второй экран: слева задача и кнопка, в центре фото (сюда встаёт фото первого экрана), справа направления -->
+    <section class="category-intro" aria-label="О категории">
+      <div class="container">
+        <div class="category-intro__grid">
+          <div class="category-intro__col">
+            <p class="category-intro__directions-label reveal-lines" style="--d:.1s">Фасады торговых зданий</p>
+            <div>
+              <h2 class="category-intro__title reveal-lines">Подбираем систему под режим работы здания</h2>
+              <p class="category-intro__lead reveal-lines" style="--d:.25s">Frontside изготавливает фасад под проект, будь то крупный комплекс или быстровозводимое торговое здание. В данном разделе собраны торговые центры, гипермаркеты, автосалоны и автосервисы, магазины и торговые павильоны.</p>
+            </div>
+          </div>
+          <figure class="category-intro__media" data-slide-media></figure>
+          <div class="category-intro__col">
+            <!-- Подпись к фото в центре и перелистывание объектов категории -->
+            <div class="category-intro__slide">
+              <p class="category-intro__directions-label reveal-lines" style="--d:.35s">Реализованные проекты</p>
+              <div class="category-intro__slide-text" aria-live="polite">
+                <strong class="reveal-lines" style="--d:.45s" data-slide-title>ТЦ Радиус</strong>
+                <span class="category-intro__slide-meta" data-reveal style="--d:.55s" data-slide-meta>FRONTTOP · UNIQUE</span>
+              </div>
+              <div class="category-intro__slider-nav" data-reveal style="--d:.6s">
+                <span class="category-intro__counter" aria-label="Номер объекта"><b data-slide-index>01</b><span data-slide-total>04</span></span>
+                <button type="button" data-slide-prev aria-label="Предыдущий объект"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+                <button type="button" data-slide-next aria-label="Следующий объект"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Блок «Задачи»: фото на ширину контейнера, поверх него задачи листаются колодой. -->
+    <section class="category-grow" aria-labelledby="tasks-title">
+      <div class="category-grow__track" data-grow-track>
+        <div class="category-grow__sticky">
+          <div class="container category-grow__frame" data-grow-frame>
+            <figure class="category-grow__media" data-grow-media>
+              <img class="is-active" src="img/commercial/formula-x-facade-wide.webp" alt="Красные и графитовые плоскости фасада ТЦ «Формула X»">
+            </figure>
+          </div>
+          <div class="container category-grow__cards">
+            <h2 class="category-grow__title is-in" id="tasks-title" data-grow-title>Преимущества фасадных систем</h2>
+            <div class="category-grow__deck">
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Привлечь внимание покупателей</h3><span class="category-intro__counter grow-card__num"><b>01</b><span>03</span></span></div>
+              <p>Фасад читается издалека благодаря цвету, ритму панелей и&nbsp;акцентному входу, а&nbsp;в&nbsp;темное время контур здания выделяет LED-подсветка.</p>
+            </article>
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Сохранить облик сети</h3><span class="category-intro__counter grow-card__num"><b>02</b><span>03</span></span></div>
+              <p>Фирменные цвета по&nbsp;RAL и&nbsp;профилирование панелей повторяются на&nbsp;объектах сети в&nbsp;разных городах, и&nbsp;покупатель узнает здание в&nbsp;любом из них.</p>
+            </article>
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Открыть объект в&nbsp;срок</h3><span class="category-intro__counter grow-card__num"><b>03</b><span>03</span></span></div>
+              <p>Фасадную систему изготавливают под&nbsp;проект, привозят партиями в&nbsp;последовательности монтажа и&nbsp;сопровождают сборку шеф-монтажом Frontside.</p>
+            </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Торговые проекты: список коммерческой недвижимости и карта объектов frontside.ru. -->
+    <section class="projects" id="projects-list">
+      <div class="container projects__head"><h2>Проекты торговых зданий</h2></div>
+      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Торговые центры" aria-pressed="false">Торговые центры</button><button type="button" class="product-chip" data-direction-filter="Гипермаркеты" aria-pressed="false">Гипермаркеты</button><button type="button" class="product-chip" data-direction-filter="Автосалоны и автосервисы" aria-pressed="false">Автосалоны и автосервисы</button><button type="button" class="product-chip" data-direction-filter="Магазины и торговые павильоны" aria-pressed="false">Магазины и торговые павильоны</button></div></div></div>
+      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="https://frontside.ru/projects/torgovo-razvlekatelnye-centry/torgovye-centry/" data-sub-link>Перейти в подкатегорию</a></div>
+      <div class="container"><div class="cards">
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-radius/" target="_blank" rel="noopener" aria-label="ТЦ Радиус" style="--image:url('img/commercial/tts-radius.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-radius/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>ТЦ Радиус</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-formula-x/" target="_blank" rel="noopener" aria-label="ТЦ Формула X" style="--image:url('img/commercial/tts-formula-x.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-formula-x/" target="_blank" rel="noopener"><span class="project-card__badges"><span>Qbiss One</span></span><strong>ТЦ Формула X</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/aport-east-i-akvapark-san-remo/" target="_blank" rel="noopener" aria-label="Молл «Апорт EAST» и аквапарк «САН-РЕМО»" style="--image:url('img/commercial/aport-east-i-akvapark-san-remo.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/aport-east-i-akvapark-san-remo/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>Молл «Апорт EAST» и аквапарк «САН-РЕМО»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-tsentr-atlant/" target="_blank" rel="noopener" aria-label="Торговый центр «АТЛАНТ»" style="--image:url('img/commercial/torgovyy-tsentr-atlant.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-tsentr-atlant/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>UNIQUE</span></span><strong>Торговый центр «АТЛАНТ»</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="FRONTBASE · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-kafe-malinka/" target="_blank" rel="noopener" aria-label="Магазин-кафе «Малинка»" style="--image:url('img/commercial/magazin-kafe-malinka.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-kafe-malinka/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>UNIQUE</span></span><strong>Магазин-кафе «Малинка»</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="FRONTBASE · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-torgovoy-seti-da-/" target="_blank" rel="noopener" aria-label="Магазин торговой сети «ДА!»" style="--image:url('img/commercial/magazin-torgovoy-seti-da-.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-torgovoy-seti-da-/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>UNIQUE</span></span><strong>Магазин торговой сети «ДА!»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trk-zvezda/" target="_blank" rel="noopener" aria-label="ТРК «Звезда»" style="--image:url('img/commercial/trk-zvezda.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trk-zvezda/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>ТРК «Звезда»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-tsentr-v-ostrovtsakh/" target="_blank" rel="noopener" aria-label="Торговый центр в Островцах" style="--image:url('img/commercial/torgovyy-tsentr-v-ostrovtsakh.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-tsentr-v-ostrovtsakh/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Торговый центр в Островцах</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-v-g-ramenskoe/" target="_blank" rel="noopener" aria-label="Магазин в г. Раменское" style="--image:url('img/commercial/magazin-v-g-ramenskoe.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-v-g-ramenskoe/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>Магазин в г. Раменское</strong></a></article>
+          <article class="project-item" data-sub="Автосалоны и автосервисы" data-system="FRONTBASE · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/dts-man/" target="_blank" rel="noopener" aria-label="СТО «Приволжье»" style="--image:url('img/commercial/dts-man.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/dts-man/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>UNIQUE</span></span><strong>СТО «Приволжье»</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-avtosvet/" target="_blank" rel="noopener" aria-label="Магазин «Автосвет»" style="--image:url('img/commercial/magazin-avtosvet.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-avtosvet/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>Магазин «Автосвет»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-cheryemushki/" target="_blank" rel="noopener" aria-label="ТЦ «Черёмушки»" style="--image:url('img/commercial/tts-cheryemushki.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-cheryemushki/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>UNIQUE</span></span><strong>ТЦ «Черёмушки»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-dobrodom/" target="_blank" rel="noopener" aria-label="ТЦ «Добродом»" style="--image:url('img/commercial/tts-dobrodom.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-dobrodom/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>ТЦ «Добродом»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/left-right/" target="_blank" rel="noopener" aria-label="Left&amp;Right" style="--image:url('img/commercial/left-right.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/left-right/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Left&amp;Right</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/salon-kamnya/" target="_blank" rel="noopener" aria-label="Салон камня" style="--image:url('img/commercial/salon-kamnya.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/salon-kamnya/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Салон камня</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-pavilon-v-khimkakh/" target="_blank" rel="noopener" aria-label="Торговый павильон в Химках" style="--image:url('img/commercial/torgovyy-pavilon-v-khimkakh.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-pavilon-v-khimkakh/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Торговый павильон в Химках</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trts-kvarts/" target="_blank" rel="noopener" aria-label="ТРЦ «Кварц»" style="--image:url('img/commercial/trts-kvarts.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trts-kvarts/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>ТРЦ «Кварц»</strong></a></article>
+          <article class="project-item" data-sub="Гипермаркеты" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/evrospar/" target="_blank" rel="noopener" aria-label="Гипермаркет Евроспар" style="--image:url('img/commercial/evrospar.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/evrospar/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Гипермаркет Евроспар</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-dubna/" target="_blank" rel="noopener" aria-label="Магазин Дубна" style="--image:url('img/commercial/magazin-dubna.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-dubna/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Магазин Дубна</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTTOP · AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trts-nebo/" target="_blank" rel="noopener" aria-label="ТРЦ Небо" style="--image:url('img/commercial/trts-nebo.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trts-nebo/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>AESTHETIC</span></span><strong>ТРЦ Небо</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/riga-moll/" target="_blank" rel="noopener" aria-label="ТРК «РИГА МОЛЛ»" style="--image:url('img/commercial/riga-moll.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/riga-moll/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>ТРК «РИГА МОЛЛ»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE · Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-kvartal/" target="_blank" rel="noopener" aria-label="ТРЦ «Квартал»" style="--image:url('img/commercial/trc-kvartal.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-kvartal/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>Qbiss One</span></span><strong>ТРЦ «Квартал»</strong></a></article>
+          <article class="project-item" data-sub="Гипермаркеты" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-lerua-merlen/" target="_blank" rel="noopener" aria-label="Гипермаркет «Леруа Мерлен» (Москва)" style="--image:url('img/commercial/gipermarket-lerua-merlen.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-lerua-merlen/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Гипермаркет «Леруа Мерлен» (Москва)</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-aura/" target="_blank" rel="noopener" aria-label="ТРЦ «Аура»" style="--image:url('img/commercial/trc-aura.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-aura/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>ТРЦ «Аура»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-yarkij/" target="_blank" rel="noopener" aria-label="ТЦ «Яркий»" style="--image:url('img/commercial/tc-yarkij.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-yarkij/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>ТЦ «Яркий»</strong></a></article>
+          <article class="project-item" data-sub="Автосалоны и автосервисы" data-system="Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/porsche-yasenevo/" target="_blank" rel="noopener" aria-label="Автосалон «Порше»" style="--image:url('img/commercial/porsche-yasenevo.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/porsche-yasenevo/" target="_blank" rel="noopener"><span class="project-card__badges"><span>Qbiss One</span></span><strong>Автосалон «Порше»</strong></a></article>
+          <article class="project-item" data-sub="Автосалоны и автосервисы" data-system="Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/avtosalon-reno/" target="_blank" rel="noopener" aria-label="Автосалон «Рено»" style="--image:url('img/commercial/avtosalon-reno.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/avtosalon-reno/" target="_blank" rel="noopener"><span class="project-card__badges"><span>Qbiss One</span></span><strong>Автосалон «Рено»</strong></a></article>
+          <article class="project-item" data-sub="Автосалоны и автосервисы" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/hyundai-krasnodar/" target="_blank" rel="noopener" aria-label="Автосалон «Хендэ»" style="--image:url('img/commercial/hyundai-krasnodar.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/hyundai-krasnodar/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Автосалон «Хендэ»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-semya/" target="_blank" rel="noopener" aria-label="ТЦ «Семья»" style="--image:url('img/commercial/tc-semya.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-semya/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>ТЦ «Семья»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-moskvoreche/" target="_blank" rel="noopener" aria-label="ТЦ «Москворечье»" style="--image:url('img/commercial/tc-moskvoreche.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-moskvoreche/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>ТЦ «Москворечье»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-arkada/" target="_blank" rel="noopener" aria-label="ТЦ «Аркада»" style="--image:url('img/commercial/tc-arkada.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-arkada/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>ТЦ «Аркада»</strong></a></article>
+          <article class="project-item" data-sub="Автосалоны и автосервисы" data-system="FRONTBASE · AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/mojka-shik-blesk/" target="_blank" rel="noopener" aria-label="Мойка «Шик&amp;Блеск»" style="--image:url('img/commercial/mojka-shik-blesk.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/mojka-shik-blesk/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>AESTHETIC</span></span><strong>Мойка «Шик&amp;Блеск»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-megagrinn/" target="_blank" rel="noopener" aria-label="ТЦ «МегаГРИНН»" style="--image:url('img/commercial/tc-megagrinn.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-megagrinn/" target="_blank" rel="noopener"><span class="project-card__badges"><span>Qbiss One</span></span><strong>ТЦ «МегаГРИНН»</strong></a></article>
+          <article class="project-item" data-sub="Гипермаркеты" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-klondajk/" target="_blank" rel="noopener" aria-label="Гипермаркет «Клондайк»" style="--image:url('img/commercial/gipermarket-klondajk.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-klondajk/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Гипермаркет «Клондайк»</strong></a></article>
+          <article class="project-item" data-sub="Гипермаркеты" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-kastorama/" target="_blank" rel="noopener" aria-label="Гипермаркет Касторама" style="--image:url('img/commercial/gipermarket-kastorama.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-kastorama/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Гипермаркет Касторама</strong></a></article>
+          <article class="project-item" data-sub="Гипермаркеты" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-m5-moll/" target="_blank" rel="noopener" aria-label="Гипермаркет «М5 Молл»" style="--image:url('img/commercial/gipermarket-m5-moll.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-m5-moll/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>Гипермаркет «М5 Молл»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-port/" target="_blank" rel="noopener" aria-label="ТЦ «Порт»" style="--image:url('img/commercial/tc-port.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-port/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>ТЦ «Порт»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="AESTHETIC · Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gorkipark/" target="_blank" rel="noopener" aria-label="ТЦ « ГоркиПарк»" style="--image:url('img/commercial/gorkipark.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/gorkipark/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span><span>Qbiss One</span></span><strong>ТЦ « ГоркиПарк»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE · Qbiss One"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-tandem-galereya/" target="_blank" rel="noopener" aria-label="ТРЦ «Тандем Галерея»" style="--image:url('img/commercial/trc-tandem-galereya.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-tandem-galereya/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>Qbiss One</span></span><strong>ТРЦ «Тандем Галерея»</strong></a></article>
+          <article class="project-item" data-sub="Гипермаркеты" data-system="FRONTBASE · AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/lakmin/" target="_blank" rel="noopener" aria-label="Гипермаркет «Лакмин»" style="--image:url('img/commercial/lakmin.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/lakmin/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span><span>AESTHETIC</span></span><strong>Гипермаркет «Лакмин»</strong></a></article>
+          <article class="project-item" data-sub="Магазины и торговые павильоны" data-system="UNIQUE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/pavilon-kafecvety/" target="_blank" rel="noopener" aria-label="Павильон «Кафе/цветы»" style="--image:url('img/commercial/pavilon-kafecvety.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/pavilon-kafecvety/" target="_blank" rel="noopener"><span class="project-card__badges"><span>UNIQUE</span></span><strong>Павильон «Кафе/цветы»</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTTOP"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-zheleznodorozhnyj/" target="_blank" rel="noopener" aria-label="Торговый центр Железнодорожный" style="--image:url('img/commercial/tc-zheleznodorozhnyj.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-zheleznodorozhnyj/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span></span><strong>Торговый центр Железнодорожный</strong></a></article>
+          <article class="project-item" data-sub="Автосалоны и автосервисы" data-system="AESTHETIC"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/avtosalon-mersedes/" target="_blank" rel="noopener" aria-label="Автосалон «Мерседес» Люберцы" style="--image:url('img/commercial/avtosalon-mersedes.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/avtosalon-mersedes/" target="_blank" rel="noopener"><span class="project-card__badges"><span>AESTHETIC</span></span><strong>Автосалон «Мерседес» Люберцы</strong></a></article>
+          <article class="project-item" data-sub="Торговые центры" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/karusel/" target="_blank" rel="noopener" aria-label="ТЦ «Карусель»" style="--image:url('img/commercial/karusel.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/karusel/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>ТЦ «Карусель»</strong></a></article>
+      </div></div>
+      <a class="category-all-link" href="projects.html"><span>Все проекты Frontside</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+    </section>
+
+    <!-- Применяемые системы — блок «Идея» концепта: закрепляется, фото сменяются снизу вверх при прокрутке (idea-scroll.js) -->
+    <section class="idea category-systems" id="idea" style="--n: 4" aria-labelledby="systems-title">
+      <div class="idea__sticky">
+        <div class="idea__dim" id="ideaDim" aria-hidden="true"></div>
+        <div class="container">
+          <h2 class="idea__title" id="systems-title">Применяемые системы</h2>
+          <p class="category-systems__lead">В проектах раздела применялись системы FRONTTOP, FRONTBASE, UNIQUE и AESTHETIC. Подобрать решение под ваш объект помогут специалисты Frontside: оставьте заявку, и мы подготовим предварительное предложение.</p>
+          <div class="idea__points">
+          <div class="idea__point is-active">
+            <h3>FRONTTOP</h3>
+            <p>Модульная система с теневым швом и невидимым креплением. Панели из стали и базальтовой ваты не требуют отделки, класс пожарной опасности — К0. Подходит для производств и ЦОДов.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/fronttop/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>FRONTBASE</h3>
+            <p>Базовая система из стеновых и кровельных сэндвич-панелей длиной до 12,5&nbsp;м. Готовая стена и кровля сразу закрывают тепловой контур, все узлы — в комплекте поставки.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/frontbase/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>UNIQUE</h3>
+            <p>Теневой шов и алюминиевый профиль на стыках панелей — меньше выступающих элементов на фасаде. Есть радиусные и двухцветные угловые модули, LED-подсветка в шве.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/unique/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>AESTHETIC</h3>
+            <p>Вертикальная система без видимого крепления и теневого шва: крепёж скрыт в замке панели, фасад получается гладким. Панели длиной до 12,5&nbsp;м, закруглённые углы.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          </div>
+          <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></div>
+          </div>
+          <!-- стрелки и полоса прогресса: отрезок на каждую систему, заполняется прокруткой (idea-scroll.js) -->
+          <div class="systems-nav">
+            <div class="systems-nav__arrows"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
+            <div class="systems-nav__progress" data-sys-progress aria-hidden="true"></div>
+          </div>
+          <a class="hero__cta category-systems__cta" href="#feedback"><span class="hero__cta-text">Подобрать систему</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- следующие блоки налистываются на закреплённый блок систем, как в концепте -->
+    <div class="cover">
+
+    <!-- О разделе: текст для поисковиков -->
+    <section class="category-section category-about" aria-labelledby="about-title">
+      <div class="container category-about__inner">
+        <div><h2 id="about-title">Какие задачи решает фасад торгового здания</h2></div>
+        <div class="category-about__text">
+          <p>Фасад торгового здания должен быть заметен с дороги и узнаваем по цветам сети. Из-за постоянного потока покупателей и разгрузки транспорта панели должны быть стойкими к нагрузкам, а поврежденный участок важно восстанавливать без остановки торговли. Вдобавок, быстровозводимое торговое здание требует поставки фасада к началу монтажа.</p>
+          <p>Для длинных однородных стен подходит <a class="fs-link" href="https://frontside.ru/catalog/frontbase/">FRONTBASE</a>, поскольку ее панели не требуют внешней отделки. Выразительный облик дают вертикальная <a class="fs-link" href="https://frontside.ru/catalog/aesthetic/">AESTHETIC</a> и <a class="fs-link" href="https://frontside.ru/catalog/unique/">UNIQUE</a> с декоративным теневым швом, гладкий фасад собирают из <a class="fs-link" href="https://frontside.ru/catalog/fronttop/">FRONTTOP</a>. Вечером здание выделяет <a class="fs-link" href="https://frontside.ru/architectural-solutions/">LED-подсветка</a>, встроенная в панели на заводе.</p>
+          <p>Строительство торговых зданий ведет генподрядчик, а Frontside отвечает за фасад и подключается на любой стадии. Мы прорабатываем узлы, изготавливаем систему на основе сэндвич-панелей и привозим ее к началу монтажа, который проходит под нашим <a class="fs-link" href="https://frontside.ru/services/logistika-i-soprovozhdenie-montazha-na-obekte/">шеф-монтажом</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Другие категории: карточки «Проектов», три на экране, остальные — в слайдере -->
+    <section class="projects category-others" aria-labelledby="others-title">
+      <div class="container projects__head"><h2 id="others-title">Другие категории</h2><div class="systems-nav__arrows others-nav"><button type="button" data-others-prev aria-label="Предыдущие категории"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-others-next aria-label="Следующие категории"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div></div>
+      <div class="container">
+        <div class="cards">
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Логистические центры и склады" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/f0e/d6afh1n5c0elnzok5rne5usdy8ew95k0.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Распределительные центры</span><span>Складские комплексы</span></span><strong>Логистические центры и склады</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Спортивные сооружения" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/4b5/bplzv5pk4k7iabrs5q8r3n8eflbx7236.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>ФОК</span><span>Стадионы</span></span><strong>Спортивные сооружения</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Транспортная инфраструктура" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/e6e/aoeymvayf7fx71yuyvllifbrsgjjm115.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Аэропорты</span><span>Вокзалы</span></span><strong>Транспортная инфраструктура</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Торгово-развлекательные центры" style="--image:url('img/commercial/tts-radius.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Торговые центры</span></span><strong>Торгово-развлекательные центры</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Административные и общественные здания" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/d9f/hfujq95vpdfcp37e2c5eveaokvht3hgd.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Офисные здания</span></span><strong>Административные и общественные здания</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Разное" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/8fe/c1utvracf8oy60lnks5o3g52v7fe43pi.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>ЦОД</span></span><strong>Разное</strong></a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма обратной связи: слева заголовок и контакты, справа поля -->
+    <section class="category-form" id="feedback" aria-labelledby="form-title">
+      <div class="container category-form__card">
+        <div class="category-form__intro">
+          <div>
+            <h2 id="form-title">Расскажите о&nbsp;вашем объекте</h2>
+            <p>Поможем подобрать решение под архитектуру, сроки и эксплуатацию</p>
+          </div>
+          <dl class="category-form__contacts">
+            <div><dt>Телефон</dt><dd><a href="tel:+74956428091">+7 (495) 642-80-91</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:info@frontside.ru">info@frontside.ru</a></dd></div>
+          </dl>
+        </div>
+        <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Регион</span><input type="text" name="region" placeholder="Регион" autocomplete="address-level1"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Согласен с <a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой конфиденциальности и обработки персональных данных</a></span></label>
+        </form>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">Меняем облик<br>современных городов</div>
+      <nav class="footer__nav" aria-label="Разделы сайта">
+        <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
+      </nav>
+      <nav class="footer__nav" aria-label="О компании">
+        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <div class="footer__contacts">
+        <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+        <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+        <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a><a class="footer__to-top" href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+  </footer>
+
+  <script src="idea-scroll.js?v=11061100"></script>
+  <script src="reveal.js?v=10201059"></script>
+  <script>
+    // Фильтр по подкатегориям: те же чипы, что фильтр продуктов на странице «Проекты»
+    const chips=[...document.querySelectorAll("[data-direction-filter]")];
+    const items=[...document.querySelectorAll(".project-item[data-sub]")];
+    // Согласованные описания подкатегорий и ссылки внутри текста.
+    const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
+    // Ссылки подключим после добавления страниц торговых подкатегорий.
+    const subPages={
+  "Торговые центры": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/torgovye-centry/",
+  "Гипермаркеты": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/gipermarkety/",
+  "Автосалоны и автосервисы": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/avtosalony-i-avtoservisy/",
+  "Магазины и торговые павильоны": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/magaziny-i-torgovye-paviliony/"
+};
+    const subDescriptions={
+  "Торговые центры": "У торгового центра большие площади стен и сложная архитектура, и впечатление о комплексе посетитель получает еще на подъезде. Для ТРК «Рига Молл» в Москве применена вертикальная система AESTHETIC. Другие наши фасады торговых центров показаны в ленте ниже.",
+  "Гипермаркеты": "Протяженные однородные стены должны оставаться узнаваемыми для покупателей сети и сохранять вид при интенсивной эксплуатации. «Касторама» в Казани получила фасад на системе FRONTBASE. Все выполненные фасады гипермаркетов мы собрали на отдельной странице.",
+  "Автосалоны и автосервисы": "Облик автосалона определяет стандарт автобренда, от фирменного цвета до чистых линий и выделенного входа, а для сервисной зоны на первом месте практичность. Для автосалона «Мерседес» в Люберцах выбрана система AESTHETIC. Другие реализованные фасады автосалонов и сервисных зон представлены на странице подкатегории.",
+  "Магазины и торговые павильоны": "Небольшой магазин или павильон у дороги должен быть заметен издалека, и эту задачу решают цвет и профилирование панелей. Павильон «Кафе/цветы» в Балашихе выполнен на системе UNIQUE. Примеры того, какой бывает отделка фасада магазина на наших системах, приведены на странице подкатегории."
+};
+    const subDescriptionLinks={
+  "Торговые центры": {
+    "text": "фасады торговых центров",
+    "href": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/torgovye-centry/"
+  },
+  "Гипермаркеты": {
+    "text": "фасады гипермаркетов",
+    "href": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/gipermarkety/"
+  },
+  "Автосалоны и автосервисы": {
+    "text": "фасады автосалонов",
+    "href": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/avtosalony-i-avtoservisy/"
+  },
+  "Магазины и торговые павильоны": {
+    "text": "отделка фасада магазина",
+    "href": "https://frontside.ru/projects/torgovo-razvlekatelnye-centry/magaziny-i-torgovye-paviliony/"
+  }
+};
+    function setDirection(value){
+      items.forEach(item=>item.hidden=value!=="all"&&item.dataset.sub!==value);
+      chips.forEach(chip=>{const on=chip.dataset.directionFilter===value;chip.classList.toggle("is-active",on);chip.setAttribute("aria-pressed",String(on));});
+      const description=subDescriptions[value]||"", inlineLink=subDescriptionLinks[value];
+      if(inlineLink){
+        const position=description.indexOf(inlineLink.text), link=document.createElement('a');
+        link.className='fs-link';link.href=inlineLink.href;link.textContent=inlineLink.text;
+        subDesc.replaceChildren(description.slice(0,position),link,description.slice(position+inlineLink.text.length));
+      }else subDesc.textContent=description;
+      // Переход сохраняется у каждой подкатегории и следует за выбранным табом.
+      subLink.hidden=!subPages[value]; if(subPages[value]) subLink.href=subPages[value];
+    }
+    chips.forEach(chip=>chip.addEventListener("click",()=>setDirection(chip.dataset.directionFilter)));
+    setDirection("Торговые центры");   // по умолчанию открыта первая подкатегория
+    // Самостоятельный слайдер второго блока — данные из карточек портфолио
+    const media=document.querySelector("[data-slide-media]");
+    const slideText=document.querySelector(".category-intro__slide-text");
+    // Все торговые проекты с фотографиями из портфолио клиента.
+    const slides=[
+  {
+    "image": "img/commercial/tts-radius.webp",
+    "title": "ТЦ Радиус",
+    "meta": "FRONTTOP · UNIQUE"
+  },
+  {
+    "image": "img/commercial/tts-formula-x.webp",
+    "title": "ТЦ Формула X",
+    "meta": "Qbiss One"
+  },
+  {
+    "image": "img/commercial/aport-east-i-akvapark-san-remo.webp",
+    "title": "Молл «Апорт EAST» и аквапарк «САН-РЕМО»",
+    "meta": "FRONTTOP · UNIQUE"
+  },
+  {
+    "image": "img/commercial/torgovyy-tsentr-atlant.webp",
+    "title": "Торговый центр «АТЛАНТ»",
+    "meta": "FRONTBASE · UNIQUE"
+  },
+  {
+    "image": "img/commercial/magazin-kafe-malinka.webp",
+    "title": "Магазин-кафе «Малинка»",
+    "meta": "FRONTBASE · UNIQUE"
+  },
+  {
+    "image": "img/commercial/magazin-torgovoy-seti-da-.webp",
+    "title": "Магазин торговой сети «ДА!»",
+    "meta": "FRONTBASE · UNIQUE"
+  },
+  {
+    "image": "img/commercial/trk-zvezda.webp",
+    "title": "ТРК «Звезда»",
+    "meta": "FRONTTOP · UNIQUE"
+  },
+  {
+    "image": "img/commercial/torgovyy-tsentr-v-ostrovtsakh.webp",
+    "title": "Торговый центр в Островцах",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/magazin-v-g-ramenskoe.webp",
+    "title": "Магазин в г. Раменское",
+    "meta": "FRONTTOP"
+  },
+  {
+    "image": "img/commercial/dts-man.webp",
+    "title": "СТО «Приволжье»",
+    "meta": "FRONTBASE · UNIQUE"
+  },
+  {
+    "image": "img/commercial/magazin-avtosvet.webp",
+    "title": "Магазин «Автосвет»",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/tts-cheryemushki.webp",
+    "title": "ТЦ «Черёмушки»",
+    "meta": "FRONTBASE · UNIQUE"
+  },
+  {
+    "image": "img/commercial/tts-dobrodom.webp",
+    "title": "ТЦ «Добродом»",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/left-right.webp",
+    "title": "Left&Right",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/salon-kamnya.webp",
+    "title": "Салон камня",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/torgovyy-pavilon-v-khimkakh.webp",
+    "title": "Торговый павильон в Химках",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/trts-kvarts.webp",
+    "title": "ТРЦ «Кварц»",
+    "meta": "FRONTTOP · UNIQUE"
+  },
+  {
+    "image": "img/commercial/evrospar.webp",
+    "title": "Гипермаркет Евроспар",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/magazin-dubna.webp",
+    "title": "Магазин Дубна",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/trts-nebo.webp",
+    "title": "ТРЦ Небо",
+    "meta": "FRONTTOP · AESTHETIC"
+  },
+  {
+    "image": "img/commercial/riga-moll.webp",
+    "title": "ТРК «РИГА МОЛЛ»",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/trc-kvartal.webp",
+    "title": "ТРЦ «Квартал»",
+    "meta": "FRONTBASE · Qbiss One"
+  },
+  {
+    "image": "img/commercial/gipermarket-lerua-merlen.webp",
+    "title": "Гипермаркет «Леруа Мерлен» (Москва)",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/trc-aura.webp",
+    "title": "ТРЦ «Аура»",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/tc-yarkij.webp",
+    "title": "ТЦ «Яркий»",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/porsche-yasenevo.webp",
+    "title": "Автосалон «Порше»",
+    "meta": "Qbiss One"
+  },
+  {
+    "image": "img/commercial/avtosalon-reno.webp",
+    "title": "Автосалон «Рено»",
+    "meta": "Qbiss One"
+  },
+  {
+    "image": "img/commercial/hyundai-krasnodar.webp",
+    "title": "Автосалон «Хендэ»",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/tc-semya.webp",
+    "title": "ТЦ «Семья»",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/tc-moskvoreche.webp",
+    "title": "ТЦ «Москворечье»",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/tc-arkada.webp",
+    "title": "ТЦ «Аркада»",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/mojka-shik-blesk.webp",
+    "title": "Мойка «Шик&Блеск»",
+    "meta": "FRONTBASE · AESTHETIC"
+  },
+  {
+    "image": "img/commercial/tc-megagrinn.webp",
+    "title": "ТЦ «МегаГРИНН»",
+    "meta": "Qbiss One"
+  },
+  {
+    "image": "img/commercial/gipermarket-klondajk.webp",
+    "title": "Гипермаркет «Клондайк»",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/gipermarket-kastorama.webp",
+    "title": "Гипермаркет Касторама",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/gipermarket-m5-moll.webp",
+    "title": "Гипермаркет «М5 Молл»",
+    "meta": "FRONTBASE"
+  },
+  {
+    "image": "img/commercial/tc-port.webp",
+    "title": "ТЦ «Порт»",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/gorkipark.webp",
+    "title": "ТЦ « ГоркиПарк»",
+    "meta": "AESTHETIC · Qbiss One"
+  },
+  {
+    "image": "img/commercial/trc-tandem-galereya.webp",
+    "title": "ТРЦ «Тандем Галерея»",
+    "meta": "FRONTBASE · Qbiss One"
+  },
+  {
+    "image": "img/commercial/lakmin.webp",
+    "title": "Гипермаркет «Лакмин»",
+    "meta": "FRONTBASE · AESTHETIC"
+  },
+  {
+    "image": "img/commercial/pavilon-kafecvety.webp",
+    "title": "Павильон «Кафе/цветы»",
+    "meta": "UNIQUE"
+  },
+  {
+    "image": "img/commercial/tc-zheleznodorozhnyj.webp",
+    "title": "Торговый центр Железнодорожный",
+    "meta": "FRONTTOP"
+  },
+  {
+    "image": "img/commercial/avtosalon-mersedes.webp",
+    "title": "Автосалон «Мерседес» Люберцы",
+    "meta": "AESTHETIC"
+  },
+  {
+    "image": "img/commercial/karusel.webp",
+    "title": "ТЦ «Карусель»",
+    "meta": "FRONTBASE"
+  }
+];
+    // Как в концепте: новое фото открывается снизу вверх поверх старого,
+    // текст старого уходит вверх, новый поднимается снизу
+    const photos=slides.map((slide,i)=>{
+      const img=new Image();
+      img.src=slide.image;img.alt=slide.title;
+      if(i===0) img.classList.add("is-active");
+      media.append(img);
+      return img;
+    });
+    const SLIDE_DELAY=5000;
+    const mobileSlideMode=matchMedia('(max-width: 767px)'), reduceSlideMotion=matchMedia('(prefers-reduced-motion: reduce)');
+    media.classList.add('mobile-photo-track');
+    media.tabIndex=mobileSlideMode.matches?0:-1;
+    media.setAttribute('aria-label','Реализованные проекты: листайте фотографии');
+    let slideIndex=0,busy=false,slideTimer;
+    function scheduleSlide(){clearTimeout(slideTimer);slideTimer=setTimeout(()=>showSlide(slideIndex+1),SLIDE_DELAY);}
+    document.querySelector("[data-slide-total]").textContent=String(slides.length).padStart(2,"0");
+    function showSlide(index,fromScroll=false){
+      if(mobileSlideMode.matches){
+        slideIndex=(index+slides.length)%slides.length;
+        const slide=slides[slideIndex];
+        photos.forEach((img,i)=>img.classList.toggle('is-active',i===slideIndex));
+        document.querySelector('[data-slide-title]').textContent=slide.title;
+        document.querySelector('[data-slide-meta]').textContent=slide.meta;
+        document.querySelector('[data-slide-index]').textContent=String(slideIndex+1).padStart(2,'0');
+        if(!fromScroll)media.scrollTo({left:photos[slideIndex].offsetLeft-photos[0].offsetLeft,behavior:reduceSlideMotion.matches?'instant':'smooth'});
+        scheduleSlide();return;
+      }
+      if(busy) return;
+      busy=true;
+      const prev=photos[slideIndex].classList.contains("is-active")?photos[slideIndex]:null;
+      slideIndex=(index+slides.length)%slides.length;
+      const slide=slides[slideIndex], next=photos[slideIndex];
+      photos.forEach(img=>img.classList.remove("is-prev"));
+      if(prev) prev.classList.replace("is-active","is-prev");
+      next.classList.add("is-active");
+      setTimeout(()=>{if(prev) prev.classList.remove("is-prev");busy=false;},1000);
+      slideText.classList.add("is-leaving");
+      setTimeout(()=>{
+        document.querySelector("[data-slide-title]").textContent=slide.title;
+        document.querySelector("[data-slide-meta]").textContent=slide.meta;
+        document.querySelector("[data-slide-index]").textContent=String(slideIndex+1).padStart(2,"0");
+        slideText.classList.replace("is-leaving","is-entering");
+        slideText.offsetHeight;
+        slideText.classList.remove("is-entering");
+      },400);
+      scheduleSlide();
+    }
+    document.querySelector("[data-slide-prev]").addEventListener("click",()=>showSlide(slideIndex-1));
+    document.querySelector("[data-slide-next]").addEventListener("click",()=>showSlide(slideIndex+1));
+    let slideScrollTimer;
+    media.addEventListener('scroll',()=>{
+      if(!mobileSlideMode.matches)return;
+      clearTimeout(slideTimer);clearTimeout(slideScrollTimer);
+      slideScrollTimer=setTimeout(()=>{
+        const step=photos[1].offsetLeft-photos[0].offsetLeft;
+        if(!mobileSlideMode.matches||step<=0)return;
+        showSlide(Math.max(0,Math.min(slides.length-1,Math.round(media.scrollLeft/step))),true);
+      },150);
+    },{passive:true});
+    media.addEventListener('pointerdown',()=>{if(mobileSlideMode.matches)clearTimeout(slideTimer);},{passive:true});
+    media.addEventListener('pointerup',()=>{if(mobileSlideMode.matches)scheduleSlide();},{passive:true});
+    media.addEventListener('pointercancel',()=>{if(mobileSlideMode.matches)scheduleSlide();},{passive:true});
+    media.addEventListener('keydown',event=>{
+      if(!mobileSlideMode.matches||!['ArrowLeft','ArrowRight'].includes(event.key))return;
+      event.preventDefault();showSlide(slideIndex+(event.key==='ArrowRight'?1:-1));
+    });
+    scheduleSlide();
+    // Направления на первом экране: включают фильтр и ведут к проектам
+    document.querySelectorAll("[data-direction]").forEach(button=>button.addEventListener("click",()=>{setDirection(button.dataset.direction);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});}));
+    // шапка: над фото первого экрана прозрачная, после начала прокрутки — белая
+    const siteHeader=document.querySelector(".header");
+    function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
+    // Плашка подкатегорий на первом экране: листается каждые 5 с, полоска показывает прогресс;
+    // клик по плашке ведёт на страницу подкатегории или к проектам раздела
+    const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
+    const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
+    // Фотографии реализованных объектов соответствующих подкатегорий.
+    const subs=[
+  {
+    "name": "Торговые центры",
+    "image": "img/commercial/tts-radius.webp"
+  },
+  {
+    "name": "Гипермаркеты",
+    "image": "img/commercial/gipermarket-kastorama.webp"
+  },
+  {
+    "name": "Автосалоны и автосервисы",
+    "image": "img/commercial/avtosalon-mersedes.webp"
+  },
+  {
+    "name": "Магазины и торговые павильоны",
+    "image": "img/commercial/pavilon-kafecvety.webp"
+  }
+];
+    subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
+    const bars=[...subBars.children];
+    let subIndex=0, subTimer;
+    function showSub(i){
+      subIndex=(i+subs.length)%subs.length;
+      subCard.classList.add("is-changing");
+      setTimeout(()=>{
+        subImg.src=subs[subIndex].image; subTitle.textContent=subs[subIndex].name;
+        subCard.classList.remove("is-changing");
+      },subCard.dataset.ready?250:0);
+      subCard.dataset.ready=1;
+      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<subIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===subIndex));});
+      bars[subIndex].offsetWidth; bars[subIndex].classList.add("is-active");
+      clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
+    }
+    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
+    let subTouch=null, subSwiped=false;
+    subsBox.addEventListener("touchstart",e=>{
+      subSwiped=false;
+      subTouch=matchMedia("(max-width: 767px)").matches&&e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
+    },{passive:true});
+    subsBox.addEventListener("touchend",e=>{
+      if(!subTouch)return;
+      const dx=e.changedTouches[0].clientX-subTouch.x,dy=e.changedTouches[0].clientY-subTouch.y;
+      subTouch=null;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5){subSwiped=true;showSub(subIndex+(dx<0?1:-1));}
+    },{passive:true});
+    subsBox.addEventListener("touchcancel",()=>{subTouch=null;},{passive:true});
+    subCard.addEventListener("click",()=>{
+      if(subSwiped){subSwiped=false;return;}
+      const sub=subs[subIndex];
+      if(sub.page){ location.href=sub.page; return; }
+      setDirection(sub.name);
+      document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});
+    });
+    showSub(0);
+    // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
+    const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
+    document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
+    // Другие категории: слайдер по одной карточке, стрелки гаснут на краях
+    const othersTrack=document.querySelector(".category-others .cards"), othersPrev=document.querySelector("[data-others-prev]"), othersNext=document.querySelector("[data-others-next]");
+    const othersStep=()=>othersTrack.children[1].offsetLeft-othersTrack.children[0].offsetLeft;
+    const othersEdges=()=>{othersPrev.disabled=othersTrack.scrollLeft<=1;othersNext.disabled=othersTrack.scrollLeft>=othersTrack.scrollWidth-othersTrack.clientWidth-1;};
+    othersPrev.addEventListener("click",()=>othersTrack.scrollBy({left:-othersStep(),behavior:"smooth"}));
+    othersNext.addEventListener("click",()=>othersTrack.scrollBy({left:othersStep(),behavior:"smooth"}));
+    othersTrack.addEventListener("scroll",othersEdges,{passive:true});
+    othersEdges();
+    // пришли из каталога по чипсине подкатегории (#sub=Технопарки) — сразу включаем её фильтр
+    const hashSub=decodeURIComponent(location.hash).match(/^#sub=(.+)$/);
+    if(hashSub&&chips.some(chip=>chip.dataset.directionFilter===hashSub[1])){setDirection(hashSub[1]);requestAnimationFrame(()=>document.getElementById("projects-list").scrollIntoView());}
+    // Фото третьего блока постоянно на ширину контейнера; прокрутка листает только задачи.
+    const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), ease=t=>1-Math.pow(1-t,3);
+    const growTrack=document.querySelector("[data-grow-track]");
+    const growCards=[...document.querySelectorAll("[data-card]")];
+    const growSticky=document.querySelector(".category-grow__sticky");
+    let headerHeight=0, stickyHeight=0;
+    function placeGrow(){
+      headerHeight=parseFloat(getComputedStyle(growSticky).getPropertyValue("--header-height"));
+      stickyHeight=growSticky.getBoundingClientRect().height;
+      growFrame();
+    }
+    function growFrame(){
+      const r=growTrack.getBoundingClientRect(), run=Math.max(r.height-stickyHeight,1);
+      const s=clamp(headerHeight-r.top,0,run);
+      const q=clamp(s/run,0,1)*growCards.length;
+      growCards.forEach((card,i)=>{
+        const inT=ease(clamp(q-i,0,1)), depth=clamp(q-i-1,0,growCards.length);
+        card.style.transform=`translateY(${(1-inT)*110}%) translateY(${-24*depth}px) scale(${1-.05*depth})`;
+        card.style.opacity=inT>0?1:0;
+        card.classList.toggle("is-current",inT>0&&i===Math.ceil(q)-1);
+        const g=Math.min(depth,1);
+        card.style.setProperty("--glass",(1-.45*g).toFixed(3));
+        card.style.setProperty("--blur",(14*g).toFixed(1)+"px");
+        card.style.setProperty("--fade",(1-Math.min(depth*1.5,1)).toFixed(3));
+      });
+    }
+    addEventListener("scroll",growFrame,{passive:true}); addEventListener("resize",placeGrow);
+    document.fonts.ready.then(placeGrow); addEventListener("load",placeGrow); placeGrow();
+    addEventListener("scroll",heroFrame,{passive:true});
+    heroFrame();
+  </script>
+  <script src="form-modal.js"></script>
+  <script src="phone-mask.js"></script>
+
+  <script src="menu.js" defer></script>
+  <script src="category-mobile.js" defer></script>
+</body>
+</html>

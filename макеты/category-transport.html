@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фасады объектов транспортной инфраструктуры — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="category-production.css">
+  <link rel="stylesheet" href="бренд.css">
+</head>
+<body class="projects-page category-page production-page transport-page" id="top">
+  <header class="header is-scrolled">
+    <div class="container header__inner">
+      <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main" aria-label="Основная навигация">
+        <a href="catalog.html">Каталог</a><a href="solution-premium.html">Решения</a><a href="#services">Услуги</a><a class="is-active" href="projects.html">Проекты</a><a href="#documents">Документы</a>
+      </nav>
+      <nav class="nav nav--side" aria-label="Дополнительная навигация">
+        <a href="#about">О компании</a><a href="#news">Новости</a><a href="#contacts">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Поиск"><svg width="50" height="50" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="28" r="8"/><path d="M35.2 34.2 41.7 40.7"/></svg></button>
+        <a class="btn-accent" href="#feedback">Отправить заявку</a>
+        <button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый и второй экран: первый стоит на месте (sticky), второй наезжает на него снизу — как в концепте -->
+    <div class="category-stage">
+    <!-- Первый экран: фото на весь экран, по центру заголовок и короткое описание.
+         Экран закреплён: при прокрутке на него наезжает второй экран -->
+    <section class="category-hero" aria-labelledby="category-title">
+      <!-- Фото: паркинг в Янино, портфолио Frontside. -->
+      <div class="category-hero__bg" aria-hidden="true"><img src="img/transport/parking-yanino-2.webp" alt=""></div>
+      <div class="container category-hero__top"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="artvision.html">Главная</a><a href="projects.html#projects">Проекты</a><span aria-current="page">Фасады объектов транспортной инфраструктуры</span></nav></div>
+      <div class="category-hero__content">
+        <h1 id="category-title">Фасады объектов транспортной инфраструктуры</h1>
+        <p class="category-hero__lead">Объекты транспортной инфраструктуры занимают большие площади, работают круглый год и&nbsp;каждый день пропускают поток пассажиров и&nbsp;машин</p>
+      </div>
+      <!-- Четыре подкатегории: фото, название и переключение с прогрессом. -->
+      <div class="container category-hero__bottom">
+        <a class="hero__cta category-intro__cta category-hero__cta" href="#feedback"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        <div class="hero-subs" aria-label="Подкатегории">
+          <button class="hero-subs__card" type="button" data-hero-sub>
+            <span class="hero-subs__photo"><img src="img/transport/aeroport-strigino.webp" alt="Аэропорт «Стригино»" data-hero-sub-img></span>
+            <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория</span><span class="hero-subs__title" data-hero-sub-title>Аэропорты</span></span>
+          </button>
+          <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Второй экран: слева задача и кнопка, в центре фото (сюда встаёт фото первого экрана), справа направления -->
+    <section class="category-intro" aria-label="О категории">
+      <div class="container">
+        <div class="category-intro__grid">
+          <div class="category-intro__col">
+            <p class="category-intro__directions-label reveal-lines" style="--d:.1s">Фасады объектов транспортной инфраструктуры</p>
+            <div>
+              <h2 class="category-intro__title reveal-lines">Подбираем систему под режим работы здания</h2>
+              <p class="category-intro__lead reveal-lines" style="--d:.25s">В&nbsp;раздел входят фасады для&nbsp;аэропортов, вокзалов, транспортных узлов и&nbsp;депо, а&nbsp;также для&nbsp;паркингов.</p>
+            </div>
+          </div>
+          <figure class="category-intro__media" data-slide-media></figure>
+          <div class="category-intro__col">
+            <!-- Подпись к фото в центре и перелистывание объектов категории -->
+            <div class="category-intro__slide">
+              <p class="category-intro__directions-label reveal-lines" style="--d:.35s">Реализованные проекты</p>
+              <div class="category-intro__slide-text" aria-live="polite">
+                <strong class="reveal-lines" style="--d:.45s" data-slide-title>Аэропорт «Стригино»</strong>
+                <span class="category-intro__slide-meta" data-reveal style="--d:.55s" data-slide-meta></span>
+              </div>
+              <div class="category-intro__slider-nav" data-reveal style="--d:.6s">
+                <span class="category-intro__counter" aria-label="Номер объекта"><b data-slide-index>01</b><span data-slide-total>04</span></span>
+                <button type="button" data-slide-prev aria-label="Предыдущий объект"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+                <button type="button" data-slide-next aria-label="Следующий объект"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Блок «Задачи»: фото на ширину контейнера, поверх него задачи листаются колодой. -->
+    <section class="category-grow" aria-labelledby="tasks-title">
+      <div class="category-grow__track" data-grow-track>
+        <div class="category-grow__sticky">
+          <div class="container category-grow__frame" data-grow-frame>
+            <figure class="category-grow__media" data-grow-media>
+              <img class="is-active" src="img/transport/parking-yanino-1.webp" alt="Фасад паркинга в Янино">
+            </figure>
+          </div>
+          <div class="container category-grow__cards">
+            <h2 class="category-grow__title is-in" id="tasks-title" data-grow-title>Преимущества фасадных систем</h2>
+            <div class="category-grow__deck">
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Выдержать круглогодичную нагрузку</h3><span class="category-intro__counter grow-card__num"><b>01</b><span>03</span></span></div>
+              <p>Фасад работает при&nbsp;большом потоке людей и&nbsp;транспорта в&nbsp;любой сезон и&nbsp;долго остается аккуратным.</p>
+            </article>
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Оживить протяженные стены</h3><span class="category-intro__counter grow-card__num"><b>02</b><span>03</span></span></div>
+              <p>Длинные стены паркингов, депо и&nbsp;терминалов видны издалека и&nbsp;формируют облик района, поэтому важен ритм панелей.</p>
+            </article>
+            <article class="grow-card" data-card>
+              <div class="grow-card__top"><h3>Помочь найти входы и&nbsp;въезды</h3><span class="category-intro__counter grow-card__num"><b>03</b><span>03</span></span></div>
+              <p>Цвет и&nbsp;ритм панелей подсказывают пассажирам и&nbsp;водителям, где находится вход в&nbsp;здание и&nbsp;где въезд.</p>
+            </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Офисные, административные и медицинские объекты из портфолио Frontside. -->
+    <section class="projects" id="projects-list">
+      <div class="container projects__head"><h2>Проекты транспортной инфраструктуры</h2></div>
+      <div class="container product-filter-bar"><div class="products" aria-label="Фильтр по подкатегориям"><div class="product-chips" role="group" aria-label="Выбор подкатегории"><button type="button" class="product-chip" data-direction-filter="Аэропорты" aria-pressed="false">Аэропорты</button><button type="button" class="product-chip" data-direction-filter="Вокзалы" aria-pressed="false">Вокзалы</button><button type="button" class="product-chip" data-direction-filter="Паркинги" aria-pressed="false">Паркинги</button></div></div></div>
+      <div class="container category-projects__about"><p class="category-projects__desc" data-sub-desc></p><a class="fs-link category-projects__more" href="https://frontside.ru/projects/administrativnye-i-obshchestvennye-zdaniya/ofisnye-zdaniya/" data-sub-link>Перейти в подкатегорию</a></div>
+      <div class="container"><div class="cards">
+<article class="project-item" data-sub="Аэропорты" data-system=""><a class="project-card" href="https://frontside.ru/solutions/fasady-dlya-obektov-s-osobymi-trebovaniyami-k-arkhitekture-i-estetike/" target="_blank" rel="noopener" aria-label="Аэропорт «Стригино»" style="--image:url('img/transport/aeroport-strigino.webp')"></a><a class="project-card__details" href="https://frontside.ru/solutions/fasady-dlya-obektov-s-osobymi-trebovaniyami-k-arkhitekture-i-estetike/" target="_blank" rel="noopener"><span class="project-card__badges"></span><strong>Аэропорт «Стригино»</strong></a></article>
+<article class="project-item" data-sub="Аэропорты" data-system=""><a class="project-card" href="https://frontside.ru/about/publications/facades-for-platov/" target="_blank" rel="noopener" aria-label="Аэропорт «Платов»" style="--image:url('img/transport/aeroport-platov.webp')"></a><a class="project-card__details" href="https://frontside.ru/about/publications/facades-for-platov/" target="_blank" rel="noopener"><span class="project-card__badges"></span><strong>Аэропорт «Платов»</strong></a></article>
+<article class="project-item" data-sub="Паркинги" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/infrastrukturnye-obekty/parking-yanino/" target="_blank" rel="noopener" aria-label="Паркинг Янино" style="--image:url('img/transport/parking-yanino-0.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/infrastrukturnye-obekty/parking-yanino/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>Паркинг Янино</strong></a></article>
+<article class="project-item" data-sub="Вокзалы" data-system="FRONTBASE"><a class="project-card" href="https://frontside.ru/projects/infrastrukturnye-obekty/mmtu-skolkovo/" target="_blank" rel="noopener" aria-label="ММТУ «Сколково»" style="--image:url('img/transport/mmtu-skolkovo-1.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/infrastrukturnye-obekty/mmtu-skolkovo/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTBASE</span></span><strong>ММТУ «Сколково»</strong></a></article>
+<article class="project-item" data-sub="Вокзалы" data-system="FRONTTOP · UNIQUE"><a class="project-card" href="https://frontside.ru/projects/infrastrukturnye-obekty/trolleybusnoe-depo/" target="_blank" rel="noopener" aria-label="Троллейбусное депо" style="--image:url('img/transport/trolleybusnoe-depo-0.webp')"></a><a class="project-card__details" href="https://frontside.ru/projects/infrastrukturnye-obekty/trolleybusnoe-depo/" target="_blank" rel="noopener"><span class="project-card__badges"><span>FRONTTOP</span><span>UNIQUE</span></span><strong>Троллейбусное депо</strong></a></article>
+</div></div>
+      <a class="category-all-link" href="projects.html"><span>Все проекты Frontside</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+    </section>
+
+    <!-- Применяемые системы — блок «Идея» концепта: закрепляется, фото сменяются снизу вверх при прокрутке (idea-scroll.js) -->
+    <section class="idea category-systems" id="idea" style="--n: 4" aria-labelledby="systems-title">
+      <div class="idea__sticky">
+        <div class="idea__dim" id="ideaDim" aria-hidden="true"></div>
+        <div class="container">
+          <h2 class="idea__title" id="systems-title">Применяемые системы</h2>
+          <p class="category-systems__lead">В проектах раздела применялись системы FRONTTOP, FRONTBASE, UNIQUE и AESTHETIC. Подобрать решение под ваш объект помогут специалисты Frontside: оставьте заявку, и мы подготовим предварительное предложение.</p>
+          <div class="idea__points">
+          <div class="idea__point is-active">
+            <h3>FRONTTOP</h3>
+            <p>Модульная система с теневым швом и невидимым креплением. Панели из стали и базальтовой ваты не требуют отделки, класс пожарной опасности — К0. Подходит для производств и ЦОДов.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/fronttop/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>FRONTBASE</h3>
+            <p>Базовая система из стеновых и кровельных сэндвич-панелей длиной до 12,5&nbsp;м. Готовая стена и кровля сразу закрывают тепловой контур, все узлы — в комплекте поставки.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/frontbase/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>UNIQUE</h3>
+            <p>Теневой шов и алюминиевый профиль на стыках панелей — меньше выступающих элементов на фасаде. Есть радиусные и двухцветные угловые модули, LED-подсветка в шве.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/unique/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          <div class="idea__point">
+            <h3>AESTHETIC</h3>
+            <p>Вертикальная система без видимого крепления и теневого шва: крепёж скрыт в замке панели, фасад получается гладким. Панели длиной до 12,5&nbsp;м, закруглённые углы.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/aesthetic/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          </div>
+          <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/dbc/kqgsu43v30mhftl6y33wg9y6b0ex6awg.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/iblock/649/yzwggczv7hb0ply7bcuwloocq3zew5f0.webp')"></div>
+          <div class="idea__img" style="background-image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/db1/ffg47n75p6jwqnvy7toal5mzwhze197l.webp')"></div>
+          </div>
+          <!-- стрелки и полоса прогресса: отрезок на каждую систему, заполняется прокруткой (idea-scroll.js) -->
+          <div class="systems-nav">
+            <div class="systems-nav__arrows"><button type="button" data-sys-prev aria-label="Предыдущая система"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-sys-next aria-label="Следующая система"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div>
+            <div class="systems-nav__progress" data-sys-progress aria-hidden="true"></div>
+          </div>
+          <a class="hero__cta category-systems__cta" href="#feedback"><span class="hero__cta-text">Подобрать систему</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- следующие блоки налистываются на закреплённый блок систем, как в концепте -->
+    <div class="cover">
+
+    <!-- О разделе: текст для поисковиков -->
+    <section class="category-section category-about" aria-labelledby="about-title">
+      <div class="container category-about__inner">
+        <div><h2 id="about-title">Какие задачи решает фасад объекта транспортной инфраструктуры</h2></div>
+        <div class="category-about__text">
+          <p>Транспортные постройки тянутся вдоль улиц, а&nbsp;их фасад годами эксплуатируется в&nbsp;любую погоду. При строительстве объектов транспортной инфраструктуры Frontside отвечает именно за&nbsp;эту часть здания.</p>
+          <p>Системы <a class="fs-link" href="https://frontside.ru/catalog/fronttop/">FRONTTOP</a> и&nbsp;<a class="fs-link" href="https://frontside.ru/catalog/unique/">UNIQUE</a> с&nbsp;теневым швом придают длинной плоскости выразительный ритм. Для крупных объемов подходит <a class="fs-link" href="https://frontside.ru/catalog/frontbase/">FRONTBASE</a>, ее&nbsp;сэндвич-панели выполняют функцию готовой стены и&nbsp;кровли.</p>
+          <p>Узлы мы&nbsp;прорабатываем под конкретный проект, систему выпускаем на&nbsp;своем заводе во&nbsp;Владимирской области и&nbsp;привозим партиями к&nbsp;началу работ, а&nbsp;на&nbsp;объекте проводим <a class="fs-link" href="https://frontside.ru/services/logistika-i-soprovozhdenie-montazha-na-obekte/">шеф-монтаж</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Другие категории: карточки «Проектов», три на экране, остальные — в слайдере -->
+    <section class="projects category-others" aria-labelledby="others-title">
+      <div class="container projects__head"><h2 id="others-title">Другие категории</h2><div class="systems-nav__arrows others-nav"><button type="button" data-others-prev aria-label="Предыдущие категории"><svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button><button type="button" data-others-next aria-label="Следующие категории"><svg class="fs-arrow fs-arrow--right" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button></div></div>
+      <div class="container">
+        <div class="cards">
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Логистические центры и склады" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/f0e/d6afh1n5c0elnzok5rne5usdy8ew95k0.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Распределительные центры</span><span>Складские комплексы</span></span><strong>Логистические центры и склады</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Спортивные сооружения" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/4b5/bplzv5pk4k7iabrs5q8r3n8eflbx7236.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>ФОК</span><span>Стадионы</span></span><strong>Спортивные сооружения</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Транспортная инфраструктура" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/e6e/aoeymvayf7fx71yuyvllifbrsgjjm115.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Аэропорты</span><span>Вокзалы</span></span><strong>Транспортная инфраструктура</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Торгово-развлекательные центры" style="--image:url('img/commercial/tts-radius.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Торговые центры</span></span><strong>Торгово-развлекательные центры</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Административные и общественные здания" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/d9f/hfujq95vpdfcp37e2c5eveaokvht3hgd.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>Офисные здания</span></span><strong>Административные и общественные здания</strong></a></article>
+          <article class="project-item"><a class="project-card" href="projects.html" aria-label="Разное" style="--image:url('https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/8fe/c1utvracf8oy60lnks5o3g52v7fe43pi.webp')"></a><a class="project-card__details" href="projects.html"><span class="project-card__badges"><span>ЦОД</span></span><strong>Разное</strong></a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма обратной связи: слева заголовок и контакты, справа поля -->
+    <section class="category-form" id="feedback" aria-labelledby="form-title">
+      <div class="container category-form__card">
+        <div class="category-form__intro">
+          <div>
+            <h2 id="form-title">Расскажите о&nbsp;вашем объекте</h2>
+            <p>Поможем подобрать решение под архитектуру, сроки и эксплуатацию</p>
+          </div>
+          <dl class="category-form__contacts">
+            <div><dt>Телефон</dt><dd><a href="tel:+74956428091">+7 (495) 642-80-91</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:info@frontside.ru">info@frontside.ru</a></dd></div>
+          </dl>
+        </div>
+        <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Регион</span><input type="text" name="region" placeholder="Регион" autocomplete="address-level1"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Согласен с <a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой конфиденциальности и обработки персональных данных</a></span></label>
+        </form>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">Меняем облик<br>современных городов</div>
+      <nav class="footer__nav" aria-label="Разделы сайта">
+        <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
+      </nav>
+      <nav class="footer__nav" aria-label="О компании">
+        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <div class="footer__contacts">
+        <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+        <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+        <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a><a class="footer__to-top" href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+  </footer>
+
+  <script src="idea-scroll.js?v=11061100"></script>
+  <script src="reveal.js?v=10201059"></script>
+  <script>
+    // Фильтр по подкатегориям: те же чипы, что фильтр продуктов на странице «Проекты»
+    const chips=[...document.querySelectorAll("[data-direction-filter]")];
+    const items=[...document.querySelectorAll(".project-item[data-sub]")];
+    // Согласованные описания подкатегорий и ссылки внутри текста.
+    const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
+    // Ссылки подключим после добавления страниц торговых подкатегорий.
+    const subPages={
+  "Аэропорты": "https://frontside.ru/projects/transportnaya-infrastruktura/aeroporty/",
+  "Вокзалы": "https://frontside.ru/projects/transportnaya-infrastruktura/vokzaly/",
+  "Паркинги": "https://frontside.ru/projects/transportnaya-infrastruktura/parkingi/"
+};
+    const subDescriptions={
+  "Аэропорты": "Терминал занимает большой объем и принимает непрерывный поток пассажиров, а по его облику судят о городе. Подход Frontside к этой задаче описан на странице проекта фасада аэропорта.",
+  "Вокзалы": "В подкатегорию входят также транспортные узлы и депо, где фасад испытывает постоянную нагрузку. На ММТУ «Сколково» в Москве применили FRONTBASE. Другие проекты есть на странице проекта фасада вокзала.",
+  "Паркинги": "Паркинг у жилья и офисов должен выглядеть аккуратно. Для паркинга в Янино были выбраны панели FRONTTOP и UNIQUE. Другие проекты, где выполнен фасад паркинга, показаны на странице подкатегории."
+};
+    const subDescriptionLinks={
+  "Аэропорты": {
+    "text": "фасада аэропорта",
+    "href": "https://frontside.ru/projects/transportnaya-infrastruktura/aeroporty/"
+  },
+  "Вокзалы": {
+    "text": "фасада вокзала",
+    "href": "https://frontside.ru/projects/transportnaya-infrastruktura/vokzaly/"
+  },
+  "Паркинги": {
+    "text": "фасад паркинга",
+    "href": "https://frontside.ru/projects/transportnaya-infrastruktura/parkingi/"
+  }
+};
+    function setDirection(value){
+      items.forEach(item=>item.hidden=value!=="all"&&item.dataset.sub!==value);
+      chips.forEach(chip=>{const on=chip.dataset.directionFilter===value;chip.classList.toggle("is-active",on);chip.setAttribute("aria-pressed",String(on));});
+      const description=subDescriptions[value]||"", inlineLink=subDescriptionLinks[value];
+      if(inlineLink){
+        const position=description.indexOf(inlineLink.text), link=document.createElement('a');
+        link.className='fs-link';link.href=inlineLink.href;link.textContent=inlineLink.text;
+        subDesc.replaceChildren(description.slice(0,position),link,description.slice(position+inlineLink.text.length));
+      }else subDesc.textContent=description;
+      // Переход сохраняется у каждой подкатегории и следует за выбранным табом.
+      subLink.hidden=!subPages[value]; if(subPages[value]) subLink.href=subPages[value];
+    }
+    chips.forEach(chip=>chip.addEventListener("click",()=>setDirection(chip.dataset.directionFilter)));
+    setDirection("Аэропорты");   // по умолчанию открыта первая подкатегория
+    // Самостоятельный слайдер второго блока — данные из карточек портфолио
+    const media=document.querySelector("[data-slide-media]");
+    const slideText=document.querySelector(".category-intro__slide-text");
+    // Общественные объекты из портфолио клиента.
+    const slides=[
+  {
+    "title": "Аэропорт «Стригино»",
+    "image": "img/transport/aeroport-strigino.webp",
+    "meta": ""
+  },
+  {
+    "title": "Аэропорт «Платов»",
+    "image": "img/transport/aeroport-platov.webp",
+    "meta": ""
+  },
+  {
+    "title": "Паркинг Янино",
+    "image": "img/transport/parking-yanino-0.webp",
+    "meta": "FRONTTOP · UNIQUE"
+  },
+  {
+    "title": "ММТУ «Сколково»",
+    "image": "img/transport/mmtu-skolkovo-1.webp",
+    "meta": "FRONTBASE"
+  },
+  {
+    "title": "Троллейбусное депо",
+    "image": "img/transport/trolleybusnoe-depo-0.webp",
+    "meta": "FRONTTOP · UNIQUE"
+  }
+];
+    // Как в концепте: новое фото открывается снизу вверх поверх старого,
+    // текст старого уходит вверх, новый поднимается снизу
+    const photos=slides.map((slide,i)=>{
+      const img=new Image();
+      img.src=slide.image;img.alt=slide.title;
+      if(i===0) img.classList.add("is-active");
+      media.append(img);
+      return img;
+    });
+    const SLIDE_DELAY=5000;
+    const mobileSlideMode=matchMedia('(max-width: 767px)'), reduceSlideMotion=matchMedia('(prefers-reduced-motion: reduce)');
+    media.classList.add('mobile-photo-track');
+    media.tabIndex=mobileSlideMode.matches?0:-1;
+    media.setAttribute('aria-label','Реализованные проекты: листайте фотографии');
+    let slideIndex=0,busy=false,slideTimer;
+    function scheduleSlide(){clearTimeout(slideTimer);slideTimer=setTimeout(()=>showSlide(slideIndex+1),SLIDE_DELAY);}
+    document.querySelector("[data-slide-total]").textContent=String(slides.length).padStart(2,"0");
+    function showSlide(index,fromScroll=false){
+      if(mobileSlideMode.matches){
+        slideIndex=(index+slides.length)%slides.length;
+        const slide=slides[slideIndex];
+        photos.forEach((img,i)=>img.classList.toggle('is-active',i===slideIndex));
+        document.querySelector('[data-slide-title]').textContent=slide.title;
+        document.querySelector('[data-slide-meta]').textContent=slide.meta;
+        document.querySelector('[data-slide-index]').textContent=String(slideIndex+1).padStart(2,'0');
+        if(!fromScroll)media.scrollTo({left:photos[slideIndex].offsetLeft-photos[0].offsetLeft,behavior:reduceSlideMotion.matches?'instant':'smooth'});
+        scheduleSlide();return;
+      }
+      if(busy) return;
+      busy=true;
+      const prev=photos[slideIndex].classList.contains("is-active")?photos[slideIndex]:null;
+      slideIndex=(index+slides.length)%slides.length;
+      const slide=slides[slideIndex], next=photos[slideIndex];
+      photos.forEach(img=>img.classList.remove("is-prev"));
+      if(prev) prev.classList.replace("is-active","is-prev");
+      next.classList.add("is-active");
+      setTimeout(()=>{if(prev) prev.classList.remove("is-prev");busy=false;},1000);
+      slideText.classList.add("is-leaving");
+      setTimeout(()=>{
+        document.querySelector("[data-slide-title]").textContent=slide.title;
+        document.querySelector("[data-slide-meta]").textContent=slide.meta;
+        document.querySelector("[data-slide-index]").textContent=String(slideIndex+1).padStart(2,"0");
+        slideText.classList.replace("is-leaving","is-entering");
+        slideText.offsetHeight;
+        slideText.classList.remove("is-entering");
+      },400);
+      scheduleSlide();
+    }
+    document.querySelector("[data-slide-prev]").addEventListener("click",()=>showSlide(slideIndex-1));
+    document.querySelector("[data-slide-next]").addEventListener("click",()=>showSlide(slideIndex+1));
+    let slideScrollTimer;
+    media.addEventListener('scroll',()=>{
+      if(!mobileSlideMode.matches)return;
+      clearTimeout(slideTimer);clearTimeout(slideScrollTimer);
+      slideScrollTimer=setTimeout(()=>{
+        const step=photos[1].offsetLeft-photos[0].offsetLeft;
+        if(!mobileSlideMode.matches||step<=0)return;
+        showSlide(Math.max(0,Math.min(slides.length-1,Math.round(media.scrollLeft/step))),true);
+      },150);
+    },{passive:true});
+    media.addEventListener('pointerdown',()=>{if(mobileSlideMode.matches)clearTimeout(slideTimer);},{passive:true});
+    media.addEventListener('pointerup',()=>{if(mobileSlideMode.matches)scheduleSlide();},{passive:true});
+    media.addEventListener('pointercancel',()=>{if(mobileSlideMode.matches)scheduleSlide();},{passive:true});
+    media.addEventListener('keydown',event=>{
+      if(!mobileSlideMode.matches||!['ArrowLeft','ArrowRight'].includes(event.key))return;
+      event.preventDefault();showSlide(slideIndex+(event.key==='ArrowRight'?1:-1));
+    });
+    scheduleSlide();
+    // Направления на первом экране: включают фильтр и ведут к проектам
+    document.querySelectorAll("[data-direction]").forEach(button=>button.addEventListener("click",()=>{setDirection(button.dataset.direction);document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});}));
+    // шапка: над фото первого экрана прозрачная, после начала прокрутки — белая
+    const siteHeader=document.querySelector(".header");
+    function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
+    // Плашка подкатегорий на первом экране: листается каждые 5 с, полоска показывает прогресс;
+    // клик по плашке ведёт на страницу подкатегории или к проектам раздела
+    const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
+    const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
+    // Фотографии реализованных объектов соответствующих подкатегорий.
+    const subs=[
+  {
+    "name": "Аэропорты",
+    "image": "img/transport/aeroport-strigino.webp"
+  },
+  {
+    "name": "Вокзалы",
+    "image": "img/transport/mmtu-skolkovo-1.webp"
+  },
+  {
+    "name": "Паркинги",
+    "image": "img/transport/parking-yanino-0.webp"
+  }
+];
+    subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
+    const bars=[...subBars.children];
+    let subIndex=0, subTimer;
+    function showSub(i){
+      subIndex=(i+subs.length)%subs.length;
+      subCard.classList.add("is-changing");
+      setTimeout(()=>{
+        subImg.src=subs[subIndex].image; subImg.alt=subs[subIndex].name; subTitle.textContent=subs[subIndex].name;
+        subCard.classList.remove("is-changing");
+      },subCard.dataset.ready?250:0);
+      subCard.dataset.ready=1;
+      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<subIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===subIndex));});
+      bars[subIndex].offsetWidth; bars[subIndex].classList.add("is-active");
+      clearTimeout(subTimer); subTimer=setTimeout(()=>showSub(subIndex+1),5000);
+    }
+    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showSub(j)));
+    let subTouch=null, subSwiped=false;
+    subsBox.addEventListener("touchstart",e=>{
+      subSwiped=false;
+      subTouch=matchMedia("(max-width: 767px)").matches&&e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
+    },{passive:true});
+    subsBox.addEventListener("touchend",e=>{
+      if(!subTouch)return;
+      const dx=e.changedTouches[0].clientX-subTouch.x,dy=e.changedTouches[0].clientY-subTouch.y;
+      subTouch=null;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5){subSwiped=true;showSub(subIndex+(dx<0?1:-1));}
+    },{passive:true});
+    subsBox.addEventListener("touchcancel",()=>{subTouch=null;},{passive:true});
+    subCard.addEventListener("click",()=>{
+      if(subSwiped){subSwiped=false;return;}
+      const sub=subs[subIndex];
+      if(sub.page){ location.href=sub.page; return; }
+      setDirection(sub.name);
+      document.getElementById("projects-list").scrollIntoView({behavior:"smooth"});
+    });
+    showSub(0);
+    // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
+    const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
+    document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
+    // Другие категории: слайдер по одной карточке, стрелки гаснут на краях
+    const othersTrack=document.querySelector(".category-others .cards"), othersPrev=document.querySelector("[data-others-prev]"), othersNext=document.querySelector("[data-others-next]");
+    const othersStep=()=>othersTrack.children[1].offsetLeft-othersTrack.children[0].offsetLeft;
+    const othersEdges=()=>{othersPrev.disabled=othersTrack.scrollLeft<=1;othersNext.disabled=othersTrack.scrollLeft>=othersTrack.scrollWidth-othersTrack.clientWidth-1;};
+    othersPrev.addEventListener("click",()=>othersTrack.scrollBy({left:-othersStep(),behavior:"smooth"}));
+    othersNext.addEventListener("click",()=>othersTrack.scrollBy({left:othersStep(),behavior:"smooth"}));
+    othersTrack.addEventListener("scroll",othersEdges,{passive:true});
+    othersEdges();
+    // пришли из каталога по чипсине подкатегории (#sub=Технопарки) — сразу включаем её фильтр
+    const hashSub=decodeURIComponent(location.hash).match(/^#sub=(.+)$/);
+    if(hashSub&&chips.some(chip=>chip.dataset.directionFilter===hashSub[1])){setDirection(hashSub[1]);requestAnimationFrame(()=>document.getElementById("projects-list").scrollIntoView());}
+    // Фото третьего блока постоянно на ширину контейнера; прокрутка листает только задачи.
+    const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), ease=t=>1-Math.pow(1-t,3);
+    const growTrack=document.querySelector("[data-grow-track]");
+    const growCards=[...document.querySelectorAll("[data-card]")];
+    const growSticky=document.querySelector(".category-grow__sticky");
+    let headerHeight=0, stickyHeight=0;
+    function placeGrow(){
+      headerHeight=parseFloat(getComputedStyle(growSticky).getPropertyValue("--header-height"));
+      stickyHeight=growSticky.getBoundingClientRect().height;
+      growFrame();
+    }
+    function growFrame(){
+      const r=growTrack.getBoundingClientRect(), run=Math.max(r.height-stickyHeight,1);
+      const s=clamp(headerHeight-r.top,0,run);
+      const q=clamp(s/run,0,1)*growCards.length;
+      growCards.forEach((card,i)=>{
+        const inT=ease(clamp(q-i,0,1)), depth=clamp(q-i-1,0,growCards.length);
+        card.style.transform=`translateY(${(1-inT)*110}%) translateY(${-24*depth}px) scale(${1-.05*depth})`;
+        card.style.opacity=inT>0?1:0;
+        card.classList.toggle("is-current",inT>0&&i===Math.ceil(q)-1);
+        const g=Math.min(depth,1);
+        card.style.setProperty("--glass",(1-.45*g).toFixed(3));
+        card.style.setProperty("--blur",(14*g).toFixed(1)+"px");
+        card.style.setProperty("--fade",(1-Math.min(depth*1.5,1)).toFixed(3));
+      });
+    }
+    addEventListener("scroll",growFrame,{passive:true}); addEventListener("resize",placeGrow);
+    document.fonts.ready.then(placeGrow); addEventListener("load",placeGrow); placeGrow();
+    addEventListener("scroll",heroFrame,{passive:true});
+    heroFrame();
+  </script>
+  <script src="form-modal.js"></script>
+  <script src="phone-mask.js"></script>
+
+  <script src="menu.js" defer></script>
+  <script src="category-mobile.js" defer></script>
+</body>
+</html>

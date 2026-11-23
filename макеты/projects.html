@@ -49,12 +49,12 @@
         <aside class="sidebar" aria-label="Фильтр проектов">
           <div class="filter-header"><strong>Категории</strong></div>
           <details class="filter-group" data-category="Производственные объекты" open><summary><span>Производственные объекты</span><b>⌄</b></summary><label><input type="radio" name="subcategory-1" value="Промышленные предприятия">Промышленные предприятия</label><label><input type="radio" name="subcategory-1" value="Технопарки">Технопарки</label><label><input type="radio" name="subcategory-1" value="Light Industrial">Light Industrial</label></details>
-          <details class="filter-group" data-category="Логистические центры и склады"><summary><span>Логистические центры и склады</span><b>⌄</b></summary><label><input type="radio" name="subcategory-2" value="Распределительные центры">Распределительные центры</label><label><input type="radio" name="subcategory-2" value="Складские комплексы">Складские комплексы</label></details>
+          <details class="filter-group" data-category="Логистические центры и склады"><summary><span>Логистические центры и склады</span><b>⌄</b></summary><label><input type="radio" name="subcategory-2" value="Распределительные центры">Распределительные центры</label><label><input type="radio" name="subcategory-2" value="Складские комплексы">Складские комплексы</label><label><input type="radio" name="subcategory-2" value="Логистические терминалы">Логистические терминалы</label></details>
           <details class="filter-group" data-category="Спортивные сооружения"><summary><span>Спортивные сооружения</span><b>⌄</b></summary><label><input type="radio" name="subcategory-3" value="ФОК">ФОК</label><label><input type="radio" name="subcategory-3" value="Стадионы">Стадионы</label></details>
           <details class="filter-group" data-category="Транспортная инфраструктура"><summary><span>Транспортная инфраструктура</span><b>⌄</b></summary><label><input type="radio" name="subcategory-4" value="Аэропорты">Аэропорты</label><label><input type="radio" name="subcategory-4" value="Вокзалы">Вокзалы</label></details>
-          <details class="filter-group" data-category="Торгово-развлекательные центры"><summary><span>Торгово-развлекательные центры</span><b>⌄</b></summary><label><input type="radio" name="subcategory-5" value="Торговые центры">Торговые центры</label></details>
+          <details class="filter-group" data-category="Торгово-развлекательные центры"><summary><span>Торгово-развлекательные центры</span><b>⌄</b></summary><label><input type="radio" name="subcategory-5" value="Торговые центры">Торговые центры</label><label><input type="radio" name="subcategory-5" value="Гипермаркеты">Гипермаркеты</label><label><input type="radio" name="subcategory-5" value="Автосалоны и автосервисы">Автосалоны и автосервисы</label><label><input type="radio" name="subcategory-5" value="Магазины и торговые павильоны">Магазины и торговые павильоны</label></details>
           <details class="filter-group" data-category="Административные и общественные здания"><summary><span>Административные и общественные здания</span><b>⌄</b></summary><label><input type="radio" name="subcategory-6" value="Офисные здания">Офисные здания</label></details>
-          <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><label><input type="radio" name="subcategory-7" value="ЦОД">ЦОД</label></details>
+          <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><label><input type="radio" name="subcategory-7" value="Объекты энергетики">Объекты энергетики</label><label><input type="radio" name="subcategory-7" value="Экспоцентры">Экспоцентры</label></details>
         </aside>
         <div class="catalog"><div class="product-filter-bar"><div class="products" aria-label="Фильтр систем"><div class="products__meta"><span>Системы</span></div><div class="product-chips" role="group" aria-label="Выбор системы"><button type="button" class="product-chip is-active" data-product-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-product-filter="fronttop" aria-pressed="false">FRONTTOP</button><button type="button" class="product-chip" data-product-filter="frontbase" aria-pressed="false">FRONTBASE</button><button type="button" class="product-chip" data-product-filter="unique" aria-pressed="false">UNIQUE</button><button type="button" class="product-chip" data-product-filter="aesthetic" aria-pressed="false">AESTHETIC</button></div></div></div><div class="filter-status-bar"><div class="selected-filters" data-selected-filters aria-live="polite"></div><button type="button" data-reset hidden>Сбросить</button></div><div id="category-groups"></div>
           <div class="projects-empty-state" data-projects-empty role="status" hidden>
@@ -168,6 +168,66 @@
     // (подкатегории расставлены по названиям — у заказчика их нет): при фильтре по подкатегории или продукту видны все подходящие.
     // У остальных категорий — первые три из подборки, продукты по кругу, чтобы фильтр работал везде
     const groupItems = {
+      'Разное':[
+  [
+    "Подстанция «Спутник» в Воронеже",
+    "Объекты энергетики",
+    "fronttop",
+    "img/engineering/podstantsiya-sputnik-voronezh-0.webp",
+    "https://frontside.ru/projects/promyshlennye-obekty/podstantsiya-sputnik-voronezh/"
+  ],
+  [
+    "Выставочные павильоны «Пакгаузы»",
+    "Экспоцентры",
+    "aesthetic",
+    "img/engineering/pakgauzy-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/pakgauzy/"
+  ]
+],
+      'Логистические центры и склады':[
+  [
+    "Логистический комплекс «Быково»",
+    "Распределительные центры",
+    "frontbase",
+    "img/logistics/bykovo-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/bykovo/"
+  ],
+  [
+    "Логистический комплекс «Логопарк Белая Дача»",
+    "Складские комплексы",
+    "frontbase",
+    "img/logistics/logisticheskij-kompleks-logopark-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-kompleks-logopark/"
+  ],
+  [
+    "Логистический центр Видное",
+    "Складские комплексы",
+    "frontbase",
+    "img/logistics/logisticheskij-centr-vidnoe-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-centr-vidnoe/"
+  ],
+  [
+    "Логистический центр «Юг‑логистик»",
+    "Складские комплексы",
+    "frontbase",
+    "img/logistics/logisticheskij-centr-yug-logistik-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-centr-yug-logistik/"
+  ],
+  [
+    "Логистический центр Борисовский",
+    "Складские комплексы",
+    "frontbase",
+    "img/logistics/logisticheskij-centr-borisovka-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-centr-borisovka/"
+  ],
+  [
+    "Логистический центр ПЭК",
+    "Логистические терминалы",
+    "frontbase",
+    "img/logistics/logisticheskij-centr-pek-0.webp",
+    "https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-centr-pek/"
+  ]
+],
       'Производственные объекты':[
         ['Завод смазочных материалов TOTAL', 'Промышленные предприятия', 'frontbase', 'https://frontside.ru/upload/dev2fun.imagecompress/webp/iblock/907/8twylx0l29rs52y0nzhdhjxa3ql1m6qc.webp', 'project-total.html'],
         ['Технопарк Рябиновая', 'Технопарки', 'unique', 'img/production/tekhnopark-ryabinovaya.jpg', 'https://frontside.ru/projects/promyshlennye-obekty/tekhnopark-ryabinovaya/'],
@@ -195,6 +255,9 @@
     };
     let count = 1;
     // Категории со своей страницей: заголовок и стрелка ведут на неё, у остальных — к форме
+    // Торговые проекты с сайта клиента; данные совпадают со страницей категории.
+    productLabels["qbiss-one"]="Qbiss One";
+    groupItems["Торгово-развлекательные центры"]=[["ТЦ Радиус", "Торговые центры", "fronttop unique", "img/commercial/tts-radius.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-radius/"], ["ТЦ Формула X", "Торговые центры", "qbiss-one", "img/commercial/tts-formula-x.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-formula-x/"], ["Молл «Апорт EAST» и аквапарк «САН-РЕМО»", "Торговые центры", "fronttop unique", "img/commercial/aport-east-i-akvapark-san-remo.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/aport-east-i-akvapark-san-remo/"], ["Торговый центр «АТЛАНТ»", "Торговые центры", "frontbase unique", "img/commercial/torgovyy-tsentr-atlant.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-tsentr-atlant/"], ["Магазин-кафе «Малинка»", "Магазины и торговые павильоны", "frontbase unique", "img/commercial/magazin-kafe-malinka.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-kafe-malinka/"], ["Магазин торговой сети «ДА!»", "Магазины и торговые павильоны", "frontbase unique", "img/commercial/magazin-torgovoy-seti-da-.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-torgovoy-seti-da-/"], ["ТРК «Звезда»", "Торговые центры", "fronttop unique", "img/commercial/trk-zvezda.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/trk-zvezda/"], ["Торговый центр в Островцах", "Торговые центры", "unique", "img/commercial/torgovyy-tsentr-v-ostrovtsakh.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-tsentr-v-ostrovtsakh/"], ["Магазин в г. Раменское", "Магазины и торговые павильоны", "fronttop", "img/commercial/magazin-v-g-ramenskoe.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-v-g-ramenskoe/"], ["СТО «Приволжье»", "Автосалоны и автосервисы", "frontbase unique", "img/commercial/dts-man.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/dts-man/"], ["Магазин «Автосвет»", "Магазины и торговые павильоны", "aesthetic", "img/commercial/magazin-avtosvet.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-avtosvet/"], ["ТЦ «Черёмушки»", "Торговые центры", "frontbase unique", "img/commercial/tts-cheryemushki.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-cheryemushki/"], ["ТЦ «Добродом»", "Торговые центры", "aesthetic", "img/commercial/tts-dobrodom.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tts-dobrodom/"], ["Left&Right", "Торговые центры", "unique", "img/commercial/left-right.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/left-right/"], ["Салон камня", "Магазины и торговые павильоны", "unique", "img/commercial/salon-kamnya.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/salon-kamnya/"], ["Торговый павильон в Химках", "Магазины и торговые павильоны", "unique", "img/commercial/torgovyy-pavilon-v-khimkakh.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/torgovyy-pavilon-v-khimkakh/"], ["ТРЦ «Кварц»", "Торговые центры", "fronttop unique", "img/commercial/trts-kvarts.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/trts-kvarts/"], ["Гипермаркет Евроспар", "Гипермаркеты", "unique", "img/commercial/evrospar.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/evrospar/"], ["Магазин Дубна", "Магазины и торговые павильоны", "unique", "img/commercial/magazin-dubna.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/magazin-dubna/"], ["ТРЦ Небо", "Торговые центры", "fronttop aesthetic", "img/commercial/trts-nebo.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/trts-nebo/"], ["ТРК «РИГА МОЛЛ»", "Торговые центры", "aesthetic", "img/commercial/riga-moll.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/riga-moll/"], ["ТРЦ «Квартал»", "Торговые центры", "frontbase qbiss-one", "img/commercial/trc-kvartal.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-kvartal/"], ["Гипермаркет «Леруа Мерлен» (Москва)", "Гипермаркеты", "frontbase", "img/commercial/gipermarket-lerua-merlen.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-lerua-merlen/"], ["ТРЦ «Аура»", "Торговые центры", "frontbase", "img/commercial/trc-aura.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-aura/"], ["ТЦ «Яркий»", "Торговые центры", "frontbase", "img/commercial/tc-yarkij.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-yarkij/"], ["Автосалон «Порше»", "Автосалоны и автосервисы", "qbiss-one", "img/commercial/porsche-yasenevo.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/porsche-yasenevo/"], ["Автосалон «Рено»", "Автосалоны и автосервисы", "qbiss-one", "img/commercial/avtosalon-reno.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/avtosalon-reno/"], ["Автосалон «Хендэ»", "Автосалоны и автосервисы", "frontbase", "img/commercial/hyundai-krasnodar.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/hyundai-krasnodar/"], ["ТЦ «Семья»", "Торговые центры", "frontbase", "img/commercial/tc-semya.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-semya/"], ["ТЦ «Москворечье»", "Торговые центры", "aesthetic", "img/commercial/tc-moskvoreche.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-moskvoreche/"], ["ТЦ «Аркада»", "Торговые центры", "aesthetic", "img/commercial/tc-arkada.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-arkada/"], ["Мойка «Шик&Блеск»", "Автосалоны и автосервисы", "frontbase aesthetic", "img/commercial/mojka-shik-blesk.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/mojka-shik-blesk/"], ["ТЦ «МегаГРИНН»", "Торговые центры", "qbiss-one", "img/commercial/tc-megagrinn.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-megagrinn/"], ["Гипермаркет «Клондайк»", "Гипермаркеты", "frontbase", "img/commercial/gipermarket-klondajk.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-klondajk/"], ["Гипермаркет Касторама", "Гипермаркеты", "frontbase", "img/commercial/gipermarket-kastorama.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-kastorama/"], ["Гипермаркет «М5 Молл»", "Гипермаркеты", "frontbase", "img/commercial/gipermarket-m5-moll.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/gipermarket-m5-moll/"], ["ТЦ «Порт»", "Торговые центры", "aesthetic", "img/commercial/tc-port.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-port/"], ["ТЦ « ГоркиПарк»", "Торговые центры", "aesthetic qbiss-one", "img/commercial/gorkipark.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/gorkipark/"], ["ТРЦ «Тандем Галерея»", "Торговые центры", "frontbase qbiss-one", "img/commercial/trc-tandem-galereya.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/trc-tandem-galereya/"], ["Гипермаркет «Лакмин»", "Гипермаркеты", "frontbase aesthetic", "img/commercial/lakmin.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/lakmin/"], ["Павильон «Кафе/цветы»", "Магазины и торговые павильоны", "unique", "img/commercial/pavilon-kafecvety.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/pavilon-kafecvety/"], ["Торговый центр Железнодорожный", "Торговые центры", "fronttop", "img/commercial/tc-zheleznodorozhnyj.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tc-zheleznodorozhnyj/"], ["Автосалон «Мерседес» Люберцы", "Автосалоны и автосервисы", "aesthetic", "img/commercial/avtosalon-mersedes.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/avtosalon-mersedes/"], ["ТЦ «Карусель»", "Торговые центры", "frontbase", "img/commercial/karusel.webp", "https://frontside.ru/projects/kommercheskaya-nedvizhimost/karusel/"]];
     // Проекты со своей страницей
     const projectPages = {'Завод смазочных материалов TOTAL':'project-total.html','Технопарк Рябиновая':'https://frontside.ru/projects/promyshlennye-obekty/tekhnopark-ryabinovaya/','Industrial HUB АйХаб':'https://frontside.ru/projects/promyshlennye-obekty/industrial-hub-aykhab/'};
     // Чипсина подкатегории в карточке ведёт на страницу подкатегории; где своей страницы нет — к проектам категории
@@ -214,8 +277,13 @@
       'Офисные здания':'Бизнес-центры и офисные комплексы: репрезентативная архитектура, чистая деталировка и сочетание с остеклением.',
       'ЦОД':'Центры обработки данных с особыми требованиями к теплозащите, безопасности и надёжности ограждающих конструкций.'
     };
+    Object.assign(subcategoryDescriptions, {"Гипермаркеты": "Протяженные однородные стены должны оставаться узнаваемыми для покупателей сети и сохранять вид при интенсивной эксплуатации.", "Автосалоны и автосервисы": "Облик автосалона определяет стандарт автобренда, от фирменного цвета до чистых линий и выделенного входа, а для сервисной зоны на первом месте практичность.", "Магазины и торговые павильоны": "Небольшой магазин или павильон у дороги должен быть заметен издалека, и эту задачу решают цвет и профилирование панелей."});
     const subcategoryPages = {'Промышленные предприятия':'subcategory-industrial.html','Технопарки':'category-production.html#sub=Технопарки','Light Industrial':'category-production.html#sub=Light Industrial'};
-    const categoryPages = {'Производственные объекты':'category-production.html'};
+    Object.assign(subcategoryPages, {"Торговые центры": "category-commercial.html#sub=Торговые центры", "Гипермаркеты": "category-commercial.html#sub=Гипермаркеты", "Автосалоны и автосервисы": "category-commercial.html#sub=Автосалоны и автосервисы", "Магазины и торговые павильоны": "category-commercial.html#sub=Магазины и торговые павильоны"});
+    Object.assign(subcategoryPages, {"Распределительные центры": "category-logistics.html#sub=Распределительные центры", "Складские комплексы": "category-logistics.html#sub=Складские комплексы", "Логистические терминалы": "category-logistics.html#sub=Логистические терминалы"});
+    Object.assign(subcategoryPages, {"Объекты энергетики": "category-engineering.html#sub=Объекты энергетики", "Экспоцентры": "category-engineering.html#sub=Экспоцентры"});
+    Object.assign(subcategoryDescriptions, {"Объекты энергетики": "Постройкам энергосистемы нужен завершенный облик. На подстанции «Спутник» в Воронеже его обеспечили панели FRONTTOP с гладким фасадом. Еще один пример FRONTTOP в энергетике есть в новости о новой подстанции, а фасад подстанции разобран в подкатегории.", "Экспоцентры": "Выставочное здание должно быть заметным и отвечать идее площадки. На павильонах «Пакгаузы» в Нижнем Новгороде применили вертикальную систему AESTHETIC. Другие проекты, где выполнен фасад выставочного павильона, показаны на странице подкатегории."});
+    const categoryPages = {'Разное':'category-engineering.html','Логистические центры и склады':'category-logistics.html','Производственные объекты':'category-production.html','Торгово-развлекательные центры':'category-commercial.html','Спортивные сооружения':'category-sports.html','Административные и общественные здания':'category-public.html','Транспортная инфраструктура':'category-transport.html'};
     document.querySelector('#category-groups').innerHTML = groups.map(([name,description,items],g) => `<section class="project-group" data-category="${name}"><header>${categoryPages[name] ? `<h3><a class="project-group__link" href="${categoryPages[name]}" data-group-title>${name}</a></h3><a class="project-group__arrow" href="${categoryPages[name]}" aria-label="Все объекты категории «${name}»" data-group-arrow>` : `<h3 data-group-title>${name}</h3><a class="project-group__arrow" href="#feedback" aria-label="Обсудить проект категории «${name}»" data-group-arrow>`}<svg class="fs-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></header><p class="project-group__desc" data-group-desc>${description}</p><div class="cards">${(groupItems[name]||items.slice(0,3).map((title,i)=>[title,subcategoryLabels[name][i],productKeys[(i+g)%4],categoryImages[name][i]])).map(([title,subcategory,product,image,href],i)=>{const link=projectPages[title]||href||'#feedback';return `<article class="project-item" data-product="${product}" data-subcategory="${subcategory}"${i<3?'':' data-extra'}><a class="project-card" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''} aria-label="${title}" style="--image:url('${image}')"></a><div class="project-card__details"><span class="project-card__badges"><span class="project-card__sub">${subcategory}</span>${product.split(' ').map(key=>`<span>${productLabels[key]}</span>`).join('')}</span><a class="project-card__name" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''}><strong>${title}</strong></a></div></article>`}).join('')}</div></section>`).join('');
     const productButtons = [...document.querySelectorAll('[data-product-filter]')];
     const selectedFilters = document.querySelector('[data-selected-filters]');

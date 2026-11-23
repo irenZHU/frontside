@@ -376,6 +376,8 @@
 .category-grow__title.is-in { opacity: 1; transform: none; }
 .category-grow__deck { position: absolute; right: 40px; bottom: 0; width: 600px; height: min(560px, 62%); }
 .grow-card { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; background: var(--color-surface-glass); -webkit-backdrop-filter: blur(var(--blur, 0px)); backdrop-filter: blur(var(--blur, 0px)); opacity: 0; transform: translateY(110%); transform-origin: 50% 0; will-change: transform; }
+/* Белая текущая карточка отделяется от серых слоёв позади. */
+.grow-card.is-current { background: var(--brand-white); }
 .grow-card > * { opacity: var(--fade, 1); }
 .grow-card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; }
 .grow-card h3 { max-width: 400px; margin: 0; color: var(--title); font: 500 var(--fs-h3)/var(--lh-h3) var(--font-head); text-transform: uppercase; }
@@ -385,4 +387,7 @@
 
 @media (max-width: 1600px) {
   .grow-card p { font-size: 16px; line-height: 20px; }
+}
+@media (min-width: 768px) and (max-width: 1600px) {
+  .category-grow__deck { width: 480px; }
 }

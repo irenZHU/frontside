@@ -220,6 +220,9 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 /* подзаголовки внутри ссылок и карточек направлений — тоже Onest */
 .projects-page :is(h1, h2, h3, h4, h5, h6) *:not(svg, svg *),
 .projects-page .solution-card strong { font-family: var(--font-head) !important; }
+/* Карточки направлений и фото объектов используют единый формат изображений. */
+.projects-page .solution-card { height: auto; aspect-ratio: 16 / 9; }
+.projects-page .premium-object__photo { aspect-ratio: 16 / 9; }
 
 /* Заголовок первого экрана */
 .projects-page .solutions h1 { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: -1.3px; text-transform: uppercase; }
@@ -328,13 +331,24 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 
 /* Порядок в шрифтах страницы категории (2026-11-05): всё по шкале */
 .projects-page .project-card__details strong { font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; letter-spacing: -.3px; }
-.projects-page.production-page .category-about__inner { max-width: none; column-gap: var(--space-40); }
+.projects-page.production-page .category-about__inner { max-width: none; column-gap: var(--space-40); align-items: start; }
 .projects-page.production-page .category-about__inner > * { padding-inline: 0; }
+.projects-page.production-page .category-about__text p + p { margin-top: var(--space-16); }
+@media (min-width: 768px) {
+  .projects-page.production-page .category-about #about-title { line-height: 38px; }
+}
 .projects-page :is(.category-intro__counter, .category-intro__counter *, .idea__counter span, .category-systems__more) { font-size: var(--fs-body); line-height: var(--lh-body); }
 .projects-page .hero__cta-text { font-size: var(--fs-ui); line-height: var(--lh-ui); letter-spacing: .04em; }
 .projects-page .category-form__submit { font-size: var(--fs-ui); line-height: var(--lh-ui); }
 /* мелкий капс 12–14: одна разрядка .04em */
 .projects-page :is(.section-label, .category-intro__slide-meta, .category-form dt, .hero-subs__label, .category-intro__directions-label) { letter-spacing: .04em; }
+:is(.commercial-page, .sports-page, .public-page, .transport-page, .logistics-page, .engineering-page) .category-hero .hero-subs__card { text-decoration: none; }
+:is(.commercial-page, .sports-page, .public-page, .transport-page, .logistics-page, .engineering-page) .category-hero__bg::after { background: linear-gradient(180deg, var(--color-overlay-deep) 0, var(--color-overlay-deep) 22%, var(--color-overlay-heavy) 60%, var(--color-overlay-heavy) 100%); }
+/* На узком экране оставляем место для длинного названия подкатегории складов. */
+@media (max-width: 360px) {
+  .projects-page.production-page.logistics-page .hero-subs__card { grid-template-columns: 80px minmax(0, 1fr); }
+  .projects-page.production-page.logistics-page .hero-subs__bars { left: 100px; }
+}
 
 /* Единый видимый отступ между блоками страницы категории — 100 px (от букв и краёв фото, не от рамок):
    от шапки до контента закреплённых экранов, от контента до края фона, между блоками на одном фоне.
@@ -347,12 +361,13 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page .category-systems .idea__title { margin-top: 40px; }                        /* заголовок ниже верхнего края фото на 40 px */
 
 /* ---------- Текстовые ссылки (правило бренда) ----------
-   Линия всегда красная, 1 px. При наведении текст краснеет, линия сжимается к центру и исчезает.
+   Линия всегда красная, 1 px, по нижнему краю строки; дополнительного отступа снизу нет.
+   При наведении текст краснеет, линия сжимается к центру и исчезает.
    Новые ссылки в тексте — класс .fs-link. */
 :is(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button) {
   text-decoration: none !important;
   background: linear-gradient(var(--brand-red), var(--brand-red)) 50% 100% / 100% 1px no-repeat;
-  padding-bottom: 2px;
+  padding-bottom: 0;
   transition: color .25s ease, background-size .3s ease;
 }
 :is(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button):is(:hover, :focus-visible) {
@@ -365,6 +380,15 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
    а голая .fs-link больше не рендерится системно-синим. */
 :where(.fs-link, .category-systems__more, .project-tabs a, .category-form__agree a, .filter-header button, .filter-status-bar > button) {
   color: inherit;
+}
+/* Переход в подкатегорию стоит на нижней строке описания. */
+@media (min-width: 768px) {
+  .projects-page .category-projects__about { align-items: flex-end; margin-bottom: var(--space-40); }
+  .projects-page .category-projects__desc { margin-bottom: 0; }
+  .projects-page .category-projects__more { margin-top: 0; }
+}
+@media (min-width: 1601px) {
+  .projects-page .category-projects__more { font-size: var(--fs-body); line-height: var(--lh-body); }
 }
 .projects-page .category-systems__lead { top: 99px; }                                    /* 24 px под заголовком (40 сдвиг + 35 строка + 24), как на втором экране */
 
