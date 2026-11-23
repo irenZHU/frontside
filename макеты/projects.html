@@ -50,10 +50,10 @@
           <div class="filter-header"><strong>Категории</strong></div>
           <details class="filter-group" data-category="Производственные объекты" open><summary><span>Производственные объекты</span><b>⌄</b></summary><label><input type="radio" name="subcategory-1" value="Промышленные предприятия">Промышленные предприятия</label><label><input type="radio" name="subcategory-1" value="Технопарки">Технопарки</label><label><input type="radio" name="subcategory-1" value="Light Industrial">Light Industrial</label></details>
           <details class="filter-group" data-category="Логистические центры и склады"><summary><span>Логистические центры и склады</span><b>⌄</b></summary><label><input type="radio" name="subcategory-2" value="Распределительные центры">Распределительные центры</label><label><input type="radio" name="subcategory-2" value="Складские комплексы">Складские комплексы</label><label><input type="radio" name="subcategory-2" value="Логистические терминалы">Логистические терминалы</label></details>
-          <details class="filter-group" data-category="Спортивные сооружения"><summary><span>Спортивные сооружения</span><b>⌄</b></summary><label><input type="radio" name="subcategory-3" value="ФОК">ФОК</label><label><input type="radio" name="subcategory-3" value="Стадионы">Стадионы</label></details>
-          <details class="filter-group" data-category="Транспортная инфраструктура"><summary><span>Транспортная инфраструктура</span><b>⌄</b></summary><label><input type="radio" name="subcategory-4" value="Аэропорты">Аэропорты</label><label><input type="radio" name="subcategory-4" value="Вокзалы">Вокзалы</label></details>
+          <details class="filter-group" data-category="Спортивные сооружения"><summary><span>Спортивные сооружения</span><b>⌄</b></summary><label><input type="radio" name="subcategory-3" value="ФОК">ФОК</label><label><input type="radio" name="subcategory-3" value="Стадионы">Стадионы</label><label><input type="radio" name="subcategory-3" value="Арены">Арены</label><label><input type="radio" name="subcategory-3" value="Манежи и спортивные залы">Манежи и спортивные залы</label></details>
+          <details class="filter-group" data-category="Транспортная инфраструктура"><summary><span>Транспортная инфраструктура</span><b>⌄</b></summary><label><input type="radio" name="subcategory-4" value="Аэропорты">Аэропорты</label><label><input type="radio" name="subcategory-4" value="Вокзалы">Вокзалы</label><label><input type="radio" name="subcategory-4" value="Паркинги">Паркинги</label></details>
           <details class="filter-group" data-category="Торгово-развлекательные центры"><summary><span>Торгово-развлекательные центры</span><b>⌄</b></summary><label><input type="radio" name="subcategory-5" value="Торговые центры">Торговые центры</label><label><input type="radio" name="subcategory-5" value="Гипермаркеты">Гипермаркеты</label><label><input type="radio" name="subcategory-5" value="Автосалоны и автосервисы">Автосалоны и автосервисы</label><label><input type="radio" name="subcategory-5" value="Магазины и торговые павильоны">Магазины и торговые павильоны</label></details>
-          <details class="filter-group" data-category="Административные и общественные здания"><summary><span>Административные и общественные здания</span><b>⌄</b></summary><label><input type="radio" name="subcategory-6" value="Офисные здания">Офисные здания</label></details>
+          <details class="filter-group" data-category="Административные и общественные здания"><summary><span>Административные и общественные здания</span><b>⌄</b></summary><label><input type="radio" name="subcategory-6" value="Офисные здания">Офисные здания</label><label><input type="radio" name="subcategory-6" value="Административные здания">Административные здания</label><label><input type="radio" name="subcategory-6" value="Медицинские учреждения">Медицинские учреждения</label></details>
           <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><label><input type="radio" name="subcategory-7" value="Объекты энергетики">Объекты энергетики</label><label><input type="radio" name="subcategory-7" value="Экспоцентры">Экспоцентры</label></details>
         </aside>
         <div class="catalog"><div class="product-filter-bar"><div class="products" aria-label="Фильтр систем"><div class="products__meta"><span>Системы</span></div><div class="product-chips" role="group" aria-label="Выбор системы"><button type="button" class="product-chip is-active" data-product-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-product-filter="fronttop" aria-pressed="false">FRONTTOP</button><button type="button" class="product-chip" data-product-filter="frontbase" aria-pressed="false">FRONTBASE</button><button type="button" class="product-chip" data-product-filter="unique" aria-pressed="false">UNIQUE</button><button type="button" class="product-chip" data-product-filter="aesthetic" aria-pressed="false">AESTHETIC</button></div></div></div><div class="filter-status-bar"><div class="selected-filters" data-selected-filters aria-live="polite"></div><button type="button" data-reset hidden>Сбросить</button></div><div id="category-groups"></div>
@@ -284,7 +284,193 @@
     Object.assign(subcategoryPages, {"Объекты энергетики": "category-engineering.html#sub=Объекты энергетики", "Экспоцентры": "category-engineering.html#sub=Экспоцентры"});
     Object.assign(subcategoryDescriptions, {"Объекты энергетики": "Постройкам энергосистемы нужен завершенный облик. На подстанции «Спутник» в Воронеже его обеспечили панели FRONTTOP с гладким фасадом. Еще один пример FRONTTOP в энергетике есть в новости о новой подстанции, а фасад подстанции разобран в подкатегории.", "Экспоцентры": "Выставочное здание должно быть заметным и отвечать идее площадки. На павильонах «Пакгаузы» в Нижнем Новгороде применили вертикальную систему AESTHETIC. Другие проекты, где выполнен фасад выставочного павильона, показаны на странице подкатегории."});
     const categoryPages = {'Разное':'category-engineering.html','Логистические центры и склады':'category-logistics.html','Производственные объекты':'category-production.html','Торгово-развлекательные центры':'category-commercial.html','Спортивные сооружения':'category-sports.html','Административные и общественные здания':'category-public.html','Транспортная инфраструктура':'category-transport.html'};
-    document.querySelector('#category-groups').innerHTML = groups.map(([name,description,items],g) => `<section class="project-group" data-category="${name}"><header>${categoryPages[name] ? `<h3><a class="project-group__link" href="${categoryPages[name]}" data-group-title>${name}</a></h3><a class="project-group__arrow" href="${categoryPages[name]}" aria-label="Все объекты категории «${name}»" data-group-arrow>` : `<h3 data-group-title>${name}</h3><a class="project-group__arrow" href="#feedback" aria-label="Обсудить проект категории «${name}»" data-group-arrow>`}<svg class="fs-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></header><p class="project-group__desc" data-group-desc>${description}</p><div class="cards">${(groupItems[name]||items.slice(0,3).map((title,i)=>[title,subcategoryLabels[name][i],productKeys[(i+g)%4],categoryImages[name][i]])).map(([title,subcategory,product,image,href],i)=>{const link=projectPages[title]||href||'#feedback';return `<article class="project-item" data-product="${product}" data-subcategory="${subcategory}"${i<3?'':' data-extra'}><a class="project-card" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''} aria-label="${title}" style="--image:url('${image}')"></a><div class="project-card__details"><span class="project-card__badges"><span class="project-card__sub">${subcategory}</span>${product.split(' ').map(key=>`<span>${productLabels[key]}</span>`).join('')}</span><a class="project-card__name" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''}><strong>${title}</strong></a></div></article>`}).join('')}</div></section>`).join('');
+    // Согласованные данные категорий: те же объекты и подкатегории, что на их страницах.
+    Object.assign(groupItems, {
+  "Спортивные сооружения": [
+    [
+      "Центр Художественной и Эстетической Гимнастики",
+      "ФОК",
+      "fronttop unique",
+      "img/sports/tsentr-khudozhestvennoy-i-esteticheskoy-gimnastiki.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tsentr-khudozhestvennoy-i-esteticheskoy-gimnastiki/"
+    ],
+    [
+      "Стадион «Динамо»",
+      "Стадионы",
+      "frontbase aesthetic",
+      "img/sports/stadion-dinamo.webp",
+      "https://frontside.ru/about/news/rekonstrukciya-stadiona-dinamo/"
+    ],
+    [
+      "Спортивный комплекс Небо Арена",
+      "Арены",
+      "fronttop frontbase aesthetic",
+      "img/sports/sportivnij-kompleks-nebo-arena.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/sportivnij-kompleks-nebo-arena/"
+    ],
+    [
+      "Теннисный центр",
+      "Манежи и спортивные залы",
+      "fronttop",
+      "img/sports/tennisnij-tsentr.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/tennisnij-tsentr/"
+    ],
+    [
+      "Спортивный комплекс «Территория Спорта»",
+      "ФОК",
+      "fronttop",
+      "img/sports/sportivnyy-kompleks-territoriya-sporta.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/sportivnyy-kompleks-territoriya-sporta/"
+    ],
+    [
+      "ФОК Центр борьбы",
+      "ФОК",
+      "fronttop",
+      "img/sports/fok-tsentr-borby.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/fok-tsentr-borby/"
+    ],
+    [
+      "ФОК «Новая Истра»",
+      "ФОК",
+      "unique",
+      "img/sports/fok-novaya-istra.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/fok-novaya-istra/"
+    ],
+    [
+      "Футбольно-регбийный манеж «Искандер»",
+      "Манежи и спортивные залы",
+      "unique",
+      "img/sports/futbolno-regbiynyy-manezh-iskander.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/futbolno-regbiynyy-manezh-iskander/"
+    ],
+    [
+      "Спортивный комплекс Снегирь Арена",
+      "Арены",
+      "unique",
+      "img/sports/snegir-arena.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/snegir-arena/"
+    ],
+    [
+      "Ледовый дворец «Триумф»",
+      "Арены",
+      "unique aesthetic",
+      "img/sports/triumph-khimki.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/triumph-khimki/"
+    ],
+    [
+      "Центр Художественной гимнастики Ирины Винер‑Усмановой",
+      "ФОК",
+      "aesthetic",
+      "img/sports/rhythmic-gymnastics-center.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/rhythmic-gymnastics-center/"
+    ],
+    [
+      "ФОК на ул. Чоботовская",
+      "ФОК",
+      "fronttop",
+      "img/sports/fok-na-ul-chobotovskaya.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/fok-na-ul-chobotovskaya/"
+    ],
+    [
+      "СК НЕВА-Арена",
+      "Арены",
+      "unique",
+      "img/sports/sk-neva-arena.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/sk-neva-arena/"
+    ],
+    [
+      "ФОК в Зеленограде",
+      "ФОК",
+      "unique",
+      "img/sports/fok-v-zelenograde.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/fok-v-zelenograde/"
+    ],
+    [
+      "Футбольный манеж Максат",
+      "Манежи и спортивные залы",
+      "unique",
+      "img/sports/futbolnyy-manezh-maksat.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/futbolnyy-manezh-maksat/"
+    ],
+    [
+      "Бассейн «Буревестник»",
+      "ФОК",
+      "frontbase",
+      "img/sports/bassejn-burevestnik.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/bassejn-burevestnik/"
+    ]
+  ],
+  "Транспортная инфраструктура": [
+    [
+      "Аэропорт «Стригино»",
+      "Аэропорты",
+      "",
+      "img/transport/aeroport-strigino.webp",
+      "https://frontside.ru/solutions/fasady-dlya-obektov-s-osobymi-trebovaniyami-k-arkhitekture-i-estetike/"
+    ],
+    [
+      "ММТУ «Сколково»",
+      "Вокзалы",
+      "frontbase",
+      "img/transport/mmtu-skolkovo-1.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/mmtu-skolkovo/"
+    ],
+    [
+      "Паркинг Янино",
+      "Паркинги",
+      "fronttop unique",
+      "img/transport/parking-yanino-0.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/parking-yanino/"
+    ],
+    [
+      "Аэропорт «Платов»",
+      "Аэропорты",
+      "",
+      "img/transport/aeroport-platov.webp",
+      "https://frontside.ru/about/publications/facades-for-platov/"
+    ],
+    [
+      "Троллейбусное депо",
+      "Вокзалы",
+      "fronttop unique",
+      "img/transport/trolleybusnoe-depo-0.webp",
+      "https://frontside.ru/projects/infrastrukturnye-obekty/trolleybusnoe-depo/"
+    ]
+  ],
+  "Административные и общественные здания": [
+    [
+      "Бизнес-центр «НЕБО 2»",
+      "Офисные здания",
+      "aesthetic",
+      "img/public/biznes-tsentr-nebo-2-project.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/biznes-tsentr-nebo-2/"
+    ],
+    [
+      "Административно-бытовой корпус «ЭГИДА»",
+      "Административные здания",
+      "fronttop",
+      "img/public/proizvodstvennoe-predpriyatie-egida-project.webp",
+      "https://frontside.ru/projects/promyshlennye-obekty/proizvodstvennoe-predpriyatie-egida/"
+    ],
+    [
+      "Клиника «Бэбибум»",
+      "Медицинские учреждения",
+      "frontbase",
+      "img/public/klinika-bebibum-project.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/klinika-bebibum/"
+    ],
+    [
+      "«Феникс Контакт РУС»",
+      "Офисные здания",
+      "unique",
+      "img/public/feniks-kontakt-rus-project.webp",
+      "https://frontside.ru/projects/kommercheskaya-nedvizhimost/feniks-kontakt-rus/"
+    ]
+  ]
+});
+    Object.assign(subcategoryPages, {"ФОК": "category-sports.html#sub=ФОК", "Стадионы": "category-sports.html#sub=Стадионы", "Арены": "category-sports.html#sub=Арены", "Манежи и спортивные залы": "category-sports.html#sub=Манежи и спортивные залы", "Аэропорты": "category-transport.html#sub=Аэропорты", "Вокзалы": "category-transport.html#sub=Вокзалы", "Паркинги": "category-transport.html#sub=Паркинги", "Офисные здания": "subcategory-offices.html", "Административные здания": "category-public.html#sub=Административные здания", "Медицинские учреждения": "category-public.html#sub=Медицинские учреждения"});
+    Object.assign(subcategoryDescriptions, {"ФОК": "Это массовый тип объектов, и каждому нужен выразительный облик при ограниченном бюджете и сжатых сроках. Например, у ФОК в Зеленограде вертикальный ритм модулей UNIQUE задает графику здания, ФОК на ул. Чоботовская в Москве получил фасад на FRONTTOP. Другие фасады ФОК собраны на странице подраздела.", "Стадионы": "Протяженные зрительские и служебные корпуса хорошо заметны издалека, и фасад воспринимается как одна поверхность по всей длине здания. Мы предлагаем для них единую систему панелей по всему периметру, где выразительность задают цвет и ритм. Как мы прорабатываем фасад стадиона, описано в подкатегории.", "Арены": "Крупный объем арены задает образ всего комплекса и читается с дальних точек. На ледовом дворце «Триумф» в Химках сочетаются системы AESTHETIC и UNIQUE, а «Нева-Арена» в Санкт-Петербурге собрана из панелей UNIQUE. Другие примеры, где выполнен фасад ледовой арены, показаны в ленте подкатегории.", "Манежи и спортивные залы": "Здания этого типа длинные и простые по форме, поэтому фасаду нужно оставаться практичным и не выглядеть монотонно. Футбольно-регбийный манеж «Искандер» и футбольный манеж «Максат» в Казани выполнены на системе UNIQUE. Остальные наши фасады манежей и спортивных залов вынесены на отдельную страницу.", "Аэропорты": "Терминал занимает большой объем и принимает непрерывный поток пассажиров, а по его облику судят о городе. Подход Frontside к этой задаче описан на странице проекта фасада аэропорта.", "Вокзалы": "В подкатегорию входят также транспортные узлы и депо, где фасад испытывает постоянную нагрузку. На ММТУ «Сколково» в Москве применили FRONTBASE. Другие проекты есть на странице проекта фасада вокзала.", "Паркинги": "Паркинг у жилья и офисов должен выглядеть аккуратно. Для паркинга в Янино были выбраны панели FRONTTOP и UNIQUE. Другие проекты, где выполнен фасад паркинга, показаны на странице подкатегории.", "Офисные здания": "По облику здания клиенты и партнеры судят о его владельце и арендаторах, поэтому фасад работает на их имидж. Бизнес-центр «НЕБО 2» в Москве выполнен на системе AESTHETIC, «Феникс Контакт РУС» в «Сколково» на UNIQUE. Больше примеров того, каким мы выполняем фасад офисного здания, есть в подкатегории.", "Административные здания": "Для зданий управлений и АБК на территории предприятий обычно выбирают сдержанный облик. Фасад выполняют в той же системе и цвете, что и соседние корпуса, чтобы площадка выглядела цельно. Подробнее о том, как мы выполняем фасады административных зданий, рассказано на странице подкатегории.", "Медицинские учреждения": "Облик медицинского учреждения должен быть понятным и спокойным для пациентов, а владельцу важно, чтобы фасад легко было содержать в порядке. На клинике «Бэбибум» во Владимире применена система FRONTBASE. Другие решения, где выполнен фасад клиники, показаны на странице подкатегории."});
+    document.querySelector('#category-groups').innerHTML = groups.map(([name,description,items],g) => `<section class="project-group" data-category="${name}"><header>${categoryPages[name] ? `<h3><a class="project-group__link" href="${categoryPages[name]}" data-group-title>${name}</a></h3><a class="project-group__arrow" href="${categoryPages[name]}" aria-label="Все объекты категории «${name}»" data-group-arrow>` : `<h3 data-group-title>${name}</h3><a class="project-group__arrow" href="#feedback" aria-label="Обсудить проект категории «${name}»" data-group-arrow>`}<svg class="fs-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></header><p class="project-group__desc" data-group-desc>${description}</p><div class="cards">${(groupItems[name]||items.slice(0,3).map((title,i)=>[title,subcategoryLabels[name][i],productKeys[(i+g)%4],categoryImages[name][i]])).map(([title,subcategory,product,image,href],i)=>{const link=projectPages[title]||href||'#feedback';return `<article class="project-item" data-product="${product}" data-subcategory="${subcategory}"${i<3?'':' data-extra'}><a class="project-card" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''} aria-label="${title}" style="--image:url('${image}')"></a><div class="project-card__details"><span class="project-card__badges"><span class="project-card__sub">${subcategory}</span>${product.split(' ').filter(Boolean).map(key=>`<span>${productLabels[key]}</span>`).join('')}</span><a class="project-card__name" href="${link}"${link.startsWith('http')?' target="_blank" rel="noopener"':''}><strong>${title}</strong></a></div></article>`}).join('')}</div></section>`).join('');
     const productButtons = [...document.querySelectorAll('[data-product-filter]')];
     const selectedFilters = document.querySelector('[data-selected-filters]');
     const resetButton = document.querySelector('[data-reset]');

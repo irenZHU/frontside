@@ -213,7 +213,7 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
   --lh-header-nav: var(--lh-ui);
   --fs-subcategory-title: var(--fs-h2);
   --lh-subcategory-title: var(--lh-h2);
-  --fs-subcategory-card-title: 18px;
+  --fs-subcategory-card-title: 16px;
   --lh-subcategory-card-title: 24px;
 }
 
@@ -1567,8 +1567,9 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
   :root { --project-slider-height: max(560px, calc(100svh - 252px - var(--crumbs-gap))); }
 }
 @media (min-width: 1181px) and (max-width: 1600px) {
-  .projects-page.production-page .category-intro .category-intro__grid,
-  .projects-page.subcategory-page .subcat-intro .category-intro__grid { grid-template-columns: 340px minmax(0, 1fr) 340px; }
+  .projects-page.production-page .category-intro .category-intro__grid { grid-template-columns: 340px minmax(0, 1fr) 340px; }
+  /* По 10 px из каждого зазора передаём боковым колонкам; центральное фото сохраняет размер. */
+  .projects-page.subcategory-page .subcat-intro .category-intro__grid { grid-template-columns: 350px minmax(0, 1fr) 350px; column-gap: 30px; }
 }
 @media (max-width: 767px) {
   .production-page .category-intro [data-slide-media] { touch-action: pan-y pinch-zoom; }

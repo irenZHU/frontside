@@ -15,6 +15,10 @@
 .subcat-intro h1 span { color: var(--title); }   /* строки анимации появления — без серого второго слова категории */
 .projects-page.subcategory-page .subcat-intro :is(h1, h1 *) { font-size: var(--fs-subcategory-title); line-height: var(--lh-subcategory-title); }
 .subcat-intro__lead { margin-top: 24px; }
+/* Квадратное фото первого экрана офисной подкатегории. */
+@media (min-width: 768px) {
+  .projects-page.subcategory-page .subcat-intro .category-intro__media--square { height: auto; aspect-ratio: 1 / 1; align-self: start; }
+}
 .subcat-slider { display: none; }
 .subcategory-page .subcat-intro .subcat-intro__preview { justify-content: flex-end; }
 /* плашка подкатегорий — на ширину колонки: фото уже, полоски прогресса под текстом */
@@ -33,6 +37,8 @@
   .projects-page.subcategory-page .subcat-about__text p { font-size: var(--fs-body); line-height: var(--lh-body); }
 }
 .subcat-about__text p + p { margin-top: 16px; }
+.subcategory-page .subcat-about__text > h3 { margin: var(--space-32) 0 var(--space-16); font-size: var(--fs-h4); line-height: var(--lh-h4); font-weight: 500; }
+.subcategory-page .subcat-about__text > h3:first-child { margin-top: 0; }
 .subcat-about__text { margin-top: 0; }   /* описание выровнено по верху заголовка без служебной метки */
 .subcategory-page .category-about__inner { align-items: start; max-width: none; column-gap: var(--space-40); }
 .subcategory-page .category-about__inner > * { padding-inline: 0; }
