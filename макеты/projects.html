@@ -60,7 +60,7 @@
           <div class="projects-empty-state" data-projects-empty role="status" hidden>
             <strong>Ничего не найдено</strong>
             <span>Измените условия фильтра или сбросьте их.</span>
-            <a class="fs-link" href="subcategory-data-centers.html" data-empty-subcategory hidden>Фасады зданий ЦОД и&nbsp;дата-центров</a>
+            <a class="fs-link" href="subcategory-data-centers.html" data-empty-subcategory hidden>Перейти в подкатегорию</a>
           </div>
 
         </div>
@@ -170,6 +170,7 @@
     // У остальных категорий — первые три из подборки, продукты по кругу, чтобы фильтр работал везде
     const groupItems = {
       'Разное':[
+  ['Проект в разработке', 'ЦОД', '', 'img/project-placeholder.svg', 'subcategory-data-centers.html'],
   [
     "Подстанция «Спутник» в Воронеже",
     "Объекты энергетики",
@@ -497,8 +498,11 @@
       });
       document.querySelectorAll('.project-group').forEach(group => group.hidden = ![...group.querySelectorAll('.project-item')].some(card => !card.hidden));
       emptyState.hidden = cards.some(card => !card.hidden);
-      // Страница ЦОД доступна и до появления реализованных объектов в подборке.
-      emptyState.querySelector('[data-empty-subcategory]').hidden = !selectedSubcategories.has('ЦОД');
+      // Для ЦОД доступна подборка систем, а не карточки реализованных объектов.
+      const showDataCenters = selectedSubcategories.has('ЦОД');
+      emptyState.querySelector('strong').textContent = showDataCenters ? 'Фасады зданий ЦОД и дата-центров' : 'Ничего не найдено';
+      emptyState.querySelector('span').textContent = showDataCenters ? 'Фасадные системы и решения для ЦОД представлены на странице подкатегории.' : 'Измените условия фильтра или сбросьте их.';
+      emptyState.querySelector('[data-empty-subcategory]').hidden = !showDataCenters;
       // Выбрана подкатегория — шапка категории становится шапкой подкатегории:
       // заголовок и описание подкатегории; бейдж подкатегории на карточках скрыт
       document.querySelectorAll('.project-group').forEach(group => {
