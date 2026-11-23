@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фасады логистических терминалов — Frontside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="стиль.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="category-production.css">
+  <link rel="stylesheet" href="solution-premium.css">
+  <link rel="stylesheet" href="subcategory.css">
+  <style>
+    /* Локальная адаптация длинного заголовка и компактной шапки. */
+    .projects-page.subcategory-page.terminals-page .subcat-projects { padding-top: var(--space-section-surface); }
+    .terminals-page .category-about__inner > * { min-width: 0; }
+    @media (min-width: 1181px) and (max-width: 1399px) {
+      .terminals-page .header .nav--side { display: none; }
+    }
+    @media (min-width: 768px) and (max-width: 1180px) {
+      .terminals-page .subcat-intro .hero-subs__card { grid-template-columns: 100px minmax(0, 1fr); }
+      .terminals-page .subcat-intro .hero-subs__photo { height: 100px; }
+      .terminals-page .subcat-intro .hero-subs__bars { left: 132px; }
+      .terminals-page .hero-subs__text { min-width: 0; }
+
+      .terminals-page .category-about__inner { row-gap: var(--space-24); }
+      .projects-page.subcategory-page.terminals-page .category-about { padding-bottom: calc(var(--space-section) / 2); }
+      .projects-page.subcategory-page.terminals-page .subcat-siblings .projects__head { padding-top: calc(var(--space-section) / 2); }
+    }
+  </style>
+  <link rel="stylesheet" href="бренд.css">
+</head>
+<body class="projects-page category-page subcategory-page terminals-page" id="top">
+  <header class="header is-scrolled">
+    <div class="container header__inner">
+      <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
+      <nav class="nav nav--main" aria-label="Основная навигация">
+        <a href="catalog.html">Каталог</a><a href="solution-premium.html">Решения</a><a href="https://frontside.ru/services/">Услуги</a><a class="is-active" href="projects.html">Проекты</a><a href="https://frontside.ru/downloads/">Документы</a>
+      </nav>
+      <nav class="nav nav--side" aria-label="Дополнительная навигация">
+        <a href="https://frontside.ru/about/">О&nbsp;компании</a><a href="https://frontside.ru/about/news/">Новости</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Поиск"><svg width="50" height="50" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2"><circle cx="29" cy="28" r="8"/><path d="M35.2 34.2 41.7 40.7"/></svg></button>
+        <a class="btn-accent" href="#feedback">Отправить заявку</a>
+        <button class="burger" type="button" aria-label="Открыть меню"><svg width="25" height="16" viewBox="0 0 25 16" fill="none" stroke="#414141" stroke-width="2"><path d="M0 1h25M0 8h25M0 15h25"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Подкатегория собрана из элементов страницы категории: первый экран, второй экран со слайдером объектов,
+         карточки «Проектов», блок систем, «О разделе», форма. Тексты — из структуры подкатегории заказчика -->
+    <!-- Первый экран подкатегории — трёхчастная раскладка второго экрана категории (без фото на весь экран, чтобы
+         категория, подкатегория и карточка проекта различались): слева заголовок, описание и кнопка, в центре фото,
+         справа применяемые системы и плашка других подкатегорий раздела -->
+    <section class="category-intro subcat-intro" aria-labelledby="category-title">
+      <div class="container"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="client-home.html">Главная</a><a href="projects.html#projects">Проекты</a><a href="category-logistics.html">Фасады складов и&nbsp;логистических центров</a><span aria-current="page">Фасады логистических терминалов</span></nav></div>
+      <div class="container">
+        <div class="category-intro__grid">
+          <div class="category-intro__col">
+            <div>
+              <p class="category-intro__directions-label">Подкатегория</p>
+              <h1 id="category-title" class="reveal-lines">Фасады логистических терминалов</h1>
+              <p class="category-intro__lead subcat-intro__lead reveal-lines" style="--d:.25s">Через логистический терминал груз проходит транзитом, поэтому ворота и&nbsp;доки работают почти без&nbsp;перерыва. У&nbsp;транспортно-логистического терминала проемы расположены рядами вдоль стен, и&nbsp;фасад между ними должен сохранить тепловой контур. Ниже представлен терминал, где Frontside поставил FRONTBASE.</p>
+            </div>
+            <a class="hero__cta category-intro__cta" href="#feedback" data-form-modal data-reveal style="--d:.4s"><span class="hero__cta-text">Обсудить проект</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+          </div>
+          <figure class="category-intro__media category-intro__media--square">
+            <img class="is-active" src="img/logistics/logisticheskij-centr-pek-0.webp" alt="Логистический центр ПЭК">
+          </figure>
+          <div class="category-intro__col subcat-intro__preview">
+            <!-- Плашка подкатегорий со страницы категории: другие подкатегории раздела, листается сама, полоски — прогресс -->
+            <div class="hero-subs" aria-label="Подкатегории раздела" data-reveal style="--d:.5s">
+              <a class="hero-subs__card" href="category-logistics.html#projects-list" data-hero-sub>
+                <span class="hero-subs__photo"><img alt="" data-hero-sub-img></span>
+                <span class="hero-subs__text"><span class="hero-subs__label">Подкатегория раздела</span><span class="hero-subs__title" data-hero-sub-title></span></span>
+              </a>
+              <div class="hero-subs__bars" role="tablist" aria-label="Переключить подкатегорию" data-hero-sub-bars></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Реализованные объекты: сетка объектов со страницы решения «Фасады для объектов…» — название слева, фото, стрелка ↘;
+         при наведении ячейка графитовая, стрелка — красная кнопка -->
+    <section class="subcat-projects" id="projects-list" aria-labelledby="objects-title">
+      <div class="container">
+        <div class="premium-head">
+          <div><h2 class="premium-title reveal-lines" id="objects-title">Реализованные объекты</h2></div>
+          <a class="fs-link premium-head__link" href="category-logistics.html#projects-list">Все объекты раздела</a>
+        </div>
+      </div>
+      <div class="container premium-objects__grid">
+          <article class="premium-object">
+            <h3>Логистический центр ПЭК</h3>
+            <a class="premium-object__photo" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-centr-pek/"><img src="img/logistics/logisticheskij-centr-pek-0.webp" alt="Логистический центр ПЭК" loading="lazy"></a>
+            <div class="premium-object__meta"><a class="premium-object__arrow" href="https://frontside.ru/projects/kommercheskaya-nedvizhimost/logisticheskij-centr-pek/" aria-label="Прочитать о проекте"><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+          </article>
+      </div>
+    </section>
+
+    <!-- Применяемые системы — блок «Идея» концепта: закрепляется, фото сменяются снизу вверх при прокрутке (idea-scroll.js) -->
+    <section class="idea category-systems" id="idea" style="--n: 1" aria-labelledby="systems-title">
+      <div class="idea__sticky">
+        <div class="idea__dim" id="ideaDim" aria-hidden="true"></div>
+        <div class="container">
+          <h2 class="idea__title" id="systems-title">Применяемые системы</h2>
+          <p class="category-systems__lead">Раскладку стеновых панелей FRONTBASE, горизонтальную или&nbsp;вертикальную, на&nbsp;терминале подбирают под&nbsp;расположение ворот и&nbsp;доков. Система формирует и&nbsp;стены, и&nbsp;кровлю, толщину панели выбирают по&nbsp;заданной в&nbsp;проекте теплозащите и&nbsp;пределу огнестойкости.</p>
+          <div class="idea__points">
+          <div class="idea__point is-active">
+            <h3>FRONTBASE</h3>
+            <p>Стеновые и&nbsp;кровельные панели с&nbsp;утеплителем из&nbsp;базальтовой ваты закрывают тепловой контур и&nbsp;не&nbsp;требуют внешней и&nbsp;внутренней отделки.</p>
+            <a class="category-systems__more" href="https://frontside.ru/catalog/frontbase/" target="_blank" rel="noopener">Подробнее</a>
+          </div>
+          </div>
+          <div class="idea__photos" role="img" aria-label="Объекты с фасадными системами Frontside">
+          <div class="idea__img" style="background-image:url('img/logistics/logisticheskij-centr-pek-0.webp')"></div>
+          </div>
+          <a class="hero__cta category-systems__cta" href="#feedback"><span class="hero__cta-text">Подобрать систему</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- следующие блоки налистываются на закреплённый блок систем, как в концепте -->
+    <div class="cover">
+
+    <!-- О подкатегории: текст для поисковиков, блок «О разделе» категории -->
+    <section class="category-section category-about" aria-labelledby="about-title">
+      <div class="container category-about__inner">
+        <div><h2 id="about-title">Что требуется от&nbsp;фасада терминально-складского комплекса</h2></div>
+        <div class="subcat-about__text">
+          <p>Грузовой терминал обслуживает постоянные въезды и&nbsp;погрузку, складской терминал работает в&nbsp;том же режиме, поэтому в&nbsp;их стенах много проемов. На&nbsp;кросс-докинг терминале груз перегружают с&nbsp;машины на&nbsp;машину, и&nbsp;склад кросс-докинга обычно имеет много ворот. Для&nbsp;фасада терминально-складского комплекса важны узлы примыкания к&nbsp;воротам и&nbsp;тепловой контур без&nbsp;разрывов у&nbsp;проемов.</p>
+          <p>В&nbsp;систему <a class="fs-link" href="https://frontside.ru/catalog/frontbase/">FRONTBASE</a> входят узлы обрамления проемов, цоколя и&nbsp;парапета, а&nbsp;панели служат готовой стеной и&nbsp;кровлей класса К0. В&nbsp;терминально-логистическом центре они формируют тепловой контур и&nbsp;негорючие стены, не&nbsp;требующие отделки. Для&nbsp;логистического центра ПЭК в&nbsp;Москве, терминала транспортно-экспедиционной компании, выполнено 18&nbsp;000&nbsp;м² фасадов на&nbsp;этой системе. В&nbsp;транспортно-логистическом комплексе узлы проемов прорабатывают для&nbsp;каждого корпуса.</p>
+          <p>Здание грузового терминала возводит генподрядчик, а&nbsp;Frontside проектирует, производит и&nbsp;поставляет фасад. В&nbsp;проект грузового терминала добавляем <a class="fs-link" href="https://frontside.ru/services/tekhnicheskoe-proektirovanie-i-podgotovka-dokumentatsii/">документацию на&nbsp;узлы</a>, включая примыкание панелей к&nbsp;воротам, а&nbsp;готовые узлы сверяем с&nbsp;производством. Комплект для&nbsp;терминально-логистического комплекса <a class="fs-link" href="https://frontside.ru/services/proizvodstvo-fasadnykh-sistem-dlya-obekta/">выпускаем под&nbsp;объект</a>. Строительство грузового терминала задает очередность поставок, а&nbsp;<a class="fs-link" href="https://frontside.ru/services/logistika-i-soprovozhdenie-montazha-na-obekte/">шеф-монтаж</a> ведет наш специалист. Если логистический терминал входит в&nbsp;проект с&nbsp;хранением, примеры приведены в&nbsp;подборке про&nbsp;<a class="fs-link" href="category-logistics.html#sub=Складские%20комплексы">складские комплексы</a>, остальные есть на&nbsp;странице про&nbsp;<a class="fs-link" href="category-logistics.html">фасады складов</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Другие подкатегории раздела: карточки страницы «Проекты» (фото, название, бейдж) -->
+    <section class="projects subcat-siblings" aria-labelledby="siblings-title">
+      <div class="container projects__head"><h2 id="siblings-title">Другие подкатегории раздела</h2></div>
+      <div class="container">
+        <div class="cards">
+          <article class="project-item"><a class="project-card" href="category-logistics.html#sub=Распределительные%20центры" data-sub-name="Распределительные центры" data-sub-image="img/logistics/bykovo-0.webp" aria-label="Распределительные центры" style="--image:url('img/logistics/bykovo-0.webp')"></a><a class="project-card__details" href="category-logistics.html#sub=Распределительные%20центры"><span class="project-card__badges"><span>Фасады складов и&nbsp;логистических центров</span></span><strong>Распределительные центры</strong></a></article>
+          <article class="project-item"><a class="project-card" href="category-logistics.html#sub=Складские%20комплексы" data-sub-name="Складские комплексы" data-sub-image="img/logistics/logisticheskij-kompleks-logopark-0.webp" aria-label="Складские комплексы" style="--image:url('img/logistics/logisticheskij-kompleks-logopark-0.webp')"></a><a class="project-card__details" href="category-logistics.html#sub=Складские%20комплексы"><span class="project-card__badges"><span>Фасады складов и&nbsp;логистических центров</span></span><strong>Складские комплексы</strong></a></article>
+          <article class="project-item"><a class="project-card" href="subcategory-cold-storage.html" data-sub-name="Холодильные склады" data-sub-image="img/logistics/bykovo-0.webp" aria-label="Холодильные склады" style="--image:url('img/logistics/bykovo-0.webp')"></a><a class="project-card__details" href="subcategory-cold-storage.html"><span class="project-card__badges"><span>Фасады складов и&nbsp;логистических центров</span></span><strong>Холодильные склады</strong></a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма обратной связи: слева заголовок и контакты, справа поля -->
+    <section class="category-form" id="feedback" aria-labelledby="form-title">
+      <div class="container category-form__card">
+        <div class="category-form__intro">
+          <div>
+            <h2 id="form-title">Расскажите о&nbsp;вашем объекте</h2>
+            <p>Поможем подобрать решение под&nbsp;архитектуру, сроки и&nbsp;эксплуатацию</p>
+          </div>
+          <dl class="category-form__contacts">
+            <div><dt>Телефон</dt><dd><a href="tel:+74956428091">+7 (495) 642-80-91</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:info@frontside.ru">info@frontside.ru</a></dd></div>
+          </dl>
+        </div>
+        <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Регион</span><input type="text" name="region" placeholder="Регион" autocomplete="address-level1"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Согласен с&nbsp;<a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой конфиденциальности и&nbsp;обработки персональных данных</a></span></label>
+        </form>
+      </div>
+    </section>
+    </div>
+  </main>
+
+
+  <!-- Модалка «Обсудить проект»: те же поля, что в форме внизу страницы -->
+  <dialog class="form-modal" id="form-modal" aria-labelledby="form-modal-title">
+    <button class="form-modal__close" type="button" aria-label="Закрыть" data-form-modal-close><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l14 14M15 1 1 15"/></svg></button>
+    <div class="form-modal__inner">
+      <div class="category-form__intro">
+        <div>
+          <h2 id="form-modal-title">Расскажите о&nbsp;вашем объекте</h2>
+          <p>Поможем подобрать решение под&nbsp;архитектуру, сроки и&nbsp;эксплуатацию</p>
+        </div>
+      </div>
+      <form class="category-form__form" action="#" novalidate>
+          <label class="category-form__field"><span class="visually-hidden">Имя</span><input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label class="category-form__field"><span class="visually-hidden">Телефон</span><input type="tel" name="phone" placeholder="+7 Телефон" autocomplete="tel"></label>
+          <label class="category-form__field"><span class="visually-hidden">Название компании</span><input type="text" name="company" placeholder="Название компании" autocomplete="organization"></label>
+          <label class="category-form__field"><span class="visually-hidden">Регион</span><input type="text" name="region" placeholder="Регион" autocomplete="address-level1"></label>
+          <button class="category-form__submit" type="submit"><span>Отправить</span><svg class="fs-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></button>
+          <label class="category-form__agree"><input type="checkbox" name="agree" required><span>Согласен с&nbsp;<a href="https://frontside.ru/privacy/" target="_blank" rel="noopener">Политикой конфиденциальности и&nbsp;обработки персональных данных</a></span></label>
+        </form>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">Меняем облик<br>современных городов</div>
+      <nav class="footer__nav" aria-label="Разделы сайта">
+        <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
+      </nav>
+      <nav class="footer__nav" aria-label="О компании">
+        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для&nbsp;скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+      </nav>
+      <div class="footer__contacts">
+        <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
+        <span>Почта</span><a href="mailto:info@frontside.ru">info@frontside.ru</a>
+        <span>Телефон</span><a href="tel:+74956428091">+7 (495) 642-80-91</a>
+        <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a><a class="footer__to-top" href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об&nbsp;использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+  </footer>
+
+  <script src="idea-scroll.js?v=11061100"></script>
+  <script src="reveal.js?v=10201059"></script>
+  <script>
+    // шапка: после начала прокрутки — полупрозрачная с размытием
+    const siteHeader=document.querySelector(".header");
+    function heroFrame(){ siteHeader.classList.toggle("is-scrolled",scrollY>40); }
+    // Первый экран листается, как на «Фасадах»: большое фото по кругу — эта подкатегория и другие подкатегории раздела
+    // (данные — из блока «Другие подкатегории»), фото открывается снизу вверх; плашка справа — анонс следующего кадра,
+    // полоски под ней — прогресс всех кадров, клик по полоске — к этому кадру, клик по плашке — на подкатегорию
+    const subsBox=document.querySelector(".hero-subs"), subCard=subsBox.querySelector("[data-hero-sub]");
+    const subImg=subsBox.querySelector("[data-hero-sub-img]"), subTitle=subsBox.querySelector("[data-hero-sub-title]"), subBars=subsBox.querySelector("[data-hero-sub-bars]");
+    const media=document.querySelector(".subcat-intro .category-intro__media"), firstPhoto=media.querySelector("img");
+    const frames=[{name:document.querySelector('.breadcrumbs [aria-current="page"]').textContent.trim(), image:firstPhoto.src, href:location.pathname.split("/").pop()},
+      ...[...document.querySelectorAll("[data-sub-name]")].map(a=>({name:a.dataset.subName, image:a.dataset.subImage, href:a.getAttribute("href")}))];
+    const photos=frames.map((frame,i)=>{
+      if(i===0) return firstPhoto;
+      const img=new Image(); img.src=frame.image; img.alt=frame.name; media.append(img); return img;
+    });
+    // На телефоне большое фото и анонсы становятся одной горизонтальной лентой.
+    // Данные и порядок кадров общие с десктопным слайдером.
+    const mobileIntro=matchMedia("(max-width: 767px)"), reducedIntroMotion=matchMedia("(prefers-reduced-motion: reduce)");
+    const introGrid=document.querySelector('.subcat-intro .category-intro__grid');
+    const introCta=introGrid.querySelector('.category-intro__cta'), ctaAnchor=document.createComment('Кнопка в десктопной колонке');
+    introCta.before(ctaAnchor);
+    const mobileSlider=document.createElement('div'), mobileTrack=document.createElement('div');
+    mobileSlider.className='subcat-slider'; mobileSlider.setAttribute('role','region');
+    mobileSlider.setAttribute('aria-roledescription','карусель'); mobileSlider.setAttribute('aria-label','Подкатегории складов и логистических центров');
+    mobileTrack.className='subcat-slider__track'; mobileTrack.tabIndex=0;
+    const mobileSlides=frames.map(frame=>{
+      const slide=document.createElement('figure'), image=new Image(), caption=document.createElement('figcaption'), link=document.createElement('a');
+      slide.className='subcat-slider__slide'; image.className='subcat-slider__photo';
+      image.src=frame.image; image.alt=frame.image===firstPhoto.src?firstPhoto.alt:frame.name; image.draggable=false;
+      link.className='subcat-slider__caption'; link.href=frame.href; link.textContent=frame.name;
+      caption.append(link); slide.append(image,caption); mobileTrack.append(slide); return slide;
+    });
+    mobileSlider.append(mobileTrack); introGrid.append(mobileSlider);
+    function syncIntroLayout(){
+      clearTimeout(mobileScrollTimer);
+      if(mobileIntro.matches){ introGrid.append(introCta); mobileSlider.append(subBars); }
+      else { ctaAnchor.after(introCta); subsBox.append(subBars); }
+      if(mobileIntro.matches) mobileTrack.scrollTo({left:mobileSlides[frameIndex].offsetLeft-mobileSlides[0].offsetLeft,behavior:'instant'});
+    }
+    subBars.innerHTML=frames.map(frame=>`<button type="button" role="tab" aria-label="${frame.name}"><i></i></button>`).join("");
+    const bars=[...subBars.children], FRAME_DELAY=5000;
+    let frameIndex=0, frameTimer, mobileScrollTimer;
+    function showFrame(i){
+      const prev=photos[frameIndex];
+      frameIndex=(i+frames.length)%frames.length;
+      if(mobileIntro.matches) mobileTrack.scrollTo({left:mobileSlides[frameIndex].offsetLeft-mobileSlides[0].offsetLeft,behavior:reducedIntroMotion.matches?'instant':'smooth'});
+      if(photos[frameIndex]!==prev){
+        photos.forEach(img=>img.classList.remove("is-prev"));
+        prev.classList.replace("is-active","is-prev");
+        photos[frameIndex].classList.add("is-active");
+        clearTimeout(showFrame.prevTimer); showFrame.prevTimer=setTimeout(()=>prev.classList.remove("is-prev"),1300);
+      }
+      const next=frames[(frameIndex+1)%frames.length];
+      subCard.classList.add("is-changing");
+      setTimeout(()=>{
+        subImg.src=next.image; subTitle.textContent=next.name; subCard.href=next.href;
+        subCard.classList.remove("is-changing");
+      },subCard.dataset.ready?250:0);
+      subCard.dataset.ready=1;
+      bars.forEach((bar,j)=>{bar.classList.toggle("is-done",j<frameIndex);bar.classList.remove("is-active");bar.setAttribute("aria-selected",String(j===frameIndex));});
+      bars[frameIndex].offsetWidth; bars[frameIndex].classList.add("is-active");
+      clearTimeout(frameTimer); frameTimer=setTimeout(()=>showFrame(frameIndex+1),FRAME_DELAY);
+    }
+    bars.forEach((bar,j)=>bar.addEventListener("click",()=>showFrame(j)));
+    mobileTrack.addEventListener('scroll',()=>{
+      if(!mobileIntro.matches)return;
+      clearTimeout(frameTimer); clearTimeout(mobileScrollTimer);
+      mobileScrollTimer=setTimeout(()=>{
+        const step=mobileSlides[1].offsetLeft-mobileSlides[0].offsetLeft;
+        if(!mobileIntro.matches||step<=0)return;
+        showFrame(Math.max(0,Math.min(frames.length-1,Math.round(mobileTrack.scrollLeft/step))));
+      },150);
+    },{passive:true});
+    mobileTrack.addEventListener('pointerdown',()=>clearTimeout(frameTimer),{passive:true});
+    const resumeIntro=()=>{clearTimeout(frameTimer);frameTimer=setTimeout(()=>showFrame(frameIndex+1),FRAME_DELAY);};
+    mobileTrack.addEventListener('pointerup',resumeIntro,{passive:true});
+    mobileTrack.addEventListener('pointercancel',resumeIntro,{passive:true});
+    mobileIntro.addEventListener('change',syncIntroLayout);
+    syncIntroLayout();
+    showFrame(0);
+    // кнопки и подпись второго экрана проявляются снизу, как строки текста (reveal.js)
+    const revealIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");revealIo.unobserve(e.target);}}),{threshold:.4});
+    document.querySelectorAll("[data-reveal]").forEach(el=>revealIo.observe(el));
+    addEventListener("scroll",heroFrame,{passive:true});
+    heroFrame();
+  </script>
+  <script src="form-modal.js"></script>
+  <script src="phone-mask.js"></script>
+
+  <script src="seo-collapse.js" defer></script>
+  <script src="menu.js" defer></script>
+</body>
+</html>
