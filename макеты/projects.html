@@ -54,12 +54,13 @@
           <details class="filter-group" data-category="Транспортная инфраструктура"><summary><span>Транспортная инфраструктура</span><b>⌄</b></summary><label><input type="radio" name="subcategory-4" value="Аэропорты">Аэропорты</label><label><input type="radio" name="subcategory-4" value="Вокзалы">Вокзалы</label><label><input type="radio" name="subcategory-4" value="Паркинги">Паркинги</label></details>
           <details class="filter-group" data-category="Торгово-развлекательные центры"><summary><span>Торгово-развлекательные центры</span><b>⌄</b></summary><label><input type="radio" name="subcategory-5" value="Торговые центры">Торговые центры</label><label><input type="radio" name="subcategory-5" value="Гипермаркеты">Гипермаркеты</label><label><input type="radio" name="subcategory-5" value="Автосалоны и автосервисы">Автосалоны и автосервисы</label><label><input type="radio" name="subcategory-5" value="Магазины и торговые павильоны">Магазины и торговые павильоны</label></details>
           <details class="filter-group" data-category="Административные и общественные здания"><summary><span>Административные и общественные здания</span><b>⌄</b></summary><label><input type="radio" name="subcategory-6" value="Офисные здания">Офисные здания</label><label><input type="radio" name="subcategory-6" value="Административные здания">Административные здания</label><label><input type="radio" name="subcategory-6" value="Медицинские учреждения">Медицинские учреждения</label></details>
-          <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><a class="fs-link" href="subcategory-data-centers.html" style="display:block;padding-block:var(--space-12)">ЦОД</a><label><input type="radio" name="subcategory-7" value="Объекты энергетики">Объекты энергетики</label><label><input type="radio" name="subcategory-7" value="Экспоцентры">Экспоцентры</label></details>
+          <details class="filter-group" data-category="Разное"><summary><span>Разное</span><b>⌄</b></summary><label><input type="radio" name="subcategory-7" value="ЦОД">ЦОД</label><label><input type="radio" name="subcategory-7" value="Объекты энергетики">Объекты энергетики</label><label><input type="radio" name="subcategory-7" value="Экспоцентры">Экспоцентры</label></details>
         </aside>
         <div class="catalog"><div class="product-filter-bar"><div class="products" aria-label="Фильтр систем"><div class="products__meta"><span>Системы</span></div><div class="product-chips" role="group" aria-label="Выбор системы"><button type="button" class="product-chip is-active" data-product-filter="all" aria-pressed="true">Все</button><button type="button" class="product-chip" data-product-filter="fronttop" aria-pressed="false">FRONTTOP</button><button type="button" class="product-chip" data-product-filter="frontbase" aria-pressed="false">FRONTBASE</button><button type="button" class="product-chip" data-product-filter="unique" aria-pressed="false">UNIQUE</button><button type="button" class="product-chip" data-product-filter="aesthetic" aria-pressed="false">AESTHETIC</button></div></div></div><div class="filter-status-bar"><div class="selected-filters" data-selected-filters aria-live="polite"></div><button type="button" data-reset hidden>Сбросить</button></div><div id="category-groups"></div>
           <div class="projects-empty-state" data-projects-empty role="status" hidden>
             <strong>Ничего не найдено</strong>
             <span>Измените условия фильтра или сбросьте их.</span>
+            <a class="fs-link" href="subcategory-data-centers.html" data-empty-subcategory hidden>Фасады зданий ЦОД и&nbsp;дата-центров</a>
           </div>
 
         </div>
@@ -496,6 +497,8 @@
       });
       document.querySelectorAll('.project-group').forEach(group => group.hidden = ![...group.querySelectorAll('.project-item')].some(card => !card.hidden));
       emptyState.hidden = cards.some(card => !card.hidden);
+      // Страница ЦОД доступна и до появления реализованных объектов в подборке.
+      emptyState.querySelector('[data-empty-subcategory]').hidden = !selectedSubcategories.has('ЦОД');
       // Выбрана подкатегория — шапка категории становится шапкой подкатегории:
       // заголовок и описание подкатегории; бейдж подкатегории на карточках скрыт
       document.querySelectorAll('.project-group').forEach(group => {
