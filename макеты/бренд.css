@@ -659,7 +659,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .catalog-page .projects:not(.has-active-filters) .filter-status-bar { min-height: 20px; }
 /* У списка убираем компенсацию: теперь после карточек расположен текстовый блок. */
 .catalog-page #category-groups { margin-bottom: 0; }
-.catalog-page #category-groups > .project-group:last-child { margin-bottom: 0; }
+/* Последняя видимая группа после фильтрации: межблочный отступ задаёт SEO-блок. */
+.catalog-page #category-groups > .project-group:not([hidden]):not(:has(~ .project-group:not([hidden]))) { margin-bottom: 0; }
 .catalog-page .footer { margin-top: 0; }
 /* Шапка на больших экранах (1920): разделы меню и телефон 16/24 вместо 14/20. */
 @media (min-width: 1601px) {
