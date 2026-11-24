@@ -112,3 +112,5 @@
 .news-page .news-card__excerpt { margin-top:var(--space-16); margin-bottom:var(--space-24); }
 .news-page .news-card__read { margin-top:auto; padding-top:0; }
 .news-page .news-card__read { padding-top: var(--space-24); }
+
+.news-page:has(#news-archive) .news-intro { padding-bottom: var(--space-48); }

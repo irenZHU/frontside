@@ -55,7 +55,7 @@
     grid.innerHTML = selected.map(entry => {
       const poster = entry.imageFit === 'contain' || entry.url.includes('my-na-forume-light-industrial-7-0');
       const media = entry.image ? `<div class="news-card__photo${poster?' news-card__photo--poster':''}"><img src="${href(entry.image)}" alt="${copy(entry.imageAlt || '')}" style="object-position:${escape(entry.imagePosition || 'center')}" loading="lazy" decoding="async"></div>` : '';
-      return `<article class="news-card"><a class="news-card__link" href="${href(entry.url)}">${media}${meta(entry)}<h3>${copy(entry.title)}</h3><span class="news-card__read"><span class="fs-link">Читать новость</span></span></a></article>`;
+      return `<article class="news-card article-card"><a class="news-card__link" href="${href(entry.url)}"><div class="article-card__copy">${meta(entry)}<h2>${copy(entry.title)}</h2><span class="news-card__read"><span class="fs-link">Читать новость</span></span></div>${media}</a></article>`;
     }).join('');
     count.textContent = filtered.length ? `${(state.page-1)*size+1}–${Math.min(state.page*size,filtered.length)} из ${filtered.length}` : 'Найдено: 0';
     empty.hidden = filtered.length > 0;
