@@ -4,7 +4,6 @@
   const size = 6;
   const $ = selector => document.querySelector(selector);
   const grid = $('#news-grid'), count = $('#news-count');
-  const topicSelect = $('#news-topic'), filters = $('#news-filters');
   const empty = $('#news-empty'), error = $('#news-error'), loading = $('#news-loading'), pagination = $('#news-pagination');
   let entries = [];
   const arrow = direction => `<svg class="fs-arrow${direction ? ' fs-arrow--'+direction : ''}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>`;
@@ -31,36 +30,32 @@
     return `<div class="news-meta"><span class="news-meta__category">${copy(categoryLabel(entry.category))}</span><time datetime="${entry.date}">${escape(dateLabel(entry.date))}</time>${past ? '<span class="news-status">Завершено</span>' : ''}</div>`;
   };
   function readState() {
-    const q = new URLSearchParams(location.search), rawCategory = q.get('category');
-    return {category: topics.some(t => t[0] === rawCategory) ? rawCategory : 'all', page:Math.max(1,parseInt(q.get('page'),10) || 1)};
+    const q = new URLSearchParams(location.search);
+    return {page:Math.max(1,parseInt(q.get('page'),10) || 1)};
   }
   function stateURL(state) {
     const url = new URL(location.href);
-    for (const key of ['category','page']) {
+    for (const key of ['page']) {
       const value = state[key];
       if (value === 'all' || (key === 'page' && value === 1)) url.searchParams.delete(key);
       else url.searchParams.set(key,value);
     }
     url.searchParams.delete('year');
+    url.searchParams.delete('category');
     url.hash = '';
     return url.pathname + url.search;
   }
   function render(scroll = false) {
     const state = readState();
-    const filtered = entries.filter(e => state.category === 'all' || e.category === state.category);
+    const filtered = entries;
     const pages = Math.max(1,Math.ceil(filtered.length / size));
     state.page = Math.min(state.page,pages);
     history.replaceState(null,'',stateURL(state));
-    topicSelect.value = state.category;
-    document.querySelectorAll('[data-news-topic]').forEach(button => {
-      const on = button.dataset.newsTopic === state.category;
-      button.classList.toggle('is-active',on); button.setAttribute('aria-pressed',String(on));
-    });
     const selected = filtered.slice((state.page - 1) * size,state.page * size);
     grid.innerHTML = selected.map(entry => {
       const poster = entry.imageFit === 'contain' || entry.url.includes('my-na-forume-light-industrial-7-0');
       const media = entry.image ? `<div class="news-card__photo${poster?' news-card__photo--poster':''}"><img src="${href(entry.image)}" alt="" loading="lazy" decoding="async"></div>` : '';
-      return `<article class="news-card${entry.image?'':' news-card--text'}"><a class="news-card__link" href="${href(entry.url)}">${media}${meta(entry)}<h3>${copy(entry.title)}</h3>${entry.image?'':`<span class="news-card__read">Читать новость ${arrow('')}</span>`}</a></article>`;
+      return `<article class="news-card${entry.image?'':' news-card--text'}"><a class="news-card__link" href="${href(entry.url)}">${entry.image ? `${media}${meta(entry)}<h3>${copy(entry.title)}</h3>` : `<div class="news-card__text-panel">${meta(entry)}<h3>${copy(entry.title)}</h3></div><p class="news-card__excerpt">${copy(entry.excerpt || '')}</p><span class="news-card__read">Читать новость ${arrow('')}</span>`}</a></article>`;
     }).join('');
     count.textContent = filtered.length ? `${(state.page-1)*size+1}–${Math.min(state.page*size,filtered.length)} из ${filtered.length}` : 'Найдено: 0';
     empty.hidden = filtered.length > 0;
@@ -77,9 +72,6 @@
     const state = {...readState(),...changes};
     history.pushState(null,'',stateURL(state)); render(scroll);
   }
-  document.querySelectorAll('[data-news-topic]').forEach(button => button.addEventListener('click',() => navigate({category:button.dataset.newsTopic,page:1},true)));
-  topicSelect.addEventListener('change',() => navigate({category:topicSelect.value,page:1},true));
-  $('#news-reset').addEventListener('click',() => navigate({category:'all',page:1},true));
   pagination.addEventListener('click',event => {
     const link = event.target.closest('[data-news-page]');
     if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
@@ -87,7 +79,7 @@
   });
   window.addEventListener('popstate',() => { if (entries.length) render(); });
   async function load() {
-    loading.hidden = false; error.hidden = true; filters.hidden = true;
+    loading.hidden = false; error.hidden = true;
     $('#news-archive').setAttribute('aria-busy','true');
     try {
       const response = await fetch('news-data.json');
@@ -100,7 +92,7 @@
         if (seen.has(entry.url)) return false; seen.add(entry.url); return true;
       }).sort((a,b)=>b.date.localeCompare(a.date));
       if (!entries.length) throw new Error('No published news');
-      filters.hidden = false; render();
+       render();
     } catch (e) {
       grid.replaceChildren(); pagination.hidden = true; empty.hidden = true; count.textContent = ''; error.hidden = false;
     } finally { loading.hidden = true; $('#news-archive').setAttribute('aria-busy','false'); }

@@ -54,7 +54,8 @@
     "eventEndDate": null,
     "eventDateSource": "https://frontside.ru/about/news/priglashaem-na-vebinar-/",
     "eventTime": "11:00",
-    "eventTimezone": null
+    "eventTimezone": null,
+    "excerpt": "Вебинар Frontside об архитектурной выразительности зданий назначен на 8 октября 2026 года, 11:00, в онлайн-формате. Компания расскажет о своих фасадных решениях на основе сэндвич-панелей и о том, как с их помощью вписать здание в современную городскую архитектуру."
   },
   {
     "title": "Архитектурные фасады для спортивных объектов",
@@ -110,7 +111,8 @@
     "detailChecked": true,
     "categorySource": "editorial",
     "featuredCandidate": true,
-    "imageNote": "В новости нет изображения; ссылка на каталог ARTVISION присутствует в тексте."
+    "imageNote": "В новости нет изображения; ссылка на каталог ARTVISION присутствует в тексте.",
+    "excerpt": "ARTVISION позволяет создавать на фасадных панелях рисунки: от отдельного изображения на одном элементе до композиции на всю высоту здания. Новую технологию разработала команда FRONTSIDE. Панели получают рисунок на производстве и поступают на объект готовыми к монтажу."
   },
   {
     "title": "Ваши идеи для вебинаров 2026 года: Мы слушаем!",
@@ -123,7 +125,8 @@
     "imageSource": null,
     "images": [],
     "detailChecked": true,
-    "categorySource": "editorial"
+    "categorySource": "editorial",
+    "excerpt": "FRONTSIDE собирает пожелания партнёров и клиентов к программе вебинаров на 2026 год. В коротком опросе можно выбрать интересующую тему или предложить собственную. Ответы помогут экспертам подготовить встречи о фасадных панелях и строительных решениях с учётом запросов участников."
   },
   {
     "title": "Новогоднее поздравление от команды FRONTSIDE",
@@ -211,7 +214,8 @@
     "detailChecked": true,
     "categorySource": "editorial",
     "eventEndDate": null,
-    "eventDateSource": "https://frontside.ru/about/news/kompaniya-frontside-predstavila-novinki-i-flagmanskie-fasadnye-resheniya-na--dne-proektirovshchika--/"
+    "eventDateSource": "https://frontside.ru/about/news/kompaniya-frontside-predstavila-novinki-i-flagmanskie-fasadnye-resheniya-na--dne-proektirovshchika--/",
+    "excerpt": "На московском «Дне проектировщика» 26 сентября FRONTSIDE показал свои фасадные решения, включая UNIQUE 2.0 и ARTLINE. Матвей Егоров представил реализованные проекты и возможности новой системы: выбор цвета, фактуры и формы панелей, а также интеграцию подсветки."
   },
   {
     "title": "FRONTSIDE на BUDEXPO-2025: акцент на инновации и диалог с профессиональным сообществом",
@@ -226,7 +230,8 @@
     "detailChecked": true,
     "categorySource": "editorial",
     "eventEndDate": "2025-09-19",
-    "eventDateSource": "https://frontside.ru/about/news/frontside-na-budexpo-2025--aktsent-na-innovatsii-i-dialog-s-professionalnym-soobshchestvom/"
+    "eventDateSource": "https://frontside.ru/about/news/frontside-na-budexpo-2025--aktsent-na-innovatsii-i-dialog-s-professionalnym-soobshchestvom/",
+    "excerpt": "На выставке BUDEXPO-2025 в Минске FRONTSIDE представил систему UNIQUE 2.0 и облицовку ARTLINE с LED-подсветкой. С 17 по 19 сентября специалисты компании обсуждали с архитекторами и другими участниками отрасли задачи проектов, варианты применения продукции и запросы белорусского рынка."
   },
   {
     "title": "Фасадные решения FRONTSIDE – на профессиональной повестке в Алматы",
@@ -258,7 +263,8 @@
     "imageSource": null,
     "images": [],
     "detailChecked": true,
-    "categorySource": "editorial"
+    "categorySource": "editorial",
+    "excerpt": "FRONTSIDE присоединился к Ленинградской областной торгово-промышленной палате и Объединению производителей строительных материалов региона. Компания планирует участвовать в рабочих группах и профильных комитетах, делиться опытом разработки фасадных систем и обсуждать развитие отрасли."
   },
   {
     "title": "Компания FRONTSIDE — в числе 100 ведущих работодателей России 2024 года",
@@ -271,7 +277,8 @@
     "imageSource": null,
     "images": [],
     "detailChecked": true,
-    "categorySource": "editorial"
+    "categorySource": "editorial",
+    "excerpt": "В рейтинге работодателей России за 2024 год от hh.ru FRONTSIDE занял 98-е место, улучшив предыдущий результат на 182 позиции. Компания связывает этот рост с изменениями в работе с сотрудниками: развитием обучения, открытого диалога, системы оценки и условий труда."
   },
   {
     "title": "С Днём строителя!",
@@ -336,6 +343,7 @@
     "imageSource": null,
     "images": [],
     "detailChecked": true,
-    "categorySource": "editorial"
+    "categorySource": "editorial",
+    "excerpt": "FRONTSIDE начал проект нового производства фасадных конструкций в особой экономической зоне «Эммаусс» Тверской области. В опубликованных планах компании — выпуск свыше 800 тысяч квадратных метров продукции к 2030 году, расширение мощностей и освоение новых фасадных решений."
   }
 ]
