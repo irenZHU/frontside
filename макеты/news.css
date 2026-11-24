@@ -1,5 +1,5 @@
 /* Новости: общая сетка Frontside, без закреплённых секций. */
-.news-page .news-intro { padding-top: var(--space-40); padding-bottom: var(--space-48); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-40); align-items: end; }
+.news-page .news-intro { padding-top: var(--space-40); padding-bottom: var(--space-section); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-40); align-items: end; }
 .news-page .news-intro h1 { margin: 0; font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 500; letter-spacing: -.04em; text-transform: uppercase; }
 .news-page .news-feature { padding-bottom: var(--space-section); }
 .news-page .news-feature__link { display: grid; grid-template-columns: 2fr 1fr; color: var(--color-text-primary); text-decoration: none; background: var(--color-surface-subtle); }
@@ -51,7 +51,7 @@
 .news-page .news-state button { border: 0; background: transparent; color: var(--color-text-primary); cursor: pointer; font-size: var(--fs-body); line-height: var(--lh-body); }
 .news-page [hidden] { display: none !important; }
 .news-page .news-feature__link:focus-visible, .news-page .news-card__link:focus-visible, .news-page .news-pagination a:focus-visible, .news-page .news-select select:focus-visible { outline: 2px solid var(--color-action-primary); outline-offset: 4px; }
-.news-page .footer { margin-top: 0; }
+.news-page .footer { margin-top: 0; padding-top: var(--space-section-surface); }
 @media (min-width:768px) and (max-width:1180px) {
   body.projects-page.news-page { min-width: 0; }
   .projects-page.news-page :is(main, footer) .container { width: calc(100% - 64px); }
@@ -65,7 +65,7 @@
   .news-page .news-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width:767px) {
-  .news-page .news-intro { grid-template-columns: 1fr; gap: var(--space-24); padding-top: var(--space-24); padding-bottom: var(--space-32); }
+  .news-page .news-intro { grid-template-columns: 1fr; gap: var(--space-24); padding-top: var(--space-24); padding-bottom: var(--space-48); }
   .news-page .news-intro h1 { font-size: 32px; line-height: 36px; }
   .news-page .news-feature__link { grid-template-columns: 1fr; }
   .news-page .news-feature__media img { height: auto; min-height: 0; aspect-ratio: 16/9; }
