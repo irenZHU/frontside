@@ -52,13 +52,10 @@
 .news-page [hidden] { display: none !important; }
 .news-page .news-feature__link:focus-visible, .news-page .news-card__link:focus-visible, .news-page .news-pagination a:focus-visible, .news-page .news-select select:focus-visible { outline: 2px solid var(--color-action-primary); outline-offset: 4px; }
 .news-page .footer { margin-top: 0; }
-@media (min-width:1181px) and (max-width:1399px) { .news-page .header .nav--side { display: none; } }
 @media (min-width:768px) and (max-width:1180px) {
   body.projects-page.news-page { min-width: 0; }
-  .projects-page.news-page .container { width: calc(100% - 64px); }
-  .news-page .header .nav, .news-page .header__phone { display: none; }
+  .projects-page.news-page :is(main, footer) .container { width: calc(100% - 64px); }
   .news-page .footer__grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--space-32); min-height: 0; }
-  .news-page .site-menu__grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
 }
 @media (max-width:1180px) {
   .news-page .news-feature__link { grid-template-columns: 3fr 2fr; }
