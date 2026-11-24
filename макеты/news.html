@@ -12,11 +12,11 @@
   <link rel="stylesheet" href="стиль.css">
   <link rel="stylesheet" href="projects.css">
   <link rel="stylesheet" href="category-production.css">
-  <link rel="stylesheet" href="news.css?v=20261124-8">
+  <link rel="stylesheet" href="news.css?v=20261124-9">
   <link rel="stylesheet" href="articles.css">
   <link rel="stylesheet" href="бренд.css">
 </head>
-<body class="projects-page news-page" id="top">
+<body class="projects-page news-page articles-page" id="top">
 <header class="header is-scrolled">
     <div class="container header__inner">
       <a class="logo" href="client-home.html" aria-label="Frontside"><img src="img/logo.png" alt="Frontside"></a>
@@ -45,7 +45,7 @@
       <div class="news-state" id="news-loading" role="status"><p>Загружаем новости…</p></div>
       <div class="news-state" id="news-error" role="alert" hidden><h3>Не удалось загрузить новости</h3><p>Повторите попытку или&nbsp;перейдите в&nbsp;<a class="fs-link" href="https://frontside.ru/about/news/">раздел новостей Frontside</a>.</p><button class="fs-link" type="button" id="news-retry">Попробовать снова</button></div>
       <div class="news-state" id="news-empty" hidden><h3>Новостей по&nbsp;вашему запросу нет</h3><p>Новые публикации появятся здесь.</p></div>
-      <div class="news-grid articles-page" id="news-grid"></div>
+      <div class="news-grid" id="news-grid"></div>
       <nav class="news-pagination" id="news-pagination" aria-label="Страницы новостей" hidden></nav>
       <noscript><style>#news-loading { display: none; }</style><p>Для просмотра ленты включите JavaScript или&nbsp;откройте <a class="fs-link" href="https://frontside.ru/about/news/">новости на&nbsp;сайте Frontside</a>.</p></noscript>
     </section>

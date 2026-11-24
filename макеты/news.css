@@ -103,7 +103,7 @@
 }
 /* Заголовок и лид следуют общей вертикальной композиции внутренних страниц. */
 .news-page .news-intro { display: block; }
-.news-page .news-intro p { margin: var(--space-24) 0 0; max-width: 680px; font-size: 18px; line-height: var(--lh-body); }
+.news-page #news-title + p { margin: var(--space-24) 0 0; max-width: 680px; font-size: 18px; line-height: var(--lh-body); }
 .news-page .news-card__text-panel h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
 
 /* Все новости: изображение, название, анонс и действие на белом фоне. */
@@ -114,3 +114,6 @@
 .news-page .news-card__read { padding-top: var(--space-24); }
 
 .news-page:has(#news-archive) .news-intro { padding-bottom: var(--space-48); }
+
+#news-grid .article-card__copy { display: flex; flex-direction: column; }
+#news-grid .news-card__read { padding-top: 0; }
