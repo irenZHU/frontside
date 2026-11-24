@@ -104,3 +104,9 @@
 .news-page .news-intro { display: block; }
 .news-page .news-intro p { margin-top: var(--space-24); max-width: 680px; font-size: var(--fs-body); line-height: var(--lh-body); }
 .news-page .news-card__text-panel h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+
+/* Все новости: изображение, название, анонс и действие на белом фоне. */
+.news-page .news-card__link { display:flex; flex-direction:column; height:100%; background:var(--color-surface-base); }
+.news-page .news-card__photo { flex:0 0 auto; }
+.news-page .news-card__excerpt { margin-top:var(--space-16); margin-bottom:var(--space-24); }
+.news-page .news-card__read { margin-top:auto; padding-top:0; }
