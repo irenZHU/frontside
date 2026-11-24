@@ -82,7 +82,7 @@
     loading.hidden = false; error.hidden = true;
     $('#news-archive').setAttribute('aria-busy','true');
     try {
-      const response = await fetch('news-data.json');
+      const response = await fetch('news-data.json?v=20261124-2');
       if (!response.ok) throw new Error('News unavailable');
       const data = await response.json();
       if (!Array.isArray(data)) throw new Error('Invalid news data');
