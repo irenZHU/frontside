@@ -71,7 +71,7 @@
     visiblePages.forEach((n,i) => { if (i && n-visiblePages[i-1]>1) links += '<span aria-hidden="true">…</span>'; links += pageLink(n,`Страница ${n}`,n); });
     if (state.page<pages) links += pageLink(state.page+1,'Следующая страница',arrow('right'));
     pagination.innerHTML = links;
-    if (scroll) { $('#news-archive').scrollIntoView({behavior:'instant',block:'start'}); $('#news-archive-title').focus({preventScroll:true}); }
+    if (scroll) { $('#news-archive').scrollIntoView({behavior:'instant',block:'start'}); $('#news-archive').focus({preventScroll:true}); }
   }
   function navigate(changes,scroll=false) {
     const state = {...readState(),...changes};
