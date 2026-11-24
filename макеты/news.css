@@ -1,7 +1,6 @@
 /* Новости: общая сетка Frontside, без закреплённых секций. */
 .news-page .news-intro { padding-top: var(--space-40); padding-bottom: var(--space-48); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-40); align-items: end; }
 .news-page .news-intro h1 { margin: 0; font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 500; letter-spacing: -.04em; text-transform: uppercase; }
-.news-page .news-intro p { margin: 0; max-width: 540px; font-size: var(--fs-body); line-height: var(--lh-body); }
 .news-page .news-feature { padding-bottom: var(--space-section); }
 .news-page .news-feature__link { display: grid; grid-template-columns: 2fr 1fr; color: var(--color-text-primary); text-decoration: none; background: var(--color-surface-subtle); }
 .news-page .news-feature__media { min-width: 0; overflow: hidden; }
@@ -107,7 +106,7 @@
 }
 /* Заголовок и лид следуют общей вертикальной композиции внутренних страниц. */
 .news-page .news-intro { display: block; }
-.news-page .news-intro p { margin-top: var(--space-24); max-width: 680px; font-size: var(--fs-body); line-height: var(--lh-body); }
+.news-page .news-intro p { margin: var(--space-24) 0 0; max-width: 680px; font-size: 18px; line-height: var(--lh-body); }
 .news-page .news-card__text-panel h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
 
 /* Все новости: изображение, название, анонс и действие на белом фоне. */
