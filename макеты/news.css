@@ -84,3 +84,7 @@
   .news-page .news-card h3 { font-size: 20px; line-height: 26px; }
   .news-page .news-pagination { margin-top: var(--space-32); }
 }
+
+/* Лента без выделенного материала и фильтра по году. */
+.news-page .news-filters { align-items: center; }
+@media (max-width:767px) { .news-page .news-filters { grid-template-columns: minmax(0,1fr); } }

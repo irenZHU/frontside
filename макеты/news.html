@@ -39,13 +39,11 @@
       <h1 id="news-title">Новости</h1>
       <p>Объекты с&nbsp;фасадами Frontside, новые продукты и&nbsp;технологии, события и&nbsp;жизнь компании.</p>
     </section>
-    <section class="container news-feature" id="news-feature" aria-label="Выделенная новость" hidden></section>
     <section class="container news-archive" id="news-archive" aria-labelledby="news-archive-title" aria-busy="true">
       <div class="news-archive__heading"><h2 id="news-archive-title" tabindex="-1">Все новости</h2><p class="news-count" id="news-count" aria-live="polite" aria-atomic="true"></p></div>
       <div class="news-filters" id="news-filters" hidden>
         <div class="news-topics" role="group" aria-label="Тема новостей"><button class="product-chip is-active" type="button" data-news-topic="all" aria-pressed="true">Все</button><button class="product-chip" type="button" data-news-topic="objects" aria-pressed="false">Объекты</button><button class="product-chip" type="button" data-news-topic="products" aria-pressed="false">Продукты и технологии</button><button class="product-chip" type="button" data-news-topic="events" aria-pressed="false">События</button><button class="product-chip" type="button" data-news-topic="company" aria-pressed="false">Компания</button></div>
         <label class="news-select news-select--topic" for="news-topic"><span>Тема</span><select id="news-topic"><option value="all">Все</option><option value="objects">Объекты</option><option value="products">Продукты и технологии</option><option value="events">События</option><option value="company">Компания</option></select></label>
-        <label class="news-select" for="news-year"><span>Год</span><select id="news-year"><option value="all">Все годы</option></select></label>
       </div>
       <div class="news-state" id="news-loading" role="status"><p>Загружаем новости…</p></div>
       <div class="news-state" id="news-error" role="alert" hidden><h3>Не удалось загрузить новости</h3><p>Повторите попытку или&nbsp;перейдите в&nbsp;<a class="fs-link" href="https://frontside.ru/about/news/">раздел новостей Frontside</a>.</p><button class="fs-link" type="button" id="news-retry">Попробовать снова</button></div>
