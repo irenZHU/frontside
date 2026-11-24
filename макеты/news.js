@@ -23,11 +23,10 @@
     return escape(url.href);
   };
   const categoryKey = value => topics.find(([key,label]) => value === key || value === label)?.[0] || 'company';
-  const categoryLabel = key => topics.find(t => t[0] === key)[1];
   const meta = entry => {
     const eventEnd = entry.eventEndDate || entry.eventDate;
     const past = entry.category === 'events' && eventEnd && new Date(eventEnd+'T23:59:59') < new Date();
-    return `<div class="news-meta"><span class="news-meta__category">${copy(categoryLabel(entry.category))}</span><time datetime="${entry.date}">${escape(dateLabel(entry.date))}</time>${past ? '<span class="news-status">Завершено</span>' : ''}</div>`;
+    return `<div class="news-meta"><time datetime="${entry.date}">${escape(dateLabel(entry.date))}</time>${past ? '<span class="project-card__badges news-status"><span>Завершено</span></span>' : ''}</div>`;
   };
   function readState() {
     const q = new URLSearchParams(location.search);
@@ -55,7 +54,7 @@
     grid.innerHTML = selected.map(entry => {
       const poster = entry.imageFit === 'contain' || entry.url.includes('my-na-forume-light-industrial-7-0');
       const media = entry.image ? `<div class="news-card__photo${poster?' news-card__photo--poster':''}"><img src="${href(entry.image)}" alt="${copy(entry.imageAlt || '')}" style="object-position:${escape(entry.imagePosition || 'center')}" loading="lazy" decoding="async"></div>` : '';
-      return `<article class="news-card article-card"><a class="news-card__link" href="${href(entry.url)}"><div class="article-card__copy">${meta(entry)}<h2>${copy(entry.title)}</h2><span class="news-card__read"><span class="fs-link">Читать новость</span></span></div>${media}</a></article>`;
+      return `<article class="news-card article-card"><a class="news-card__link" href="${href(entry.url)}"><div class="article-card__copy">${meta(entry)}<h2>${copy(entry.title)}</h2></div>${media}</a></article>`;
     }).join('');
     count.textContent = filtered.length ? `${(state.page-1)*size+1}–${Math.min(state.page*size,filtered.length)} из ${filtered.length}` : 'Найдено: 0';
     empty.hidden = filtered.length > 0;
