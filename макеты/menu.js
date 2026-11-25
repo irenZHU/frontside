@@ -29,7 +29,7 @@ const SITE_MENU = [
           "items": [
             {
               "t": "Новости",
-              "href": "https://frontside.ru/about/news/"
+              "href": "news.html"
             },
             {
               "t": "Акции и события",
@@ -37,7 +37,7 @@ const SITE_MENU = [
             },
             {
               "t": "Статьи",
-              "href": "https://frontside.ru/about/publications/"
+              "href": "articles.html"
             },
             {
               "t": "Пресса о нас",
@@ -50,7 +50,7 @@ const SITE_MENU = [
           "items": [
             {
               "t": "Реквизиты",
-              "href": "https://frontside.ru/about/requisites/"
+              "href": "requisites.html"
             },
             {
               "t": "Вакансии",
@@ -270,7 +270,7 @@ const SITE_MENU = [
       "items": [
         {
           "t": "Реквизиты",
-          "href": "https://frontside.ru/about/requisites/"
+          "href": "requisites.html"
         }
       ]
     }
@@ -367,7 +367,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     'О компании': {
       title: 'О компании Frontside',
       description: 'Наши компетенции и производство, партнёрская сеть и публикации о Frontside.',
-      image: 'img/premium/office.webp'
+      image: 'img/barklay-plaza.jpg'
     }
   };
   const dropdownBanner = (title, href) => {
@@ -376,7 +376,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
   };
   const groupsByTitle = new Map(SITE_MENU.flat().map(group => [group.title, group]));
   header.querySelectorAll('.nav > a').forEach(anchor => {
-    const title = anchor.textContent.trim();
+    const title = anchor.textContent.trim().replace(/\s+/g, ' ');
     if (!['Каталог', 'Услуги', 'Решения', 'О компании'].includes(title)) return;
     const group = groupsByTitle.get(title);
     anchor.href = group.href;

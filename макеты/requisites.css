@@ -1,0 +1,72 @@
+/* Геометрия страницы: общие контейнер, шкала отступов, CTA и список фактов. */
+.requisites-page { min-width:0; }
+.requisites-page main { padding-bottom:var(--space-section-surface); }
+.requisites-page .footer { margin-top:0; padding-top:var(--space-section-surface); }
+.requisites { padding-top:var(--space-40); }
+.requisites__heading { display:flex; align-items:center; justify-content:space-between; gap:var(--space-40); margin-bottom:var(--space-48); }
+.requisites-page .requisites__heading h1 { margin:0; font-family:var(--font-head); font-size:var(--fs-display); line-height:var(--lh-display); font-weight:500; letter-spacing:-1.3px; text-transform:uppercase; }
+.requisites__heading .hero__cta { position:static; flex:0 0 380px; width:380px; margin:0; animation:none; translate:none; }
+.requisites__body { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; gap:var(--space-40); }
+.requisites__photo { margin:0; aspect-ratio:1; overflow:hidden; }
+.requisites__photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:right center; }
+.requisites-page .requisites__facts { margin:0; gap:0; }
+.requisites-page .requisites__facts > div { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:var(--space-24); padding-block:var(--space-16); border-bottom:1px solid var(--brand-line); align-items:start; }
+.requisites-page .requisites__facts > div:first-child { padding-top:0; }
+.requisites-page .requisites__facts dt,.requisites-page .requisites__facts dd { min-width:0; max-width:none; margin:0; text-align:left; overflow-wrap:anywhere; font-size:var(--fs-body); line-height:var(--lh-body); }
+@media (min-width:768px) and (max-width:1180px) { .requisites-page .container { width:calc(100% - 64px); }  .requisites-page .footer__grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .requisites__heading { align-items:start; } .requisites__heading .hero__cta { flex-basis:300px; width:300px; } .requisites__body { gap:var(--space-32); } .requisites-page .requisites__facts > div { grid-template-columns:1fr; gap:var(--space-8); } }
+@media (max-width:767px) { .requisites-page .container { width:calc(100% - 32px); } .requisites { padding-top:var(--space-24); } .requisites__heading { flex-direction:column; align-items:stretch; gap:var(--space-24); margin-bottom:var(--space-32); } .requisites-page .requisites__heading h1 { font-size:var(--fs-h2); line-height:var(--lh-h2); } .requisites__heading .hero__cta { flex-basis:auto; width:100%; } .requisites__body { grid-template-columns:1fr; gap:var(--space-32); } .requisites-page .requisites__facts > div { grid-template-columns:1fr; gap:var(--space-8); } }
+
+/* Квадрат фотографии помещается под шапкой, крошками и заголовком. */
+@media (min-width:1181px) { .requisites__photo { width:min(100%,max(280px,calc(100svh - 308px)) ); } }
+
+/* Компактные группы: разделители между разделами, короткие коды — в две колонки. */
+
+
+
+.requisites__details { min-width:0; }
+.requisites__group + .requisites__group { margin-top:var(--space-24); padding-top:var(--space-24); border-top:1px solid var(--brand-line); }
+.requisites-page .requisites__group h2 { margin:0 0 var(--space-16); font-family:var(--font-head); font-size:var(--fs-body); line-height:var(--lh-body); font-weight:500; text-transform:uppercase; }
+.requisites-page .requisites__facts { display:grid; gap:var(--space-12); }
+.requisites-page .requisites__facts > div { padding:0; border:0; grid-template-columns:minmax(0, .8fr) minmax(0,1.6fr); gap:var(--space-16); }
+.requisites-page .requisites__facts dt { color:var(--brand-muted); font-size:var(--fs-ui); line-height:var(--lh-ui); }
+.requisites-page .requisites__facts dd { font-size:var(--fs-body); line-height:var(--lh-body); font-variant-numeric:tabular-nums; }
+.requisites-page .requisites__facts--codes { grid-template-columns:minmax(0,1fr); gap:var(--space-12); }
+.requisites-page .requisites__facts--codes > div { display:grid; }
+.requisites-page .requisites__facts--codes dt { margin-bottom:0; }
+@media (min-width:1181px) { .requisites__body { grid-template-columns:minmax(280px,min(40%,calc(100svh - 308px))) minmax(0,1fr); } .requisites__photo { width:100%; } }
+@media (max-width:1180px) { .requisites__heading { flex-wrap:wrap; } .requisites-page .requisites__facts > div { grid-template-columns:1fr; gap:var(--space-8); } }
+@media (max-width:767px) {  }
+
+/* Кнопка скачивания использует состояния квадратных стрелок UI-кита. */
+
+
+
+@media (min-width:1181px) { .requisites__body { column-gap:var(--space-section); } }
+
+/* Общий отступ крошки → заголовок и равные половины контейнера. */
+.requisites { padding-top:var(--crumbs-gap); }
+
+
+@media (min-width:1181px) { .requisites__body { grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:0; } .requisites__photo { width:min(calc(100% - var(--space-section)),max(280px,calc(100svh - 332px))); } }
+@media (max-width:767px) { .requisites { padding-top:var(--crumbs-gap); } }
+
+/* Только размещение готового компонента «Вторичное действие»; состояния — из кита. */
+.requisites-page .requisites__heading .category-all-link.requisites__download { margin:0; flex-shrink:0; }
+
+/* Заголовок → основной блок: тот же интервал, что в информационных страницах кита. */
+.requisites__heading { margin-bottom:var(--space-section); }
+@media (min-width:768px) {
+  .requisites__photo { position:sticky; top:calc(var(--header-height) + var(--space-24)); align-self:start; }
+}
+@media (min-width:1181px) {
+  .requisites__photo { width:min(calc(100% - var(--space-section)),max(240px,calc(100svh - 284px - var(--space-section)))); }
+}
+@media (max-width:767px) { .requisites__heading { margin-bottom:var(--space-48); } }
+
+/* Как на «Проектах»: 40 px после шапки блока, на мобильном — 32 px. */
+.requisites__heading { margin-bottom:var(--space-40); }
+@media (max-width:767px) { .requisites__heading { margin-bottom:var(--space-32); } }
+
+/* Ширина по содержимому сохраняет интервал текста и иконки. */
+.requisites-page .requisites__heading .category-all-link { width:auto; gap:var(--space-24); }
+@media (min-width:1181px) { .requisites__photo { width:min(calc(100% - var(--space-section)),max(240px,calc(100svh - 324px))); } }

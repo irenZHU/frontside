@@ -1,5 +1,6 @@
 /* Новости: общая сетка Frontside, без закреплённых секций. */
-.news-page .news-intro { padding-top: var(--space-40); padding-bottom: var(--space-section); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-40); align-items: end; }
+/* Отступ от вводного блока до карточек — как от шапки до карточек на странице «Проекты». */
+.news-page .news-intro { padding-top: var(--crumbs-gap); padding-bottom: var(--space-40); }
 .news-page .news-intro h1 { margin: 0; font-size: var(--fs-display); line-height: var(--lh-display); font-weight: 500; letter-spacing: -.04em; text-transform: uppercase; }
 .news-page .news-feature { padding-bottom: var(--space-section); }
 .news-page .news-feature__link { display: grid; grid-template-columns: 2fr 1fr; color: var(--color-text-primary); text-decoration: none; background: var(--color-surface-subtle); }
@@ -63,7 +64,7 @@
   .news-page .news-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width:767px) {
-  .news-page .news-intro { grid-template-columns: 1fr; gap: var(--space-24); padding-top: var(--space-24); padding-bottom: var(--space-48); }
+  .news-page .news-intro { padding-bottom: var(--space-32); }
   .news-page .news-intro h1 { font-size: 32px; line-height: 36px; }
   .news-page .news-feature__link { grid-template-columns: 1fr; }
   .news-page .news-feature__media img { height: auto; min-height: 0; aspect-ratio: 16/9; }
@@ -99,7 +100,6 @@
  .news-page .news-card__excerpt { margin-top: var(--space-16); font-size: 15px; line-height: 20px; }
 }
 /* Заголовок и лид следуют общей вертикальной композиции внутренних страниц. */
-.news-page .news-intro { display: block; }
 .news-page #news-title + p { margin: var(--space-24) 0 0; max-width: 680px; font-size: 18px; line-height: var(--lh-body); }
 .news-page .news-card__text-panel h3 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
 
@@ -107,7 +107,5 @@
 .news-page .news-card__link { display:flex; flex-direction:column; height:100%; background:var(--color-surface-base); }
 .news-page .news-card__photo { flex:0 0 auto; }
 .news-page .news-card__excerpt { margin-top:var(--space-16); margin-bottom:var(--space-24); }
-
-.news-page:has(#news-archive) .news-intro { padding-bottom: var(--space-48); }
 
 #news-grid .article-card__copy { display: flex; flex-direction: column; }

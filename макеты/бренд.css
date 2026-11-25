@@ -408,7 +408,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
    (каталог проектов, подкатегория, карточка проекта). На категории и решении крошки лежат на фото первого экрана */
 :root { --crumbs-gap: 64px; }
 .projects-page .solutions,
-.projects-page .project-hero { padding-top: var(--crumbs-gap); }
+.projects-page .project-hero,
+.projects-page .articles-intro { padding-top: var(--crumbs-gap); }
 
 /* Каталог «Проекты»: первый экран (крошки + решения) на светло-сером фирменном, с «Реализованных проектов» — белый */
 .catalog-page main { background: var(--brand-light); }
@@ -1640,6 +1641,22 @@ body.projects-page :focus-visible { outline: none !important; }
     width: auto; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
     clip-path: none; transform: none; transition: none; scroll-snap-align: start;
   }
+}
+
+/* Описания рабочих страниц на широком экране: единая ступень 18/26. */
+@media (min-width: 1601px) {
+  body.projects-page.projects-page main :is(
+    .client-hero__desc, .solutions__head p, .project-group__desc, .projects-seo__content p,
+    .category-hero__lead, .category-intro__lead, .category-grow p,
+    .category-projects__desc, .category-systems__lead, .idea__point p,
+    .category-about__text p, .subcat-about__text p, .category-form__intro p,
+    .project-info__lead, .project-tabs__panel p,
+    .premium-req__note, .premium-grow p, .premium-process p,
+    .catalog-section__head p, .catalog-card__description,
+    .news-intro p
+  ) { font-size: 18px; line-height: 26px; }
+  body.projects-page main :is(.product-chip, [role="tab"], .project-tabs a) { font-size: 16px; line-height: 24px; }
+  body.projects-page .form-modal .category-form__intro p { font-size: 18px; line-height: 26px; }
 }
 
 /* Смена фона: двойной интервал 100 + 100 на обоих десктопных размерах.
