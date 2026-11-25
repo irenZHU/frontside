@@ -1,6 +1,7 @@
 // Развёрнутое бургер-меню — карта сайта клиента (frontside.ru): все разделы и подразделы.
 // Один файл на все страницы: разметка меню строится здесь, поэтому меню везде одинаковое.
 // Состав разделов и внешние ссылки сверены с меню frontside.ru; готовые макеты открываются локально.
+const CATALOG_URL = 'https://frontside.ru/catalog/';
 const SITE_MENU = [
   [
     {
@@ -33,7 +34,7 @@ const SITE_MENU = [
             },
             {
               "t": "Акции и события",
-              "href": "https://frontside.ru/akcii-i-sobytiya/"
+              "href": "promotions.html"
             },
             {
               "t": "Статьи",
@@ -74,7 +75,7 @@ const SITE_MENU = [
   [
     {
       "title": "Каталог",
-      "href": "catalog.html",
+      "href": CATALOG_URL,
       "mobileLink": true,
       "groups": [
         {
@@ -82,7 +83,7 @@ const SITE_MENU = [
           "items": [
             {
               "t": "Все системы",
-              "href": "catalog.html#fasadnye-sistemy"
+              "href": `${CATALOG_URL}#fasadnye-sistemy`
             },
             {
               "t": "FRONTTOP",
@@ -111,7 +112,7 @@ const SITE_MENU = [
           "items": [
             {
               "t": "Все возможности",
-              "href": "catalog.html#architecture"
+              "href": "https://frontside.ru/architectural-solutions/"
             },
             {
               "t": "UNIQUE 2.0",
@@ -119,7 +120,7 @@ const SITE_MENU = [
             },
             {
               "t": "ARTVISION",
-              "href": "artvision.html"
+              "href": "https://frontside.ru/catalog/artvision/"
             },
             {
               "t": "LED-подсветка",
@@ -136,7 +137,7 @@ const SITE_MENU = [
           "items": [
             {
               "t": "Все элементы",
-              "href": "catalog.html#elements"
+              "href": `${CATALOG_URL}#dekorativnye-elementy-sistem`
             },
             {
               "t": "Угловые элементы",
@@ -148,7 +149,7 @@ const SITE_MENU = [
             },
             {
               "t": "Профили",
-              "href": "https://frontside.ru/catalog/profili1/"
+              "href": `${CATALOG_URL}#dekorativnye-elementy-sistem`
             }
           ]
         }
@@ -195,7 +196,7 @@ const SITE_MENU = [
           "items": [
             {
               "t": "Каталог",
-              "href": "catalog.html"
+              "href": CATALOG_URL
             },
             {
               "t": "Услуги",
@@ -310,7 +311,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
   menu.setAttribute('aria-modal', 'true');
   menu.setAttribute('aria-label', 'Меню сайта');
   menu.innerHTML = `<div class="container site-menu__inner">
-      <div class="site-menu__grid">${MENU_COLUMNS.map(col => `<div class="site-menu__col">${col.map(section).join('')}</div>`).join('')}<aside class="site-menu__promo" aria-label="Быстрые переходы">${promo('Каталог', 'catalog.html', 'img/premium/detail-blue.webp')}${promo('Решения', 'solution-premium.html', 'img/premium/chayka.webp')}${contacts}</aside></div>
+      <div class="site-menu__grid">${MENU_COLUMNS.map(col => `<div class="site-menu__col">${col.map(section).join('')}</div>`).join('')}<aside class="site-menu__promo" aria-label="Быстрые переходы">${promo('Каталог', CATALOG_URL, 'img/premium/detail-blue.webp')}${promo('Решения', 'solution-premium.html', 'img/premium/chayka.webp')}${contacts}</aside></div>
     </div>`;
   document.body.append(menu);
 
@@ -342,8 +343,9 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     const button = activeDropdown;
     activeDropdown = null;
     button.setAttribute('aria-expanded', 'false');
-    button.closest('.header-nav-item').querySelector('a').setAttribute('aria-expanded', 'false');
-    button.closest('.header-nav-item').classList.remove('is-open');
+    const item = button.closest('.header-nav-item');
+    item.querySelector('a[aria-expanded]')?.setAttribute('aria-expanded', 'false');
+    item.classList.remove('is-open');
     dropdown.hidden = true;
     if (restoreFocus) button.focus();
   };
@@ -379,10 +381,13 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     const title = anchor.textContent.trim().replace(/\s+/g, ' ');
     if (!['Каталог', 'Услуги', 'Решения', 'О компании'].includes(title)) return;
     const group = groupsByTitle.get(title);
+    const catalogLink = title === 'Каталог';
     anchor.href = group.href;
-    anchor.setAttribute('role', 'button');
-    anchor.setAttribute('aria-expanded', 'false');
-    anchor.setAttribute('aria-controls', dropdown.id);
+    if (!catalogLink) {
+      anchor.setAttribute('role', 'button');
+      anchor.setAttribute('aria-expanded', 'false');
+      anchor.setAttribute('aria-controls', dropdown.id);
+    }
     const wrapper = document.createElement('div');
     wrapper.className = 'header-nav-item';
     anchor.before(wrapper);
@@ -405,23 +410,25 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
       dropdown.hidden = false;
       activeDropdown = button;
       button.setAttribute('aria-expanded', 'true');
-      anchor.setAttribute('aria-expanded', 'true');
+      if (!catalogLink) anchor.setAttribute('aria-expanded', 'true');
       wrapper.classList.add('is-open');
     };
     button.addEventListener('click', openDropdown);
-    anchor.addEventListener('click', event => {
-      event.preventDefault();
-      openDropdown();
-    });
-    anchor.addEventListener('keydown', event => {
-      if (![' ', 'ArrowDown'].includes(event.key)) return;
-      event.preventDefault();
-      if (event.key === ' ') openDropdown();
-      else {
-        if (activeDropdown !== button) openDropdown();
-        dropdown.querySelector('a')?.focus();
-      }
-    });
+    if (!catalogLink) {
+      anchor.addEventListener('click', event => {
+        event.preventDefault();
+        openDropdown();
+      });
+      anchor.addEventListener('keydown', event => {
+        if (![' ', 'ArrowDown'].includes(event.key)) return;
+        event.preventDefault();
+        if (event.key === ' ') openDropdown();
+        else {
+          if (activeDropdown !== button) openDropdown();
+          dropdown.querySelector('a')?.focus();
+        }
+      });
+    }
     button.addEventListener('keydown', event => {
       if (event.key !== 'ArrowDown') return;
       event.preventDefault();

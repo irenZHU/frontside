@@ -513,7 +513,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
    Новые кнопки-стрелки добавлять в оба списка ниже. */
 :is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button,
     .category-intro__slider-nav button, .premium-process__link,
-    .footer__bottom a[href="#top"], .site-menu__promo-arrow) {
+    .footer__bottom a[href="#top"], .site-menu__promo-arrow),
+.news-pagination a {
   display: grid;
   place-items: center;
   width: var(--control-icon-button-size);
@@ -523,7 +524,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 }
 :is(.project-group__arrow, .premium-object__arrow, .systems-nav__arrows button,
     .category-intro__slider-nav button, .premium-process__link,
-    .footer__bottom a[href="#top"], .site-menu__promo-arrow) svg {
+    .footer__bottom a[href="#top"], .site-menu__promo-arrow) svg,
+.news-pagination a svg {
   width: var(--control-icon-arrow-size);
   height: var(--control-icon-arrow-size);
 }
@@ -744,7 +746,8 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .header .header__actions .burger svg { stroke: currentColor; }
 /* Неактивные табы-фильтры остаются второстепенными:
    нейтральная hover-поверхность раскрывается слева направо. */
-.product-chip:not(.is-active) {
+.product-chip:not(.is-active),
+.news-pagination a:not([aria-current="page"]) {
   background-color: var(--color-control-default);
   background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
   background-repeat: no-repeat;
@@ -752,18 +755,22 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
   background-size: 0 100%;
   transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease;
 }
-.product-chip:not(.is-active):is(:hover, :focus-visible, .is-hover) {
+.product-chip:not(.is-active):is(:hover, :focus-visible, .is-hover),
+.news-pagination a:not([aria-current="page"]):is(:hover, :focus-visible) {
   background-color: var(--color-control-default);
   background-image: linear-gradient(var(--color-control-hover), var(--color-control-hover));
   background-repeat: no-repeat;
   background-position: 0 50%;
   background-size: 100% 100%;
   color: var(--color-text-primary);
+}
+.product-chip:not(.is-active):is(:hover, :focus-visible, .is-hover) {
   outline: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .header .header__actions :is(.icon-btn, .burger, .btn-accent),
-  .product-chip:not(.is-active) { transition: none; }
+  .product-chip:not(.is-active),
+  .news-pagination a:not([aria-current="page"]) { transition: none; }
 }
 /* Навигация хедера: текущий раздел отмечен красным, а линия раскрывается
    точно по нижнему краю сквозного хедера. */
@@ -1630,7 +1637,9 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 .projects-page :is(.project-card__badges > span, .project-card__badges > .project-card__sub, .project-info__badges > a) { padding-block: 2px 0; }
 
 /* Фокус рабочих компонентов без внешнего контура. Смена заливки/цвета и линия поля сохраняются. */
-body.projects-page :focus-visible { outline: none !important; }
+body.projects-page :focus-visible:not(.news-pagination a) { outline: none !important; }
+.news-pagination a:focus-visible { outline: 2px solid var(--brand-red); outline-offset: -2px; }
+.news-pagination a[aria-current="page"]:focus-visible { outline-color: var(--color-control-on-active); }
 
 /* Сквозные мобильные описания и ленты фотографий. Фильтры и подписи сохраняют свою ступень. */
 @media (max-width: 767px) {

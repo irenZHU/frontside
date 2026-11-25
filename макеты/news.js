@@ -54,7 +54,7 @@
     grid.innerHTML = selected.map(entry => {
       const poster = entry.imageFit === 'contain' || entry.url.includes('my-na-forume-light-industrial-7-0');
       const media = entry.image ? `<div class="news-card__photo${poster?' news-card__photo--poster':''}"><img src="${href(entry.image)}" alt="${copy(entry.imageAlt || '')}" style="object-position:${escape(entry.imagePosition || 'center')}" loading="lazy" decoding="async"></div>` : '';
-      return `<article class="news-card article-card"><a class="news-card__link" href="${href(entry.url)}"><div class="article-card__copy">${meta(entry)}<h2>${copy(entry.title)}</h2></div>${media}</a></article>`;
+      return `<article class="news-card article-card"><a class="news-card__link" href="${href(entry.detailPage || entry.url)}"><div class="article-card__copy">${meta(entry)}<h2>${copy(entry.title)}</h2></div>${media}</a></article>`;
     }).join('');
     count.textContent = filtered.length ? `${(state.page-1)*size+1}–${Math.min(state.page*size,filtered.length)} из ${filtered.length}` : 'Найдено: 0';
     empty.hidden = filtered.length > 0;
@@ -81,13 +81,15 @@
     loading.hidden = false; error.hidden = true;
     $('#news-archive').setAttribute('aria-busy','true');
     try {
-      const response = await fetch('news-data.json?v=20261124-2');
+      const response = await fetch('news-data.json?v=20261125-technobuild');
       if (!response.ok) throw new Error('News unavailable');
       const data = await response.json();
       if (!Array.isArray(data)) throw new Error('Invalid news data');
       const seen = new Set();
       entries = data.filter(entry => entry && entry.title && entry.url && isoDate(entry.date)).map(entry => ({...entry,date:isoDate(entry.date),eventDate:isoDate(entry.eventDate),eventEndDate:isoDate(entry.eventEndDate),category:categoryKey(entry.category)})).filter(entry => {
-        href(entry.url); if (entry.image) href(entry.image);
+        href(entry.url);
+        if (entry.detailPage) href(entry.detailPage);
+        if (entry.image) href(entry.image);
         if (seen.has(entry.url)) return false; seen.add(entry.url); return true;
       }).sort((a,b)=>b.date.localeCompare(a.date));
       if (!entries.length) throw new Error('No published news');
