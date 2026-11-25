@@ -344,7 +344,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     activeDropdown = null;
     button.setAttribute('aria-expanded', 'false');
     const item = button.closest('.header-nav-item');
-    item.querySelector('a[aria-expanded]')?.setAttribute('aria-expanded', 'false');
+    item.querySelector('a').setAttribute('aria-expanded', 'false');
     item.classList.remove('is-open');
     dropdown.hidden = true;
     if (restoreFocus) button.focus();
@@ -381,13 +381,10 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     const title = anchor.textContent.trim().replace(/\s+/g, ' ');
     if (!['Каталог', 'Услуги', 'Решения', 'О компании'].includes(title)) return;
     const group = groupsByTitle.get(title);
-    const catalogLink = title === 'Каталог';
     anchor.href = group.href;
-    if (!catalogLink) {
-      anchor.setAttribute('role', 'button');
-      anchor.setAttribute('aria-expanded', 'false');
-      anchor.setAttribute('aria-controls', dropdown.id);
-    }
+    anchor.setAttribute('role', 'button');
+    anchor.setAttribute('aria-expanded', 'false');
+    anchor.setAttribute('aria-controls', dropdown.id);
     const wrapper = document.createElement('div');
     wrapper.className = 'header-nav-item';
     anchor.before(wrapper);
@@ -410,25 +407,23 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
       dropdown.hidden = false;
       activeDropdown = button;
       button.setAttribute('aria-expanded', 'true');
-      if (!catalogLink) anchor.setAttribute('aria-expanded', 'true');
+      anchor.setAttribute('aria-expanded', 'true');
       wrapper.classList.add('is-open');
     };
     button.addEventListener('click', openDropdown);
-    if (!catalogLink) {
-      anchor.addEventListener('click', event => {
-        event.preventDefault();
-        openDropdown();
-      });
-      anchor.addEventListener('keydown', event => {
-        if (![' ', 'ArrowDown'].includes(event.key)) return;
-        event.preventDefault();
-        if (event.key === ' ') openDropdown();
-        else {
-          if (activeDropdown !== button) openDropdown();
-          dropdown.querySelector('a')?.focus();
-        }
-      });
-    }
+    anchor.addEventListener('click', event => {
+      event.preventDefault();
+      openDropdown();
+    });
+    anchor.addEventListener('keydown', event => {
+      if (![' ', 'ArrowDown'].includes(event.key)) return;
+      event.preventDefault();
+      if (event.key === ' ') openDropdown();
+      else {
+        if (activeDropdown !== button) openDropdown();
+        dropdown.querySelector('a')?.focus();
+      }
+    });
     button.addEventListener('keydown', event => {
       if (event.key !== 'ArrowDown') return;
       event.preventDefault();
