@@ -10,9 +10,20 @@
 .catalog-page .catalog-product-filter { position: sticky; top: var(--header-height); z-index: 20; margin-bottom: var(--space-8); padding: var(--space-24) 0; background: var(--brand-white); }
 .catalog-product-filter .product-chips { margin: 0; }
 .catalog-product-filter .product-chip { display: inline-flex; align-items: center; text-decoration: none; }
+@media (min-width: 1601px) {
+  .catalog-page .catalog-product-filter .product-chip { font-size: 16px; line-height: 24px; }
+}
 
 .catalog-section { padding: 0 0 var(--space-section); scroll-margin-top: calc(var(--header-height) + var(--space-24) + var(--space-64)); background: var(--brand-white); }
 .catalog-section__head { margin-bottom: 30px; }
+.catalog-section__title-link { display: inline-flex; align-items: center; gap: var(--space-12); max-width: 100%; color: var(--brand-black); text-decoration: none; }
+.catalog-section__title-link > span:first-child { min-width: 0; }
+.catalog-section__title-arrow { display: grid; place-items: center; flex: 0 0 var(--control-icon-button-size); width: var(--control-icon-button-size); height: var(--control-icon-button-size); background-image: linear-gradient(var(--color-action-primary), var(--color-action-primary)); background-repeat: no-repeat; background-position: 0 50%; background-size: 0 100%; transition: background-size .3s cubic-bezier(.2, .7, .2, 1), color .18s ease; }
+.catalog-section__title-link:is(:hover, :focus-visible) .catalog-section__title-arrow { background-size: 100% 100%; color: var(--brand-white); }
+@media (prefers-reduced-motion: reduce) {
+  .catalog-section__title-arrow { transition: none; }
+}
+.catalog-section__title-arrow svg { width: var(--control-icon-arrow-size); height: var(--control-icon-arrow-size); stroke: currentColor; stroke-width: 1.5; }
 .catalog-section h2 { max-width: none; margin: 0; color: var(--brand-black); font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: 500; letter-spacing: -.3px; text-transform: uppercase; }
 .catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 
@@ -43,10 +54,12 @@
 
 /* Все разделы каталога используют готовые карточки проектов с фото 16:9. */
 .catalog-grid .project-card { aspect-ratio: 16 / 9; }
+.catalog-grid .catalog-card__description { margin: var(--space-4) 0 0; color: var(--brand-muted); font: 500 18px/26px var(--font-text); }
+.catalog-index-page .catalog-grid .project-card__name:has(+ .catalog-card__description) { margin-bottom: 0; }
 .catalog-section__head p {
   max-width: 720px;
   margin: var(--space-16) 0 0;
   color: var(--brand-muted);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
+  font-size: 18px;
+  line-height: 26px;
 }

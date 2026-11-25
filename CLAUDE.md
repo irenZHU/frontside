@@ -3,7 +3,7 @@
 ## Границы текущего проекта
 
 - ARTVISION и все файлы `artvision*`, а также `v2.css` — отдельные концепты. Не включать их в сводки типографики, аудит рабочих страниц, UI-кит и общие правки текущего сайта. Не использовать их стили как источник для рабочих страниц и не изменять сами концепты.
-- Текущие рабочие страницы: `client-home.html`, `catalog.html`, `projects.html`, `category-production.html`, `category-commercial.html`, `category-sports.html`, `category-public.html`, `category-transport.html`, `category-logistics.html`, `category-engineering.html`, `subcategory-cold-storage.html`, `subcategory-industrial.html`, `subcategory-offices.html`, `subcategory-auto.html`, `subcategory-hypermarkets.html`, `subcategory-parking.html`, `subcategory-arenas.html`, `subcategory-shops.html`, `subcategory-malls.html`, `subcategory-stations.html`, `subcategory-airports.html`, `subcategory-sports-halls.html`, `subcategory-stadiums.html`, `subcategory-fok.html`, `subcategory-medical.html`, `project-total.html`, `solution-premium.html`, `solution-premium-solomon.html`.
+- Текущие рабочие страницы: `client-home.html`, `catalog.html`, `projects.html`, `category-production.html`, `category-commercial.html`, `category-sports.html`, `category-public.html`, `category-transport.html`, `category-logistics.html`, `category-engineering.html`, `subcategory-data-centers.html`, `subcategory-terminals.html`, `subcategory-distribution.html`, `subcategory-cold-storage.html`, `subcategory-light-industrial.html`, `subcategory-industrial.html`, `subcategory-offices.html`, `subcategory-auto.html`, `subcategory-hypermarkets.html`, `subcategory-parking.html`, `subcategory-arenas.html`, `subcategory-shops.html`, `subcategory-malls.html`, `subcategory-stations.html`, `subcategory-airports.html`, `subcategory-sports-halls.html`, `subcategory-stadiums.html`, `subcategory-fok.html`, `subcategory-warehouses.html`, `subcategory-technoparks.html`, `subcategory-expo.html`, `subcategory-energy.html`, `subcategory-administrative.html`, `subcategory-medical.html`, `project-total.html`, `solution-premium.html`, `solution-premium-solomon.html`.
 
 Статические макеты в `макеты/`, сервер `node сервер.mjs` → http://localhost:4740 (корень → концепт `artvision.html`).
 Публикация: ветка `main` → `gh-pages` (https://irenzhu.github.io/frontside/). Коммит и публикация — только по просьбе дизайнера.
@@ -38,6 +38,7 @@
 
 ## Хлебные крошки — сквозной компонент
 
+- От нижнего края строки хлебных крошек до верхнего края H1 использовать отступ как на странице «Проекты». Общий токен `--crumbs-gap` в `макеты/бренд.css` задаёт 64 px на десктопе и 48 px до 767 px включительно. Правило действует, когда крошки расположены над первым экраном, включая страницу «Статьи».
 - На мобильных экранах до 767 px эталон — страница «Проекты»: начало строки крошек на 16 px ниже нижней границы хедера, по левому краю контейнера (поле 16 px).
 - Сохранять это положение на всех рабочих страницах независимо от фона и структуры первого блока. Внутри фото обёртка компенсирует только высоту хедера; дополнительные 16 px к отступу самих крошек не прибавлять.
 - Использовать общий компонент `.breadcrumbs` и правило в `макеты/бренд.css`, не вводить отдельные отступы для страниц. Длинный путь сокращать многоточием в доступной ширине.
@@ -55,6 +56,8 @@
 - Правило одинаково для десктопа и мобильной версии. Блоки из одного или двух абзацев оставлять открытыми без кнопки.
 
 ## Мобильные слайдеры и описания
+
+- Широкий десктоп (от 1601 px, включая 1920): все описания рабочих страниц — **18/26 px**, текст табов — **16/24 px**. Использовать общее правило в `бренд.css`; заголовки, служебные метки, факты и кнопки сохраняют свои роли. Правило распространяется на SEO и вводный текст формы, включая модальное окно.
 
 - Фотографии в горизонтальных мобильных слайдерах — 16:9; зазор между кадрами 8 px, справа видны 16 px следующего кадра. Использовать этот же принцип для лент карточек; высоту текстовых карточек определяет содержимое. Полноэкранные фоновые фото и scroll-анимации колод сохраняют свою механику.
 - Описания, которые на мобильном были 14/20 px, — 15/20 px. Фильтры, кнопки, подписи и факты сохраняют свои ступени. Уже существующие описания 16/24 px и крупнее не уменьшать.

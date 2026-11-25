@@ -20,7 +20,7 @@
         <a href="catalog.html">Каталог</a><a href="solution-premium.html">Решения</a><a href="#services">Услуги</a><a class="is-active" href="projects.html">Проекты</a><a href="#documents">Документы</a>
       </nav>
       <nav class="nav nav--side" aria-label="Дополнительная навигация">
-        <a href="#about">О компании</a><a href="#news">Новости</a><a href="#contacts">Контакты</a>
+        <a href="#about">О компании</a><a href="news.html">Новости</a><a href="#contacts">Контакты</a>
       </nav>
       <a class="header__phone" href="tel:+74956428091">+7 (495) 642-80-91</a>
       <div class="header__actions">
@@ -262,7 +262,7 @@
         <a href="https://frontside.ru/catalog/">Каталог продукции</a><a href="https://frontside.ru/projects/">Проекты</a><a href="https://frontside.ru/services/">Услуги</a>
       </nav>
       <nav class="footer__nav" aria-label="О компании">
-        <a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
+        <a href="requisites.html">Реквизиты</a><a href="https://frontside.ru/work-us/">Вакансии</a><a href="https://frontside.ru/downloads/">Материалы для скачивания</a><a href="https://frontside.ru/contacts/">Контакты</a>
       </nav>
       <div class="footer__contacts">
         <span>Центральный офис</span><address>Москва, ул. Барклая, д. 6, стр. 5, БЦ «Барклай-Плаза»</address>
@@ -271,7 +271,7 @@
         <div class="footer__social"><a href="https://t.me/Frontside_original" aria-label="Telegram">TG</a><a href="https://rutube.ru/channel/39600399/" aria-label="Rutube">R</a><a href="https://vk.com/frontside" aria-label="ВКонтакте">VK</a><a class="footer__to-top" href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
       </div>
     </div>
-    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="https://frontside.ru/about/requisites/">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
+    <div class="container footer__bottom"><span>© 2001–2026 Frontside</span><a href="requisites.html">Реквизиты</a><a href="https://frontside.ru/privacy/">Политика конфиденциальности</a><a href="https://frontside.ru/cookie/">Об использовании Cookie</a><a href="#top" aria-label="Наверх"><svg class="fs-arrow fs-arrow--up" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg></a></div>
   </footer>
 
   <script src="idea-scroll.js?v=11061100"></script>
@@ -284,8 +284,8 @@
     const subDesc=document.querySelector("[data-sub-desc]"), subLink=document.querySelector("[data-sub-link]");
     const subPages={
       "Промышленные предприятия":"subcategory-industrial.html",
-      "Технопарки":"https://frontside.ru/projects/promyshlennye-obekty/tekhnoparki/",
-      "Light Industrial":"https://frontside.ru/projects/promyshlennye-obekty/light-industrial/"
+      "Технопарки":"subcategory-technoparks.html",
+      "Light Industrial":"subcategory-light-industrial.html"
     };
     const subDescriptions={
       "Промышленные предприятия":"На заводах и фабриках фасад закрывает протяженные стены цехов и отвечает за их тепловой контур. Эту задачу решает FRONTBASE, на ней выполнены завод «Либхер» в Дзержинске и завод «Italon» в Ступино. Остальные примеры, где решался фасад завода, собраны в подкатегории.",
@@ -294,8 +294,8 @@
     };
     const subDescriptionLinks={
       "Промышленные предприятия":{text:"фасад завода",href:"https://frontside.ru/projects/promyshlennye-obekty/promyshlennye-predpriyatiya/"},
-      "Технопарки":{text:"здание технопарка",href:"https://frontside.ru/projects/promyshlennye-obekty/tekhnoparki/"},
-      "Light Industrial":{text:"формат light industrial",href:"https://frontside.ru/projects/promyshlennye-obekty/light-industrial/"}
+      "Технопарки":{text:"здание технопарка",href:"subcategory-technoparks.html"},
+      "Light Industrial":{text:"формат light industrial",href:"subcategory-light-industrial.html"}
     };
     function setDirection(value){
       items.forEach(item=>item.hidden=value!=="all"&&item.dataset.sub!==value);
@@ -404,8 +404,8 @@
     // у остальных — к проектам раздела с фильтром подкатегории. Фото: TOTAL, «Технопарк Рябиновая», «Industrial HUB АйХаб»
     const subs=[
       {name:"Промышленные предприятия", page:"subcategory-industrial.html", image:"https://frontside.ru/upload/iblock/d9c/5945ku7plffivzh5t2flav8iv84u0s4g.webp"},
-      {name:"Технопарки", image:document.querySelector('[aria-label="Технопарк Рябиновая"]')?.style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,"")},
-      {name:"Light Industrial", image:"img/production/industrial-hub-aykhab.jpg"}
+      {name:"Технопарки", page:"subcategory-technoparks.html", image:document.querySelector('[aria-label="Технопарк Рябиновая"]')?.style.getPropertyValue("--image").replace(/^url\(["']?|["']?\)$/g,"")},
+      {name:"Light Industrial", image:"img/production/industrial-hub-aykhab.jpg", page:"subcategory-light-industrial.html"}
     ];
     subBars.innerHTML=subs.map((sub,i)=>`<button type="button" role="tab" aria-label="${sub.name}"><i></i></button>`).join("");
     const bars=[...subBars.children];

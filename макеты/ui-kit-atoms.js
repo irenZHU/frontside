@@ -31,7 +31,7 @@
       ['Телефон с маской', field('phone'), { target: 'input', value: '+7 (999) 123-45-67', labels: ['Пустое','Наведение','Фокус, заполнено'] }],
       ['Согласие с политикой', '.category-form .category-form__agree', { target: 'input', checked: true, labels: ['Не выбрано','Наведение','Выбрано'] }]
     ] },
-    'atoms-filters': { page: 'projects.html', live: true, rows: [
+    'atoms-filters': { page: 'projects.html', live: true, activate: '[data-product-filter="unique"]', rows: [
       ['Таб системы', '[data-product-filter="fronttop"]', { selected: true, labels: ['Обычное','Наведение','Активно'] }],
       ['Категория фильтра', '.filter-group', { target: 'summary', open: false, openOnFocus: true, labels: ['Закрыто','Наведение','Открыто'] }],
       ['Радиовыбор', '.filter-group label', { target: 'input', checked: true, labels: ['Не выбрано','Наведение','Выбрано'] }],
@@ -65,6 +65,9 @@
     ] },
     'atoms-premium-card': { page: 'solution-premium.html', rows: [
       ['Карточка премиального объекта', '.premium-object', { states: ['normal','hover'], labels: ['Обычное','Наведение'] }]
+    ] },
+    'atoms-news-card': { page: 'news.html', live: true, ready: '#news-archive[aria-busy="false"]', rows: [
+      ['Карточка новости', '.news-card:has(.news-status)', { states: ['normal','hover'], labels: ['Обычное','Наведение'], target: '.news-card__link' }]
     ] }
   };
   let sourceFrame;
@@ -79,14 +82,26 @@
       copy.onload = resolve; copy.onerror = reject; document.head.append(copy);
     })));
     if (config.live) {
-      // Выбранный фильтр создаёт рабочий скрипт страницы — разметка здесь не сочиняется.
+      // Берём элементы, которые создаёт скрипт рабочей страницы.
       sourceFrame = document.createElement('iframe');
       sourceFrame.width = '1440'; sourceFrame.height = '900'; sourceFrame.hidden = true;
       const loaded = new Promise((resolve, reject) => { sourceFrame.onload = resolve; sourceFrame.onerror = reject; });
       sourceFrame.src = config.page; document.body.append(sourceFrame); await loaded;
       source = sourceFrame.contentDocument;
-      source.querySelector('[data-product-filter="unique"]').click();
-      if (!source.querySelector('.selected-filter')) throw new Error('Live filter was not created');
+      if (config.activate) source.querySelector(config.activate).click();
+      if (config.ready && !source.querySelector(config.ready)) await new Promise((resolve, reject) => {
+        const observer = new MutationObserver(() => {
+          if (!source.querySelector(config.ready)) return;
+          clearTimeout(timeout);
+          observer.disconnect();
+          resolve();
+        });
+        const timeout = setTimeout(() => {
+          observer.disconnect();
+          reject(new Error('Source did not finish loading'));
+        }, 10000);
+        observer.observe(source.body, { subtree: true, attributes: true, attributeFilter: ['aria-busy'] });
+      });
     }
     document.body.className = source.body.className;
     // Раскладка витрины и только внешние контейнеры вынутого элемента.
@@ -109,6 +124,7 @@
       .nav[data-kit-parent] { display:flex!important; }
       [data-kit-placeholder] { display:none!important; }
       .kit-atoms[data-kind*="card"] [data-kit-context] { display:block!important; }
+      .kit-atoms[data-kind="atoms-news-card"] .kit-atom-cell { padding:16px; background:var(--color-surface-subtle); }
       .kit-atoms[data-kind="atoms-navigation"] .project-tabs__list[data-kit-component] { flex-wrap:wrap; }
       .kit-atoms[data-kind="atoms-icons"] { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
       .kit-atoms[data-kind="atoms-icons"] .kit-atom-row { display:block; margin-bottom:0; }
