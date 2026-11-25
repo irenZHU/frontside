@@ -1485,6 +1485,16 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 }
 
 /* Ноутбук: ширина групп учитывает кнопки раскрытия; без абсолютных координат. */
+@media (min-width: 1181px) and (max-width: 1399px) {
+  .projects-page .header .header__inner { display: flex; align-items: center; gap: var(--space-16); }
+  .projects-page .header .header__inner > :is(.logo, .nav, .header__actions) {
+    position: static;
+    flex: 0 0 auto;
+    margin: 0;
+  }
+  .projects-page .header .nav { align-items: center; gap: var(--space-12); }
+  .projects-page .header .header__actions { margin-left: auto; }
+}
 @media (min-width: 1400px) and (max-width: 1600px) {
   .header .header__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); }
   .header .header__inner > :is(.logo, .nav, .header__phone, .header__actions) {
@@ -1653,7 +1663,7 @@ body.projects-page :focus-visible { outline: none !important; }
     .project-info__lead, .project-tabs__panel p,
     .premium-req__note, .premium-grow p, .premium-process p,
     .catalog-section__head p, .catalog-card__description,
-    .news-intro p
+    .news-intro p, .article-card__summary
   ) { font-size: 18px; line-height: 26px; }
   body.projects-page main :is(.product-chip, [role="tab"], .project-tabs a) { font-size: 16px; line-height: 24px; }
   body.projects-page .form-modal .category-form__intro p { font-size: 18px; line-height: 26px; }
