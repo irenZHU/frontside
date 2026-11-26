@@ -131,7 +131,7 @@
 /* Услуги — плашки-ссылки: вместо «Подробнее» стрелка ↘ в правом нижнем углу, вся плашка кликабельна;
    при наведении плашка заливается фирменным красным снизу вверх (как кнопки-стрелки), текст и стрелка — белые */
 .premium-process__steps { margin: -40px; }   /* поля плашек уходят за контейнер: текст по краю контейнера, воздух блока прежний */
-.premium-process__steps li, .premium-process__steps li + li { padding: 40px 40px 40px; background: linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1); }
+.premium-process__steps li, .premium-process__steps li + li { padding: var(--space-40); background: linear-gradient(var(--brand-red), var(--brand-red)) no-repeat 50% 100% / 100% 0; transition: background-size .35s cubic-bezier(.2, .7, .2, 1); }
 .premium-process__steps p { margin-bottom: 40px; }
 .premium-process__link { position: absolute; right: 40px; bottom: 40px; display: grid; place-items: center; width: var(--control-icon-button-size); height: var(--control-icon-button-size); color: var(--title); }
 .premium-process__link::after { content: ""; position: absolute; inset: -2000px; }   /* ссылка на всю плашку (li обрезает) */
@@ -153,6 +153,4 @@
 .premium-process .premium-head { justify-content: flex-start; text-align: left; margin-bottom: var(--space-40); }
 @media (min-width: 768px) {
   .premium-process__steps { margin-top: 0; }
-  .premium-process__steps li,
-  .premium-process__steps li + li { padding-top: 0; }
 }

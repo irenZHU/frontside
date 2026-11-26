@@ -1,20 +1,19 @@
 // Развёрнутое бургер-меню — карта сайта клиента (frontside.ru): все разделы и подразделы.
 // Один файл на все страницы: разметка меню строится здесь, поэтому меню везде одинаковое.
 // Состав разделов и внешние ссылки сверены с меню frontside.ru; готовые макеты открываются локально.
-const CATALOG_URL = 'https://frontside.ru/catalog/';
+const CATALOG_URL = 'catalog.html';
+const CATALOG_IMAGE = 'img/premium/detail-blue.webp';
+const SOLUTIONS_URL = 'https://frontside.ru/solutions/';
+const SOLUTIONS_IMAGE = 'img/premium/chayka.webp';
 const SITE_MENU = [
   [
     {
       "title": "О компании",
       "href": "https://frontside.ru/about/",
+      "overviewPosition": "first-column",
       "groups": [
         {
-          "title": "Компания",
           "items": [
-            {
-              "t": "О компании",
-              "href": "https://frontside.ru/about/"
-            },
             {
               "t": "Производство",
               "href": "https://frontside.ru/about/production/"
@@ -60,16 +59,6 @@ const SITE_MENU = [
           ]
         }
       ]
-    },
-    {
-      "title": "Работа в компании",
-      "href": "https://frontside.ru/work-us/",
-      "items": [
-        {
-          "t": "Вакансии",
-          "href": "https://frontside.ru/work-us/"
-        }
-      ]
     }
   ],
   [
@@ -77,14 +66,12 @@ const SITE_MENU = [
       "title": "Каталог",
       "href": CATALOG_URL,
       "mobileLink": true,
+      "overviewPosition": "above-columns",
       "groups": [
         {
           "title": "Фасадные системы",
+          "href": `${CATALOG_URL}#fasadnye-sistemy`,
           "items": [
-            {
-              "t": "Все системы",
-              "href": `${CATALOG_URL}#fasadnye-sistemy`
-            },
             {
               "t": "FRONTTOP",
               "href": "https://frontside.ru/catalog/fronttop/"
@@ -102,18 +89,15 @@ const SITE_MENU = [
               "href": "https://frontside.ru/catalog/frontbase/"
             },
             {
-              "t": "UNIQUE BV",
+              "t": "Сравнить UNIQUE BV и FRONTBASE",
               "href": "https://frontside.ru/compare/"
             }
           ]
         },
         {
           "title": "Архитектурные возможности",
+          "href": `${CATALOG_URL}#architecture`,
           "items": [
-            {
-              "t": "Все возможности",
-              "href": "https://frontside.ru/architectural-solutions/"
-            },
             {
               "t": "UNIQUE 2.0",
               "href": "https://frontside.ru/catalog/unique-2-0/"
@@ -134,11 +118,8 @@ const SITE_MENU = [
         },
         {
           "title": "Декоративные элементы",
+          "href": `${CATALOG_URL}#elements`,
           "items": [
-            {
-              "t": "Все элементы",
-              "href": `${CATALOG_URL}#dekorativnye-elementy-sistem`
-            },
             {
               "t": "Угловые элементы",
               "href": "https://frontside.ru/catalog/uglovye-fasadnye-elementy/"
@@ -146,10 +127,6 @@ const SITE_MENU = [
             {
               "t": "Радиусные элементы",
               "href": "https://frontside.ru/catalog/radiusnye-fasadnye-elementy/"
-            },
-            {
-              "t": "Профили",
-              "href": `${CATALOG_URL}#dekorativnye-elementy-sistem`
             }
           ]
         }
@@ -159,15 +136,11 @@ const SITE_MENU = [
   [
     {
       "title": "Решения",
-      "href": "https://frontside.ru/solutions/",
+      "href": SOLUTIONS_URL,
+      "overviewPosition": "first-column",
       "groups": [
         {
-          "title": "Решения для фасадов",
           "items": [
-            {
-              "t": "Все решения",
-              "href": "https://frontside.ru/solutions/"
-            },
             {
               "t": "Фасады для объектов с особыми требованиями к архитектуре и эстетике",
               "href": "solution-premium.html"
@@ -180,6 +153,7 @@ const SITE_MENU = [
         },
         {
           "title": "Реализованные объекты",
+          "dropdownOnly": true,
           "items": [
             {
               "t": "Проекты",
@@ -193,6 +167,7 @@ const SITE_MENU = [
         },
         {
           "title": "Связанные разделы",
+          "dropdownOnly": true,
           "items": [
             {
               "t": "Каталог",
@@ -258,22 +233,12 @@ const SITE_MENU = [
     {
       "title": "Документы",
       "href": "https://frontside.ru/downloads/",
-      "items": [
-        {
-          "t": "Материалы для скачивания",
-          "href": "https://frontside.ru/downloads/"
-        }
-      ]
+      "mobileLink": true
     },
     {
       "title": "Контакты",
       "href": "https://frontside.ru/contacts/",
-      "items": [
-        {
-          "t": "Реквизиты",
-          "href": "requisites.html"
-        }
-      ]
+      "mobileLink": true
     }
   ]
 ];
@@ -287,13 +252,17 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
   if (!burger) return;
 
   const link = item => `<a class="site-menu__link" href="${item.href}"><span class="site-menu__link-label">${item.t}</span>${MENU_ARROW}</a>`;
-  const sub = group => `<div class="site-menu__sub"><p class="site-menu__subtitle">${group.title}</p>${group.items.map(link).join('')}</div>`;
+  const sub = group => {
+    const title = group.href ? `<a href="${group.href}">${group.title}</a>` : group.title;
+    const heading = title ? `<p class="site-menu__subtitle">${title}</p>` : '';
+    return `<div class="site-menu__sub">${heading}${group.items.map(link).join('')}</div>`;
+  };
   const section = group => `<section class="site-menu__group">
       <h2 class="site-menu__title">
         <a class="site-menu__title-link${group.mobileLink ? ' site-menu__direct-link' : ''}" href="${group.href}">${group.title}${group.mobileLink ? MENU_ARROW : ''}</a>
         ${group.mobileLink ? '' : `<button class="site-menu__toggle" type="button" aria-expanded="false">${group.title}<span aria-hidden="true"></span></button>`}
       </h2>
-      <div class="site-menu__content">${group.mobileLink ? '' : `<a class="site-menu__link site-menu__section-link" href="${group.href}"><span class="site-menu__link-label">Открыть раздел «${group.title}»</span>${MENU_ARROW}</a>`}${(group.groups || []).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
+      <div class="site-menu__content">${group.mobileLink ? '' : `<a class="site-menu__link site-menu__section-link" href="${group.href}"><span class="site-menu__link-label">Открыть раздел «${group.title}»</span>${MENU_ARROW}</a>`}${(group.groups || []).filter(subgroup => !subgroup.dropdownOnly).map(sub).join('')}${(group.items || []).map(link).join('')}</div>
     </section>`;
   const promo = (title, href, image) => `<a class="site-menu__promo-card" href="${href}" style="--menu-promo-image:url('${image}')"><span>${title}</span><span class="site-menu__promo-arrow">${MENU_PROMO_ARROW}</span></a>`;
   const contacts = `<section class="site-menu__contacts" aria-label="Контакты">
@@ -311,7 +280,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
   menu.setAttribute('aria-modal', 'true');
   menu.setAttribute('aria-label', 'Меню сайта');
   menu.innerHTML = `<div class="container site-menu__inner">
-      <div class="site-menu__grid">${MENU_COLUMNS.map(col => `<div class="site-menu__col">${col.map(section).join('')}</div>`).join('')}<aside class="site-menu__promo" aria-label="Быстрые переходы">${promo('Каталог', CATALOG_URL, 'img/premium/detail-blue.webp')}${promo('Решения', 'solution-premium.html', 'img/premium/chayka.webp')}${contacts}</aside></div>
+      <div class="site-menu__grid">${MENU_COLUMNS.map(col => `<div class="site-menu__col">${col.map(section).join('')}</div>`).join('')}<aside class="site-menu__promo" aria-label="Быстрые переходы">${promo('Каталог', CATALOG_URL, CATALOG_IMAGE)}${promo('Решения', SOLUTIONS_URL, SOLUTIONS_IMAGE)}${contacts}</aside></div>
     </div>`;
   document.body.append(menu);
 
@@ -354,7 +323,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     'Каталог': {
       title: 'Каталог продукции',
       description: 'Системы фасадов, технологии архитектурного оформления и декоративные детали.',
-      image: 'img/premium/detail-blue.webp'
+      image: CATALOG_IMAGE
     },
     'Услуги': {
       title: 'Полный цикл работ',
@@ -364,7 +333,7 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
     'Решения': {
       title: 'Решения для объектов',
       description: 'Подбираем фасад под архитектурную задачу, технологию строительства и условия использования.',
-      image: 'img/premium/chayka.webp'
+      image: SOLUTIONS_IMAGE
     },
     'О компании': {
       title: 'О компании Frontside',
@@ -402,7 +371,23 @@ const MENU_COLUMNS = [SITE_MENU[1], SITE_MENU[2], SITE_MENU[0], SITE_MENU[3]];
       closeDropdown();
       if (wasOpen) return;
       if (!menu.hidden) setOpen(false);
-      dropdown.innerHTML = `<div class="container header-dropdown__inner"><div class="header-dropdown__layout"><div class="header-dropdown__grid">${group.groups.map(sub).join('')}</div>${dropdownBanner(title, group.href)}</div></div>`;
+      const overviewInFirstColumn = group.overviewPosition === 'first-column';
+      const overview = group.overviewPosition === 'above-columns'
+        ? `<p class="site-menu__subtitle header-dropdown__overview"><a href="${group.href}">${title}</a></p>`
+        : '';
+      const groups = group.groups.map((subgroup, index) => {
+        if (overviewInFirstColumn && index === 0) {
+          return sub({ ...subgroup, title, href: group.href });
+        }
+        return sub(subgroup);
+      }).join('');
+      dropdown.innerHTML = `<div class="container header-dropdown__inner">
+        ${overview}
+        <div class="header-dropdown__layout">
+          <div class="header-dropdown__grid${overviewInFirstColumn ? ' header-dropdown__grid--section-headings' : ''}">${groups}</div>
+          ${dropdownBanner(title, group.href)}
+        </div>
+      </div>`;
       dropdown.setAttribute('aria-label', `Подразделы: ${title}`);
       dropdown.hidden = false;
       activeDropdown = button;

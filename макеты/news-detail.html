@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="projects.css">
   <link rel="stylesheet" href="category-production.css">
   <link rel="stylesheet" href="news.css?v=20261125-pagination">
-  <link rel="stylesheet" href="news-detail.css?v=20261125-width">
+  <link rel="stylesheet" href="news-detail.css?v=20261126-related">
+  <link rel="stylesheet" href="articles.css?v=20261126-related">
   <link rel="stylesheet" href="бренд.css?v=20261125-pagination">
 </head>
 <body class="projects-page news-page news-detail-page" id="top">
@@ -41,10 +42,9 @@
       <span aria-current="page">FRONTSIDE на&nbsp;форуме 100+ TechnoBuild</span>
     </nav>
     <div class="container news-detail-layout">
-      <a class="fs-link news-detail__back" href="news.html">
-        <svg class="fs-arrow fs-arrow--left" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M.4.5 19.1 18.3M2.9 19.2h16.85M18.9 4.3v9.4"/></svg>
-        <span>Все новости</span>
-      </a>
+      <div class="news-detail__back">
+        <a class="category-systems__more" href="news.html">Назад</a>
+      </div>
       <article class="news-detail" aria-labelledby="news-detail-title">
         <header class="news-intro">
           <h1 id="news-detail-title">FRONTSIDE представил UNIQUE&nbsp;2.0 и&nbsp;ARTVISION на&nbsp;форуме 100+&nbsp;TechnoBuild в&nbsp;Екатеринбурге</h1>
@@ -76,6 +76,43 @@
         </div>
       </article>
     </div>
+    <section class="news-related" id="related" aria-labelledby="related-title">
+      <div class="container news-archive">
+        <div class="news-archive__heading">
+          <h2 id="related-title">Другие новости</h2>
+          <a class="fs-link" href="news.html">Все новости</a>
+        </div>
+        <div class="news-grid">
+        <article class="news-card article-card">
+          <a class="news-card__link" href="https://frontside.ru/about/news/arkhitekturnye-fasady-dlya-sportivnykh-obektov/">
+            <div class="article-card__copy">
+              <time class="article-card__date" datetime="2026-09-17">17.09.2026</time>
+              <h3>Архитектурные фасады для спортивных объектов</h3>
+            </div>
+            <div class="news-card__photo"><img src="img/news/news-03.webp" alt="" loading="lazy" decoding="async"></div>
+          </a>
+        </article>
+        <article class="news-card article-card">
+          <a class="news-card__link" href="https://frontside.ru/about/news/novinka-2026--tekhnologiya-arkhitekturnogo-tisneniya-artvision/">
+            <div class="article-card__copy">
+              <time class="article-card__date" datetime="2026-02-05">05.02.2026</time>
+              <h3>НОВИНКА 2026! Технология архитектурного тиснения ARTVISION</h3>
+            </div>
+            <div class="news-card__photo"><img src="img/news/artvision.webp" alt="" loading="lazy" decoding="async"></div>
+          </a>
+        </article>
+        <article class="news-card article-card">
+          <a class="news-card__link" href="https://frontside.ru/about/news/estetika-funktsionalnosti--frontside-predstavlyaet-unique-2-0---fasadnuyu-sistemu-dlya-individualnykh/">
+            <div class="article-card__copy">
+              <time class="article-card__date" datetime="2025-08-01">01.08.2025</time>
+              <h3>Эстетика функциональности: FRONTSIDE представляет UNIQUE 2.0 – фасадную систему для индивидуальных архитектурных решений</h3>
+            </div>
+            <div class="news-card__photo"><img src="img/news/news-17.webp" alt="" loading="lazy" decoding="async"></div>
+          </a>
+        </article>
+        </div>
+      </div>
+    </section>
   </main>
 <footer class="footer">
     <div class="container footer__grid">

@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   tabs.forEach(tab => tab.addEventListener('click', () => setActive(tab)));
-  const current = tabs.find(tab => tab.getAttribute('href') === location.hash);
-  if (current) setActive(current);
+  const syncActive = () => setActive(tabs.find(tab => tab.getAttribute('href') === location.hash) ?? tabs[0]);
+  addEventListener('hashchange', syncActive);
+  syncActive();
 });

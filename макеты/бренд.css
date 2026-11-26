@@ -245,6 +245,10 @@ body :not(.project-card__badges > *):not(.selected-filter) { border-radius: 0 !i
 .projects-page :is(.solutions__head p, .category-intro__lead, .category-section__head p, .category-systems__lead, .idea__point p, .category-about p, .category-form__intro p, .project-info__lead, .project-tabs__panel p, .footer__contacts > a) { font-size: var(--fs-body); line-height: var(--lh-body); }
 /* Интерфейс */
 .projects-page :is(.footer__contacts address, .filter-group label, .section-label, .category-intro .section-label) { font-size: var(--fs-ui); line-height: var(--lh-ui); }
+.footer__contacts > a[href^="mailto:"] {
+  text-decoration: underline 1px var(--brand-red);
+  text-underline-offset: .16em;
+}
 /* Подписи */
 .projects-page :is(.solution-card small, .solution-card em, .category-form__agree span, .category-form__agree a) { font-size: var(--fs-caption); line-height: var(--lh-caption); }
 /* Бейджи и соцсети */
@@ -816,7 +820,17 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 .site-menu__toggle { display: none; }
 .site-menu__sub + .site-menu__sub { margin-top: 20px; }
 .site-menu__subtitle { margin: 0 0 10px; color: var(--brand-grey); font-size: var(--fs-ui); line-height: var(--lh-ui); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.site-menu__subtitle a { color: var(--color-text-primary); text-decoration: none; }
+.site-menu__subtitle a:is(:hover, :focus-visible) { color: var(--brand-red); }
 .site-menu__link { display: flex; align-items: center; gap: 10px; width: fit-content; padding: 4px 0; color: var(--title); font-size: var(--fs-ui); line-height: var(--lh-ui); text-decoration: none; transition: color .2s ease; }
+@media (min-width: 768px) {
+  .site-menu .site-menu__subtitle {
+    margin-bottom: var(--space-8);
+  }
+  .site-menu .site-menu__subtitle + .site-menu__link {
+    padding-block: 0 var(--space-4);
+  }
+}
 .site-menu__section-link { display: none; }
 .site-menu__link:hover, .site-menu__link:focus-visible { color: var(--brand-red); }
 .site-menu__link .fs-arrow { width: 13px; height: 13px; opacity: 0; translate: -4px 0; transition: opacity .2s ease, translate .2s ease; }
@@ -1458,12 +1472,18 @@ body.has-site-menu::before { content: ""; position: fixed; inset: var(--header-h
 }
 .header-dropdown[hidden] { display: none; }
 .header-dropdown__inner { padding-block: var(--space-32) var(--space-40); }
+.header-dropdown .header-dropdown__overview { margin-bottom: var(--space-24); }
+.site-menu__subtitle a:focus-visible {
+  outline: 1px solid var(--color-text-primary);
+  outline-offset: var(--space-4);
+}
 .header-dropdown__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-40); }
 .header-dropdown .site-menu__sub { margin: 0; }
 .header-dropdown .site-menu__subtitle { color: var(--brand-grey); }
+.header-dropdown .header-dropdown__grid--section-headings .site-menu__subtitle { color: var(--color-text-primary); }
 .header-dropdown .site-menu__link { min-height: 32px; width: 100%; padding-block: var(--space-4); }
 .header-dropdown .site-menu__link-label { flex: 1; }
-.header-dropdown .site-menu__link .fs-arrow { flex-shrink: 0; }
+.header-dropdown .site-menu__link .fs-arrow { display: none; }
 @media (min-width: 768px) and (max-width: 1600px) {
   .header .nav { gap: var(--space-16); }
   .header .nav--side { left: auto; right: 500px; }
@@ -1672,7 +1692,7 @@ body.projects-page :focus-visible:not(.news-pagination a) { outline: none !impor
     .project-info__lead, .project-tabs__panel p,
     .premium-req__note, .premium-grow p, .premium-process p,
     .catalog-section__head p, .catalog-card__description,
-    .news-intro p, .article-card__summary
+    .news-intro p
   ) { font-size: 18px; line-height: 26px; }
   body.projects-page main :is(.product-chip, [role="tab"], .project-tabs a) { font-size: 16px; line-height: 24px; }
   body.projects-page .form-modal .category-form__intro p { font-size: 18px; line-height: 26px; }

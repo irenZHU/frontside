@@ -1,0 +1,26 @@
+#registration-form {
+  scroll-margin-top: calc(var(--header-height) + var(--space-24));
+}
+
+#registration-form .category-form__field textarea {
+  display: block;
+  width: 100%;
+  padding: var(--space-12) 0;
+  border: 0;
+  border-bottom: 1px solid var(--brand-grey);
+  border-radius: 0;
+  background: transparent;
+  color: var(--title);
+  font: 500 var(--fs-body)/var(--lh-body) var(--font);
+  resize: vertical;
+}
+
+#registration-form .category-form__field textarea::placeholder { color: var(--muted); }
+#registration-form .category-form__field textarea:hover { border-bottom-color: var(--title); }
+#registration-form .category-form__field textarea:focus { border-bottom-color: var(--red); }
+#registration-form .category-form__field:has(textarea:not(:placeholder-shown)) > .visually-hidden {
+  opacity: 1;
+  transform: none;
+}
+
+.promotion-registration__status { margin: 0; }
